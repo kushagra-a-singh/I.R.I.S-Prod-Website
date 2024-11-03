@@ -1,0 +1,175 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.home {
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.backgroundVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.overlay {
+  position: relative;
+  z-index: 1;
+}
+
+.registration {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 60px 20px;
+  color: #fff;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.registrationTitle {
+  font-size: 3rem;
+  font-weight: bold;
+  font-family: 'Georgia', sans-serif;
+}
+
+.registrationDate {
+  font-size: 1.7rem;
+  font-weight: bold;
+  font-family: 'Georgia', sans-serif;
+}
+
+.registerBtn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 25px;
+  background-color: #ea3f80;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  text-decoration: none;
+}
+
+.registerBtn:hover {
+  background-color: #d6336c;
+  transform: scale(1.05);
+}
+
+.registrationPhoto {
+  max-width: 100%;
+  height: auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.hero {
+  background: linear-gradient(to right, rgba(23, 37, 90, 0.8), rgba(201, 64, 101, 0.8));
+  padding: 80px 20px; 
+  margin: 50px 0;
+  text-align: center;
+  color: #ffffff !important;
+  max-width: 100%;
+}
+
+.wordart {
+  font-family: 'Garamond', Serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.heroVideo {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.journey {
+  max-width: 100%;
+  padding: 80px 20px;
+  overflow-x: hidden;
+}
+
+.journeyTitle {
+  font-size: 2.5rem;
+  color: #f8f9fa;
+}
+
+.step {
+  background: rgba(23, 37, 90, 0.8);
+  color: #fff;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  padding: 20px;
+  text-align: center;
+}
+
+.step:hover {
+  transform: translateY(-10px);
+  background: #c94065;
+}
+
+.transparentBox {
+  background-color: rgba(255, 255, 255, 0.15); 
+  padding: 15px; 
+  border-radius: 8px; 
+  margin: 20px 0; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+}
+
+.downloadLink {
+  display: block; 
+  margin: 10px 0; 
+  color: #fff; 
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.downloadLink:hover {
+  color: #d6336c; 
+}
+
+@media only screen and (max-width: 768px) {
+  .hero h1 {
+    font-size: 3rem;
+  }
+
+  .hero h2 {
+    font-size: 1.5rem;
+  }
+
+  .registrationTitle {
+    font-size: 2rem;
+  }
+
+  .heroVideo {
+    max-width: 100%;
+  }
+  
+  .downloadLink {
+    display: block;
+  }
+
+  .registrationPhoto {
+    max-width: 80%; 
+  }
+}
+
+.bharatGoImage {
+  width: 160px; 
+  height: auto; 
+  margin-top: 10px; 
+}

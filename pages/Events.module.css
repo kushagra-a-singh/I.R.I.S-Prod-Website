@@ -1,0 +1,146 @@
+.events {
+  font-family: 'Roboto', sans-serif;
+  background: url('./event.jpg') no-repeat center center/cover;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-top: 6rem;
+}
+
+.events::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(23, 37, 90, 0.8), rgba(201, 64, 101, 0.8));
+  z-index: 1;
+}
+
+.mainContent {
+  position: relative;
+  z-index: 2;
+  padding: 2rem;
+  color: #000; 
+}
+
+.title {
+  color: #f8f2f2; 
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.text {
+  color: white;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 1.1rem;
+}
+
+.upcoming, .past, .podcastTitle {
+  color: #f1eded; 
+  margin-top: 2rem;
+  text-align: center; /* Center-align section titles */
+}
+
+.eventList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center content horizontally */
+  padding: 2rem;
+  z-index: 2;
+}
+
+.eventCard {
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 2rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  position: relative; /* Added for layering */
+}
+
+.eventCard img {
+  width: 100%;
+  height: auto; 
+  object-fit: cover;
+}
+
+.eventDetails {
+  padding: 1rem; /* Uniform padding for details */
+  color: #000; 
+}
+
+.eventDetails h2 {
+  margin: 0;
+}
+
+.description {
+  color: #333;
+  margin: 1rem 0; /* Added margin for spacing */
+}
+
+.date {
+  color: #555;
+  margin-bottom: 1rem; /* Added margin for spacing */
+}
+
+.highlightsList {
+  text-align: left; /* Align highlights to the left */
+  padding-left: 1rem; /* Added padding for highlights */
+  margin-bottom: 1rem; /* Spacing between highlights and conclusion */
+}
+
+.btn {
+  display: inline-block;
+  background-color: #007bff !important;
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  margin: 0.5rem 0; /* Adjusted margin for button */
+  transition: background-color 0.2s ease-in-out;
+}
+
+.btn:hover {
+  background-color: #0056b3 !important;
+  color: #f7f7f7 !important;
+}
+
+.conclusion {
+  color: #333;
+  padding: 1rem 2rem;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .eventList {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .eventCard {
+    max-width: 100%;
+  }
+
+  .eventCard img {
+    height: 180px; 
+  }
+}
+
+header {
+  z-index: 3;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 1rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+}

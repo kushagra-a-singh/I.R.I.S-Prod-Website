@@ -1,0 +1,82 @@
+.payment-success-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url('./event.jpg') no-repeat center center/cover;
+  position: relative;
+  overflow: hidden;
+  padding: 40px;
+}
+
+.payment-success-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(23, 37, 90, 0.85), rgba(201, 64, 101, 0.85)); 
+  z-index: 1;
+}
+
+.payment-success-content {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.95); 
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); 
+  padding: 50px;
+  max-width: 600px;
+  margin: 30px;
+  position: relative;
+  z-index: 2;
+}
+
+.success-icon {
+  width: 90px;
+  height: 90px;
+  margin-bottom: 30px;
+}
+
+.payment-success-content h1 {
+  color: #4caf50;
+  font-size: 2.5rem;
+  font-weight: 700; 
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.1); 
+}
+
+.payment-success-content p {
+  font-size: 1.125rem; 
+  margin-bottom: 25px;
+  line-height: 1.6; 
+  color: #444; 
+  letter-spacing: 0.5px;
+}
+
+strong {
+  color: #111; 
+}
+
+.home-button {
+  display: inline-block;
+  padding: 12px 24px; 
+  font-size: 1.1rem;
+  color: #ffffff;
+  background-color: #ea3f80;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.home-button:hover {
+  background-color: #d6336c;
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25); 
+}
+
+.payment-success-container {
+  padding-top: 100px; 
+}
+

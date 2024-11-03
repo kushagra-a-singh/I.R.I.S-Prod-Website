@@ -1,0 +1,231 @@
+.checkout-box select {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ea3f80;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.centered-header {
+  text-align: center;
+  margin: 1rem 0; 
+}
+
+.warning {
+  text-align: center;
+  color: red;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.checkout-box select:focus {
+  border-color: #d6336c;
+  outline: none;
+}
+
+.event2 {
+  font-family: 'Roboto', sans-serif;
+  background: url('./event.jpg') no-repeat center center/cover;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-top: 6rem;
+}
+
+.event2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(23, 37, 90, 0.8), rgba(201, 64, 101, 0.8)); 
+  z-index: 1;
+}
+
+.event2 > main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  padding-top: 120px;
+  padding-bottom: 80px;
+  width: 100%;
+}
+
+.event2 > main > img {
+  width: 100vw;
+  max-width: 100%;
+  height: 250px;
+  margin: 20px auto;
+  object-fit: cover;
+}
+.event-image {
+  max-width: 100%;
+  height: auto;
+  margin: 10px 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.event2 > main > h1 {
+  margin-bottom: 20px;
+  font-size: 3rem;
+  color: #fff;
+  text-align: center;
+}
+
+.event2 > main > p {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.checkout-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.checkout-box h2.title2 {
+  color: #fff;
+  margin-top: 20px;
+}
+
+.checkout-box form {
+  background-color: #ffffff;
+  padding: 2.5rem;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.checkout-box input[type="text"], 
+.checkout-box input[type="tel"], 
+.checkout-box input[type="email"] {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ea3f80;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.checkout-box button[type="submit"] {
+  background-color: #ea3f80;
+  color: #ffffff;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: block;
+  margin: 1.5rem auto 0;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.checkout-box button[type="submit"]:hover {
+  background-color: #d6336c;
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.error-text {
+  color: red;
+  font-size: 0.75rem;
+  margin-bottom: 5px;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1001;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-content {
+  background-color: #81e698 !important;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: #155724;
+  text-align: center;
+}
+
+.modal-content h2 {
+  margin-bottom: 1rem;
+}
+
+.modal-content p {
+  margin-bottom: 2rem;
+}
+
+.modal-content button {
+  background-color: #ea3f80;
+  color: #ffffff;
+  border: none;
+  padding: 1rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 1rem;
+}
+
+.modal-content button:hover {
+  background-color: #d6336c;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.transparentBox {
+  background-color: rgba(255, 255, 255, 0.15); 
+  padding: 10px; 
+  border-radius: 5px; 
+  margin: 10px 0; 
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2); 
+}
+
+.downloadLink {
+  display: block; 
+  margin: 10px 0;
+  text-align: center; 
+  color: #fff; 
+  text-decoration: underline;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.downloadLink:hover {
+  color: #062f49; 
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.upi-qr {
+  display: block;
+  max-width: 250px;
+  height: auto;
+  margin: 0 auto 10px; 
+}
+
+.upi-details {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}

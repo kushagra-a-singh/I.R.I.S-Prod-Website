@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link'; // Import Link from next/link
 import styles from './Events.module.css';
 
 function Events() {
@@ -8,7 +8,7 @@ function Events() {
       id: 2,
       title: "IRIS Innovation Hackathon 2024",
       description: "We hope you enjoyed the exhilarating event organized by the I.R.I.S. Club!",
-      image: "./sephackathon.jpg",
+      image: "/sephackathon.jpg", // Use absolute paths for Next.js
       date: "2024-09-28",
       highlights: [
         "The IRIS Innovation Hackathon gathered enthusiastic participants competing for exciting prizes, including ₹36,000 in BharatGo vouchers for the top three teams. The event offered valuable networking opportunities, allowing attendees to connect with industry leaders and fellow innovators. This collaborative environment fostered teamwork and creativity, leading to innovative solutions to real-world challenges."
@@ -19,18 +19,19 @@ function Events() {
       id: 1,
       title: "Innovation Hackathon",
       description: "The Inter-Campus Open Innovation Hackathon, organized by ASPIRE with Engineer's Cradle, I.R.I.S. and MIT-TBI, gathered Pune students. Teams of up to two registered online and competed at their colleges. The top three teams advanced to the finals at MIT-WPU, where they built prototypes, received mentorship, and pitched to experts. Exciting prizes included cash rewards and funding opportunities.",
-      image: "./past-innovation-hackathon.jpg",
+      image: "/past-innovation-hackathon.jpg", // Use absolute paths for Next.js
       date: "2024-02-15",
       time: "",
     }
   ];
+  
   pastEvents.sort((a, b) => new Date(b.date) - new Date(a.date));
 
   const podcast = {
     id: 1,
     title: "I.R.I.S. Podcast",
     description: "Our latest podcast episode",
-    image: "./podcast1.jpg",
+    image: "/podcast1.jpg", // Use absolute paths for Next.js
     date: "2024-03-14 || ",
     length: "Length: 21 mins 02 secs",
   };
@@ -75,7 +76,7 @@ function Events() {
                   </div>
                 )}
                 {event.conclusion && <p className={styles.conclusion}>{event.conclusion}</p>}
-                <Link to={`/events/${event.id}`} className={styles.btn}>
+                <Link href={`/events/${event.id}`} className={styles.btn}>
                   Click to know more
                 </Link>
               </div>
@@ -95,14 +96,14 @@ function Events() {
                 <span>{podcast.date}</span>
                 <span>{podcast.length}</span>
               </p>
-              <a
+              <Link
                 href="https://www.youtube.com/watch?v=sFbYHID_w2c"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.btn}
               >
                 Listen now
-              </a>
+              </Link>
             </div>
           </div>
         </section>

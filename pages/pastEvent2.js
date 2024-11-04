@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { supabase } from '../supabase';
 import './event2.css';
+import Link from 'next/link';
 
-import { useNavigate } from 'react-router-dom';
 const Event2 = () => {
   const [formData, setFormData] = useState({
     team_name: '',
@@ -29,8 +28,6 @@ const Event2 = () => {
   });
 
   const [errors, setErrors] = useState({});
-
-  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -59,14 +56,12 @@ const Event2 = () => {
       }
     });
 
-    // Validate PRN fields
     ['leader_prn', 'member2_prn', 'member3_prn', 'member4_prn'].forEach((key) => {
       if (!prnRegex.test(formData[key])) {
         newErrors[key] = 'Enter valid PRN';
       }
     });
 
-    // Validate phone numbers
     ['leader_phone', 'member2_phone', 'member3_phone', 'member4_phone'].forEach((key) => {
       if (!phoneRegex.test(formData[key])) {
         newErrors[key] = 'Enter valid 10 digits number';
@@ -76,7 +71,7 @@ const Event2 = () => {
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length > 0) {
-      const firstErrorField = document.querySelector(`input[name="${Object.keys(newErrors)[0]}"], select[name="${Object.keys(newErrors)[0]}"]`);
+      const firstErrorField = document.querySelector(`input[name="${Object.keys(newErrors)[0]}"]`);
       if (firstErrorField) {
         firstErrorField.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
@@ -91,7 +86,8 @@ const Event2 = () => {
       return;
     }
 
-    navigate('/checkoutPayment', { state: { formData } });
+    // Store form data in local storage
+    localStorage.setItem('formData', JSON.stringify(formData));
   };
 
   return (
@@ -103,20 +99,16 @@ const Event2 = () => {
           <img src="/sephackathon.jpg" alt="Event 2 Image" className="event-image" />
         </div>
         <div className="transparentBox">
-          <a
-            href="/IRIS Hackathon GUIDELINES for participants.pdf"
-            download="IRIS Hackathon GUIDELINES.pdf"
-            className="downloadLink me-2"
-          >
-            Innovation Hackathon GUIDELINES
-          </a>
-          <a
-            href="/IRIS-ppt-template-for-participants.pptx"
-            download="InnovationHackathon_PPT_Template.pptx"
-            className="downloadLink"
-          >
-            Innovation Hackathon PPT Template
-          </a>
+          <Link href="/IRIS Hackathon GUIDELINES for participants.pdf">
+            <a className="downloadLink me-2" download="IRIS Hackathon GUIDELINES.pdf">
+              Innovation Hackathon GUIDELINES
+            </a>
+          </Link>
+          <Link href="/IRIS-ppt-template-for-participants.pptx">
+            <a className="downloadLink" download="InnovationHackathon_PPT_Template.pptx">
+              Innovation Hackathon PPT Template
+            </a>
+          </Link>
         </div>
         <div className="checkout-box">
           <h2 className="title2">*Registration Fee: INR 250*</h2>
@@ -131,7 +123,7 @@ const Event2 = () => {
               onChange={handleChange}
               placeholder="Team Name"
             />
-
+            {/* Leader Section */}
             <h3 className="centered-header">Leader:</h3>
             {errors.leader_name && <div className="error-text">{errors.leader_name}</div>}
             <input
@@ -172,7 +164,8 @@ const Event2 = () => {
               onChange={handleChange}
               placeholder="Branch | Ex: SYCSE Core"
             />
-
+            {/* Members Section */}
+            {/* Repeat similar code blocks for Member 2, Member 3, and Member 4 */}
             <h3 className="centered-header">Member 2:</h3>
             {errors.member2_name && <div className="error-text">{errors.member2_name}</div>}
             <input
@@ -213,7 +206,7 @@ const Event2 = () => {
               onChange={handleChange}
               placeholder="Branch | Ex: SYCSE Core"
             />
-
+            {/* Repeat for Member 3 and Member 4 */}
             <h3 className="centered-header">Member 3:</h3>
             {errors.member3_name && <div className="error-text">{errors.member3_name}</div>}
             <input
@@ -294,9 +287,13 @@ const Event2 = () => {
               onChange={handleChange}
               placeholder="Branch | Ex: SYCSE Core"
             />
-
             <button type="submit" className="submit-btn">Save & Proceed to Checkout</button>
           </form>
+          <Link href="/checkoutPayment">
+            <a className="btn btn-primary" onClick={() => localStorage.setItem('formData', JSON.stringify(formData))}>
+              Proceed to Checkout
+            </a>
+          </Link>
         </div>
       </main>
     </div>

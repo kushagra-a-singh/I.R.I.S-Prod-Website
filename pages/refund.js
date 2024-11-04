@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link'; // Import Link from next/link
 import './refund.css';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -10,7 +10,7 @@ function Refund() {
       <main>
         <div className='refund-container'>
           <h1>Refund Policy</h1>
-          <h3> At I.R.I.S, we want to ensure that you are satisfied with our services. If you are not satisfied, we offer a refund policy.</h3>
+          <h3>At I.R.I.S, we want to ensure that you are satisfied with our services. If you are not satisfied, we offer a refund policy.</h3>
           
           <div className='cards-container'>
             <div className="policy-card">

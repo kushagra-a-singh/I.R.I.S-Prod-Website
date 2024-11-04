@@ -1,12 +1,12 @@
 import React from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useRouter } from 'next/router'; // Use useRouter for accessing query parameters
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import './PaymentSuccess.css';
 
 const PaymentSuccess = () => {
-    const [searchParams] = useSearchParams();
-    const reference = searchParams.get("reference");
+    const router = useRouter();
+    const { reference } = router.query; // Get reference from query parameters
 
     return (
         <div className="payment-success-container">

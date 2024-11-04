@@ -1,7 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { supabase } from '../supabase';
+import React, { useState, useRef } from 'react';
+import { supabase } from '../src/utils/supabase';
 import styles from './Contact.module.css';
-import backgroundVideo from './vid2.mp4';
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -13,9 +12,7 @@ function Contact() {
   });
   const [showNotification, setShowNotification] = useState(false);
   const formRef = useRef(null);
-
-  useEffect(() => {
-  }, []);
+  const backgroundVideo = '/bgVid.mp4';
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -65,12 +62,12 @@ function Contact() {
         </video>
       </div>
       <div className={styles.overlay}></div>
-      <main className={styles.content}>
-        <h1 className={styles.contactUsTitle}>Contact Us</h1>
+      <main className={styles.mainContent}>
+        <h1 className={styles.contactTitle}>Contact Us</h1>
         <p className={styles.titleDesc}>
           If you have a new and innovative scalable project, unique idea, or research you'd like to pursue, fill out the form below. We're here to help guide and support you!
         </p>
-        <form ref={formRef} onSubmit={handleSubmit}>
+        <form ref={formRef} onSubmit={handleSubmit} className={styles.contactForm}>
           <div className={styles.formGroup}>
             <label htmlFor="name">Name*</label>
             <input
@@ -139,7 +136,6 @@ function Contact() {
           </div>
         )}
       </main>
-
     </div>
   );
 }

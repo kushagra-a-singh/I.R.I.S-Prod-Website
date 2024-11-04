@@ -1,11 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link'; // Import from next/link
 import styles from './Home.module.css';
-import videoSource from './vid1.mp4';
-import backgroundVideo from './vid2.mp4';
+import videoSource from './roboVid.mp4';
 import smallPhoto from './sephackathon.jpg';
 
 function Home() {
+  const backgroundVideo = '/bgVid.mp4';
+
   return (
     <div className={styles.home}>
       <video className={styles.backgroundVideo} autoPlay muted loop>
@@ -16,6 +17,7 @@ function Home() {
       <div className={styles.overlay}>
         <main className="flex-grow-1">
           {/* Registration Section */}
+          {/* Uncomment this section if needed */}
           {/* <div className={`${styles.registration} d-flex align-items-center justify-content-center`}>
             <div className="container text-center">
               <div className="row align-items-center">
@@ -23,25 +25,25 @@ function Home() {
                 <div className="col-lg-6 text-center text-lg-start">
                   <h2 className={`${styles.registrationDate} display-4`}>September 27-28 2024</h2>
                   <div className={styles.transparentBox}>
-                    <a
+                    <Link
                       href="/IRIS Hackathon GUIDELINES for participants.pdf"
                       download="IRIS Hackathon GUIDELINES.pdf"
                       className={`${styles.downloadLink} me-2`}
                     >
                       Innovation Hackathon GUIDELINES
-                    </a>
-                    <a
+                    </Link>
+                    <Link
                       href="/IRIS-ppt-template-for-participants.pptx"
                       download="InnovationHackathon_PPT_Template.pptx"
                       className={styles.downloadLink}
                     >
                       Innovation Hackathon PPT Template
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 <div className="col-lg-6 text-center">
                   <img src={smallPhoto} alt="Join Now" className={styles.registrationPhoto} />
-                  <Link to="/events/2" className={styles.registerBtn}>
+                  <Link href="/events/2" className={styles.registerBtn}>
                     Click to Know More
                   </Link>
                   <div className={styles.imageWrapper}>
@@ -56,12 +58,12 @@ function Home() {
             </div>
           </div> */}
 
-          {/*Hero Section */}
-          <div className={`${styles.hero} text-white d-flex align-items-center`} style={{borderRadius: '10px'}}>
+          {/* Hero Section */}
+          <div className={`${styles.hero} text-white d-flex align-items-center`} style={{ borderRadius: '10px' }}>
             <div className="container">
               <div className="row align-items-center">
                 <div className="col-lg-6 text-center text-lg-start">
-                  <h1 className={`${styles.arial} display-3 fw-bold`} style={{letterSpacing: '0.1em'}}>I.R.I.S.</h1>
+                  <h1 className={`${styles.arial} display-3 fw-bold`} style={{ letterSpacing: '0.1em' }}>I.R.I.S.</h1>
                   <h2 className="lead">Innovation Research & Intelligence Support</h2>
                   <p className="mb-4">Empowering innovation and fostering technological advancements.</p>
                 </div>

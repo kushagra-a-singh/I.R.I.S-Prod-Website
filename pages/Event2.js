@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link'; // Import Link from next/link
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styles from './event1.module.css';
 
-const Event1 = () => {
+const Event2 = () => {
   return (
     <>
       <div className={styles.eventPage}>
@@ -83,7 +83,7 @@ const Event1 = () => {
             <section className={styles.eventRegistration}>
               <h3>Stay Connected 📩</h3>
               <p>If you're interested in participating in future events or have any questions, feel free to reach out to us!</p>
-              <Link to="/contact" className={styles.registerBtn}>
+              <Link href="/contact" className={styles.registerBtn}>
                 Contact Us
               </Link>
             </section>
@@ -94,4 +94,4 @@ const Event1 = () => {
   );
 };
 
-export default Event1;
+export default Event2;

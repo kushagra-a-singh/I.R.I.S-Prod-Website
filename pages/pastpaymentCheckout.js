@@ -1,14 +1,13 @@
 import React, { useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/router'; // Use useRouter for navigation
 import { supabase } from '../supabase';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import './paymentCheckout.css';
 
 const CheckoutPayment = () => {
-    const location = useLocation();
-    const navigate = useNavigate();
-    const { formData } = location.state || {};
+    const router = useRouter();
+    const { formData } = router.query; // Use router.query to access query params
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -35,7 +34,7 @@ const CheckoutPayment = () => {
 
         return new Promise((resolve, reject) => {
             const options = {
-                key: process.env.REACT_APP_RAZORPAY_API_KEY,
+                key: process.env.NEXT_PUBLIC_RAZORPAY_API_KEY, // Use NEXT_PUBLIC_ prefix for environment variables in Next.js
                 amount: parseInt(amount * 100), // Amount in paise
                 currency: "INR",
                 name: "I.R.I.S. MIT WPU",
@@ -59,7 +58,7 @@ const CheckoutPayment = () => {
                                 alert('Error inserting data');
                             } else {
                                 console.log('Registration successful:', data);
-                                navigate(`/PaymentSuccess?reference=${razorpay_payment_id}`);
+                                router.push(`/PaymentSuccess?reference=${razorpay_payment_id}`); // Use router.push for navigation
                             }
                         } catch (error) {
                             console.error('Error inserting data:', error);

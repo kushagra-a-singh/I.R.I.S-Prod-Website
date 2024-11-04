@@ -1,7 +1,7 @@
 /* Projects.module.css */
 .projects {
   font-family: 'Roboto', sans-serif;
-  background: url('./event.jpg') no-repeat center center/cover;
+  background: url('./bgevent.jpg') no-repeat center center/cover;
   position: relative;
   overflow: hidden;
   min-height: 100vh;

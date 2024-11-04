@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import Link from 'next/link'; // Import Link from next/link
 import './policy.css';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -52,13 +52,13 @@ function Policy() {
               <div className="policy-card">
                 <h2>Changes to This Policy</h2>
                 <p>We may update this policy from time to time. Any changes will be posted here.</p>
-                <p>For more information, contact us at: iris@mitwpu.edu.in</p>
+                <p>For more information, contact us at: <a href="mailto:iris@mitwpu.edu.in">iris@mitwpu.edu.in</a></p>
               </div>
             </div>
           </div>
         </div>
       </main>
-
+      <Footer /> {/* Ensure to include Footer if needed */}
     </div>
   );
 }

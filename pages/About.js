@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import styles from './About.module.css';
-import backgroundVideo from './vid2.mp4';
 
 function About() {
   useEffect(() => {
@@ -12,6 +11,8 @@ function About() {
       }
     }
   }, []);
+
+  const backgroundVideo = '/bgVid.mp4';
 
   return (
     <div className={styles.aboutUs}>
@@ -51,7 +52,7 @@ function About() {
             <p>To be the leading tech community that drives technological advancements and shapes the future of innovation.</p>
           </div>
           <div className="row">
-          <h2>Faculty Mentors</h2>
+            <h2>Faculty Mentors</h2>
             <div className="col-md-6">
               {/* Faculty Mentor 1 */}
               <div className={styles.mentor}>

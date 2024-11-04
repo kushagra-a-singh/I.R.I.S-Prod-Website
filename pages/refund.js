@@ -1,8 +1,6 @@
 import React from 'react';
-import Link from 'next/link'; // Import Link from next/link
+import Link from 'next/link';
 import './refund.css';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 
 function Refund() {
   return (

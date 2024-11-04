@@ -14,7 +14,8 @@ function Blog() {
       author: 'Technical Team',
       date: 'September 1, 2024',
       image: 'website.jpg',
-      content: 'The I.R.I.S. website aims to create a centralized portal for all activities and events. It includes features like event tracking, project updates, and member contributions.The I.R.I.S. website aims to create a centralized portal for all activities and events. It includes features like event tracking, project updates, and member contributions.The I.R.I.S. website aims to create a centralized portal for all activities and events. It includes features like event tracking, project updates, and member contributions.The I.R.I.S. website aims to create a centralized portal for all activities and events. It includes features like event tracking, project updates, and member contributions.The I.R.I.S. website aims to create a centralized portal for all activities and events. It includes features like event tracking, project updates, and member contributions.The I.R.I.S. website aims to create a centralized portal for all activities and events. It includes features like event tracking, project updates, and member contributions.The I.R.I.S. website aims to create a centralized portal for all activities and events. It includes features like event tracking, project updates, and member contributions.The I.R.I.S. website aims to create a centralized portal for all activities and events. It includes features like event tracking, project updates, and member contributions.The I.R.I.S. website aims to create a centralized portal for all activities and events. It includes features like event tracking, project updates, and member contributions.The I.R.I.S. website aims to create a centralized portal for all activities and events. It includes features like event tracking, project updates, and member contributions.The I.R.I.S. website aims to create a centralized portal for all activities and events. It includes features like event tracking, project updates, and member contributions.vThe I.R.I.S. website aims to create a centralized portal for all activities and events. It includes features like event tracking, project updates, and member contributions.vvThe I.R.I.S. website aims to create a centralized portal for all activities and events. It includes features like event tracking, project updates, and member contributions.',
+      content:
+        'The I.R.I.S. website aims to create a centralized portal for all activities and events. It includes features like event tracking, project updates, and member contributions.',
       additionalImages: ['website-feature1.jpg', 'website-feature2.jpg'],
     },
     {
@@ -25,7 +26,8 @@ function Blog() {
       author: 'Research Team',
       date: 'September 10, 2024',
       image: 'research.jpg',
-      content: 'This project focuses on the intersection of AI and robotics, exploring machine learning techniques for autonomous behavior.',
+      content:
+        'This project focuses on the intersection of AI and robotics, exploring machine learning techniques for autonomous behavior.',
     },
     {
       id: 3,
@@ -35,7 +37,8 @@ function Blog() {
       author: 'Mechanical Team',
       date: 'September 10, 2024',
       image: 'vehicle.jpg',
-      content: 'Our mechanical engineering team is actively building an automated vehicle, integrating sensors and AI for self-navigation.',
+      content:
+        'Our mechanical engineering team is actively building an automated vehicle, integrating sensors and AI for self-navigation.',
     },
   ];
 
@@ -55,7 +58,7 @@ function Blog() {
               <div className={styles.blogCard}>
                 <img
                   src={post.image}
-                  alt={post.title}
+                  alt={`${post.title} Thumbnail`}
                   className={styles.blogImage}
                 />
                 <div className={styles.blogContent}>
@@ -78,7 +81,7 @@ function Blog() {
 
         {selectedPost && (
           <Modal
-            isOpen={!!selectedPost}
+            isOpen={true}
             onRequestClose={closeModal}
             className={styles.modal}
             overlayClassName={styles.overlay}
@@ -99,7 +102,7 @@ function Blog() {
                 <img
                   key={index}
                   src={img}
-                  alt={`Additional ${index + 1}`}
+                  alt={`Feature ${index + 1} for ${selectedPost.title}`}
                   className={styles.modalImage}
                 />
               ))}

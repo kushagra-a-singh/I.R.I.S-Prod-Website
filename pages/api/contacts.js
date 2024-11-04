@@ -1,4 +1,4 @@
-import db from '../../utils/db'; // Your database connection file
+import db from '../../src/utils/db';
 import { corsMiddleware } from '../../lib/corsMiddleware';
 
 const handler = async (req, res) => {

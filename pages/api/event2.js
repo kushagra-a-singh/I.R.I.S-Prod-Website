@@ -1,5 +1,4 @@
-// pages/api/event2.js
-import db from './db';  // Import the database connection
+import db from '../../src/utils/db'; 
 import { corsMiddleware } from '../../lib/corsMiddleware';
 
 const handler = async (req, res) => {

@@ -1,4 +1,4 @@
-import { Carousel } from '../components/Carousel';
+import { Carousel } from '../src/components/Carousel';
 import './Gallery.scss';
 import galleryData from './galleryData.json';
 

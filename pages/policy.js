@@ -1,9 +1,6 @@
 import React from 'react';
 import Link from 'next/link'; // Import Link from next/link
 import './policy.css';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-
 function Policy() {
   return (
     <div className="policy"> 
@@ -58,7 +55,6 @@ function Policy() {
           </div>
         </div>
       </main>
-      <Footer /> {/* Ensure to include Footer if needed */}
     </div>
   );
 }

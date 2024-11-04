@@ -1,6 +1,6 @@
 // pages/api/paymentController.js
 import crypto from 'crypto';
-import supabase from './supabase.js';
+import supabase from '../../src/utils/supabase';
 import { instance } from './server.js';
 import { corsMiddleware } from '../../lib/corsMiddleware';
 

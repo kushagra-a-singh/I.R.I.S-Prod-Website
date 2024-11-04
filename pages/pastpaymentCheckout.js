@@ -1,13 +1,11 @@
 import React, { useEffect } from 'react';
-import { useRouter } from 'next/router'; // Use useRouter for navigation
-import { supabase } from '../supabase';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import './paymentCheckout.css';
+import { useRouter } from 'next/router'; 
+import { supabase } from '../src/utils/supabase';
+import './pastpaymentCheckout.css';
 
 const CheckoutPayment = () => {
     const router = useRouter();
-    const { formData } = router.query; // Use router.query to access query params
+    const { formData } = router.query;
 
     useEffect(() => {
         window.scrollTo(0, 0);

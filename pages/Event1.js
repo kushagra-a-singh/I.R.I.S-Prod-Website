@@ -1,5 +1,6 @@
 import React from 'react';
-import Link from 'next/link'; // Import Link from next/link
+import Link from 'next/link';
+import Image from 'next/image';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styles from './event1.module.css';
 
@@ -11,19 +12,21 @@ const Event1 = () => {
         <main className="container">
           <div className={styles.content}>
             <div className={styles.eventImageContainer}>
-              <img
+              <Image
                 src="/past-innovation-hackathon.jpg"
                 alt="Past Innovation Hackathon"
                 className={styles.eventImage}
+                width={800} // Adjust based on actual image dimensions
+                height={500} // Adjust based on actual image dimensions
               />
             </div>
             <h1 className={styles.title}>🚀 Inter-Campus Innovation Hackathon Recap 🚀</h1>
-            <h2 className={styles.subtitle}>Celebrating a Journey of Creativity & Impact!</h2>
+            <h2 className={styles.subtitle}>Celebrating a Journey of Creativity &amp; Impact!</h2>
 
             <div className={styles.eventDetails}>
               <p>Date: 16th February 2024</p>
               <p>Venue: MIT-WPU Campus</p>
-              <p>Host: MIT-TBI in collaboration with ASPIRE, Engineer's Cradle & I.R.I.S.</p>
+              <p>Host: MIT-TBI in collaboration with ASPIRE, Engineer&apos;s Cradle &amp; I.R.I.S.</p>
             </div>
 
             <section className={styles.eventIntro}>
@@ -41,7 +44,7 @@ const Event1 = () => {
               <h3>Event Highlights 🌟</h3>
               <ul>
                 <li>Teamwork in Action: Diverse teams showcased innovative ideas in Technology and Social Impact.</li>
-                <li>Mentorship & Guidance: Faculty mentors and industry experts provided invaluable support, helping teams refine their ideas into viable solutions.</li>
+                <li>Mentorship &amp; Guidance: Faculty mentors and industry experts provided invaluable support, helping teams refine their ideas into viable solutions.</li>
                 <li>Prototyping: Teams developed prototypes that hold the potential to shape the future!</li>
                 <li>Final Presentations: The event culminated with electrifying presentations to a panel of industry leaders, celebrating the best ideas through rigorous judging.</li>
               </ul>
@@ -51,16 +54,16 @@ const Event1 = () => {
             <section className={styles.eventRewards}>
               <h3>Recognizing Excellence... 💰</h3>
               <ul>
-                <li>🥇 1st Prize: ₹10,000 Cash + Mentorship & Support 🚀</li>
+                <li>🥇 1st Prize: ₹10,000 Cash + Mentorship &amp; Support 🚀</li>
                 <li>🥈 2nd Prize: ₹6,000 Cash + Continued Guidance 💼</li>
                 <li>🥉 3rd Prize: ₹4,000 Cash + Growth Opportunities 🌱</li>
               </ul>
-              <p>The top 10 teams not only received certificates but also ongoing technical and research support from Engineer's Cradle and opportunities for incubation at MIT-TBI. The potential for securing up to ₹10 Lakhs in funding for selected projects made the stakes even higher! 🤑💥</p>
+              <p>The top 10 teams not only received certificates but also ongoing technical and research support from Engineer&apos;s Cradle and opportunities for incubation at MIT-TBI. The potential for securing up to ₹10 Lakhs in funding for selected projects made the stakes even higher! 🤑💥</p>
               <div className={styles.sectionDivider}></div>
             </section>
 
             <section className={styles.eventRules}>
-              <h3>Rules & Regulations ⚖️</h3>
+              <h3>Rules &amp; Regulations ⚖️</h3>
               <ul>
                 <li>Who Could Join? Any student from a participating Pune campus, across all years and branches!</li>
                 <li>Team Size: 1-2 students from the same or different universities.</li>
@@ -84,9 +87,9 @@ const Event1 = () => {
 
             <section className={styles.eventRegistration}>
               <h3>Stay Connected 📩</h3>
-              <p>If you're interested in participating in future events or have any questions, feel free to reach out to us!</p>
-              <Link href="/contact" className={styles.registerBtn}>
-                Contact Us
+              <p>If you&apos;re interested in participating in future events or have any questions, feel free to reach out to us!</p>
+              <Link href="/contact">
+                <a className={styles.registerBtn}>Contact Us</a>
               </Link>
             </section>
           </div>

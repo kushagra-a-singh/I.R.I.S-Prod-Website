@@ -11,6 +11,7 @@ function Contact() {
     message: '',
   });
   const [showNotification, setShowNotification] = useState(false);
+  const [loading, setLoading] = useState(false);
   const formRef = useRef(null);
   const backgroundVideo = '/bgVid.mp4';
 
@@ -20,6 +21,7 @@ function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const formDataWithTimestamp = {
         ...formData,
@@ -43,9 +45,12 @@ function Contact() {
           subject: '',
           message: '',
         });
+        setTimeout(() => setShowNotification(false), 3000); // Auto-hide notification after 3 seconds
       }
     } catch (error) {
       console.error('Error submitting form:', error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -65,7 +70,7 @@ function Contact() {
       <main className={styles.mainContent}>
         <h1 className={styles.contactTitle}>Contact Us</h1>
         <p className={styles.titleDesc}>
-          If you have a new and innovative scalable project, unique idea, or research you'd like to pursue, fill out the form below. We're here to help guide and support you!
+          If you have a new and innovative scalable project, unique idea, or research you&apos;d like to pursue, fill out the form below. We&apos;re here to help guide and support you!
         </p>
         <form ref={formRef} onSubmit={handleSubmit} className={styles.contactForm}>
           <div className={styles.formGroup}>
@@ -77,6 +82,7 @@ function Contact() {
               value={formData.name}
               onChange={handleChange}
               required
+              aria-label="Enter your name"
             />
           </div>
           <div className={styles.formGroup}>
@@ -88,6 +94,7 @@ function Contact() {
               value={formData.email}
               onChange={handleChange}
               required
+              aria-label="Enter your email"
             />
           </div>
           <div className={styles.formGroup}>
@@ -99,6 +106,7 @@ function Contact() {
               value={formData.phone}
               onChange={handleChange}
               required
+              aria-label="Enter your phone number"
             />
           </div>
           <div className={styles.formGroup}>
@@ -110,6 +118,7 @@ function Contact() {
               value={formData.subject}
               onChange={handleChange}
               required
+              aria-label="Enter subject"
             />
           </div>
           <div className={styles.formGroup}>
@@ -120,10 +129,13 @@ function Contact() {
               value={formData.message}
               onChange={handleChange}
               required
+              aria-label="Enter your message"
             />
           </div>
           <div className={styles.formGroup}>
-            <button type="submit">Send Message</button>
+            <button type="submit" disabled={loading}>
+              {loading ? 'Sending...' : 'Send Message'}
+            </button>
           </div>
         </form>
         {showNotification && (

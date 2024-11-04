@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
-import Link from 'next/link'; // Import Link from next/link
+import Link from 'next/link';
 import styles from './Projects.module.css'; 
-import Header from '../components/Header';
 
 function Projects() {
   const ongoingTechnicalProjects = [

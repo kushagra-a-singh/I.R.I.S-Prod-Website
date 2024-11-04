@@ -43,13 +43,13 @@
 .upcoming, .past, .podcastTitle {
   color: #f1eded; 
   margin-top: 2rem;
-  text-align: center; /* Center-align section titles */
+  text-align: center; 
 }
 
 .eventList {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* Center content horizontally */
+  justify-content: center; 
   padding: 2rem;
   z-index: 2;
 }
@@ -63,7 +63,7 @@
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
-  position: relative; /* Added for layering */
+  position: relative; 
 }
 
 .eventCard img {
@@ -73,7 +73,7 @@
 }
 
 .eventDetails {
-  padding: 1rem; /* Uniform padding for details */
+  padding: 1rem; 
   color: #000; 
 }
 
@@ -83,18 +83,18 @@
 
 .description {
   color: #333;
-  margin: 1rem 0; /* Added margin for spacing */
+  margin: 1rem 0; 
 }
 
 .date {
   color: #555;
-  margin-bottom: 1rem; /* Added margin for spacing */
+  margin-bottom: 1rem; 
 }
 
 .highlightsList {
-  text-align: left; /* Align highlights to the left */
-  padding-left: 1rem; /* Added padding for highlights */
-  margin-bottom: 1rem; /* Spacing between highlights and conclusion */
+  text-align: left; 
+  padding-left: 1rem; 
+  margin-bottom: 1rem; 
 }
 
 .btn {
@@ -104,7 +104,7 @@
   text-decoration: none;
   padding: 0.5rem 1rem;
   border-radius: 4px;
-  margin: 0.5rem 0; /* Adjusted margin for button */
+  margin: 0.5rem 0; 
   transition: background-color 0.2s ease-in-out;
 }
 
@@ -135,7 +135,7 @@
   }
 }
 
-header {
+.header {
   z-index: 3;
   background-color: rgba(0, 0, 0, 0.8);
   padding: 1rem;

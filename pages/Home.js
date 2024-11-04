@@ -1,11 +1,9 @@
 import React from 'react';
-import Link from 'next/link'; // Import from next/link
+import Link from 'next/link';
 import styles from './Home.module.css';
-import videoSource from './roboVid.mp4';
-import smallPhoto from './sephackathon.jpg';
 
 function Home() {
-  const backgroundVideo = '/bgVid.mp4';
+  const backgroundVideo = '/bgVid.mp4'; // Background video in public folder
 
   return (
     <div className={styles.home}>
@@ -42,7 +40,7 @@ function Home() {
                   </div>
                 </div>
                 <div className="col-lg-6 text-center">
-                  <img src={smallPhoto} alt="Join Now" className={styles.registrationPhoto} />
+                  <img src="/sephackathon.jpg" alt="Join Now" className={styles.registrationPhoto} />
                   <Link href="/events/2" className={styles.registerBtn}>
                     Click to Know More
                   </Link>
@@ -69,7 +67,7 @@ function Home() {
                 </div>
                 <div className="col-lg-6 text-center">
                   <video className={styles.heroVideo} autoPlay loop muted>
-                    <source src={videoSource} type="video/mp4" />
+                    <source src="/roboVid.mp4" type="video/mp4" /> {/* Change path */}
                     Your browser does not support the video tag.
                   </video>
                 </div>

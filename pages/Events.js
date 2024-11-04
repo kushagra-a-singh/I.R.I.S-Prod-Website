@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import Link from 'next/link'; // Import Link from next/link
+import Link from 'next/link'; 
 import styles from './Events.module.css';
 
 function Events() {
@@ -8,7 +8,7 @@ function Events() {
       id: 2,
       title: "IRIS Innovation Hackathon 2024",
       description: "We hope you enjoyed the exhilarating event organized by the I.R.I.S. Club!",
-      image: "/sephackathon.jpg", // Use absolute paths for Next.js
+      image: "/sephackathon.jpg", 
       date: "2024-09-28",
       highlights: [
         "The IRIS Innovation Hackathon gathered enthusiastic participants competing for exciting prizes, including ₹36,000 in BharatGo vouchers for the top three teams. The event offered valuable networking opportunities, allowing attendees to connect with industry leaders and fellow innovators. This collaborative environment fostered teamwork and creativity, leading to innovative solutions to real-world challenges."
@@ -31,7 +31,7 @@ function Events() {
     id: 1,
     title: "I.R.I.S. Podcast",
     description: "Our latest podcast episode",
-    image: "/podcast1.jpg", // Use absolute paths for Next.js
+    image: "/podcast1.jpg", 
     date: "2024-03-14 || ",
     length: "Length: 21 mins 02 secs",
   };

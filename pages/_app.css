@@ -4,6 +4,21 @@
   background: transparent;
 }
 
+header {
+  z-index: 3;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 1rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
 
 .App-logo {
   height: 40vmin;

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
-import { useRouter } from 'next/router'; 
-import { supabase } from '../src/utils/supabase';
+import { useRouter } from 'next/router';
+import supabase from '../src/utils/supabase';
+import Image from 'next/image'; 
 import './pastpaymentCheckout.css';
 
 const CheckoutPayment = () => {
@@ -22,7 +23,7 @@ const CheckoutPayment = () => {
     };
 
     const handlePayment = async () => {
-        let amount = 250; // Amount in INR
+        let amount = 250;
         const res = await loadScript("https://checkout.razorpay.com/v1/checkout.js");
 
         if (!res) {
@@ -32,8 +33,8 @@ const CheckoutPayment = () => {
 
         return new Promise((resolve, reject) => {
             const options = {
-                key: process.env.NEXT_PUBLIC_RAZORPAY_API_KEY, // Use NEXT_PUBLIC_ prefix for environment variables in Next.js
-                amount: parseInt(amount * 100), // Amount in paise
+                key: process.env.NEXT_PUBLIC_RAZORPAY_API_KEY,
+                amount: parseInt(amount * 100),
                 currency: "INR",
                 name: "I.R.I.S. MIT WPU",
                 description: "Hackathon Registration Fee",
@@ -56,7 +57,7 @@ const CheckoutPayment = () => {
                                 alert('Error inserting data');
                             } else {
                                 console.log('Registration successful:', data);
-                                router.push(`/PaymentSuccess?reference=${razorpay_payment_id}`); // Use router.push for navigation
+                                router.push(`/PaymentSuccess?reference=${razorpay_payment_id}`); 
                             }
                         } catch (error) {
                             console.error('Error inserting data:', error);
@@ -103,7 +104,12 @@ const CheckoutPayment = () => {
                     Pay Now
                 </button>
                 <div className="rpImage">
-                    <img src="/rp.png" alt="Razorpay" />
+                    <Image 
+                        src="/rp.png" 
+                        alt="Razorpay" 
+                        width={200} 
+                        height={50} 
+                    />
                 </div>
                 <p className="terms-conditions">*Terms & Conditions apply*</p>
             </div>

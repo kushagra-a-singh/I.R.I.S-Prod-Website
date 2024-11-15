@@ -16,8 +16,8 @@ const Event1 = () => {
                 src="/past-innovation-hackathon.jpg"
                 alt="Past Innovation Hackathon"
                 className={styles.eventImage}
-                width={800} // Adjust based on actual image dimensions
-                height={500} // Adjust based on actual image dimensions
+                width={800} 
+                height={500} 
               />
             </div>
             <h1 className={styles.title}>🚀 Inter-Campus Innovation Hackathon Recap 🚀</h1>
@@ -88,8 +88,8 @@ const Event1 = () => {
             <section className={styles.eventRegistration}>
               <h3>Stay Connected 📩</h3>
               <p>If you&apos;re interested in participating in future events or have any questions, feel free to reach out to us!</p>
-              <Link href="/contact">
-                <a className={styles.registerBtn}>Contact Us</a>
+              <Link href="/contact" className={styles.registerBtn}>
+              Contact Us
               </Link>
             </section>
           </div>

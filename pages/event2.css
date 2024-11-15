@@ -5,7 +5,7 @@ body {
 }
 
 .eventPage {
-  background: url('./bgevent.jpg') no-repeat center center/cover;
+  background: url('/public/bgevent.jpg') no-repeat center center/cover;
   position: relative;
   overflow: hidden;
   min-height: 100vh;

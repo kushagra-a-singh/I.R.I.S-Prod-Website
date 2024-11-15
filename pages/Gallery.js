@@ -2,7 +2,7 @@ import { Carousel } from '../src/components/Carousel';
 import './Gallery.scss';
 import galleryData from './galleryData.json';
 
-export const Gallery = () => {
+const Gallery = () => {
     return (
         <div className="gallery-container">
             <div className="gallery-heading-container">
@@ -31,3 +31,5 @@ export const Gallery = () => {
         </div>
     );
 };
+
+export default Gallery; 

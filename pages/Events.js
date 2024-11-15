@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import Link from 'next/link'; 
+import Image from 'next/image'; 
 import styles from './Events.module.css';
 
 function Events() {
@@ -18,8 +19,8 @@ function Events() {
     {
       id: 1,
       title: "Innovation Hackathon",
-      description: "The Inter-Campus Open Innovation Hackathon, organized by ASPIRE with Engineer's Cradle, I.R.I.S. and MIT-TBI, gathered Pune students. Teams of up to two registered online and competed at their colleges. The top three teams advanced to the finals at MIT-WPU, where they built prototypes, received mentorship, and pitched to experts. Exciting prizes included cash rewards and funding opportunities.",
-      image: "/past-innovation-hackathon.jpg", // Use absolute paths for Next.js
+      description: "The Inter-Campus Open Innovation Hackathon, organized by ASPIRE with Engineer's Cradle, I.R.I.S. and MIT-TBI, gathered Pune students.",
+      image: "/past-innovation-hackathon.jpg",
       date: "2024-02-15",
       time: "",
     }
@@ -63,7 +64,12 @@ function Events() {
           <div className={styles.eventList}>
             {pastEvents.map(event => (
               <div key={event.id} className={styles.eventCard}>
-                <img src={event.image} alt={event.title} />
+                <Image
+                  src={event.image}
+                  alt={event.title}
+                  width={300} 
+                  height={200} 
+                />
                 <h2>{event.title}</h2>
                 <p>Held on: {new Date(event.date).toLocaleDateString()}</p>
                 <p>{event.description}</p>
@@ -89,7 +95,12 @@ function Events() {
           <h2 className={styles.podcastTitle}>Podcasts</h2>
           <div className={styles.eventList}>
             <div key={podcast.id} className={styles.eventCard}>
-              <img src={podcast.image} alt={podcast.title} />
+              <Image
+                src={podcast.image}
+                alt={podcast.title}
+                width={300} 
+                height={200} 
+              />
               <h2>{podcast.title}</h2>
               <p>{podcast.description}</p>
               <p>

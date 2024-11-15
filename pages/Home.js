@@ -3,7 +3,7 @@ import Link from 'next/link';
 import styles from './Home.module.css';
 
 function Home() {
-  const backgroundVideo = '/bgVid.mp4'; // Background video in public folder
+  const backgroundVideo = '/bgVid.mp4';
 
   return (
     <div className={styles.home}>
@@ -67,7 +67,7 @@ function Home() {
                 </div>
                 <div className="col-lg-6 text-center">
                   <video className={styles.heroVideo} autoPlay loop muted>
-                    <source src="/roboVid.mp4" type="video/mp4" /> {/* Change path */}
+                    <source src="/roboVid.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
                 </div>

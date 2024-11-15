@@ -87,7 +87,6 @@ const Event2 = () => {
       return;
     }
 
-    // Store form data in local storage
     localStorage.setItem('formData', JSON.stringify(formData));
   };
 
@@ -101,20 +100,16 @@ const Event2 = () => {
             src="/sephackathon.jpg"
             alt="Event 2 Image"
             className="event-image"
-            width={500} // specify width
-            height={300} // specify height
+            width={500}
+            height={300} 
           />
         </div>
         <div className="transparentBox">
-          <Link href="/IRIS Hackathon GUIDELINES for participants.pdf">
-            <a className="downloadLink me-2" download="IRIS Hackathon GUIDELINES.pdf">
-              Innovation Hackathon GUIDELINES
-            </a>
+          <Link href="/IRIS Hackathon GUIDELINES for participants.pdf" download="IRIS Hackathon GUIDELINES.pdf">
+            Innovation Hackathon GUIDELINES
           </Link>
-          <Link href="/IRIS-ppt-template-for-participants.pptx">
-            <a className="downloadLink" download="InnovationHackathon_PPT_Template.pptx">
-              Innovation Hackathon PPT Template
-            </a>
+          <Link href="/IRIS-ppt-template-for-participants.pptx" download="InnovationHackathon_PPT_Template.pptx">
+            Innovation Hackathon PPT Template
           </Link>
         </div>
         <div className="checkout-box">
@@ -172,10 +167,8 @@ const Event2 = () => {
             />
             <button type="submit" className="submit-btn">Save & Proceed to Checkout</button>
           </form>
-          <Link href="/checkoutPayment">
-            <a className="btn btn-primary" onClick={() => localStorage.setItem('formData', JSON.stringify(formData))}>
-              Proceed to Checkout
-            </a>
+          <Link href="/checkoutPayment" className="btn btn-primary" onClick={() => localStorage.setItem('formData', JSON.stringify(formData))}>
+            Proceed to Checkout
           </Link>
         </div>
       </main>

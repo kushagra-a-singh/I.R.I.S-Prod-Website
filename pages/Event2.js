@@ -16,8 +16,8 @@ const Event2 = () => {
                 src="/sephackathon.jpg"
                 alt="IRIS Innovation Hackathon 2024"
                 className={styles.eventImage}
-                width={800} // Adjust to actual dimensions of the image
-                height={500} // Adjust to actual dimensions of the image
+                width={800}
+                height={500} 
               />
             </div>
             <h1 className={styles.title}>🚀 IRIS Innovation Hackathon Recap 🚀</h1>
@@ -86,8 +86,8 @@ const Event2 = () => {
             <section className={styles.eventRegistration}>
               <h3>Stay Connected 📩</h3>
               <p>If you&apos;re interested in participating in future events or have any questions, feel free to reach out to us!</p>
-              <Link href="/contact">
-                <a className={styles.registerBtn}>Contact Us</a>
+              <Link href="/contact" className={styles.registerBtn}>
+              Contact Us
               </Link>
             </section>
           </div>

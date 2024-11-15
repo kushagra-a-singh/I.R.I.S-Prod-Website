@@ -17,8 +17,8 @@ const PaymentSuccess = () => {
                 <p>Your payment ID is: <strong>{reference}</strong></p>
                 <p>*PLEASE NOTE YOUR PAYMENT ID FOR FUTURE REFERENCE*</p>
                 <p>Leader will receive an email shortly.</p>
-                <Link href="/">
-                    <a className="home-button">Return to Home</a>
+                <Link href="/" className="home-button">
+                Return to Home
                 </Link>
             </div>
         </div>

@@ -1,10 +1,23 @@
-// src/components/Header.js
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link'; 
-import styles from './Header.module.css'; // Import the CSS module
+import { useRouter } from 'next/router'; 
+import Image from 'next/image';
+import styles from './Header.module.css'; 
 
 function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const router = useRouter();
+
+  useEffect(() => {
+    const handleRouteChange = () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+    router.events.on('routeChangeComplete', handleRouteChange);
+
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, [router.events]); 
 
   const topscrollFunction = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -36,7 +49,13 @@ function Header() {
       <nav className={`navbar navbar-expand-lg navbar-dark ${scrolled ? styles.navbarDarkScrolled : ''}`}>
         <div className="container">
           <Link href="/" className="navbar-brand">
-            <img src="/logo.png" alt="Logo" className="logo-img" />
+            <Image 
+              src="/logo.png" 
+              alt="Logo" 
+              className="logo-img" 
+              width={150}  
+              height={50} 
+            />
           </Link>
           <button
             className="navbar-toggler"
@@ -54,33 +73,33 @@ function Header() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link href="/" onClick={handleNavLinkClick}>
-                  <span className="nav-link">Home</span>
+                <Link href="/" className="nav-link" onClick={handleNavLinkClick}>
+                  Home
                 </Link>
               </li>
               <li className="nav-item">
-                <Link href="/events" onClick={handleNavLinkClick}>
-                  <span className="nav-link">Events</span>
+                <Link href="/events" className="nav-link" onClick={handleNavLinkClick}>
+                  Events
                 </Link>
               </li>
               <li className="nav-item">
-                <Link href="/about" onClick={handleNavLinkClick}>
-                  <span className="nav-link">About Us</span>
+                <Link href="/about" className="nav-link" onClick={handleNavLinkClick}>
+                  About Us
                 </Link>
               </li>
               <li className="nav-item">
-                <Link href="/gallery" onClick={handleNavLinkClick}>
-                  <span className="nav-link">Club Gallery</span>
+                <Link href="/gallery" className="nav-link" onClick={handleNavLinkClick}>
+                  Club Gallery
                 </Link>
               </li>
               <li className="nav-item">
-                <Link href="/projects" onClick={handleNavLinkClick}>
-                  <span className="nav-link">Projects</span>
+                <Link href="/projects" className="nav-link" onClick={handleNavLinkClick}>
+                  Projects
                 </Link>
               </li>
               <li className="nav-item">
-                <Link href="/contact" onClick={handleNavLinkClick}>
-                  <span className="nav-link">Contact</span>
+                <Link href="/contact" className="nav-link" onClick={handleNavLinkClick}>
+                  Contact
                 </Link>
               </li> 
             </ul>

@@ -1,4 +1,3 @@
-// pages/api/home.js
 import { corsMiddleware } from '../../lib/corsMiddleware';
 
 const handler = (req, res) => {

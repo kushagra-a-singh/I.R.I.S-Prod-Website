@@ -1,8 +1,7 @@
-// pages/api/paymentController.js
 import crypto from 'crypto';
 import supabase from '../../src/utils/supabase';
-import { instance } from './server.js';
 import { corsMiddleware } from '../../lib/corsMiddleware';
+import razorpayInstance from '../../src/utils/razorpay'; 
 
 export const checkout = async (req, res) => {
   try {
@@ -12,8 +11,7 @@ export const checkout = async (req, res) => {
     };
 
     console.log('Creating Razorpay order with options:', options);
-
-    const order = await instance.orders.create(options);
+    const order = await razorpayInstance.orders.create(options);
 
     if (!order) {
       return res.status(500).json({
@@ -55,10 +53,9 @@ export const paymentVerification = async (req, res) => {
 
   if (isAuthentic) {
     try {
-      // Insert payment details into Supabase
       const { data, error } = await supabase
         .from('event2_razorpay_payments')
-        .insert([
+        .insert([ 
           { razorpay_payment_id, razorpay_order_id, razorpay_signature, created_at: new Date().toISOString() }
         ]);
 
@@ -86,7 +83,6 @@ export const paymentVerification = async (req, res) => {
   }
 };
 
-// Wrapping the functions with CORS middleware
 export default corsMiddleware((req, res) => {
   if (req.method === 'POST') {
     if (req.url === '/api/checkout') {

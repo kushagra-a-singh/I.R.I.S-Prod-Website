@@ -1,5 +1,5 @@
 .projects1 {
-    background: url('bgimg.jpeg') no-repeat center center,
+    background: url('/public/bgimg.jpeg') no-repeat center center,
                 url('https://www.transparenttextures.com/patterns/cubes.png');
     background-size: cover, 50px 50px;            
     background-attachment: fixed;

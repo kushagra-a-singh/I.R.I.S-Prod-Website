@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { supabase } from '../src/utils/supabase';
+import supabase from '../src/utils/supabase';
 import styles from './Contact.module.css';
 
 function Contact() {
@@ -28,7 +28,6 @@ function Contact() {
         created_at: new Date().toISOString(),
       };
 
-      // Insert form data into Supabase
       const { data, error } = await supabase
         .from('contacts')
         .insert(formDataWithTimestamp);
@@ -45,7 +44,7 @@ function Contact() {
           subject: '',
           message: '',
         });
-        setTimeout(() => setShowNotification(false), 3000); // Auto-hide notification after 3 seconds
+        setTimeout(() => setShowNotification(false), 3000); 
       }
     } catch (error) {
       console.error('Error submitting form:', error);

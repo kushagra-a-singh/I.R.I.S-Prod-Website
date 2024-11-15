@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image'; 
 import styles from './Projects.module.css'; 
 
 function Projects() {
@@ -52,7 +53,13 @@ function Projects() {
               <div className={`${styles.projectCard} card`}>
                 <div className="card-body">
                   <h3 className="card-title">{project.title}</h3>
-                  <img src="logo2.png" className="card-img-top" alt="Project logo" />
+                  <Image 
+                    src="/logo2.png" 
+                    className="card-img-top" 
+                    alt="Project logo" 
+                    width={300} 
+                    height={200} 
+                  />
                   <p className="card-text">{project.description}</p>
                   <Link href={`/projects/${project.id}`} passHref>
                     Click to Know More!
@@ -71,7 +78,13 @@ function Projects() {
               <div className={`${styles.projectCard} card`}>
                 <div className="card-body">
                   <h3 className="card-title">{research.title}</h3>
-                  <img src="logo2.png" className="card-img-top" alt="Research logo" />
+                  <Image 
+                    src="/logo2.png" 
+                    className="card-img-top" 
+                    alt="Research logo" 
+                    width={300} 
+                    height={200} 
+                  />
                   <p className="card-text">{research.description}</p>
                   <Link href={`/projects/${research.id}`} passHref>
                     Click to Know More!

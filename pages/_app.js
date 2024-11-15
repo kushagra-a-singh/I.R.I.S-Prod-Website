@@ -1,5 +1,4 @@
-// pages/_app.js
-//import '../styles/globals.css'; // Import any global styles you have
+//import '../styles/globals.css';
 import Header from '../src/components/Header';
 import Footer from '../src/components/Footer';
 

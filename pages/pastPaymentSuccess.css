@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: url('./bgevent.jpg') no-repeat center center/cover;
+  background: url('/public/bgevent.jpg') no-repeat center center/cover;
   position: relative;
   overflow: hidden;
   padding: 40px;

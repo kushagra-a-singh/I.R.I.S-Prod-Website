@@ -71,7 +71,7 @@ function Events() {
                   height={200} 
                 />
                 <h2>{event.title}</h2>
-                <p>Held on: {new Date(event.date).toLocaleDateString()}</p>
+                <p>Held on: {new Date(event.date).toLocaleDateString('en-GB')}</p>
                 <p>{event.description}</p>
                 <p>{event.time}</p>
                 {event.highlights && (

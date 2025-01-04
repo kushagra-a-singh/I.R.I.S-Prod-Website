@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import supabase from '../src/utils/supabase';
+import supabase from '../../src/utils/supabase';
 import styles from './Contact.module.css';
 
 function Contact() {

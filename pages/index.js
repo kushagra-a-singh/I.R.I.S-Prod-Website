@@ -1,10 +1,12 @@
 import React from 'react';
-import Contact from './Contact';
+import Contact from './contact';
+import Home from './Home';
 
-export default function Home() {
+export default function Index() {
   return (
     <div>
-      <Contact />
+      <Home />
+      {/* <Contact /> */}
     </div>
   );
 }

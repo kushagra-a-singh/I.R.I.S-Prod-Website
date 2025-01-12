@@ -14,7 +14,7 @@ function Blog() {
       description: "Building a robust website for our club's latest initiatives.",
       author: 'Technical Team',
       date: 'September 1, 2024',
-      image: '/website.jpg',
+      image: '/sephackathon.jpg',
       content:
         'The I.R.I.S. website aims to create a centralized portal for all activities and events. It includes features like event tracking, project updates, and member contributions.',
       additionalImages: ['/website-feature1.jpg', '/website-feature2.jpg'],

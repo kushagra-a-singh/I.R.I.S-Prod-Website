@@ -1,16 +1,16 @@
-:root {
+/* :root {
     --primary-color: rgb(237, 47, 98);
     --secondary-color: rgb(2, 2, 39);
     --tertiary-color: rgb(19, 95, 225);
     --light-bg: rgba(255, 255, 255, 0.8);
     --dark-text: #212529;
     --heading-color: #ffffff;
-}
+} */
 
 .policy {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; 
+    min-height: 100vh;
     background: url('/public/bgimg.jpeg') no-repeat center center,
                 url('https://www.transparenttextures.com/patterns/cubes.png');
     background-size: cover, 50px 50px;
@@ -20,10 +20,10 @@
     overflow: hidden;
 }
 
-main {
+/* main {
     flex-grow: 1;
     z-index: 2;
-}
+} */
 
 .policy::before {
     content: '';
@@ -37,55 +37,54 @@ main {
     transition: opacity 0.2s ease;
 }
 
-.policy-container {
+.policyContainer {
     position: relative;
     z-index: 2;
     padding: 2rem;
 }
 
-.policy-container h1, .policy-container h3 {
-    color: var(--heading-color);
+.policyContainer h1, .policyContainer h3 {
+    color: var(#ffffff);
     margin: 0;
 }
 
-.policy-container h1 {
+.policyContainer h1 {
     font-size: 48px;
     text-align: center;
     text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
 }
 
-.policy-container h3 {
+.policyContainer h3 {
     font-size: 21px;
     text-align: center;
     padding-bottom: 50px;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
 }
 
-.policy-card {
-    background-color: var(--light-bg);
+.policyCard {
+    background-color: var(rgba(255, 255, 255, 0.8));
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.policy-card:hover {
+.policyCard:hover {
     transform: translateY(-8px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
 }
 
-.cards-container {
-    color: var(--dark-text);
+.cardsContainer {
+    color: var(#212529);
     gap: 40px;
     display: flex;
     flex-direction: column;
 }
 
-
-footer {
+/* footer {
     z-index: 3;
-    background-color: var(--secondary-color);
-    color: var(--heading-color);
+    background-color: var(rgb(2, 2, 39));
+    color: var(#ffffff);
     padding: 20px;
     text-align: center;
-}
+} */

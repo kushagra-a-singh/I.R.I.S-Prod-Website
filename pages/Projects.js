@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image'; 
 import styles from './Projects.module.css'; 
 
-function Projects() {
+export function Projects() {
   const ongoingTechnicalProjects = [
     {
       id: 1,
@@ -18,16 +18,16 @@ function Projects() {
   ];
 
   const ongoingResearchProjects = [
-    {
-      id: 3,
-      title: "Research",
-      description: "Info about research project",
-    },
-    {
-      id: 4,
-      title: "Research",
-      description: "Info about research project",
-    },
+    // {
+    //   id: 3,
+    //   title: "Research",
+    //   description: "Info about research project",
+    // },
+    // {
+    //   id: 4,
+    //   title: "Research",
+    //   description: "Info about research project",
+    // },
   ];
 
   useEffect(() => {
@@ -71,7 +71,7 @@ function Projects() {
         </div>
 
         {/* Research Section */}
-        <h2 className={styles.title}>Ongoing Research</h2>
+        {/* <h2 className={styles.title}>Ongoing Research</h2> */}
         <div className="row">
           {ongoingResearchProjects.map((research) => (
             <div className="col-md-6 d-flex justify-content-center" key={research.id}>

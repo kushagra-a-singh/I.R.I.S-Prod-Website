@@ -46,10 +46,15 @@ function Header() {
 
   return (
     <header className={`fixed-top ${scrolled ? 'scrolled' : ''}`}>
-    <nav className={`navbar navbar-expand-lg navbar-dark ${scrolled ? 'navbar-dark-scrolled' : ''}`}>
-      <div className="container">
+    <nav className={`navbar navbar-expand-lg navbar-dark ${scrolled ? 'navbar-dark-scrolled' : ''}`} style={{backgroundColor: 'rgba(0, 0, 0, 0.8)' }} >
+      <div className="container" style={{
+       background: 'linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(75, 1, 64) 50%, rgb(54, 1, 75) 100%)',
+       transition: 'all 0.3s ease',
+       borderRadius: '0 0 15px 15px',
+       padding: '0.5rem 1rem' 
+    }}>
         <Link className="navbar-brand" href="/">
-          <Image src="/logo.png" alt="Logo" className="logo-img" width={70} height={70} />
+          <Image src="/logo.png" alt="Logo" className="logo-img" width={40} height={40} />
         </Link>
         <button
           className="navbar-toggler"

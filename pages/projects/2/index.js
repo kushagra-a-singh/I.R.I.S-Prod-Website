@@ -31,7 +31,7 @@ const Projects1 = () => {
       <h2>Technical Specifications</h2>
       {/* <p>Detection Capabilities:</p> */}
       <div className="content-listing content-section">
-          <span className="listing-heading">The system is meticulously designed to identify key elements essential for safe and efficient navigation. Its advanced detection capabilities include recognizing road obstacles and potential hazards that could disrupt a vehicle's path. Additionally, it accurately detects lane markings and boundaries, ensuring the vehicle remains within safe limits. The system is also equipped to identify traffic signs and signals, allowing it to respond promptly to regulatory changes on the road. Furthermore, the technology can detect dynamic obstacles, such as other vehicles and pedestrians, enhancing situational awareness and promoting a safer driving environment.</span>
+          <span className="listing-heading">The system is meticulously designed to identify key elements essential for safe and efficient navigation. Its advanced detection capabilities include recognizing road obstacles and potential hazards that could disrupt a vehicles path. Additionally, it accurately detects lane markings and boundaries, ensuring the vehicle remains within safe limits. The system is also equipped to identify traffic signs and signals, allowing it to respond promptly to regulatory changes on the road. Furthermore, the technology can detect dynamic obstacles, such as other vehicles and pedestrians, enhancing situational awareness and promoting a safer driving environment.</span>
           <ul>
               <li>Road obstacles and hazards</li>
               <li>Lane markings and boundaries</li>
@@ -58,7 +58,7 @@ const Projects1 = () => {
   </div>
   <div className={'projectRegistration'}>
     <h3>Stay Connected 📩</h3>
-    <p>If you're interested in participating in this project or have any questions, feel free to reach out to us!</p>
+    <p>If youre interested in participating in this project or have any questions, feel free to reach out to us!</p>
     <Link to="/recruitment" className={'registerBtn'}>
       Recruitment form
     </Link>

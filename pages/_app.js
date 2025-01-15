@@ -3,6 +3,9 @@ import Header from '../src/components/Header';
 import Footer from '../src/components/Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect } from 'react';
+import '../styles/pastPaymentSuccess.css';
+import '../styles/pastpaymentCheckout.css';
+import '../styles/refund.css';
 
 
 function App({ Component, pageProps }) {

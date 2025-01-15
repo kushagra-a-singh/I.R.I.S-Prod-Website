@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import './refund.css';
+import './refund.module.css';
 
 function Refund() {
   return (

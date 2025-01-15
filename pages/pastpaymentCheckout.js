@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import supabase from '../src/utils/supabase';
 import Image from 'next/image'; 
-import './pastpaymentCheckout.css';
+import './pastpaymentCheckout.module.css';
 
 const CheckoutPayment = () => {
     const router = useRouter();

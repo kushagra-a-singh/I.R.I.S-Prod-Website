@@ -1,7 +1,7 @@
 /* Projects.module.css */
 .projects {
   font-family: 'Roboto', sans-serif;
-  background: url('/public/bgevent.jpg') no-repeat center center/cover;
+  background: url('/projects.png') no-repeat center center/cover;
   position: relative;
   overflow: hidden;
   min-height: 100vh;
@@ -44,14 +44,15 @@
 .projectList {
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem; 
+  gap: 2rem; /* Consistent spacing between cards */
   padding: 2rem;
 }
 
 .projectCard {
-  height: 550px; 
-  width: 500px; 
+  height: 550px; /* Fixed height for all cards */
+  width: 500px;  /* Fixed width instead of max-width */
   margin: 1rem;
+ /* background-color: rgba(255, 255, 255, 0.9);*/
   background-color: rgba(255, 255, 255, 0.224);
   border-radius: 8px;
   overflow: hidden;
@@ -61,7 +62,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: transform 0.2s, box-shadow 0.2s; 
+  transition: transform 0.2s, box-shadow 0.2s; /* Smooth transition for hover effect */
 }
 
 .projectCard p {
@@ -104,21 +105,24 @@
 
 @media (max-width: 768px) {
   .projectList {
-      flex-direction: column; 
-      align-items: center; 
+      flex-direction: column; /* Stack items vertically on small screens */
+      align-items: center; /* Center items */
   }
 
   .projectCard {
-      max-width: 100%; 
+      max-width: 100%; /* Allow cards to take full width */
   }
 }
+
+/* Header styles */
+
 
 .projectsWrapper {
   display: flex;
   justify-content: center;
-  gap: 3rem; 
+  gap: 3rem; /* Consistent spacing between cards */
   margin: 0 auto;
-  max-width: 1200px; 
+  max-width: 1200px; /* Maximum width for larger screens */
   padding: 2rem;
 }
 
@@ -126,3 +130,19 @@
   flex: 1; 
   margin-right: 20px; 
 }
+
+.headerTitle {
+  color: white;
+  font-weight: bold;
+  font-size: 42px;
+  text-shadow: 1px 1px 10px #000;
+  text-align: center;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+/* .title{
+  color: white;
+  font-weight: bold;
+  font-size: 32px;
+} */

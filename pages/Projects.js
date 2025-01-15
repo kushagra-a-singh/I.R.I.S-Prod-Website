@@ -3,32 +3,28 @@ import Link from 'next/link';
 import Image from 'next/image'; 
 import styles from './Projects.module.css'; 
 
-export function Projects() {
-  const ongoingTechnicalProjects = [
-    {
-      id: 1,
-      title: "Club Website",
-      description: "Some info about website",
-    },
-    {
-      id: 2,
-      title: "Autonomous Vehicle",
-      description: "Info about autonomous vehicle",
-    },
-  ];
+function Projects() {
+  const ongoingTechnicalProject = {
+    id: 1,
+    title: "Club Website",
+  };
+  
+  const ongoingTechnicalProject2 = {
+    id: 2,
+    title: "Autonomous Vehicle",
+  };
 
-  const ongoingResearchProjects = [
-    // {
-    //   id: 3,
-    //   title: "Research",
-    //   description: "Info about research project",
-    // },
-    // {
-    //   id: 4,
-    //   title: "Research",
-    //   description: "Info about research project",
-    // },
-  ];
+  {/*const ongoingResearch = {
+    id: 3,
+    title: "Research",
+    description: "info about research project",
+  };
+
+  const ongoingResearch2 = {
+    id: 4,
+    title: "Research",
+    description: "info about research project",
+  };*/}
 
   useEffect(() => {
     const hash = window.location.hash;
@@ -43,25 +39,33 @@ export function Projects() {
   return (
     <div className={styles.projects}>
       <main className={`${styles.mainContent} container`}>
-        <h1 className={styles.title}>Projects</h1>
+        <h1 className={styles.headerTitle}>Projects</h1>
 
         {/* Technical Projects Section */}
         <h2 className={styles.title}>Ongoing Technical Projects</h2>
         <div className="row">
-          {ongoingTechnicalProjects.map((project) => (
+          {[ongoingTechnicalProject].map((project) => (
             <div className="col-md-6 d-flex justify-content-center" key={project.id}>
               <div className={`${styles.projectCard} card`}>
                 <div className="card-body">
-                  <h3 className="card-title">{project.title}</h3>
-                  <Image 
-                    src="/logo2.png" 
-                    className="card-img-top" 
-                    alt="Project logo" 
-                    width={300} 
-                    height={200} 
-                  />
+                  <h3 className="card-title">{project.title}</h3> {/* Title above the card body */}
+                  <img src="website_img.png" className="card-img-top" alt="Project logo" />
                   <p className="card-text">{project.description}</p>
-                  <Link href={`/projects/${project.id}`} passHref>
+                  <Link href={`/projects/${project.id}`} className="btn btn-primary">
+                    Click to Know More!
+                  </Link>
+                </div>
+              </div>
+            </div>
+          ))}
+          {[ongoingTechnicalProject2].map((project) => (
+            <div className="col-md-6 d-flex justify-content-center" key={project.id}>
+              <div className={`${styles.projectCard} card`}>
+                <div className="card-body">
+                  <h3 className="card-title">{project.title}</h3> {/* Title above the card body */}
+                  <img src="simulation.jpg" className="card-img-top" alt="Project logo" />
+                  <p className="card-text">{project.description}</p>
+                  <Link href={`/projects/${project.id}`} className="btn btn-primary">
                     Click to Know More!
                   </Link>
                 </div>
@@ -71,29 +75,23 @@ export function Projects() {
         </div>
 
         {/* Research Section */}
-        {/* <h2 className={styles.title}>Ongoing Research</h2> */}
+        {/*<h2 className={styles.title}>Ongoing Research</h2>
         <div className="row">
-          {ongoingResearchProjects.map((research) => (
+          {[ongoingResearch, ongoingResearch2].map((research) => (
             <div className="col-md-6 d-flex justify-content-center" key={research.id}>
               <div className={`${styles.projectCard} card`}>
                 <div className="card-body">
-                  <h3 className="card-title">{research.title}</h3>
-                  <Image 
-                    src="/logo2.png" 
-                    className="card-img-top" 
-                    alt="Research logo" 
-                    width={300} 
-                    height={200} 
-                  />
+                  <h3 className="card-title">{research.title}</h3> {/* Title above the card body */}
+        {/*<img src="logo2.png" className="card-img-top" alt="Research logo" />
                   <p className="card-text">{research.description}</p>
-                  <Link href={`/projects/${research.id}`} passHref>
+                  <Link href={`/projects/${research.id}`} className="btn btn-primary">
                     Click to Know More!
                   </Link>
                 </div>
               </div>
             </div>
           ))}
-        </div>
+        </div>*/}
       </main>
     </div>
   );

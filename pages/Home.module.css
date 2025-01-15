@@ -1,4 +1,18 @@
+
 .home {
+  /* margin: 0; */
+  /* padding: 0; */
+  /* padding-inline: 400px; */
+  padding-inline: 27%;
+
+  @media (max-width: 768px) {
+      padding-inline: 30px; /* Adjust padding for tablets and smaller devices */
+  }
+
+  @media (max-width: 480px) {
+      padding-inline: 15px; /* Adjust padding for mobile devices */
+  }
+  overflow-x: hidden;
   position: relative;
   overflow-x: hidden;
   overflow-y: auto;
@@ -71,8 +85,8 @@
 
 .hero {
   background: linear-gradient(to right, rgba(23, 37, 90, 0.8), rgba(201, 64, 101, 0.8));
-  padding: 80px 20px; 
-  margin: 50px 0;
+  padding: 20px; 
+  margin: 30px 0;
   text-align: center;
   color: #ffffff !important;
   max-width: 100%;
@@ -100,6 +114,12 @@
 .journeyTitle {
   font-size: 2.5rem;
   color: #f8f9fa;
+}
+
+.projectsTitle, .eventsTitle, .blogsTitle {
+  text-align: center;
+  margin-top: 20px; 
+  margin-bottom: -23px;
 }
 
 .step {
@@ -136,6 +156,99 @@
   color: #d6336c; 
 }
 
+.newSectionContainer {
+  height: 300px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  border-radius: 20px;
+}
+
+.newSectionContainer .container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.newSectionImage {
+  max-height: 300px;
+  object-fit: cover; 
+  width: auto;
+}
+
+.newSectionContainer h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.newSectionContainer p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.knowMoreBtn {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: #ff4081;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 30%;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 10;
+}
+
+.leftArrow {
+  left: -10px;
+}
+
+.rightArrow {
+  right: -10px;
+}
+
+.newSectionImage {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 10px;
+  padding: 10px 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.knowMoreBtn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #b3016b;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.knowMoreBtn:hover {
+  background-color: #1a015e;
+  transform: scale(1.05);
+}
+
+
 @media only screen and (max-width: 768px) {
   .hero h1 {
     font-size: 3rem;
@@ -147,6 +260,17 @@
 
   .registrationTitle {
     font-size: 2rem;
+  }
+
+  .newSectionContainer {
+    height: 500px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    border-radius: 20px;
   }
 
   .heroVideo {

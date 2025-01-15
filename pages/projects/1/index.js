@@ -4,55 +4,66 @@ import styles from './Projects1.module.css';
 
 const Projects1 = () => {
   return (
-    <div className={styles.Projectpage}>
-      <main className="container">
-        <div className={styles.content}>
-          <h1 className={styles.title}>I.R.I.S Club WEBSITE</h1>
+    <div className={styles.projects1}>
+    <main className="container">
+      <div className={styles.content}>
+        <h1 className={styles.title}>I.R.I.S. Club Website</h1>
 
-          <div className={styles.Aboutwesbite}>
-            <h3>ABOUT OUR WEBSITE</h3>
-            <p>
-              The I.R.I.S. club website is a dynamic platform designed to unite our community of innovators, learners, and leaders. Acting as a central hub, it provides essential information about events, announcements, and achievements while facilitating communication with members, alumni, and external partners. The site not only showcases our events and podcast episodes but also serves as a vital resource for attracting new members and enhancing our visibility on campus.
-            </p>
-            <p>
-              This website consolidates all details about I.R.I.S. for sponsors, partners, teachers, and participants in our workshops and hackathons. It highlights our collective work, including research, projects, and past events, fostering collaboration and engagement. By promoting events and offering seamless registration, the I.R.I.S. website boosts participation and streamlines operations, while connecting members with external groups. Ultimately, it supports our community by providing information and opportunities for involvement in various activities, such as hackathons, seminars, and podcasts.
-            </p>
-          </div>
-
-          <section className={styles.Timeline}>
-            <h3>Project Timeline</h3>
-            <p>Day 1: Planning & Setup</p>
-            <p>Days 2-7: Frontend Development</p>
-            <p>Days 8-13: Backend Development</p>
-            <p>Days 14-18: Final Integration</p>
-            <p>Days 19-26: Deployment & Final Project</p>
-          </section>
-
-          <section className={"websitefeatures"}>
-            <h3>Website Features</h3>
-            <ol>
-              <li>Event Management: Displays upcoming and past events with registration options.</li>
-              <li>Podcasts: Showcases podcasts related to events and industry trends.</li>
-              <li>Payment Integration: Razorpay gateway for smooth event registrations.</li>
-              <li>Responsive Design: Mobile-friendly with Bootstrap-based layout.</li>
-              <li>Dynamic Content: Regular updates to reflect the latest activities and members.</li>
-            </ol>
-          </section>
-
-          <section className={"webtechnologies"}>
-            <h3>TECHNOLOGIES</h3>
-            <ol>
-              <li>React JS (Frontend Development)</li>
-              <li>Bootstrap (Frontend Development)</li>
-              <li>Razorpay (Payment Gateway)</li>
-              <li>Github (Version Control & Collaboration)</li>
-              <li>Supabase SQL (Database)</li>
-              <li>Vercel (Frontend and Backend deployment)</li>
-            </ol>
-          </section>
+        <div className={styles.aboutwebsite}>
+          <h3>ABOUT OUR WEBSITE</h3>
+          <p>
+            The I.R.I.S. club website is a dynamic platform designed to unite our community of innovators, learners, and leaders. Acting as a central hub, it provides essential information about events, announcements, and achievements while facilitating communication with members, alumni, and external partners. The site not only showcases our events and podcast episodes but also serves as a vital resource for attracting new members and enhancing our visibility on campus.
+          </p>
+          <p>
+            This website consolidates all details about I.R.I.S. for sponsors, partners, teachers, and participants in our workshops and hackathons. It highlights our collective work, including research, projects, and past events, fostering collaboration and engagement. By promoting events and offering seamless registration, the I.R.I.S. website boosts participation and streamlines operations, while connecting members with external groups. Ultimately, it supports our community by providing information and opportunities for involvement in various activities, such as hackathons, seminars, and podcasts.
+          </p>
         </div>
-      </main>
-    </div>
+
+        <section className={styles.websitefeatures}>
+          <h3>WEBSITE FEATURES</h3>
+          <ol>
+            <li>Event Management: Displays upcoming and past events with registration options.</li>
+            <li>Podcasts: Showcases podcasts related to events and industry trends.</li>
+            <li>Payment Integration: Razorpay gateway for smooth event registrations.</li>
+            <li>Responsive Design: Mobile-friendly with Bootstrap-based layout.</li>
+            <li>Dynamic Content: Regular updates to reflect the latest activities and members.</li>
+          </ol>
+        </section>
+
+        <section className={styles.webtechnologies}>
+          <h3>PLAN & RESEARCH</h3>
+          
+            <p>Our team planned intensively in order to make sure a smooth development process for the website. Our team held multiple meetings spanned across a few weeks to finalize the plan and to research.</p>
+          
+          <h3>DEVELOPMENT</h3>
+          <p>The development was done by using multiple technologies which were:</p>
+          <ol> 
+            <li>React JS: React JS is the library on which I.R.I.S’s website is made. </li> 
+            <li>Bootstrap: Bootstrap is a very popular CSS framework that we used to make I.R.I.S Website more responsive in multiple types of screens and displays.
+            </li>
+            <li>Razorpay: Razorpay is a payment gateway API which is used to handle online payments for the hackathon and our future ventures and events.
+            </li>
+            <li>Github: Github is an industry standard service used for version controlling and collaboration. Our team used github throughout the production phase to collaborate with everyone</li>
+            <li>Supabase SQL: Supabase SQL is a powerful database which is highly scalable & secure. We use it to store the data of our users securely.
+            </li>
+          </ol>
+              
+          <h3>DEPLOYMENT</h3>
+          <p>We have used Vercel to deploy frontend because of their easy deployment and seamless integration with github.
+          </p>
+          </section>
+          <section className={styles.projectRegistration}>
+          <h3>Stay Connected 📩</h3>
+          <p>If you're interested in participating in this project or have any questions, feel free to reach out to us!</p>
+          <Link href="/recruitment" className={styles.registerBtn}>
+  Recruitment form
+</Link>
+
+        </section>
+        
+      </div>
+    </main>
+  </div>
   );
 };
 

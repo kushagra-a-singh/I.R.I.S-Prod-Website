@@ -5,6 +5,7 @@ import styles from './Blog.module.css';
 import supabase  from '../../src/utils/supabase';
 import { ToastContainer, toast } from 'react-toastify'; 
 import 'react-toastify/dist/ReactToastify.css'; 
+import Image from 'next/image';
 
 function Blog() {
   const [selectedPost, setSelectedPost] = useState(null);
@@ -53,7 +54,7 @@ function Blog() {
     //       <div className='content-section'>
     //         <h2>The Dark Side of Digital Devices</h2>
     //         <p>
-    //           A large portion of a teenager's screen time is devoted to social media.
+    //           A large portion of a teenager&apo;s screen time is devoted to social media.
     //         </p>
     //         <p>
     //           Social media platforms help in boosting their creativity. Social media helps to maintain long-distance friendships and family relations as well.
@@ -118,13 +119,15 @@ function Blog() {
       author: 'Aaryan Kumbhare',
       date: 'November 18, 2024',
       image: '/db.jpg',
+      imageWidth: 500, 
+      imageHeight: 300,
       content: (
         <>
           <div className='content-container'>
             <div className='content-section'>
               <h2>Overview about I.R.I.S. Website.</h2>
               <p>
-                In today's dynamic and rapidly-evolving digital ecosystem, it is important for an organisation to set up their online presence, so that they can meet the growing demands of their audience and help in increasing the scale of their services. Deployment of a muscular and scalable website acts as a hub for the operations of an organisation, real-time updates about the work of the organisation, showcasing their services and a portal for communication with their customers. This helps in enhancing the user engagement, quality of services; eventually leading to the overall growth of the organisation.
+                In today&apo;s dynamic and rapidly-evolving digital ecosystem, it is important for an organisation to set up their online presence, so that they can meet the growing demands of their audience and help in increasing the scale of their services. Deployment of a muscular and scalable website acts as a hub for the operations of an organisation, real-time updates about the work of the organisation, showcasing their services and a portal for communication with their customers. This helps in enhancing the user engagement, quality of services; eventually leading to the overall growth of the organisation.
                 <br />
                 <br />
                 I.R.I.S. website acts as a crucial platform for showcasing and promoting the club, engaging potential members and boosting club’s visibility on our campus. Our website serves as a hub for all our activities, events, announcements and important details, while also talking about the past events, activities and showcasing club’s achievements. It also serves as a networking portal for connecting with the members, mentors and the alumni, while enhancing the communication through engaging podcasts. 
@@ -161,7 +164,7 @@ function Blog() {
                 <br />
                 This is because our website did face a similar problem a couple of months back during the initial days of our hackathon registrations. 
                 <br />
-                Let's take a deep dive into the same!!
+                Let&apo;s take a deep dive into the same!!
               </p>
             </div>
             <div className='content-section'>
@@ -175,7 +178,7 @@ function Blog() {
                 And yes, you must have guessed it by now!
                 This decision left our database unintentionally vulnerable, potentially allowing anyone to add, edit or delete data entries from our database!
               </p>
-              <h3>How we identified the issue and our story's white hat:</h3>
+              <h3>How we identified the issue and our story&apo;s white hat:</h3>
               <p>
                 The technical team deployed the website and initially, everything appeared to be running smoothly. The teams were able to submit their details and complete the transactions successfully. 
                 But later, while the team was reviewing the database, they noticed an empty row that didn’t align with any of our expected data entries. Uncertain about the cause, they decided to leave it as is. But now, our white hat, a college peer who identified himself as a participant in our event, reached out to our team! He specifically pointed out a critical issue which was related to our backend. He highlighted that the database was publicly accessible and vulnerable to CRUD operations, allowing anyone to make the changes due to the disabled RLS and an exposed key in the network tab. Moreover, the empty row which our team noticed while reviewing the database, was our peer’s way for testing the vulnerability. 
@@ -194,7 +197,7 @@ function Blog() {
               <p>
                 To sum it up, even a small mistake can also offer you a lot of lessons. As we read in the quote a few sections above, mistakes and problems are an opportunity for improvement and growth, which goes along pretty well with our example! The incident helped the team to emphasise more on security and building a more robust and reliable website for our users. 
                 <br />
-                Thanks to our peer's timely alert, we were able to identify the vulnerability, and make the changes accordingly. 
+                Thanks to our peer&apo;s timely alert, we were able to identify the vulnerability, and make the changes accordingly. 
                 This also teaches us about the necessity of networking and reaching out to people who may be facing issues they are unaware of. 
                 <br />
                 <br />
@@ -213,17 +216,19 @@ function Blog() {
       author: 'Aaryan Kumbhare',
       date: 'November 10, 2024',
       image: '/simulation.jpg',
+      imageWidth: 500, 
+      imageHeight: 300,
       content: (
         <>
           <div className='content-container'>
             <div className='content-section'>
               <h2>Introduction: The Future of Intelligent Transportation</h2>
               <p>
-                In the rapidly evolving landscape of automotive technology, autonomous vehicles represent more than just a technological marvel—they are a transformative solution to transportation challenges. The I.R.I.S. club's TARZAN project emerges as a groundbreaking initiative that pushes the boundaries of what's possible in autonomous vehicle navigation, particularly in challenging road conditions.
+                In the rapidly evolving landscape of automotive technology, autonomous vehicles represent more than just a technological marvel—they are a transformative solution to transportation challenges. The I.R.I.S. club&apo;s TARZAN project emerges as a groundbreaking initiative that pushes the boundaries of what&apo;s possible in autonomous vehicle navigation, particularly in challenging road conditions.
               </p>
               <h3>The Context of Autonomous Driving</h3>
               <p>
-                The journey of autonomous vehicles has been fascinating. From Google's Self-Driving Car Project in 2009 to Tesla's Autopilot in 2015, the automotive industry has witnessed exponential growth. However, most existing solutions are limited to high-end vehicles with Advanced Driver Assistance Systems (ADAS).
+                The journey of autonomous vehicles has been fascinating. From Google&apo;s Self-Driving Car Project in 2009 to Tesla&apo;s Autopilot in 2015, the automotive industry has witnessed exponential growth. However, most existing solutions are limited to high-end vehicles with Advanced Driver Assistance Systems (ADAS).
               </p>
               <p>
                 TARZAN challenges this paradigm. Our project aims to democratize autonomous navigation technology, making it accessible to vehicles across different technological spectrums.
@@ -232,7 +237,7 @@ function Blog() {
             <div className='content-section'>
               <h2>Understanding Autonomous Driving Levels</h2>
               <p>
-                Before diving into TARZAN's specifics, let's understand the autonomous driving spectrum:
+                Before diving into TARZAN&apo;s specifics, let&apo;s understand the autonomous driving spectrum:
               </p>
               <ul>
                 <li><strong>Level 0 (No Automation)</strong>: Traditional vehicles where the driver controls everything</li>
@@ -317,27 +322,31 @@ function Blog() {
             <div className='content-section'>
               <h2>Beyond Technology: The Vision</h2>
               <p>
-                TARZAN isn't just a technical project—it's a vision of making roads safer, more accessible, and intelligent. By extending autonomous capabilities to vehicles without ADAS, we're democratizing advanced transportation technology.
+                TARZAN isn't just a technical project—it&apo;s a vision of making roads safer, more accessible, and intelligent. By extending autonomous capabilities to vehicles without ADAS, we&apo;re democratizing advanced transportation technology.
               </p>
             </div>
             <div className='content-section'>
               <h2>Conclusion: The Road Ahead</h2>
               <p>
-                As we continue refining TARZAN, we're not just developing a system—we're shaping the future of intelligent transportation. Our project demonstrates that with creativity, advanced algorithms, and a commitment to innovation, we can transform how we navigate our world.
+                As we continue refining TARZAN, we&apo;re not just developing a system—we&apo;re shaping the future of intelligent transportation. Our project demonstrates that with creativity, advanced algorithms, and a commitment to innovation, we can transform how we navigate our world.
               </p>
               <p><strong>Stay tuned for more updates from the I.R.I.S. Research Team!</strong></p>
-              <h3>Visual Insights of TARZAN's System</h3>
+              <h3>Visual Insights of TARZAN&apo;s System</h3>
               <div className={styles.imageGallery}>
                 <h4>MATLAB System Diagram</h4>
-                <img
+                <Image
                   src="/systemDiagMATLAB.jpg"
                   alt="TARZAN Simulation"
+                  width={500}
+                  height={300}
                   className={styles.blogImage}
                 />
                 <h4>Chassis Design</h4>
-                <img
+                <Image
                   src="/chassis.jpg"
                   alt="TARZAN Chassis"
+                  width={500}
+                  height={300}
                   className={styles.blogImage}
                 />
               </div>
@@ -529,9 +538,11 @@ function Blog() {
           {blogPosts.map((post) => (
             <div key={post.id} className="col-md-4">
               <div className={styles.blogCard}>
-                <img
+                <Image
                   src={post.image}
                   alt={post.title}
+                  width={post.imageWidth}
+                  height={post.imageHeight}
                   className={styles.blogImage}
                 />
                 <div className={styles.blogContent}>

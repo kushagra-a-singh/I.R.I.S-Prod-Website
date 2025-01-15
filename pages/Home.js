@@ -2,8 +2,10 @@
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
 import styles from './Home.module.css';
+import Image from 'next/image';
 
 function Home() {
+  
   const section1 = [
     {
       title: "TARZAN",
@@ -45,7 +47,7 @@ function Home() {
       title: "Autonomous Vehicle",
       description: "Tarzan is an innovative, leading-edge autonomous vehicle control system integrating the application of computer vision into vehicular communications.",
       link: "/Projects",
-      image: "public/simulation.jpg",
+      image: "/simulation.jpg",
     },
   ];
 
@@ -230,9 +232,11 @@ function Home() {
                   </Link>
                 </div>
                 <div className="col-lg-6 text-center">
-                  <img
+                  <Image
                     src={section3[SectionIndex3].image}
                     alt={section3[SectionIndex3].title}
+                    width={400}
+                    height={300}
                     className={styles.newSectionImage}
                   />
                 </div>
@@ -286,9 +290,11 @@ function Home() {
                   </Link>
                 </div>
                 <div className="col-lg-6 text-center">
-                  <img
+                  <Image
                     src={section2[SectionIndex2].image}
                     alt={section2[SectionIndex2].title}
+                    width={400}
+                    height={300}
                     className={styles.newSectionImage}
                   />
                 </div>
@@ -342,9 +348,11 @@ function Home() {
                   </Link>
                 </div>
                 <div className="col-lg-6 text-center">
-                  <img
+                  <Image
                     src={section1[SectionIndex1].image}
                     alt={section1[SectionIndex1].title}
+                    width={400}
+                    height={300}
                     className={styles.newSectionImage}
                   />
                 </div>

@@ -54,7 +54,7 @@ const Projects1 = () => {
           </section>
           <section className={styles.projectRegistration}>
           <h3>Stay Connected 📩</h3>
-          <p>If you're interested in participating in this project or have any questions, feel free to reach out to us!</p>
+          <p>If you&apo;re interested in participating in this project or have any questions, feel free to reach out to us!</p>
           <Link href="/recruitment" className={styles.registerBtn}>
   Recruitment form
 </Link>

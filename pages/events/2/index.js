@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import styles from './event1.module.css';
+// import styles from './event1.module.css';
 
 const Event2 = () => {
   return (

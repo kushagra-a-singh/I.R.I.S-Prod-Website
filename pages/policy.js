@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import styles from './Policy.module.css';
+import styles from './policy.module.css';
 
 function Policy() {
   return (

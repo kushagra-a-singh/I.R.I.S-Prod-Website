@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './event2.css';
+// import './event2.css';
 import Link from 'next/link';
 import Image from 'next/image';
 

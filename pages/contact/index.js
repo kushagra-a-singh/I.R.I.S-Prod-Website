@@ -71,7 +71,7 @@ function Contact() {
       <main className={styles.content}>
         <h1 className={styles.contactUsTitle}>Contact Us</h1>
         <p className={styles.titleDesc}>
-          If you have a new and innovative scalable project, unique idea, or research you'd like to pursue, fill out the form below. We&apo;re here to help guide and support you!
+          If you have a new and innovative scalable project, unique idea, or research you&apos;d like to pursue, fill out the form below. We&apos;re here to help guide and support you!
         </p>
         <form ref={formRef} onSubmit={handleSubmit} className={styles.form}>
           <div className={styles.formGroup}>

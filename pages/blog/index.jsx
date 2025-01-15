@@ -174,7 +174,7 @@ function Blog() {
                 So as discussed above, our website used Supabase SQL in the backend for storage of user data and payment details. 
                 To prevent unauthorised access, Supabase SQL uses Row Level Security (RLS) features, which were initially enabled by our team. 
                 RLS features in SQL allows users to control which user or roles can access specific data in a table. RLS works by filtering rows based on the execution context of the query, rather than the current user access rights. 
-                However, with RLS enabled, data wasn't being saved, so the team decided to disable it temporarily, assuming that they could bypass security for a college-level event and address the same after the registration phase. 
+                However, with RLS enabled, data wasn&apos;t being saved, so the team decided to disable it temporarily, assuming that they could bypass security for a college-level event and address the same after the registration phase. 
                 And yes, you must have guessed it by now!
                 This decision left our database unintentionally vulnerable, potentially allowing anyone to add, edit or delete data entries from our database!
               </p>
@@ -322,7 +322,7 @@ function Blog() {
             <div className='content-section'>
               <h2>Beyond Technology: The Vision</h2>
               <p>
-                TARZAN isn't just a technical project—it&apos;s a vision of making roads safer, more accessible, and intelligent. By extending autonomous capabilities to vehicles without ADAS, we&apos;re democratizing advanced transportation technology.
+                TARZAN isn&apos;t just a technical project—it&apos;s a vision of making roads safer, more accessible, and intelligent. By extending autonomous capabilities to vehicles without ADAS, we&apos;re democratizing advanced transportation technology.
               </p>
             </div>
             <div className='content-section'>

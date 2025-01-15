@@ -30,7 +30,7 @@ function Blog() {
     //       <div className='content-section'>
     //         <h2>Introduction: The Digital Revolution and Its Impact</h2>
     //         <p>
-    //           In today’s modern world, digital appliances have become an inseparable part of our lives. One such appliance is the mobile phone, which has become like an extra limb - always in our hands, whether we are talking, texting, scrolling, or just pretending to look busy!
+    //           In today&apos;s modern world, digital appliances have become an inseparable part of our lives. One such appliance is the mobile phone, which has become like an extra limb - always in our hands, whether we are talking, texting, scrolling, or just pretending to look busy!
     //         </p>
     //         <p>
     //           But do you ever wonder how mobile phones and increasing screen time are shaping the minds of the younger ones? Studies show that kids in ages 8-12 spend 5-6 hours on screens, and an average teenager has 7-8 hours of screen time. Let us explore the dual-edged nature of the digital revolution!
@@ -105,7 +105,7 @@ function Blog() {
     //           We can also see some initiatives being taken by governments across the globe. Just a few days back, Australia became the first nation to ban social media for kids below the age of 16.
     //         </p>
     //         <p>
-    //           Let’s sum it all up! The world is growing at a fast pace, and the way people interact, find entertainment is changing. Young children and teenagers are the generation of the internet and social media. There are numerous advantages of technology and the social media platform. Social media has turned out to be a way for youth not just to find entertainment, but also to explore different interests, careers and be more vocal about the world. But there are several drawbacks of the digital world as well. Be it physical, mental, or social impacts, they carry the potential to hinder the growth of a young individual. Setting up boundaries and taking steps to promote more offline activities can help us to be in balance with the real and digital world, and help the youth to grow and live their lives to the fullest!
+    //           Let&apos;s sum it all up! The world is growing at a fast pace, and the way people interact, find entertainment is changing. Young children and teenagers are the generation of the internet and social media. There are numerous advantages of technology and the social media platform. Social media has turned out to be a way for youth not just to find entertainment, but also to explore different interests, careers and be more vocal about the world. But there are several drawbacks of the digital world as well. Be it physical, mental, or social impacts, they carry the potential to hinder the growth of a young individual. Setting up boundaries and taking steps to promote more offline activities can help us to be in balance with the real and digital world, and help the youth to grow and live their lives to the fullest!
     //         </p>
     //       </div>
     //     </div>

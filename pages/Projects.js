@@ -49,7 +49,13 @@ function Projects() {
               <div className={`${styles.projectCard} card`}>
                 <div className="card-body">
                   <h3 className="card-title">{project.title}</h3> {/* Title above the card body */}
-                  <img src="website_img.png" className="card-img-top" alt="Project logo" />
+                  <Image
+                    src="/website_img.png"
+                    alt="Project logo"
+                    className="card-img-top"
+                    width={500}  
+                    height={300} 
+                  />
                   <p className="card-text">{project.description}</p>
                   <Link href={`/projects/${project.id}`} className="btn btn-primary">
                     Click to Know More!
@@ -63,7 +69,13 @@ function Projects() {
               <div className={`${styles.projectCard} card`}>
                 <div className="card-body">
                   <h3 className="card-title">{project.title}</h3> {/* Title above the card body */}
-                  <img src="simulation.jpg" className="card-img-top" alt="Project logo" />
+                  <Image
+                    src="/simulation.jpg"
+                    alt="Project logo"
+                    className="card-img-top"
+                    width={500}  
+                    height={300} 
+                  />
                   <p className="card-text">{project.description}</p>
                   <Link href={`/projects/${project.id}`} className="btn btn-primary">
                     Click to Know More!

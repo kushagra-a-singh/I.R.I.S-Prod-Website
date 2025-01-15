@@ -73,7 +73,7 @@ function Contact() {
         <p className={styles.titleDesc}>
           If you have a new and innovative scalable project, unique idea, or research you'd like to pursue, fill out the form below. We&apo;re here to help guide and support you!
         </p>
-        <form ref={formRef} onSubmit={handleSubmit}  className={styles.form}>
+        <form ref={formRef} onSubmit={handleSubmit} className={styles.form}>
           <div className={styles.formGroup}>
             <label htmlFor="name">Name*</label>
             <input

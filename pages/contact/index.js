@@ -1,8 +1,12 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import supabase from '../../src/utils/supabase';
 import styles from './Contact.module.css';
 
 function Contact() {
+
+  const [link, setLink] = useState("https://rkvbuqdjkilvqlywzjsi.supabase.co/storage/v1/object/sign/AboutPhotos/Videos/vid2.mp4?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJBYm91dFBob3Rvcy9WaWRlb3MvdmlkMi5tcDQiLCJpYXQiOjE3MzA5MDA1MDcsImV4cCI6MTc2MjQzNjUwN30.qMfRi7Uxvtpz4rRnaN6bTSQzEE_AtxrRQMBp2qR5YEI&t=2024-11-06T13%3A41%3A48.487Z")
+
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -11,9 +15,10 @@ function Contact() {
     message: '',
   });
   const [showNotification, setShowNotification] = useState(false);
-  const [loading, setLoading] = useState(false);
   const formRef = useRef(null);
-  const backgroundVideo = '/bgVid.mp4';
+
+  useEffect(() => {
+  }, []);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -21,13 +26,13 @@ function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
     try {
       const formDataWithTimestamp = {
         ...formData,
         created_at: new Date().toISOString(),
       };
 
+      // Insert form data into Supabase
       const { data, error } = await supabase
         .from('contacts')
         .insert(formDataWithTimestamp);
@@ -44,12 +49,9 @@ function Contact() {
           subject: '',
           message: '',
         });
-        setTimeout(() => setShowNotification(false), 3000); 
       }
     } catch (error) {
       console.error('Error submitting form:', error);
-    } finally {
-      setLoading(false);
     }
   };
 
@@ -61,17 +63,17 @@ function Contact() {
     <div className={styles.contact}>
       <div className={styles.videoBackground}>
         <video autoPlay muted loop>
-          <source src={backgroundVideo} type="video/mp4" />
+          <source src={link} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>
       <div className={styles.overlay}></div>
-      <main className={styles.mainContent}>
-        <h1 className={styles.contactTitle}>Contact Us</h1>
+      <main className={styles.content}>
+        <h1 className={styles.contactUsTitle}>Contact Us</h1>
         <p className={styles.titleDesc}>
-          If you have a new and innovative scalable project, unique idea, or research you&apos;d like to pursue, fill out the form below. We&apos;re here to help guide and support you!
+          If you have a new and innovative scalable project, unique idea, or research you'd like to pursue, fill out the form below. We're here to help guide and support you!
         </p>
-        <form ref={formRef} onSubmit={handleSubmit} className={styles.contactForm}>
+        <form ref={formRef} onSubmit={handleSubmit}  className={styles.form}>
           <div className={styles.formGroup}>
             <label htmlFor="name">Name*</label>
             <input
@@ -81,7 +83,6 @@ function Contact() {
               value={formData.name}
               onChange={handleChange}
               required
-              aria-label="Enter your name"
             />
           </div>
           <div className={styles.formGroup}>
@@ -93,7 +94,6 @@ function Contact() {
               value={formData.email}
               onChange={handleChange}
               required
-              aria-label="Enter your email"
             />
           </div>
           <div className={styles.formGroup}>
@@ -105,7 +105,6 @@ function Contact() {
               value={formData.phone}
               onChange={handleChange}
               required
-              aria-label="Enter your phone number"
             />
           </div>
           <div className={styles.formGroup}>
@@ -117,7 +116,6 @@ function Contact() {
               value={formData.subject}
               onChange={handleChange}
               required
-              aria-label="Enter subject"
             />
           </div>
           <div className={styles.formGroup}>
@@ -128,13 +126,10 @@ function Contact() {
               value={formData.message}
               onChange={handleChange}
               required
-              aria-label="Enter your message"
             />
           </div>
           <div className={styles.formGroup}>
-            <button type="submit" disabled={loading}>
-              {loading ? 'Sending...' : 'Send Message'}
-            </button>
+            <button type="submit">Send Message</button>
           </div>
         </form>
         {showNotification && (
@@ -147,8 +142,8 @@ function Contact() {
           </div>
         )}
       </main>
+
     </div>
   );
 }
-
 export default Contact;

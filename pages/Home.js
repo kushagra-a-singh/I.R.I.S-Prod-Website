@@ -11,7 +11,7 @@ function Home() {
       title: "TARZAN",
       description: "Revolutionizing Autonomous Vehicle Navigation.\nAn innovative system using computer vision to enhance autonomous vehicle control.",
       link: "/blog",
-      image: "/systemDiagMATLAB.jpg",
+      image: "/simulation.jpg",
     },
     {
       title: "Security Breach We Overcame",
@@ -131,7 +131,7 @@ function Home() {
             style={{ borderRadius: '20px' }}
           >
             <div className="container">
-              <div className="row align-items-center">
+              <div className="row align-items-center ">
                 <div className="col-lg-6 text-center text-lg-start">
                   <h1
                     className={`${styles.arial} display-3 fw-bold`}

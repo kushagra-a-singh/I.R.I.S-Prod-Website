@@ -21,7 +21,7 @@ function Events() {
     {
       id: 1,
       title: "Innovation Hackathon",
-      description: "The Inter-Campus Open Innovation Hackathon, organized by ASPIRE with Engineer's Cradle, I.R.I.S. and MIT-TBI, gathered Pune students...",
+      description: "The Inter-Campus Open Innovation Hackathon, organized by ASPIRE with Engineer's Cradle, I.R.I.S. and MIT-TBI, gathered Pune students. Teams of up to two registered online and competed at their colleges. The top three teams advanced to the finals at MIT-WPU, where they built prototypes, received mentorship, and pitched to experts. Exciting prizes included cash rewards and funding opportunities.",
       image: "/past-innovation-hackathon.jpg",
       date: "2024-02-15",
     },
@@ -49,8 +49,8 @@ function Events() {
 
   return (
     <div className={styles?.events}>
-      <main className={styles?.mainContent}>
-        <h1 className={styles?.title}>Events</h1>
+      <main className={styles?.mainContent} style={{ paddingTop: '8rem' }}>
+        <h1 className={styles?.title} style={{ textAlign: "center", fontWeight: 'bolder', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }} >Events</h1>
 
         <section className={styles?.upcomingEvents}>
           <h2 className={styles?.upcoming}>Upcoming Events</h2>

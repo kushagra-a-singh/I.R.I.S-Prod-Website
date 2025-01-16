@@ -27,7 +27,7 @@ function About() {
 
       <main className={`${styles.content} py-5`}>
         <div className="container">
-          <h1 className={styles.title}>About I.R.I.S</h1>
+          <h1 className={styles.title} style={{textAlign: 'center'}}>About I.R.I.S</h1>
           <p className={styles.titleDesc}>
             I.R.I.S (Innovation Research & Intelligence Support) is a tech club dedicated to fostering innovation and supporting research in the field of technology.
           </p>
@@ -95,6 +95,19 @@ function About() {
                 </div>
               </div>
             </div>
+            <div className="col-md-6" >
+              {/* Faculty Mentor 3 */}
+              <div className={styles.mentor}>
+                <Image src="/Pratvina_mam.png" alt="Pratvina Talele" className={styles.mentorImage} width={150} height={150} />
+                <div className={styles.mentorInfo}>
+                  <h3>Dr. Pratvina Talele</h3>
+                  <p>Project Mentor</p>
+                  <a href="https://scholar.google.com/citations?hl=en&user=_sFHQ8UAAAAJ" target="_blank" rel="noopener noreferrer">
+                    View Profile
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div id="team-members" className={`${styles.teamMembers} p-4`}>
@@ -120,9 +133,9 @@ function About() {
                 { name: "Dhyey Ladani", role: "Founder", imgSrc: "/dhyey.jpg", linkedIn: "https://www.linkedin.com/in/dhyey-ladani/" },
                 { name: "Sarthak Patil", role: "Founder", imgSrc: "/sarthak.jpeg", linkedIn: "https://www.linkedin.com/in/sarthak-patil-aa453a219/" },
                 { name: "Divyansh Pathak", role: "Software Developer", imgSrc: "/divyansh.jpg", linkedIn: "https://www.linkedin.com/in/divyansh-pathak/" },
-                { name: "Siya Shah", role: "Software Developer", imgSrc: "/logo2.png", linkedIn: "https://www.linkedin.com/in/sarthak-patil-aa453a219/" },
-                { name: "Ayushi", role: "Software Developer", imgSrc: "/logo2.png", linkedIn: "https://www.linkedin.com/in/sarthak-patil-aa453a219/" },
-                { name: "Anchal", role: "Software Developer", imgSrc: "/logo2.png", linkedIn: "https://www.linkedin.com/in/sarthak-patil-aa453a219/" }
+                { name: "Siya Shaha", role: "Software Developer", imgSrc: "/siya.jpg", linkedIn: "https://www.linkedin.com/in/siya-shaha-5bb3822b4/" },
+                { name: "Ayushi Kadam", role: "Software Developer", imgSrc: "/ayushi.jpg", linkedIn: "https://www.linkedin.com/in/ayushi-kadam-8a404a2b2/" },
+                { name: "Anchal Munot", role: "Software Developer", imgSrc: "/anchal.jpg", linkedIn: "https://www.linkedin.com/in/anchal-munot-1264662b2/" }
               ].map((member, index) => (
                 <div key={index} className="col-md-4">
                   <div className={styles.card}>

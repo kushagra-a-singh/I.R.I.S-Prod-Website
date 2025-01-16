@@ -8,10 +8,19 @@
 } */
 
 .policy {
+    padding-inline: 27%;
+
+    @media (max-width: 768px) {
+        padding-inline: 30px; /* Adjust padding for tablets and smaller devices */
+    }
+  
+    @media (max-width: 480px) {
+        padding-inline: 15px; /* Adjust padding for mobile devices */
+    }
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background: url('/public/bgimg.jpeg') no-repeat center center,
+    background: url('/bgimg.jpeg') no-repeat center center,
                 url('https://www.transparenttextures.com/patterns/cubes.png');
     background-size: cover, 50px 50px;
     background-attachment: fixed;
@@ -27,51 +36,61 @@
 
 .policy::before {
     content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(237, 47, 98, 0.7) 0%, rgba(2, 2, 39, 0.7) 75%, rgba(19, 95, 225, 0.7) 100%);
-    z-index: 1;
-    transition: opacity 0.2s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(237, 47, 98, 0.7) 0%, rgba(2, 2, 39, 0.7) 75%, rgba(19, 95, 225, 0.7) 100%);
+  z-index: 1;
+  transition: opacity 0.2s ease;
 }
 
 .policyContainer {
     position: relative;
     z-index: 2;
     padding: 2rem;
+    text-align: center;
 }
 
 .policyContainer h1, .policyContainer h3 {
-    color: var(#ffffff);
-    margin: 0;
+  font-size: 48px;
+  color: white;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
 }
 
 .policyContainer h1 {
     font-size: 48px;
-    text-align: center;
+    color: white;
     text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
-}
+  }
 
-.policyContainer h3 {
+  .policyContainer h3 {
     font-size: 21px;
-    text-align: center;
     padding-bottom: 50px;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
-}
+  }
+
+  .policyCard h2 {
+    font-weight: light;
+    font-size: 21px;
+  }
 
 .policyCard {
-    background-color: var(rgba(255, 255, 255, 0.8));
+    text-align: left;
+    background-color: rgba(255, 255, 255, 0.8);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    color: #212529;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .policyCard:hover {
     transform: translateY(-8px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
 }
 
 .cardsContainer {
@@ -80,6 +99,10 @@
     display: flex;
     flex-direction: column;
 }
+
+.text {
+    color: white;
+  }
 
 /* footer {
     z-index: 3;

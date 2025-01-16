@@ -1,16 +1,24 @@
 .refund {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; 
-    background: url('/public/bgimg.jpeg') no-repeat center center,
-                url('https://www.transparenttextures.com/patterns/cubes.png');
-    background-size: cover, 50px 50px;
-    background-attachment: fixed;
-    color: rgba(255, 255, 255, 0.886);
-    position: relative;
-    overflow: hidden;
-}
+  padding-inline: 27%;
 
+  @media (max-width: 768px) {
+      padding-inline: 30px; /* Adjust padding for tablets and smaller devices */
+  }
+
+  @media (max-width: 480px) {
+      padding-inline: 15px; /* Adjust padding for mobile devices */
+  }
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: url('/bgimg.jpeg') no-repeat center center,
+              url('https://www.transparenttextures.com/patterns/cubes.png');
+  background-size: cover, 50px 50px;
+  background-attachment: fixed;
+  color: rgba(255, 255, 255, 0.886);
+  position: relative;
+  overflow: hidden;
+}
 
 .refund::before {
   content: '';
@@ -24,56 +32,57 @@
   transition: opacity 0.2s ease;
 }
 
-.refund-container {
+.refundContainer {
   position: relative;
   z-index: 2;
   padding: 2rem;
 }
 
-.refund-container h1, .refund-container h3 {
-  color: var(#ffffff);
+.refundContainer h1,
+.refundContainer h3 {
+  color: #ffffff;
   margin: 0;
 }
 
-.refund-container h1 {
+.refundContainer h1 {
   font-size: 48px;
   text-align: center;
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
 }
 
-.refund-container h3 {
+.refundContainer h3 {
   font-size: 21px;
   text-align: center;
   padding-bottom: 50px;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3); 
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
 }
 
-
-.policy-card {
-  background-color: var(rgba(255, 255, 255, 0.8));
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); 
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.policy-card:hover {
-  transform: translateY(-8px); 
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25); 
-}
-
-.cards-container {
-  color: var(#212529);
+.cardsContainer {
+  color: #212529;
   gap: 40px;
   display: flex;
   flex-direction: column;
 }
 
-.cards-container h2 {
+.policyCard {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.policyCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.policyCard h2 {
   font-size: 21px;
 }
 
 .text {
-  color: var(#ffffff);
+  color: #ffffff;
+  text-align: center;
+  padding-top: 20px;
 }
-

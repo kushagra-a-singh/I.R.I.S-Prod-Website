@@ -119,10 +119,10 @@ function About() {
                 { name: "Parth Ware", role: "Founder", imgSrc: "/Parth.jpg", linkedIn: "https://www.linkedin.com/in/parth-ware-48993324a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" },
                 { name: "Dhyey Ladani", role: "Founder", imgSrc: "/dhyey.jpg", linkedIn: "https://www.linkedin.com/in/dhyey-ladani/" },
                 { name: "Sarthak Patil", role: "Founder", imgSrc: "/sarthak.jpeg", linkedIn: "https://www.linkedin.com/in/sarthak-patil-aa453a219/" },
-                { name: "Divyansh Pathak", role: "", imgSrc: "/divyansh.jpg", linkedIn: "https://www.linkedin.com/in/divyansh-pathak/" },
-                { name: "Siya Shah", role: "", imgSrc: "/sarthak.jpeg", linkedIn: "https://www.linkedin.com/in/sarthak-patil-aa453a219/" },
-                { name: "Ayushi", role: "", imgSrc: "/sarthak.jpeg", linkedIn: "https://www.linkedin.com/in/sarthak-patil-aa453a219/" },
-                { name: "Anchal", role: "", imgSrc: "/sarthak.jpeg", linkedIn: "https://www.linkedin.com/in/sarthak-patil-aa453a219/" }
+                { name: "Divyansh Pathak", role: "Software Developer", imgSrc: "/divyansh.jpg", linkedIn: "https://www.linkedin.com/in/divyansh-pathak/" },
+                { name: "Siya Shah", role: "Software Developer", imgSrc: "/logo2.png", linkedIn: "https://www.linkedin.com/in/sarthak-patil-aa453a219/" },
+                { name: "Ayushi", role: "Software Developer", imgSrc: "/logo2.png", linkedIn: "https://www.linkedin.com/in/sarthak-patil-aa453a219/" },
+                { name: "Anchal", role: "Software Developer", imgSrc: "/logo2.png", linkedIn: "https://www.linkedin.com/in/sarthak-patil-aa453a219/" }
               ].map((member, index) => (
                 <div key={index} className="col-md-4">
                   <div className={styles.card}>

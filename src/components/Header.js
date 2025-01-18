@@ -21,7 +21,7 @@ function Header() {
 
   return (
     <header className={`fixed-top ${scrolled ? 'scrolled' : ''}`}>
-    <nav className={`navbar navbar-expand-lg navbar-dark ${scrolled ? 'navbar-dark-scrolled' : ''}`} style={{backgroundColor: 'rgba(0, 0, 0, 0.8)' }} >
+  <nav className={`navbar navbar-expand-lg navbar-dark ${scrolled ? 'navbar-dark-scrolled' : ''}`} style={{backgroundColor: 'rgba(0, 0, 0, 0.8)' }} >
       <div className="container" style={{
        background: 'linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(75, 1, 64) 50%, rgb(54, 1, 75) 100%)',
        transition: 'all 0.3s ease',

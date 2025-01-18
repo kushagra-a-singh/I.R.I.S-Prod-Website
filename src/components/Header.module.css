@@ -9,17 +9,17 @@
   padding: 0;
 }
 
-/* .navbar {
+.navbar {
   background: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(75, 1, 64) 50%, rgb(54, 1, 75) 100%);
   transition: all 0.3s ease;
   border-radius: 0 0 15px 15px;
   border: none; 
   margin: 0;
   padding: 0;
-} */
+}
 
 
-.navbar{
+/* .navbar{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,7 +29,7 @@
   border: none; 
   margin: 0;
   padding: 0;
-}
+} */
 
 
 .navbar-dark-scrolled {

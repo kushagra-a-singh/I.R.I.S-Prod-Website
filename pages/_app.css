@@ -1,13 +1,3 @@
-.App {
-  padding: 0 !important;
-  margin: 0;
-  background: transparent;
-}
-
-*{
-  margin: 0;
-  padding: 0;
-}
 
 *::-webkit-scrollbar {
   width: 7px;               /* width of the entire scrollbar */
@@ -21,44 +11,4 @@
   background-color: #9100cb;    /* color of the scroll thumb */
   border-radius: 20px;       /* roundness of the scroll thumb */
   border: 3px solid #9100cb;  /* creates padding around scroll thumb */
-}
-
-header {
-  z-index: 3;
-  background-color: rgba(0, 0, 0, 0.8);
-  padding: 1rem;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-}
-
-html, body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

@@ -74,6 +74,10 @@
 .navLink:hover,
 .active {
   color: #e0e0e0 !important;
+  /* font-weight: bold; */
+}
+
+.active{
   font-weight: bold;
 }
 
@@ -103,6 +107,6 @@
 
 .navbarRightContent {
   display: flex;
-  gap: 20px;
+  gap: 25px;
   text-decoration: none;
 }

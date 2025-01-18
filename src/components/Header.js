@@ -8,31 +8,6 @@ function Header() {
   const [scrolled, setScrolled] = useState(false);
   const router = useRouter();
 
-  useEffect(() => {
-    const handleRouteChange = () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
-    router.events.on('routeChangeComplete', handleRouteChange);
-
-    return () => {
-      router.events.off('routeChangeComplete', handleRouteChange);
-    };
-  }, [router.events]); 
-
-  const topscrollFunction = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
 
   const handleNavLinkClick = () => {
     const navbarCollapse = document.getElementById('navbarSupportedContent');

@@ -1,5 +1,5 @@
 //import '../styles/globals.css';
-import Header from '../src/components/Header';
+import Header2 from '../src/components/Header2';
 import Footer from '../src/components/Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect } from 'react';
@@ -35,7 +35,7 @@ function App({ Component, pageProps }) {
           padding-top: 60px;  /* Adjust this value based on your header height */
         }
       `}</style>
-      <Header />
+      <Header2 style={{ position: 'fixed', top: 0, left: 0, right: 0}} />
       <Component {...pageProps} />
       <Footer />
     </div>

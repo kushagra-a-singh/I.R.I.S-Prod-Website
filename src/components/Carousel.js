@@ -27,6 +27,8 @@ export const Carousel = ({ data }) => {
   return (
     <div className={styles.carousel}>
       <BsArrowLeftCircleFill 
+        size={40}
+        style={{cursor: 'pointer'}}
         onClick={prevSlide} 
         className={styles.arrowLeft} 
       />
@@ -48,6 +50,8 @@ export const Carousel = ({ data }) => {
 
       <BsArrowRightCircleFill 
         onClick={nextSlide} 
+        size={40}
+        style={{cursor: 'pointer'}}
         className={styles.arrowRight} 
       />
       <span className={styles.indicators}>

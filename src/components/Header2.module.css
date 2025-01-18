@@ -1,0 +1,108 @@
+.navbarWrapper {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.scrolled {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.mainNavbar {
+  width: 97%;
+  position: relative;
+  margin: 0 auto;
+  top: 1px;
+  display: flex;
+  justify-content: space-between; /* Ensure proper spacing */
+  align-items: center; /* Align vertically */
+  height: 70px; /* Ensure proper height */
+}
+
+@media (max-width: 991px) {
+  .navbarRightContent {
+    position: relative;
+    left: auto;
+    transform: none;
+    justify-content: flex-end;
+  }
+}
+
+.navbarRightContent {
+  display: flex;
+  gap: 13px;
+  text-decoration: none;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.navbarCustom {
+  background: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(75, 1, 64) 50%, rgb(54, 1, 75) 100%);
+  border-radius: 0 0 15px 15px;
+  transition: all 0.3s ease;
+}
+
+/* Navbar items should expand downward without shifting */
+.navbar-collapse {
+  background: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(75, 1, 64) 50%, rgb(54, 1, 75) 100%);
+  border-radius: 0 0 15px 15px;
+  padding: 10px;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 100%; /* Make it appear below navbar */
+}
+
+.navbarContainer {
+  display: flex;
+  align-items: center;
+}
+
+.logoImg {
+  width: 40px;
+  height: 40px;
+}
+
+.navLink {
+  color: white !important;
+  transition: color 0.3s ease-in-out;
+}
+
+.navLink:hover,
+.active {
+  color: #e0e0e0 !important;
+  font-weight: bold;
+}
+
+.active {
+  color: #ff00ff98 !important;
+}
+
+.headerContainer {
+  display: flex;
+  height: 90px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.714);
+}
+
+.navItem {
+  font-size: 18px;
+  transition-duration: 0.3s;
+}
+
+.navItem:hover {
+  font-weight: normal;
+  color: #a600ff;
+  transform: scale(1.05);
+  text-shadow: 0px 0px 5px rgba(123, 0, 255, 0.7);
+}
+
+.navbarRightContent {
+  display: flex;
+  gap: 20px;
+  text-decoration: none;
+}

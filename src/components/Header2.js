@@ -51,7 +51,7 @@ function Header2() {
               { name: 'Contact', path: '/contact' }
             ].map((item) => (
               <li  className={styles.navItem} key={item.path}>
-                <Link style={{textDecoration: 'none'}} className={`${styles.navLink} ${router.pathname === item.path ? styles.active : ''}`} href={item.path} >
+                <Link style={{textDecoration: 'none'}} className={`${styles.navLink} ${router.pathname === item.path ? styles.active : ''}`} href={item.path} onClick={handleNavLinkClick} >
                   {item.name}
                 </Link>
               </li>

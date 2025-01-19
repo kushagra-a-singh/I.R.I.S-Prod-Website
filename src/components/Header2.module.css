@@ -18,7 +18,7 @@
   display: flex;
   justify-content: space-between; /* Ensure proper spacing */
   align-items: center; /* Align vertically */
-  height: 70px; /* Ensure proper height */
+  /* height: 70px; Ensure proper height */
 }
 
 @media (max-width: 991px) {
@@ -46,15 +46,21 @@
 }
 
 /* Navbar items should expand downward without shifting */
-.navbar-collapse {
-  background: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(75, 1, 64) 50%, rgb(54, 1, 75) 100%);
-  border-radius: 0 0 15px 15px;
-  padding: 10px;
-  position: absolute;
-  width: 100%;
-  left: 0;
-  top: 100%; /* Make it appear below navbar */
+  @media (max-width: 991px) {
+  .navbarCollapse {
+    background: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(75, 1, 64) 50%, rgb(54, 1, 75) 100%);
+    border-radius: 0 0 15px 15px;
+    padding: 10px;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 88%;
+    height: 430px; 
+   }
+  
 }
+
+
 
 .navbarContainer {
   display: flex;

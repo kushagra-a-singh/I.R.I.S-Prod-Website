@@ -135,7 +135,7 @@ function Home() {
                 <div className="col-lg-6 text-center text-lg-start">
                   <h1
                     className={`${styles.arial} display-3 fw-bold`}
-                    style={{ letterSpacing: '0.1em' }}
+                    style={{ letterSpacing: '0.1em', textAlign: 'center', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}
                   >
                     I.R.I.S.
                   </h1>

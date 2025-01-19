@@ -25,7 +25,7 @@ function Header2() {
     <nav className={` ${styles.mainNavbar} navbar navbar-expand-lg navbar-dark ${styles.navbarCustom}`}>
       <div className={`container ${styles.navbarContainer}`}>
         <Link className="navbar-brand" href="/">
-          <Image src="/logo.png" alt="Logo" className={styles.logoImg} width={40} height={40} />
+          <Image src="/logo3.gif" alt="Logo" className={styles.logoImg} width={40} height={40} />
         </Link>
         <button
           className="navbar-toggler"
@@ -38,7 +38,7 @@ function Header2() {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className={`collapse navbar-collapse`} id="navbarSupportedContent">
+        <div className={`collapse ${styles.navbarCollapse} navbar-collapse`} id="navbarSupportedContent">
           <ul className={`navbar-nav ms-auto ${styles.navbarRightContent}`}>
             {[
               { name: 'Home', path: '/' },
@@ -51,7 +51,7 @@ function Header2() {
               { name: 'Contact', path: '/contact' }
             ].map((item) => (
               <li  className={styles.navItem} key={item.path}>
-                <Link style={{textDecoration: 'none'}} className={`${styles.navLink} ${router.pathname === item.path ? styles.active : ''}`} href={item.path}>
+                <Link style={{textDecoration: 'none'}} className={`${styles.navLink} ${router.pathname === item.path ? styles.active : ''}`} href={item.path} >
                   {item.name}
                 </Link>
               </li>

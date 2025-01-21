@@ -85,10 +85,11 @@ const Event2 = () => {
 
             <section className={styles.eventRegistration}>
               <h3>Stay Connected 📩</h3>
-              <p>If you&apos;re interested in participating in future events or have any questions, feel free to reach out to us!</p>
+              <p>If you&apos;re interested in participating in future events or have any questions, feel free to reach out to us!
               <Link href="/contact" className={styles.registerBtn}>
               Contact Us
               </Link>
+              </p>
             </section>
           </div>
         </main>

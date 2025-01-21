@@ -60,6 +60,11 @@ const Projects1 = () => {
             </Link>
 
           </section>
+          <section className={styles.githublink}>
+          <h2> Project Github Link</h2>
+          <a href= "https://github.com/kushagra-a-singh/I.R.I.S-PROD" > Github Repository</a>
+            
+          </section>
 
         </div>
       </main>

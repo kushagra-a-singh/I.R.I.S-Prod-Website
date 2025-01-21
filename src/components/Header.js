@@ -8,31 +8,6 @@ function Header() {
   const [scrolled, setScrolled] = useState(false);
   const router = useRouter();
 
-  useEffect(() => {
-    const handleRouteChange = () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
-    router.events.on('routeChangeComplete', handleRouteChange);
-
-    return () => {
-      router.events.off('routeChangeComplete', handleRouteChange);
-    };
-  }, [router.events]); 
-
-  const topscrollFunction = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
 
   const handleNavLinkClick = () => {
     const navbarCollapse = document.getElementById('navbarSupportedContent');
@@ -46,7 +21,7 @@ function Header() {
 
   return (
     <header className={`fixed-top ${scrolled ? 'scrolled' : ''}`}>
-    <nav className={`navbar navbar-expand-lg navbar-dark ${scrolled ? 'navbar-dark-scrolled' : ''}`} style={{backgroundColor: 'rgba(0, 0, 0, 0.8)' }} >
+  <nav className={`navbar navbar-expand-lg navbar-dark ${scrolled ? 'navbar-dark-scrolled' : ''}`} style={{backgroundColor: 'rgba(0, 0, 0, 0.8)' }} >
       <div className="container" style={{
        background: 'linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(75, 1, 64) 50%, rgb(54, 1, 75) 100%)',
        transition: 'all 0.3s ease',

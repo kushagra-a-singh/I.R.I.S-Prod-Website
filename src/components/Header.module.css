@@ -18,6 +18,20 @@
   padding: 0;
 }
 
+
+/* .navbar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(132, 73, 184, 0.9);
+  transition: all 0.3s ease;
+  border-radius: 0 0 15px 15px;
+  border: none; 
+  margin: 0;
+  padding: 0;
+} */
+
+
 .navbar-dark-scrolled {
   background: rgba(132, 73, 184, 0.9);
   border-bottom: 2px solid #aa00ff;

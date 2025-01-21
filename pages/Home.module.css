@@ -1,3 +1,24 @@
+@keyframes galleryScroll {
+  from{
+      opacity: 0.3;
+      transform: translateY(100px);
+  }to{
+      opacity: 1;
+      transform: translateY(0px);
+  }
+}
+
+@keyframes homeBootup {
+  from {
+      opacity: 0;
+      transform: translateY(-50px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+  
+}
 
 .home {
   /* margin: 0; */
@@ -91,6 +112,8 @@
   text-align: center;
   color: #ffffff !important;
   max-width: 100%;
+  animation-name: homeBootup;
+  animation-duration: 2s;
 }
 
 .wordart {
@@ -124,6 +147,8 @@
 }
 
 .step {
+  animation-name: homeBootup;
+  animation-duration: 1s;
   background: rgba(23, 37, 90, 0.8);
   color: #fff;
   border-radius: 8px;
@@ -291,4 +316,9 @@
   width: 160px; 
   height: auto; 
   margin-top: 10px; 
+}
+
+
+.animate {
+  animation: galleryScroll 0.8s ease-out forwards; /* Add animation */
 }

@@ -3,9 +3,28 @@ import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
 import styles from './Home.module.css';
 import Image from 'next/image';
+import { useInView } from 'react-intersection-observer';
 
 function Home() {
-  
+  // Create separate refs and inView flags for each container
+  const {
+    ref: refProjects,
+    inView: inViewProjects
+  } = useInView({ triggerOnce: true, threshold: 0.5 });
+
+  const {
+    ref: refEvents,
+    inView: inViewEvents
+  } = useInView({ triggerOnce: true, threshold: 0.5 });
+
+  const {
+    ref: refBlogs,
+    inView: inViewBlogs
+  } = useInView({ triggerOnce: true, threshold: 0.5 });
+
+  // Remove the scroll listener that queried all elements at once.
+  // Each container now has its own Intersection Observer reference.
+
   const section1 = [
     {
       title: "TARZAN",
@@ -59,27 +78,22 @@ function Home() {
     const interval = setInterval(() => {
       setSectionIndex1((prevIndex) => (prevIndex + 1) % section1.length);
     }, 5000);
-
     return () => clearInterval(interval);
   }, [section1.length]);
+
   useEffect(() => {
     const interval = setInterval(() => {
-      setSectionIndex2((prevIndex) =>
-        (prevIndex + 1) % section2.length
-      );
+      setSectionIndex2((prevIndex) => (prevIndex + 1) % section2.length);
     }, 7000);
-
     return () => clearInterval(interval);
   }, [section2.length]);
+
   useEffect(() => {
     const interval = setInterval(() => {
       setSectionIndex3((prevIndex) => (prevIndex + 1) % section3.length);
     }, 5000);
-
     return () => clearInterval(interval);
   }, [section3.length]);
-
-
 
   const handlePrev1 = () => {
     setSectionIndex1((prevIndex) =>
@@ -96,9 +110,7 @@ function Home() {
     );
   };
   const handleNext2 = () => {
-    setSectionIndex2((prevIndex) =>
-      (prevIndex + 1) % section2.length
-    );
+    setSectionIndex2((prevIndex) => (prevIndex + 1) % section2.length);
   };
 
   const handlePrev3 = () => {
@@ -107,16 +119,13 @@ function Home() {
     );
   };
   const handleNext3 = () => {
-    setSectionIndex3((prevIndex) =>
-      (prevIndex + 1) % section3.length
-    );
+    setSectionIndex3((prevIndex) => (prevIndex + 1) % section3.length);
   };
-
 
   return (
     <div className={styles.home}>
       <video className={styles.backgroundVideo} autoPlay muted loop>
-        <source
+      <source
           src="https://rkvbuqdjkilvqlywzjsi.supabase.co/storage/v1/object/sign/AboutPhotos/Videos/vid2.mp4?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJBYm91dFBob3Rvcy9WaWRlb3MvdmlkMi5tcDQiLCJpYXQiOjE3MzA5MDA1MDcsImV4cCI6MTc2MjQzNjUwN30.qMfRi7Uxvtpz4rRnaN6bTSQzEE_AtxrRQMBp2qR5YEI&t=2024-11-06T13%3A41%3A48.487Z"
           type="video/mp4"
         />
@@ -135,7 +144,7 @@ function Home() {
                 <div className="col-lg-6 text-center text-lg-start">
                   <h1
                     className={`${styles.arial} display-3 fw-bold`}
-                    style={{ letterSpacing: '0.1em' }}
+                    style={{ letterSpacing: '0.1em', textAlign: 'center', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}
                   >
                     I.R.I.S.
                   </h1>
@@ -149,7 +158,7 @@ function Home() {
                 </div>
                 <div className="col-lg-6 text-center">
                   <video className={styles.heroVideo} autoPlay loop muted>
-                    <source
+                  <source
                       src="https://rkvbuqdjkilvqlywzjsi.supabase.co/storage/v1/object/sign/AboutPhotos/Videos/vid1.mp4?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJBYm91dFBob3Rvcy9WaWRlb3MvdmlkMS5tcDQiLCJpYXQiOjE3MzA4OTk4MjMsImV4cCI6MTc2MjQzNTgyM30.C_yjMhQfYEszRhFBj9DrlK3rUF4-ugkIRdR7t4vkXkU&t=2024-11-06T13%3A30%3A24.685Z"
                       type="video/mp4"
                     />
@@ -161,9 +170,7 @@ function Home() {
           </div>
 
           {/* Journey Section */}
-          <div
-            className={`${styles.journey} py-5 text-center text-light`}
-          >
+          <div className={`${styles.journey} py-5 text-center text-light`}>
             <div className="container">
               <h3 className={styles.journeyTitle}>
                 Join us on the I.R.I.S. Journey
@@ -200,12 +207,17 @@ function Home() {
             </div>
           </div>
 
-          {/* Sliding section 1 */}
+          {/* Sliding section 1 (Projects) */}
           <h3 className={`${styles.journeyTitle} ${styles.projectsTitle}`}>
             Projects
           </h3>
           <div
-            className={`${styles.newSectionContainer} d-flex align-items-center`}
+            className={`
+              ${styles.newSectionContainer} 
+              d-flex 
+              align-items-center 
+              ${inViewProjects ? styles.animate : ''}
+            `}
             style={{
               margin: '30px 0',
               borderRadius: '20px',
@@ -214,6 +226,7 @@ function Home() {
               color: '#fff',
               padding: '20px',
             }}
+            ref={refProjects} // Use the 'refProjects' for Projects
           >
             <div className="container">
               <div className="row align-items-center">
@@ -242,8 +255,6 @@ function Home() {
                 </div>
               </div>
             </div>
-
-            {/* Arrows 1 */}
             <button
               onClick={handlePrev3}
               className={`${styles.arrow} ${styles.leftArrow}`}
@@ -258,12 +269,17 @@ function Home() {
             </button>
           </div>
 
-          {/* Sliding section 2 */}
+          {/* Sliding section 2 (Events) */}
           <h3 className={`${styles.journeyTitle} ${styles.eventsTitle}`}>
             Events
           </h3>
           <div
-            className={`${styles.newSectionContainer} d-flex align-items-center`}
+            className={`
+              ${styles.newSectionContainer} 
+              d-flex 
+              align-items-center 
+              ${inViewEvents ? styles.animate : ''}
+            `}
             style={{
               margin: '30px 0',
               borderRadius: '20px',
@@ -272,6 +288,7 @@ function Home() {
               color: '#fff',
               padding: '20px',
             }}
+            ref={refEvents} // Use the 'refEvents' for Events
           >
             <div className="container">
               <div className="row align-items-center">
@@ -300,8 +317,6 @@ function Home() {
                 </div>
               </div>
             </div>
-
-            {/* Arrows 2*/}
             <button
               onClick={handlePrev2}
               className={`${styles.arrow} ${styles.leftArrow}`}
@@ -316,12 +331,17 @@ function Home() {
             </button>
           </div>
 
-          {/* Sliding section 3 */}
+          {/* Sliding section 3 (Blogs) */}
           <h3 className={`${styles.journeyTitle} ${styles.blogsTitle}`}>
             Blogs
           </h3>
           <div
-            className={`${styles.newSectionContainer} d-flex align-items-center`}
+            className={`
+              ${styles.newSectionContainer} 
+              d-flex 
+              align-items-center 
+              ${inViewBlogs ? styles.animate : ''}
+            `}
             style={{
               margin: '30px 0',
               borderRadius: '20px',
@@ -330,6 +350,7 @@ function Home() {
               color: '#fff',
               padding: '20px',
             }}
+            ref={refBlogs} // Use the 'refBlogs' for Blogs
           >
             <div className="container">
               <div className="row align-items-center">
@@ -358,8 +379,6 @@ function Home() {
                 </div>
               </div>
             </div>
-
-            {/* Arrows 3*/}
             <button
               onClick={handlePrev1}
               className={`${styles.arrow} ${styles.leftArrow}`}
@@ -373,7 +392,6 @@ function Home() {
               &#8250;
             </button>
           </div>
-
         </main>
       </div>
     </div>

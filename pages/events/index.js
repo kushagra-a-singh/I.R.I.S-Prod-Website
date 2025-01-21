@@ -91,7 +91,7 @@ function Events() {
           </div>
         </section>
 
-        <section id="podcasts" className={styles?.podcasts}>
+        <section id="podcasts" className={styles?.podcasts} style={{ marginBottom: '4rem' }}>
           <h2 className={styles?.podcastTitle}>Podcasts</h2>
           <div className={styles?.eventList}>
             <div key={podcast.id} className={styles?.eventCard}>
@@ -99,8 +99,8 @@ function Events() {
                 className={styles?.eventImage}
                 src={podcast.image}
                 alt={podcast.title}
-                width={600}
-                height={400}
+                width={700}
+                height={500}
                 layout="responsive"
               />
               <div className={styles?.eventDetails}>

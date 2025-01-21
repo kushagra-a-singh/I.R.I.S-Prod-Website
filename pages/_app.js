@@ -4,6 +4,7 @@ import Footer from '../src/components/Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { useEffect } from 'react';
+import Head from 'next/head';
 
 
 function App({ Component, pageProps }) {
@@ -22,6 +23,16 @@ function App({ Component, pageProps }) {
       position: 'relative',
       overflow: 'hidden'
     }}>
+       <Head>
+        <title>I.R.I.S - Innovation Research & Intelligence Support</title>
+        {/* Add favicon links here */}
+        <link rel="icon" href="/logo.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/logo.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/logo-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/logo-16x16.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <meta name="theme-color" content="#ffffff" />
+      </Head>
       <style jsx global>{`
         body {
           margin: 0;

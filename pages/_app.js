@@ -2,6 +2,7 @@ import './_app.css';
 import Header2 from '../src/components/Header2';
 import Footer from '../src/components/Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 import { useEffect } from 'react';
 
 function App({ Component, pageProps }) {

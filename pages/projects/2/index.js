@@ -59,6 +59,11 @@ function Projects2() {
           Recruitment form
         </Link>
       </div>
+      <div className={styles.githublink}>
+          <h2> Project GitHub Link</h2>
+          <a href= "https://github.com/kushagra-a-singh/Tarzan-I.R.I.S."> Github Repository</a>
+            
+      </div>
     </div>
   );
 };

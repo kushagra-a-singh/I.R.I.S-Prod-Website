@@ -58,7 +58,7 @@
     to { transform: translateY(0); opacity: 1; }
 } 
 
-.aboutwebsite, .websitefeatures, .webtechnologies, .projectRegistration {
+.aboutwebsite, .websitefeatures, .webtechnologies, .projectRegistration, .githublink {
     margin-top: 35px;
     margin-bottom: 40px;
     padding: 30px;

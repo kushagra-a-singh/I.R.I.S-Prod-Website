@@ -73,7 +73,7 @@
     to { transform: translateY(0); opacity: 1; }
 }
 
-.eventDetails, .eventIntro, .eventJourney, .eventHighlights, .eventRewards, .eventRules, .eventSignificance {
+.eventDetails, .eventIntro, .eventJourney, .eventHighlights, .eventRewards, .eventRules, .eventSignificance, .eventRegistration {
     margin-bottom: 40px;
     padding: 20px;
     background-color: rgba(0, 0, 0, 0.4); 
@@ -82,11 +82,11 @@
     transition: transform 0.3s ease;
 }
 
-.eventDetails:hover, .eventIntro:hover, .eventJourney:hover, .eventHighlights:hover, .eventRewards:hover, .eventRules:hover, .eventSignificance:hover {
+.eventDetails:hover, .eventIntro:hover, .eventJourney:hover, .eventHighlights:hover, .eventRewards:hover, .eventRules:hover, .eventSignificance:hover,.eventRegistration:hover {
     transform: scale(1.05);
 }
 
-.eventDetails p, .eventIntro p, .eventJourney p, .eventHighlights ul, .eventRewards ul, .eventRules ul, .eventSignificance p {
+.eventDetails p, .eventIntro p, .eventJourney p, .eventHighlights ul, .eventRewards ul, .eventRules ul, .eventSignificance p,.eventRegistration p {
     font-size: 18px;
     color: #f5f5f5;
 }

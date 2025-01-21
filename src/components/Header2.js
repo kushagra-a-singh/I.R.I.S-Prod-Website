@@ -27,12 +27,12 @@ function Header2() {
   const handleNavLinkClick = () => {
     const navbarCollapse = document.getElementById('navbarSupportedContent');
     if (navbarCollapse && navbarCollapse.classList.contains('show')) {
-      const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse) || 
-                         new bootstrap.Collapse(navbarCollapse, { toggle: false });
+      const bsCollapse =
+        bootstrap.Collapse.getInstance(navbarCollapse) ||
+        new bootstrap.Collapse(navbarCollapse, { toggle: false });
       bsCollapse.hide();
     }
   };
-  
 
   return (
     <header className={`${styles.navbarWrapper} ${scrolled ? styles.scrolled : ''}`}>

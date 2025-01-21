@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { useEffect } from 'react';
 
+
 function App({ Component, pageProps }) {
 
   useEffect(() => {

@@ -64,6 +64,7 @@ function Projects2() {
           <a href= "https://github.com/IRIS-MITWPU/Tarzan" > Github Repository</a>
             
       </div>s
+      
     </div>
   );
 };

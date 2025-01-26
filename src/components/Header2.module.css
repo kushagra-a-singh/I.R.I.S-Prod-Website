@@ -75,6 +75,7 @@
 .navLink {
   color: white !important;
   transition: color 0.3s ease-in-out;
+  white-space: nowrap;
 }
 
 .navLink:hover,

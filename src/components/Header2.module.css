@@ -11,14 +11,14 @@
 }
 
 .mainNavbar {
-  width: 97%;
+  width: 100%;
   position: relative;
   margin: 0 auto;
   top: 1px;
   display: flex;
   justify-content: space-between; /* Ensure proper spacing */
   align-items: center; /* Align vertically */
-  /* height: 70px; Ensure proper height */
+  height: 70px; /*Ensure proper height */
 }
 
 @media (max-width: 991px) {

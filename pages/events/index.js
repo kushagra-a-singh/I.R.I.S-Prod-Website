@@ -6,6 +6,19 @@ import styles from './Events.module.css';
 function Events() {
   const pastEvents = [
     {
+      id: 3,
+      title: "I.R.I.S. Ice Breaker 2025",
+      //description: "We hope you enjoyed the exhilarating event organized by the I.R.I.S. Club!",
+      //image: "/sephackathon.jpg",
+      date: "2025-01-24",
+      /*highlights: [
+        "The I.R.I.S. Innovation Hackathon gathered enthusiastic participants competing for exciting prizes, including ₹36,000 in BharatGo vouchers for the top three teams.",
+        "The event offered valuable networking opportunities, allowing attendees to connect with industry leaders and fellow innovators.",
+        "This collaborative environment fostered teamwork and creativity, leading to innovative solutions to real-world challenges.",
+      ],*/
+      //conclusion: "Thank you for joining us and contributing to a dynamic event that fuels creativity and innovation!",
+    },
+    {
       id: 2,
       title: "I.R.I.S. Innovation Hackathon 2024",
       description: "We hope you enjoyed the exhilarating event organized by the I.R.I.S. Club!",

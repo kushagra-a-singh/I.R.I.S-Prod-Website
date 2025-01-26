@@ -55,15 +55,15 @@ function Projects2() {
       <div className={styles['projectRegistration']}>
         <h3>Stay Connected 📩</h3>
         <p>If you&apos;re interested in participating in this project or have any questions, feel free to reach out to us!</p>
-        <Link href="/recruitment" className={styles['registerBtn']}>
+        <Link href="/recruitments" className={styles['registerBtn']}>
           Recruitment form
         </Link>
       </div>
       <div className={styles.githublink}>
           <h2> Project GitHub Link</h2>
-          <a href= "https://github.com/kushagra-a-singh/Tarzan-I.R.I.S."> Github Repository</a>
+          <a href= "https://github.com/IRIS-MITWPU/Tarzan" > Github Repository</a>
             
-      </div>
+      </div>s
     </div>
   );
 };

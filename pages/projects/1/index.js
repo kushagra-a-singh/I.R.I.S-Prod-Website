@@ -62,7 +62,7 @@ const Projects1 = () => {
           </section>
           <section className={styles.githublink}>
           <h2> Project Github Link</h2>
-          <a href= "https://github.com/kushagra-a-singh/I.R.I.S-PROD" > Github Repository</a>
+          <a href= "https://github.com/IRIS-MITWPU/I.R.I.S-Prod-Website" > Project Repository</a>
             
           </section>
 

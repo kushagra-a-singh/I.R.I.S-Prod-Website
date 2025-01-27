@@ -2,33 +2,33 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import styles from './event3.module.css';
 
 const Event3 = () => {
   return (
     <>
-      <div className={"eventPage"}>
-        <div className={"overlay"}></div>
+      <div className={styles.eventPage}>
+        <div className={styles.overlay}></div>
         <main className="container">
-          <div className={"content"}>
-            <div className={"eventImageContainer"}>
-              {/* <Image
-                src="/sephackathon.jpg"
-                alt="IRIS Innovation Hackathon 2024"
+          <div className={styles.content}>
+            <div className={styles.eventImageContainer}>
+              {<Image
+                src="/event3.jpeg"
+                alt="Ice breaker"
                 className={"eventImage"}
-                width={800}
+                width={500}
                 height={500} 
-              /> */ }
+              />  }
             </div>
-            <h1 className={"title"}> I.R.I.S. Ice Breaker 2025 </h1>
+            <h1 className={styles.title}> I.R.I.S. Ice Breaker 2025 </h1>
             
 
-            <div className={"eventDetails"}>
+            <div className={styles.eventDetails}>
               <p>Date: 24th January 2025</p>
               <p>Venue: MIT-WPU Campus</p>
               <p>Host: IRIS </p>
             </div>
-            <section className={"eventObjective"}> 
+            <section className={styles.eventObjective}> 
               <h3>Event Objective</h3>
               <ul>
                 <li>
@@ -41,9 +41,9 @@ const Event3 = () => {
                 To discuss and exchange ideas for the upcoming events being planned by IRIS.
                 </li>
               </ul>
-              <div className={"sectionDivider"}></div>
+              <div className={styles.sectionDivider}></div>
             </section>
-            <section className={"eventJourney"}> 
+            <section className={styles.eventJourney}> 
                 
               <h3>How It Happened </h3>
               <p>Over 25+ members enthusiastically join the IRIS Ice Breaker 2025 session, along with the core team and existing members.s</p> 
@@ -81,13 +81,13 @@ const Event3 = () => {
                 <li>The event concluded with a group photo to commemorate the successful session.</li>
                 </ul>
               </ol>
-              <div className={"sectionDivider"}></div>
+              <div className={styles.sectionDivider}></div>
             </section>
             
 
            
 
-            <section className={"eventHighlights"}>
+            <section className={styles.eventHighlights}>
               <h3>Session Highlights</h3>
               <ol>
                 <li>Strengthened relationships among IRIS members, both old and new.</li>
@@ -95,22 +95,22 @@ const Event3 = () => {
                 <li>Valuable inputs and ideas gathered for the upcoming event.</li>
                 <li>Fostered a collaborative and welcoming environment.</li>
               </ol>
-              <div className={"sectionDivider"}></div>
+              <div className={styles.sectionDivider}></div>
             </section>
 
 
-            <section className={"eventConclusion"}>
+            <section className={styles.eventConclusion}>
               <h3>Conclusion</h3>
               <p>
               The IRIS Ice Breaker 2025 successfully achieved its objectives of building team spirit, engaging recruits, and laying the foundation for future activities. The session reflected the vibrant and innovative spirit of IRIS and set a positive tone for the year ahead.
               </p>
-              <div className={"sectionDivider"}></div>
+              <div className={styles.sectionDivider}></div>
             </section>
 
-           <section className={"eventRegistration"}>
+           <section className={styles.eventRegistration}>
               <h3>Stay Connected </h3>
               <p>If you&apos;re interested in participating in future events or have any questions, feel free to reach out to us!
-              <Link href="/contact" className={"registerBtn"}>
+              <Link href="/contact" className={styles.registerBtn}>
               Contact Us
               </Link>
               </p>

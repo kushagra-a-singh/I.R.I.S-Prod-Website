@@ -1,0 +1,111 @@
+.eventPage {
+  background: url('/public/bgevent.jpg') no-repeat center center/cover;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-top: 6rem; 
+  color: #fff;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.eventPage::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(23, 37, 90, 0.8), rgba(201, 64, 101, 0.8));
+  z-index: 1;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  margin: 0 auto;
+  padding: 40px;
+  background-color:rgba(8, 12, 222, 0.103);
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+
+.eventImageContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.eventImage {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.title {
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  animation: titleAnimation 1s ease-in-out;
+}
+
+.subtitle {
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #fff;
+}
+
+@keyframes titleAnimation {
+  from { transform: translateY(-30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.eventDetails, .eventObjective, .eventJourney, .eventHighlights, .eventRegistration, .eventConclusion {
+  margin-bottom: 40px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.4); 
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.eventDetails:hover, .eventObjective:hover, .eventJourney:hover, .eventHighlights:hover, .eventRegistration:hover, .eventConclusion:hover {
+  margin-bottom: 40px; 
+  transform: scale(1.05);
+}
+.eventDetails p, .eventObjective p, .eventJourney p, .eventHighlights ul, .eventRegistration p, .eventConclusion p {
+  margin-bottom: 40px; 
+  font-size: 18px;
+  color: #f5f5f5;
+
+}
+
+.eventHighlights ul, .eventRewards ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.eventHighlights li {
+  margin-bottom: 15px;
+}
+
+.sectionDivider {
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  margin: 20px 0;
+}
+
+
+

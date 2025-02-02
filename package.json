@@ -2,6 +2,10 @@
   "name": "i.r.i.s-nextjs",
   "version": "0.1.0",
   "private": true,
+  "dependencies": {
+    "react-intersection-observer": "^8.32.1"
+  },
+
   "scripts": {
     "dev": "next dev",
     "build": "next build",

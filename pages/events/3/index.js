@@ -46,7 +46,7 @@ const Event3 = () => {
             <section className={styles.eventJourney}> 
                 
               <h3>How It Happened </h3>
-              <p>Over 25+ members enthusiastically join the IRIS Ice Breaker 2025 session, along with the core team and existing members.s</p> 
+              <p>Over 25+ members enthusiastically joined the IRIS Ice Breaker 2025 session, along with the core team and existing members.</p> 
 
               <ol>
                 <li>Opening Session</li>
@@ -110,6 +110,7 @@ const Event3 = () => {
            <section className={styles.eventRegistration}>
               <h3>Stay Connected </h3>
               <p>If you&apos;re interested in participating in future events or have any questions, feel free to reach out to us!
+              <br></br>
               <Link href="/contact" className={styles.registerBtn}>
               Contact Us
               </Link>

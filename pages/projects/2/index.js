@@ -63,7 +63,7 @@ function Projects2() {
           <h2> Project GitHub Link</h2>
           <a href= "https://github.com/IRIS-MITWPU/Tarzan" > Github Repository</a>
             
-      </div>s
+      </div>
       
     </div>
   );

@@ -6,7 +6,7 @@ import supabase  from '../../src/utils/supabase';
 import { ToastContainer, toast } from 'react-toastify'; 
 import 'react-toastify/dist/ReactToastify.css'; 
 import Image from 'next/image';
-
+import Link from 'next/link';
 function Blog() {
   const blogPosts = [
     // {
@@ -156,11 +156,13 @@ function Blog() {
                   Guided by mentors <a href="https://scholar.google.com/citations?user=IUUENAMAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" className={styles.authorLink}>Dr. Shamla Mantri</a> & <br></br><a href="https://scholar.google.com/citations?user=9GsTeoQAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" className={styles.authorLink}>Dr. Yogesh Kulkarni</a>
                 </div>
               </div>
-                  <button
-                    className={styles.readMoreButton}
-                  >
-                    Read More
-                  </button>
+              <button
+              className={styles.readMoreButton}
+              >
+              <Link href={`/blog/${post.id === 1 ? "tarzan" : "data-loss"}`} >
+              Read More
+              </Link>
+              </button>
                 </div>
               </div>
             </div>

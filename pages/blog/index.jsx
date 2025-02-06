@@ -159,8 +159,8 @@ function Blog() {
               <button
               className={styles.readMoreButton}
               >
-              <Link href={`/blog/${post.id === 1 ? "tarzan" : "data-loss"}`} >
-              Read More
+              <Link href={`/blog/${post.id === 1 ? "tarzan" : "data-loss"}`}legacyBehavior >
+              <a style={{ color: '#fff', textDecoration: 'none' }}>Read More</a>
               </Link>
               </button>
                 </div>

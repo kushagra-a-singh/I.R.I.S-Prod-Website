@@ -1,23 +1,27 @@
 .blogPage {
-  background: rgb(24, 2, 111);
-  background: linear-gradient(90deg, rgba(24, 2, 111, 1) 0%, rgba(201, 64, 101, 1) 100%);
-  color: #f8f9fa;
-  padding-top: 80px;
+  background: #333333;
+  color: #e0e0e0;
+  padding-top: 20px;
   font-family: Arial, sans-serif;
 }
 
 .pageTitle {
-  font-size: 36px;
+  font-size: 30px;
   font-weight: bold;
-  text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
   color: #ff00ff;
 }
 
 .pageSubtitle {
-  text-align: center;
   color: #b3b3b3;
   font-size: 18px;
+  margin-bottom: 10px;
+}
+
+
+.pageauthor {
+  color: #b3b3b3;
+  font-size: 15px;
   margin-bottom: 20px;
 }
 .overlay {
@@ -33,40 +37,30 @@
   z-index: 1000;
 }
 .blogCard {
-  background: #333;
+  background: #423f3f;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   overflow: hidden;
   margin-bottom: 30px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
-  height: 600px;
+  width: 90%;
+  max-width: 1000px;
+  height: auto; /* Adjusts height dynamically based on content */
   flex-direction: column;
+  padding: 20px; /* Adds spacing inside the card */
 }
+
 
 .blogCard:hover {
   transform: translateY(-10px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.75);
 }
 
-.blogImage {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.blogImage:hover {
-  transform: scale(1.05);
-}
-
 .blogContent {
+  max-width: 900px;
+  margin: auto;
   padding: 20px;
-  text-align: center;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
 .blogTitle {
@@ -78,7 +72,7 @@
 
 .blogDescription {
   font-size: 16px;
-  color: #b3b3b3; 
+  color: white; 
   margin-bottom: 20px;
 }
 
@@ -106,22 +100,6 @@
   transform: scale(1.05);
 }
 
-.imageGallery {
-  margin-top: 30px;
-  text-align: center;
-}
-
-.imageGallery img {
-  max-width: 100%;
-  width: auto;
-  height: auto;
-  margin: 10px 0;
-}
-
-.imageGallery h4 {
-  font-size: 1.2rem;
-  margin-top: 20px;
-}
 
 @media (max-width: 768px) {
   .content-section{
@@ -129,13 +107,4 @@
   }
 }
 
-.authorLink {
-  color: #ff00ff; 
-  text-decoration: none; 
-  transition: color 0.3s ease; 
-}
 
-.authorLink:hover {
-  text-decoration: underline; 
-  color: #d5006d; 
-}

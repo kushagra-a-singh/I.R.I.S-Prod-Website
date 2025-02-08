@@ -84,27 +84,121 @@
   border-top: 1px solid #444;
 }
 
-.readMoreButton {
-  display: inline-block;
-  background: linear-gradient(90deg, #ff00ff, #d5006d);
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.readMoreButton:hover {
-  background: linear-gradient(90deg, #d5006d, #ff00ff);
-  transform: scale(1.05);
-}
-
 
 @media (max-width: 768px) {
   .content-section{
     padding: 10px;
   }
+}
+.commentSection {
+  margin-top: 30px;
+  border-top: 2px solid #444;
+  padding-top: 20px;
+}
+
+.commentList {
+  margin-bottom: 20px;
+}
+
+.comment {
+  background: #333;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.comment p {
+  margin: 0;
+  color: #f8f9fa;
+}
+
+.commentInput {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  font-size: 14px;
+  border: 1px solid #444;
+  border-radius: 8px;
+  background-color: #333;
+  color: #f8f9fa;
+  resize: vertical;
+}
+
+.commentInput::placeholder {
+  color: #b3b3b3;
+}
+
+.commentSubmitButton {
+  background: linear-gradient(90deg, #ff00ff, #d5006d);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.commentSubmitButton:hover {
+  background: linear-gradient(90deg, #d5006d, #ff00ff);
+  transform: scale(1.05);
+}
+
+.commentSubmitButton:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.voteSection {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.voteButton {
+  background: transparent;
+  border: none;
+  color: #b3b3b3; 
+  font-size: 24px; 
+  cursor: pointer;
+  padding: 10px;
+  transition: color 0.3s ease, transform 0.3s ease;
+  margin: 0 10px; 
+}
+
+.voteButton:hover {
+  color: #ff00ff; 
+  transform: scale(1.1); 
+}
+
+.voteButton.active {
+  color: #ff00ff; 
+}
+
+.voteButton:focus {
+  outline: none; 
+}
+
+.voteCount {
+  margin: 0 10px;
+  font-size: 18px;
+  color: #b3b3b3; 
+}
+
+.commentTitle {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.commentHeader {
+  font-size: 1.3rem;  
+  font-weight: bold;
+  margin-top: 1rem;  
+  margin-bottom: 0.5rem;  
+  text-align: center;
 }
 
 

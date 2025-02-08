@@ -174,23 +174,54 @@ function Blog2() {
                 </p>
               </div>
               </div>
-          </div>        
-                 <div className={styles.voteSection}>
-                 <button onClick={() => handleVote('upvote')} className={vote === 'upvote' ? styles.activeVote : ''}>▲ Upvote ({voteCounts.upvotes})</button>
-                 <button onClick={() => handleVote('downvote')} className={vote === 'downvote' ? styles.activeVote : ''}>▼ Downvote ({voteCounts.downvotes})</button>
-                 </div>
+          </div>
+
+        <div className={styles.voteSection}>
+        <button 
+        onClick={() => handleVote('upvote')} 
+        className={`${styles.voteButton} ${vote === 'upvote' ? styles.active : ''}`}
+    >
+        ▲ Upvote ({voteCounts.upvotes})
+        </button>
+
+         <button 
+        onClick={() => handleVote('downvote')} 
+        className={`${styles.voteButton} ${vote === 'downvote' ? styles.active : ''}`}
+    >
+        ▼ Downvote ({voteCounts.downvotes})
+        </button>
+     </div>
                     
-                    <div className={styles.commentSection}>
-                        <h3>Comments</h3>
-                        {comments.map((comment) => (
-                            <div key={comment.id} className={styles.comment}>
-                                <p><strong>{comment.username}</strong>: {comment.comment}</p>
-                            </div>
-                        ))}
-                        <input type="text" value={commenterName} onChange={(e) => setCommenterName(e.target.value)} placeholder="Your Name" />
-                        <textarea value={newComment} onChange={(e) => setNewComment(e.target.value)} placeholder="Add a comment..." />
-                        <button onClick={handleCommentSubmit}>Submit Comment</button>
+                <div className={styles.commentSection}>
+                <h3 className={styles.commentTitle}>Comments</h3>
+                <div className={styles.commentList}>
+                    {comments.map((comment) => (
+                    <div key={comment.id} className={styles.comment}>
+                    <p><strong>{comment.username}</strong>: {comment.comment}</p>
                     </div>
+                ))}
+                </div>
+                <h3 className={styles.commentTitle}>Add your Comment</h3>
+
+                <div>
+                <input
+                    type="text"
+                    placeholder="Your Name"
+                    value={commenterName}
+                    onChange={(e) => setCommenterName(e.target.value)}
+                    className={styles.commentInput}
+                />
+                <textarea
+                    placeholder="Write a comment..."
+                    value={newComment}
+                    onChange={(e) => setNewComment(e.target.value)}
+                    className={styles.commentInput}
+                />
+                <button onClick={handleCommentSubmit} className={styles.commentSubmitButton}>
+                    Submit Comment
+                </button>
+                </div>
+                </div>
                 </main>
             </div>
             <ToastContainer position="bottom-right" autoClose={3000} hideProgressBar={false} closeOnClick pauseOnHover draggable theme="dark" />

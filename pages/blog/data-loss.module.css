@@ -200,5 +200,44 @@
   margin-bottom: 0.5rem;  
   text-align: center;
 }
+.centerContainer {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center;     /* Centers vertically */
+  height: 10vh;           /* Full viewport height for vertical centering */
+}
 
+.backtoblog {
+  display: inline-block;
+  background: linear-gradient(90deg, #ff00ff, #d5006d);
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-top: 20px; /* Adjust as needed */
+  
+}
 
+.backtoblog:hover {
+  background: linear-gradient(90deg, #d5006d, #ff00ff);
+  transform: scale(1.05);
+}
+
+.imageGallery {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.imageGallery img {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  margin: 10px 0;
+}
+
+.imageGallery h4 {
+  font-size: 1.2rem;
+  margin-top: 20px;
+}

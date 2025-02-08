@@ -225,6 +225,11 @@ function Blog2() {
                 </main>
             </div>
             <ToastContainer position="bottom-right" autoClose={3000} hideProgressBar={false} closeOnClick pauseOnHover draggable theme="dark" />
+            <div className={styles.centerContainer}>
+                <Link href="/blog" className={styles.backtoblog}>
+                    Back to Blogs
+                </Link>
+            </div>
         </div>
     );
 }

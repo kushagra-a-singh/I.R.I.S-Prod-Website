@@ -9,6 +9,17 @@ import Image from 'next/image';
 import Link from 'next/link';
 function Blog() {
   const blogPosts = [
+    {
+      id: 4,
+      title: 'Traditional Algorithms vs. Machine Learning',
+      subtitle: 'A comprehensive dive into the definition, use cases, efficiency, positives and negatives',
+      description: 'A comprehensive dive into the definition, use cases, efficiency, positives and negatives',
+      author: 'Aaryan Kumbhare',
+      date: 'February 12, 2025',
+      image: '/ai.png',
+      imageWidth: 400,
+      imageHeight: 300, 
+    },
     // {
     //   id: 3,
     //   title: 'The Impact of Mobiles and Screen Time on Children and Younger Generations',
@@ -159,8 +170,8 @@ function Blog() {
               <button
               className={styles.readMoreButton}
               >
-              <Link href={`/blog/${post.id === 1 ? "tarzan" : "data-loss"}`}legacyBehavior >
-              <a style={{ color: '#fff', textDecoration: 'none' }}>Read More</a>
+              <Link href={`/blog/${post.id === 1 ? "tarzan" : post.id === 2 ? "data-loss" : "traditional-algo"}`} legacyBehavior>
+                <a style={{ color: '#fff', textDecoration: 'none' }}>Read More</a>
               </Link>
               </button>
                 </div>

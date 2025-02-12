@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import styles from './data-loss.module.css';
 import supabase from '../../src/utils/supabase';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
 
 function Blog2() {
     const [comments, setComments] = useState([]);
@@ -25,18 +24,9 @@ function Blog2() {
         }
     }, []);
 
-    useEffect(() => {
-        fetchComments();
-        fetchVoteStatus();
-    }, [deviceId]);
+    const fetchVoteStatus = useCallback(async () => {
+        if (!deviceId) return;
 
-    const fetchComments = async () => {
-        const { data, error } = await supabase.from('comments').select('*').order('created_at', { ascending: false });
-        if (error) console.error('Error fetching comments:', error);
-        else setComments(data);
-    };
-
-    const fetchVoteStatus = async () => {
         const { data, error } = await supabase
             .from('votes')
             .select('vote_type')
@@ -47,8 +37,25 @@ function Blog2() {
 
         const { data: upvotes } = await supabase.from('votes').select('*').eq('vote_type', 'upvote');
         const { data: downvotes } = await supabase.from('votes').select('*').eq('vote_type', 'downvote');
+
         setVoteCounts({ upvotes: upvotes.length, downvotes: downvotes.length });
+    }, [deviceId]); // Dependency array ensures it updates when `deviceId` changes
+
+    useEffect(() => {
+        if (deviceId) {
+            fetchVoteStatus();
+        }
+    }, [deviceId, fetchVoteStatus]); // Include `fetchVoteStatus` as a dependency
+
+    const fetchComments = async () => {
+        const { data, error } = await supabase.from('comments').select('*').order('created_at', { ascending: false });
+        if (error) console.error('Error fetching comments:', error);
+        else setComments(data);
     };
+
+    useEffect(() => {
+        fetchComments();
+    }, []);
 
     const handleVote = async (voteType) => {
         if (vote === voteType) {
@@ -86,10 +93,11 @@ function Blog2() {
                     <h1 className={styles.pageTitle}>Almost a Data Loss: The Security Breach We Overcame</h1>
                     <p className={styles.pageSubtitle}>An Inside Look at the Security Flaw That Nearly Wiped Our Data</p>
                     <p className={styles.pageauthor}>By Aaryan Kumbhare | November 18, 2024</p>
-          
-          <div className={styles.blogDescription}>
-          <div className={styles.blogCard}>
-          <h2>Overview about I.R.I.S. Website.</h2>
+
+                    {/* Blog Content */}
+                    <div className={styles.blogDescription}>
+                    <div className={styles.blogCard}>
+                <h2>Overview about I.R.I.S. Website.</h2>
                 <p>
                   In today&apos;s dynamic and rapidly-evolving digital ecosystem, it is important for an organisation to set up their online presence, so that they can meet the growing demands of their audience and help in increasing the scale of their services. Deployment of a muscular and scalable website acts as a hub for the operations of an organisation, real-time updates about the work of the organisation, showcasing their services and a portal for communication with their customers. This helps in enhancing the user engagement, quality of services; eventually leading to the overall growth of the organisation.
                   <br />
@@ -174,54 +182,56 @@ function Blog2() {
                 </p>
               </div>
               </div>
-          </div>
+         </div>
 
-        <div className={styles.voteSection}>
-        <button 
-        onClick={() => handleVote('upvote')} 
-        className={`${styles.voteButton} ${vote === 'upvote' ? styles.active : ''}`}
-    >
-        ▲ Upvote ({voteCounts.upvotes})
-        </button>
+                    {/* Voting Section */}
+                    <div className={styles.voteSection}>
+                        <button
+                            onClick={() => handleVote('upvote')}
+                            className={`${styles.voteButton} ${vote === 'upvote' ? styles.active : ''}`}
+                        >
+                            ▲ Upvote ({voteCounts.upvotes})
+                        </button>
 
-         <button 
-        onClick={() => handleVote('downvote')} 
-        className={`${styles.voteButton} ${vote === 'downvote' ? styles.active : ''}`}
-    >
-        ▼ Downvote ({voteCounts.downvotes})
-        </button>
-     </div>
-                    
-                <div className={styles.commentSection}>
-                <h3 className={styles.commentTitle}>Comments</h3>
-                <div className={styles.commentList}>
-                    {comments.map((comment) => (
-                    <div key={comment.id} className={styles.comment}>
-                    <p><strong>{comment.username}</strong>: {comment.comment}</p>
+                        <button
+                            onClick={() => handleVote('downvote')}
+                            className={`${styles.voteButton} ${vote === 'downvote' ? styles.active : ''}`}
+                        >
+                            ▼ Downvote ({voteCounts.downvotes})
+                        </button>
                     </div>
-                ))}
-                </div>
-                <h3 className={styles.commentTitle}>Add your Comment</h3>
 
-                <div>
-                <input
-                    type="text"
-                    placeholder="Your Name"
-                    value={commenterName}
-                    onChange={(e) => setCommenterName(e.target.value)}
-                    className={styles.commentInput}
-                />
-                <textarea
-                    placeholder="Write a comment..."
-                    value={newComment}
-                    onChange={(e) => setNewComment(e.target.value)}
-                    className={styles.commentInput}
-                />
-                <button onClick={handleCommentSubmit} className={styles.commentSubmitButton}>
-                    Submit Comment
-                </button>
-                </div>
-                </div>
+                    {/* Comments Section */}
+                    <div className={styles.commentSection}>
+                        <h3 className={styles.commentTitle}>Comments</h3>
+                        <div className={styles.commentList}>
+                            {comments.map((comment) => (
+                                <div key={comment.id} className={styles.comment}>
+                                    <p><strong>{comment.username}</strong>: {comment.comment}</p>
+                                </div>
+                            ))}
+                        </div>
+                        <h3 className={styles.commentTitle}>Add your Comment</h3>
+
+                        <div>
+                            <input
+                                type="text"
+                                placeholder="Your Name"
+                                value={commenterName}
+                                onChange={(e) => setCommenterName(e.target.value)}
+                                className={styles.commentInput}
+                            />
+                            <textarea
+                                placeholder="Write a comment..."
+                                value={newComment}
+                                onChange={(e) => setNewComment(e.target.value)}
+                                className={styles.commentInput}
+                            />
+                            <button onClick={handleCommentSubmit} className={styles.commentSubmitButton}>
+                                Submit Comment
+                            </button>
+                        </div>
+                    </div>
                 </main>
             </div>
             <ToastContainer position="bottom-right" autoClose={3000} hideProgressBar={false} closeOnClick pauseOnHover draggable theme="dark" />

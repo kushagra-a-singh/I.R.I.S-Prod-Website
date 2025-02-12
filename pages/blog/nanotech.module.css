@@ -1,0 +1,156 @@
+.blogPage {
+    background: #333333;
+    color: #e0e0e0;
+    padding-top: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.pageTitle {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #ff00ff;
+}
+
+.pageSubtitle, .pageauthor {
+    color: #b3b3b3;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.blogCard {
+    background: #423f3f;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    margin-bottom: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    width: 90%;
+    max-width: 1000px;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.blogCard:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.75);
+}
+
+.blogContent {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
+.blogTitle {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff00ff;
+    margin-bottom: 10px;
+}
+
+.blogDescription {
+    font-size: 16px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.voteSection {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.voteButton {
+    background: transparent;
+    border: none;
+    color: #b3b3b3;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    transition: color 0.3s ease, transform 0.3s ease;
+    margin: 0 10px;
+}
+
+.voteButton:hover, .voteButton.active {
+    color: #ff00ff;
+    transform: scale(1.1);
+}
+
+.commentSection {
+    margin-top: 30px;
+    border-top: 2px solid #444;
+    padding-top: 20px;
+}
+
+.comment {
+    background: #333;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #f8f9fa;
+}
+
+.commentInput {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    border: 1px solid #444;
+    border-radius: 8px;
+    background-color: #333;
+    color: #f8f9fa;
+    resize: vertical;
+}
+
+.commentSubmitButton {
+    background: linear-gradient(90deg, #ff00ff, #d5006d);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.commentSubmitButton:hover {
+    background: linear-gradient(90deg, #d5006d, #ff00ff);
+    transform: scale(1.05);
+}
+
+.centerContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+
+.backtoblog {
+    display: inline-block;
+    background: linear-gradient(90deg, #ff00ff, #d5006d);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 20px;
+}
+
+.backtoblog:hover {
+    background: linear-gradient(90deg, #d5006d, #ff00ff);
+    transform: scale(1.05);
+}
+
+.imageGallery {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.imageGallery img {
+    max-width: 100%;
+    height: auto;
+    margin: 10px 0;
+}

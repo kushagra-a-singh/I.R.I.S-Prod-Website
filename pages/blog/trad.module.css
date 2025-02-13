@@ -1,0 +1,243 @@
+.blogPage {
+  background: #333333;
+  color: #e0e0e0;
+  padding-top: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.pageTitle {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #ff00ff;
+}
+
+.pageSubtitle {
+  color: #b3b3b3;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+
+.pageauthor {
+  color: #b3b3b3;
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.blogCard {
+  background: #423f3f;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  margin-bottom: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  width: 90%;
+  max-width: 1000px;
+  height: auto; /* Adjusts height dynamically based on content */
+  flex-direction: column;
+  padding: 20px; /* Adds spacing inside the card */
+}
+
+
+.blogCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.75);
+}
+
+.blogContent {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+.blogTitle {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff00ff; 
+  margin-bottom: 10px;
+}
+
+.blogDescription {
+  font-size: 16px;
+  color: white; 
+  margin-bottom: 20px;
+}
+
+.blogMeta {
+  font-size: 14px;
+  color: #8c8c8c; 
+  margin-bottom: 20px;
+  padding: 10px 0;
+  border-top: 1px solid #444;
+}
+
+
+@media (max-width: 768px) {
+  .content-section{
+    padding: 10px;
+  }
+}
+.commentSection {
+  margin-top: 30px;
+  border-top: 2px solid #444;
+  padding-top: 20px;
+}
+
+.commentList {
+  margin-bottom: 20px;
+}
+
+.comment {
+  background: #333;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.comment p {
+  margin: 0;
+  color: #f8f9fa;
+}
+
+.commentInput {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  font-size: 14px;
+  border: 1px solid #444;
+  border-radius: 8px;
+  background-color: #333;
+  color: #f8f9fa;
+  resize: vertical;
+}
+
+.commentInput::placeholder {
+  color: #b3b3b3;
+}
+
+.commentSubmitButton {
+  background: linear-gradient(90deg, #ff00ff, #d5006d);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.commentSubmitButton:hover {
+  background: linear-gradient(90deg, #d5006d, #ff00ff);
+  transform: scale(1.05);
+}
+
+.commentSubmitButton:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.voteSection {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.voteButton {
+  background: transparent;
+  border: none;
+  color: #b3b3b3; 
+  font-size: 24px; 
+  cursor: pointer;
+  padding: 10px;
+  transition: color 0.3s ease, transform 0.3s ease;
+  margin: 0 10px; 
+}
+
+.voteButton:hover {
+  color: #ff00ff; 
+  transform: scale(1.1); 
+}
+
+.voteButton.active {
+  color: #ff00ff; 
+}
+
+.voteButton:focus {
+  outline: none; 
+}
+
+.voteCount {
+  margin: 0 10px;
+  font-size: 18px;
+  color: #b3b3b3; 
+}
+
+.commentTitle {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.commentHeader {
+  font-size: 1.3rem;  
+  font-weight: bold;
+  margin-top: 1rem;  
+  margin-bottom: 0.5rem;  
+  text-align: center;
+}
+.centerContainer {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center;     /* Centers vertically */
+  height: 10vh;           /* Full viewport height for vertical centering */
+}
+
+.backtoblog {
+  display: inline-block;
+  background: linear-gradient(90deg, #ff00ff, #d5006d);
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-top: 20px; /* Adjust as needed */
+  
+}
+
+.backtoblog:hover {
+  background: linear-gradient(90deg, #d5006d, #ff00ff);
+  transform: scale(1.05);
+}
+
+.imageGallery {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.imageGallery img {
+  max-width: 100%;
+  width: 400px;
+  height: auto;
+  margin: 10px 0;
+}
+
+.imageGallery h4 {
+  font-size: 1.2rem;
+  margin-top: 20px;
+}

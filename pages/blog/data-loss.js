@@ -31,31 +31,48 @@ function Blog2() {
             .from('votes')
             .select('vote_type')
             .eq('device_id', deviceId)
+            .eq('post_id', 2)
             .limit(1);
 
-        if (!error && data.length > 0) setVote(data[0].vote_type);
+            if (error) {
+                console.error("Error fetching vote status:", error);
+                return;
+            }
+        
+            if (data.length > 0) setVote(data[0].vote_type);
 
-        const { data: upvotes } = await supabase.from('votes').select('*').eq('vote_type', 'upvote');
-        const { data: downvotes } = await supabase.from('votes').select('*').eq('vote_type', 'downvote');
+const { data: upvotes } = await supabase
+    .from('votes')
+    .select('*')
+    .eq('vote_type', 'upvote')
+    .eq('post_id', 2);
+
+const { data: downvotes } = await supabase
+    .from('votes')
+    .select('*')
+    .eq('vote_type', 'downvote')
+    .eq('post_id', 2);
+
 
         setVoteCounts({ upvotes: upvotes.length, downvotes: downvotes.length });
-    }, [deviceId]); // Dependency array ensures it updates when `deviceId` changes
+    }, [deviceId]);
 
     useEffect(() => {
-        if (deviceId) {
-            fetchVoteStatus();
-        }
-    }, [deviceId, fetchVoteStatus]); // Include `fetchVoteStatus` as a dependency
+        fetchComments();
+        fetchVoteStatus();
+    }, [deviceId, fetchVoteStatus]);
 
-    const fetchComments = async () => {
-        const { data, error } = await supabase.from('comments').select('*').order('created_at', { ascending: false });
+    const fetchComments = async (id) => {
+        const { data, error } = await supabase
+        .from('comments')
+        .select('*')
+        .eq('post_id', 2)
+        .order('created_at', { ascending: false });
+        console.log(data);
         if (error) console.error('Error fetching comments:', error);
         else setComments(data);
     };
 
-    useEffect(() => {
-        fetchComments();
-    }, []);
 
     const handleVote = async (voteType) => {
         if (vote === voteType) {
@@ -63,8 +80,12 @@ function Blog2() {
             return;
         }
 
-        await supabase.from('votes').upsert({ device_id: deviceId, vote_type: voteType });
-        setVote(voteType);
+        await supabase.from('votes').upsert({
+            device_id: deviceId,
+            vote_type: voteType,
+            post_id: 2,  
+        });
+                setVote(voteType);
         fetchVoteStatus();
     };
 
@@ -74,17 +95,26 @@ function Blog2() {
             return;
         }
 
-        const { error } = await supabase.from('comments').insert({ username: commenterName, comment: newComment });
+        const { data,error } = await supabase
+        .from('comments')
+        .insert(
+        { username: commenterName, 
+            comment: newComment,
+            post_id: 2,
+            device_id: deviceId,
+         });
         if (error) {
             console.error('Error adding comment:', error);
             toast.error('Failed to add comment.');
         } else {
             setNewComment('');
             setCommenterName('');
-            fetchComments();
+            fetchComments(2);
             toast.success('Comment added successfully!');
         }
+
     };
+
 
     return (
         <div className={styles.blogPage}>

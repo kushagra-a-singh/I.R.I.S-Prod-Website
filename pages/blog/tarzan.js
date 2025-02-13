@@ -8,85 +8,115 @@ import Image from 'next/image';
 
 
 function Blog2() {
-    const [comments, setComments] = useState([]);
-    const [newComment, setNewComment] = useState('');
-    const [commenterName, setCommenterName] = useState('');
-    const [deviceId, setDeviceId] = useState(null);
-    const [vote, setVote] = useState(null);
-    const [voteCounts, setVoteCounts] = useState({ upvotes: 0, downvotes: 0 });
+  const [comments, setComments] = useState([]);
+  const [newComment, setNewComment] = useState('');
+  const [commenterName, setCommenterName] = useState('');
+  const [deviceId, setDeviceId] = useState(null);
+  const [vote, setVote] = useState(null);
+  const [voteCounts, setVoteCounts] = useState({ upvotes: 0, downvotes: 0 });
 
-    useEffect(() => {
-        const storedDeviceId = localStorage.getItem('deviceId');
-        if (!storedDeviceId) {
-            const newDeviceId = 'device-' + Math.random().toString(36).substring(2);
-            localStorage.setItem('deviceId', newDeviceId);
-            setDeviceId(newDeviceId);
-        } else {
-            setDeviceId(storedDeviceId);
-        }
-    }, []);
+  useEffect(() => {
+      const storedDeviceId = localStorage.getItem('deviceId');
+      if (!storedDeviceId) {
+          const newDeviceId = 'device-' + Math.random().toString(36).substring(2);
+          localStorage.setItem('deviceId', newDeviceId);
+          setDeviceId(newDeviceId);
+      } else {
+          setDeviceId(storedDeviceId);
+      }
+  }, []);
 
-    const fetchVoteStatus = useCallback(async () => {
-        if (!deviceId) return;
+  const fetchVoteStatus = useCallback(async () => {
+      if (!deviceId) return;
 
-        const { data, error } = await supabase
-            .from('votes')
-            .select('vote_type')
-            .eq('device_id', deviceId)
-            .limit(1);
+      const { data, error } = await supabase
+          .from('votes')
+          .select('vote_type')
+          .eq('device_id', deviceId)
+          .eq('post_id', 1)
+          .limit(1);
 
-        if (!error && data.length > 0) setVote(data[0].vote_type);
+          if (error) {
+              console.error("Error fetching vote status:", error);
+              return;
+          }
+      
+          if (data.length > 0) setVote(data[0].vote_type);
 
-        const { data: upvotes } = await supabase.from('votes').select('*').eq('vote_type', 'upvote');
-        const { data: downvotes } = await supabase.from('votes').select('*').eq('vote_type', 'downvote');
+const { data: upvotes } = await supabase
+  .from('votes')
+  .select('*')
+  .eq('vote_type', 'upvote')
+  .eq('post_id', 1);
 
-        setVoteCounts({ upvotes: upvotes.length, downvotes: downvotes.length });
-    }, [deviceId]); // Dependency array ensures it updates when `deviceId` changes
+const { data: downvotes } = await supabase
+  .from('votes')
+  .select('*')
+  .eq('vote_type', 'downvote')
+  .eq('post_id', 1);
 
-    useEffect(() => {
-        if (deviceId) {
-            fetchVoteStatus();
-        }
-    }, [deviceId, fetchVoteStatus]); // Include `fetchVoteStatus` as a dependency
 
-    const fetchComments = async () => {
-        const { data, error } = await supabase.from('comments').select('*').order('created_at', { ascending: false });
-        if (error) console.error('Error fetching comments:', error);
-        else setComments(data);
-    };
+      setVoteCounts({ upvotes: upvotes.length, downvotes: downvotes.length });
+  }, [deviceId]);
 
-    useEffect(() => {
-        fetchComments();
-    }, []);
+  useEffect(() => {
+      fetchComments();
+      fetchVoteStatus();
+  }, [deviceId, fetchVoteStatus]);
 
-    const handleVote = async (voteType) => {
-        if (vote === voteType) {
-            toast.error(`You have already ${voteType}d this blog.`);
-            return;
-        }
+  const fetchComments = async (id) => {
+      const { data, error } = await supabase
+      .from('comments')
+      .select('*')
+      .eq('post_id', 1)
+      .order('created_at', { ascending: false });
+      console.log(data);
+      if (error) console.error('Error fetching comments:', error);
+      else setComments(data);
+  };
 
-        await supabase.from('votes').upsert({ device_id: deviceId, vote_type: voteType });
-        setVote(voteType);
-        fetchVoteStatus();
-    };
 
-    const handleCommentSubmit = async () => {
-        if (!newComment || !commenterName) {
-            toast.error('Please enter your name and comment!');
-            return;
-        }
+  const handleVote = async (voteType) => {
+      if (vote === voteType) {
+          toast.error(`You have already ${voteType}d this blog.`);
+          return;
+      }
 
-        const { error } = await supabase.from('comments').insert({ username: commenterName, comment: newComment });
-        if (error) {
-            console.error('Error adding comment:', error);
-            toast.error('Failed to add comment.');
-        } else {
-            setNewComment('');
-            setCommenterName('');
-            fetchComments();
-            toast.success('Comment added successfully!');
-        }
-    };
+      await supabase.from('votes').upsert({
+          device_id: deviceId,
+          vote_type: voteType,
+          post_id: 1,  
+      });
+              setVote(voteType);
+      fetchVoteStatus();
+  };
+
+  const handleCommentSubmit = async () => {
+      if (!newComment || !commenterName) {
+          toast.error('Please enter your name and comment!');
+          return;
+      }
+
+      const { data,error } = await supabase
+      .from('comments')
+      .insert(
+      { username: commenterName, 
+          comment: newComment,
+          post_id: 1,
+          device_id: deviceId,
+       });
+      if (error) {
+          console.error('Error adding comment:', error);
+          toast.error('Failed to add comment.');
+      } else {
+          setNewComment('');
+          setCommenterName('');
+          fetchComments(1);
+          toast.success('Comment added successfully!');
+      }
+
+  };
+
 
     return (
       <div className={styles.blogPage}>

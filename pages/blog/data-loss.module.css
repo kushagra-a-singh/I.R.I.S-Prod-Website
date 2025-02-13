@@ -1,5 +1,5 @@
 .blogPage {
-  background: #333333;
+  background: linear-gradient(90deg, rgba(24, 2, 111, 1) 0%, rgba(201, 64, 101, 1) 100%);
   color: #e0e0e0;
   padding-top: 20px;
   font-family: Arial, sans-serif;

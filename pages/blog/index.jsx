@@ -12,14 +12,17 @@ function Blog() {
       subtitle: 'Revolutionizing Genetics with Precision and Possibility',
       description: 'CRISPR technology is revolutionizing genetics by enabling precise gene editing, unlocking new possibilities in medicine, agriculture, and biotechnology.',
       author: (
-        <a
-          href="https://www.linkedin.com/in/shreya-more-284869321/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.authorLink}
-        >
-          Nishtha and Aakanksha More
-        </a>
+        <>
+          <a
+            href="https://in.linkedin.com/in/aakanksha-pansare-43744a350"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.authorLink}
+          > 
+            Aakanksha Pansare
+          </a> {' '} &
+          <span className={styles.authorLink}> Nishtha</span> {/* Use plain text if no link */}
+        </>
       ),
       date: 'February 16, 2025',
       image: '/crispr-img.png',
@@ -53,12 +56,12 @@ function Blog() {
       description: 'A comprehensive dive into the definition, use cases, efficiency, positives and negatives',
       author: (
         <a
-          href="https://in.linkedin.com/in/aakanksha-pansare-43744a350"
+          href="https://www.linkedin.com/in/aaryan-kumbhare-07428032a"
           target="_blank"
           rel="noopener noreferrer"
           className={styles.authorLink}
         >
-          Aakanksha Pansare
+          Aaryan Kumbhare
         </a>
       ),
       date: 'February 12, 2025',
@@ -71,7 +74,16 @@ function Blog() {
       title: 'Almost a Data Loss: The Security Breach We Overcame',
       subtitle: 'An Inside Look at the Security Flaw That Nearly Wiped Our Data',
       description: 'Our journey in building a platform for collaboration, hackathon management and seamless user experience.',
-      author: <span>Aaryan Kumbhare</span>,
+      author: (
+        <a
+          href="https://www.linkedin.com/in/aaryan-kumbhare-07428032a"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.authorLink}
+        >
+          Aaryan Kumbhare
+        </a>
+      ),
       date: 'November 18, 2024',
       image: '/db.jpg',
       imageWidth: 500,
@@ -82,7 +94,16 @@ function Blog() {
       title: 'TARZAN: Revolutionizing Autonomous Vehicle Navigation',
       subtitle: 'Advanced Pothole Detection System',
       description: 'An innovative system using computer vision to enhance autonomous vehicle control.',
-      author: <span>Aaryan Kumbhare</span>,
+      author: (
+        <a
+          href="https://www.linkedin.com/in/aaryan-kumbhare-07428032a"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.authorLink}
+        >
+          Aaryan Kumbhare
+        </a>
+      ),
       date: 'November 10, 2024',
       image: '/simulation.jpg',
       imageWidth: 500,
@@ -142,11 +163,12 @@ function Blog() {
                       </a>
                     </div>
                   </div>
-                  <button className={styles.readMoreButton}>
-                  <Link href={`/blog/${postLinks[post.id] || "default-blog"}`} style={{ color: '#fff', textDecoration: 'none' }}>
-    Read More
-</Link>
-                  </button>
+                  <Link href={`/blog/${postLinks[post.id] || "default-blog"}`} passHref legacyBehavior>
+                    <button className={styles.readMoreButton} style={{ width: "100%", textAlign: "center" }}>
+                        Read More
+                    </button>
+                  </Link>
+
                 </div>
               </div>
             </div>

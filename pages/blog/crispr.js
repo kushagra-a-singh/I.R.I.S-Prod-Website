@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
-import styles from './nanotech.module.css';
+import styles from './data-loss.module.css';
 import supabase from '../../src/utils/supabase';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -24,6 +24,7 @@ function Blog2() {
             setDeviceId(storedDeviceId);
         }
     }, []);
+
 
     const fetchVoteStatus = useCallback(async () => {
         if (!deviceId) return;
@@ -58,22 +59,23 @@ const { data: downvotes } = await supabase
         setVoteCounts({ upvotes: upvotes.length, downvotes: downvotes.length });
     }, [deviceId]);
 
-    useEffect(() => {
+    useEffect(() => {  
         fetchComments();
         fetchVoteStatus();
     }, [deviceId, fetchVoteStatus]);
+
 
     const fetchComments = async (id) => {
         const { data, error } = await supabase
         .from('comments')
         .select('*')
+
         .eq('post_id', 5)
         .order('created_at', { ascending: false });
         console.log(data);
         if (error) console.error('Error fetching comments:', error);
         else setComments(data);
     };
-
 
     const handleVote = async (voteType) => {
         if (vote === voteType) {
@@ -89,6 +91,7 @@ const { data: downvotes } = await supabase
                 setVote(voteType);
         fetchVoteStatus();
     };
+
 
     const handleCommentSubmit = async () => {
         if (!newComment || !commenterName) {
@@ -110,12 +113,12 @@ const { data: downvotes } = await supabase
         } else {
             setNewComment('');
             setCommenterName('');
+
             fetchComments(5);
             toast.success('Comment added successfully!');
         }
 
     };
-
 
     return (
         <div className={styles.blogPage}>
@@ -126,9 +129,9 @@ const { data: downvotes } = await supabase
                     <p className={styles.pageauthor}>By Nishtha and Aakanksha | February 10, 2025</p>
                     <div className='content-section'>
               <div className={styles.blogCard}>
-                                <p>
-                                &quot;Imagine having the power to edit the DNA of living organisms&mdash;welcome to the world of CRISPR, where science fiction is becoming science fact!&quot;
-              </p>
+                  <p>
+                    &quot;Imagine having the power to edit the DNA of living organisms&mdash;welcome to the world of CRISPR, where science fiction is becoming science fact!&quot;
+                  </p>
              </div>
               </div>
           <div className={styles.blogDescription}>
@@ -162,13 +165,13 @@ observed diversity in its DNA sequences.
 The third discovery was by Francisco Mojica at the University of Alicante in Spain. He studied the function 
 of repeats in the archaeal species *Haloferax* and *Haloarcula*. Transcription of these interrupted 
 repeats led to the first full characterization of CRISPR.
-
-              </p>
+                </p>
              </div>
               </div>
               <div className='content-section'>
               <div className={styles.blogCard}>
                                 <p>
+
                                 Do you know that Cas9 (or also known as &quot;CRISPR-associated protein 9&quot;) is an enzyme that 
 opens up specific strands of DNA that are complementary to the CRISPR sequence. For this, it 
 uses the CRISPER sequence as a guide.   
@@ -191,6 +194,7 @@ products, and treatment of diseases.
                 These are: 
               </p>
               <ul>
+
                 <li>An enzyme called Cas9, also known as a pair of &apos;molecular scissors&apos; that can cut the two 
                 strands of DNA at a specific location. </li>
                 <li>A piece of RNA called guide RNA (gRNA) which consists of a small piece of pre-designed RNA 
@@ -232,7 +236,8 @@ of researching about the 2D structural and functional properties of Leptospira g
               <div className='content-section'>
               <div className={styles.blogCard}>
                                 <p>
-                The birth of &quot;molecular scissors&quot; Cas9 and the system of guide RNA would soon enable 
+
+                The birth of &quot;molecular scissors&quot; Cas9 and the system of guide RNA would soon enable     
 biologists to make extremely precise alterations in the DNA strand of an organism. The 
 introduction of genetic transformation and planting changed everything for humanity, 
 agriculture, and medicine as areas previously defined by boundaries of science fiction were 
@@ -274,9 +279,8 @@ and early 1990s.
                        
                         <div className={styles.imageGallery}>
                             
-                            <Image src="/crispr.jpeg" alt="crispr" width={500} height={300} className={styles.blogImage} />
-                            
-                            
+
+                            <Image src="/crispr.jpeg" alt="crispr" width={500} height={300} className={styles.blogImage} />  
                             </div>
               </div>
               </div>
@@ -310,6 +314,7 @@ and early 1990s.
          </div>
         </div>
         <div className={styles.voteSection}>
+
                         <button onClick={() => handleVote('upvote')} className={`${styles.voteButton} ${vote === 'upvote' ? styles.active : ''}`}>
                             ▲ Upvote ({voteCounts.upvotes})
                         </button>
@@ -330,6 +335,7 @@ and early 1990s.
                 ))}
                 </div>
 
+
                 <h3 className={styles.commentTitle}>Add your Comment</h3>
                         <input type="text" placeholder="Your Name" value={commenterName} onChange={(e) => setCommenterName(e.target.value)} className={styles.commentInput} />
                         <textarea placeholder="Write a comment..." value={newComment} onChange={(e) => setNewComment(e.target.value)} className={styles.commentInput} />
@@ -340,10 +346,10 @@ and early 1990s.
             </div>
         <ToastContainer position="bottom-right" autoClose={3000} hideProgressBar={false} closeOnClick pauseOnHover draggable theme="dark" />
         <div className={styles.centerContainer}>
+
         <Link href="/blog" className={styles.backtoblog}>
                     Back to Blogs
                 </Link>
-
             </div>
       </div>
       

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import styles from './Blog.module.css';
-import supabase from '../../src/utils/supabase';
+// import './Blog.scss';
+import supabase  from '../../src/utils/supabase';
 import { ToastContainer, toast } from 'react-toastify'; 
 import 'react-toastify/dist/ReactToastify.css'; 
 import Image from 'next/image';
 import Link from 'next/link';
-
 function Blog() {
   const blogPosts = [
     {
@@ -19,6 +19,15 @@ function Blog() {
       image: '/crispr-img.png',
       imageWidth: 500,
       imageHeight: 300,
+      id: 4,
+      title: 'Traditional Algorithms vs. Machine Learning',
+      subtitle: 'A comprehensive dive into the definition, use cases, efficiency, positives and negatives',
+      description: 'A comprehensive dive into the definition, use cases, efficiency, positives and negatives',
+      author: 'Aaryan Kumbhare',
+      date: 'February 12, 2025',
+      image: '/ai.png',
+      imageWidth: 400,
+      imageHeight: 300, 
     },
     {
       id: 3,
@@ -36,7 +45,7 @@ function Blog() {
       title: 'Almost a Data Loss: The Security Breach We Overcame',
       subtitle: 'An Inside Look at the Security Flaw That Nearly Wiped Our Data',
       description: 'Our journey in building a platform for collaboration, hackathon management and seamless user experience.',
-      author: <a href="https://www.linkedin.com/in/aaryan-kumbhare-07428032a/" target="_blank" rel="noopener noreferrer" className={styles.authorLink}>Aaryan Kumbhare</a>,
+      author: 'Aaryan Kumbhare',
       date: 'November 18, 2024',
       image: '/db.jpg',
       imageWidth: 500,
@@ -47,7 +56,7 @@ function Blog() {
       title: 'TARZAN: Revolutionizing Autonomous Vehicle Navigation',
       subtitle: 'Advanced Pothole Detection System',
       description: 'An innovative system using computer vision to enhance autonomous vehicle control.',
-      author: <a href="https://www.linkedin.com/in/aaryan-kumbhare-07428032a/" target="_blank" rel="noopener noreferrer" className={styles.authorLink}>Aaryan Kumbhare</a>,
+      author: 'Aaryan Kumbhare',
       date: 'November 10, 2024',
       image: '/simulation.jpg',
       imageWidth: 500,
@@ -90,14 +99,28 @@ function Blog() {
                       <a style={{ color: '#fff', textDecoration: 'none' }}>Read More</a>
                     </Link>
                   </button>
+                <span>
+                  By <a href="https://www.linkedin.com/in/aaryan-kumbhare-07428032a/" target="_blank" rel="noopener noreferrer" className={styles.authorLink}>{post.author}</a>
+                </span> | <span>{post.date}</span>
+                <div style={{ marginTop: '5px' }}>
+                  Guided by mentors <a href="https://scholar.google.com/citations?user=IUUENAMAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" className={styles.authorLink}>Dr. Shamla Mantri</a> & <br></br><a href="https://scholar.google.com/citations?user=9GsTeoQAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" className={styles.authorLink}>Dr. Yogesh Kulkarni</a>
+                </div>
+              </div>
+              <button
+              className={styles.readMoreButton}
+              >
+              <Link href={`/blog/${post.id === 1 ? "tarzan" : post.id === 2 ? "data-loss" : post.id === 3 ? "nanotech-application": "traditional-algo"}`} legacyBehavior>
+                <a style={{ color: '#fff', textDecoration: 'none' }}>Read More</a>
+              </Link>
+              </button>
                 </div>
               </div>
             </div>
           ))}
         </div>
+        
       </div>
     </div>
   );
 }
-
 export default Blog;

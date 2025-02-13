@@ -10,6 +10,17 @@ import Link from 'next/link';
 function Blog() {
   const blogPosts = [
     {
+      id: 5,
+      title: 'Crispr',
+      subtitle: 'Revolutionizing Genetics with Precision and Possibility',
+      description: 'CRISPR technology is revolutionizing genetics by enabling precise gene editing, unlocking new possibilities in medicine, agriculture, and biotechnology.',
+      author: <a href="https://www.linkedin.com/in/shreya-more-284869321/" target="_blank" rel="noopener noreferrer" className={styles.authorLink}>Nishtha and Aakanksha More</a>,
+      date: 'February 16, 2025',
+      image: '/crispr-img.png',
+      imageWidth: 500,
+      imageHeight: 300,
+    },
+    {
       id: 3,
       title: 'Application of Nanotechnology in Defence Sector ',
       subtitle: 'Revolutionizing Defense: The Power of Nanotechnology in Military Advancements',
@@ -74,7 +85,8 @@ function Blog() {
                     </div>
                   </div>
                   <button className={styles.readMoreButton}>
-                    <Link href={`/blog/${post.id === 1 ? "tarzan" : post.id === 2 ? "data-loss" : "nanotech-application"}`} legacyBehavior>
+                  <Link href={`/blog/${post.id === 1 ? "tarzan" : post.id === 2 ? "data-loss" : post.id === 3 ? "nanotech-application" : "crispr"}`} legacyBehavior>
+
                       <a style={{ color: '#fff', textDecoration: 'none' }}>Read More</a>
                     </Link>
                   </button>

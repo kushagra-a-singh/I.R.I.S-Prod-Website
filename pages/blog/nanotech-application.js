@@ -123,7 +123,7 @@ const { data: downvotes } = await supabase
                     <h1 className={styles.pageTitle}>Application of Nanotechnology in Defence Sector</h1>
                     <p className={styles.pageSubtitle}>Revolutionizing Defense: The Power of Nanotechnology in Military Advancements</p>
                     <p className={styles.pageauthor}>
-                        By <a className={styles.authorLink} href="https://www.linkedin.com/in/shreya-more-284869321/" target="_blank" rel="noopener noreferrer">Shreya More</a> | February 12, 2025
+                        By <a className={styles.authorLink} href="https://www.linkedin.com/in/shreya-more-284869321/" target="_blank" rel="noopener noreferrer">Shreya More</a> | February 15, 2025
                 </p>
           
                     <div className={styles.blogDescription}>

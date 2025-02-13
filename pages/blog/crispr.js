@@ -128,7 +128,7 @@ const { data: downvotes } = await supabase
                     <p className={styles.pageSubtitle}>Revolutionizing Autonomous Vehicle Navigation</p>
                     <p className={styles.pageauthor}>
                         By <a className={styles.authorLink} href="https://in.linkedin.com/in/aakanksha-pansare-43744a350" target="_blank" rel="noopener noreferrer">Aakanksha Pansare</a>{' '} &
-                        <span className={styles.authorLink}> Nishtha</span>  | February 12, 2025
+                        <span className={styles.authorLink}> Nishtha</span>  | February 16, 2025
                 </p>
                     <div className='content-section'>
               <div className={styles.blogCard}>

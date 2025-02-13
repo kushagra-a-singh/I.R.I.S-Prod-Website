@@ -123,7 +123,10 @@ const { data: downvotes } = await supabase
                 <main className={styles.mainContent}>
                     <h1 className={styles.pageTitle}>Traditional Algorithms vs. Machine Learning</h1>
                     <p className={styles.pageSubtitle}>A comprehensive dive into the definition, use cases, efficiency, positives and negatives</p>
-                    <p className={styles.pageauthor}>By Aaryan Kumbhare | February 12, 2025</p>
+                    <p className={styles.pageauthor}>
+                        By <a className={styles.authorLink} href="https://www.linkedin.com/in/aaryan-kumbhare-07428032a" target="_blank" rel="noopener noreferrer">Aaryan Kumbhare</a> | February 12, 2025
+                </p>
+
           
           <div className={styles.blogDescription}>
           <div className={styles.blogCard}>

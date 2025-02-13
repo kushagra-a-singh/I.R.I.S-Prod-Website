@@ -24,6 +24,13 @@
   font-size: 15px;
   margin-bottom: 20px;
 }
+
+.authorLink {
+  color: #ff00ff; 
+  text-decoration: none; 
+  transition: color 0.3s ease; 
+}
+
 .overlay {
   position: fixed;
   top: 0;

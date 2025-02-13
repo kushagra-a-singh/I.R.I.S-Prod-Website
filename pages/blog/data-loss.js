@@ -122,7 +122,9 @@ const { data: downvotes } = await supabase
                 <main className={styles.mainContent}>
                     <h1 className={styles.pageTitle}>Almost a Data Loss: The Security Breach We Overcame</h1>
                     <p className={styles.pageSubtitle}>An Inside Look at the Security Flaw That Nearly Wiped Our Data</p>
-                    <p className={styles.pageauthor}>By Aaryan Kumbhare | November 18, 2024</p>
+                    <p className={styles.pageauthor}>
+                        By <a className={styles.authorLink} href="https://www.linkedin.com/in/aaryan-kumbhare-07428032a" target="_blank" rel="noopener noreferrer">Aaryan Kumbhare</a> | February 12, 2025
+                </p>
 
                     {/* Blog Content */}
                     <div className={styles.blogDescription}>

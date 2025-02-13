@@ -124,7 +124,9 @@ const { data: downvotes } = await supabase
           <main className={styles.mainContent}>
               <h1 className={styles.pageTitle}>TARZAN: Revolutionizing Autonomous Vehicle Navigation</h1>
               <p className={styles.pageSubtitle}>Advanced Pothole Detection System</p>
-              <p className={styles.pageauthor}>By Aaryan Kumbhare | November 10, 2024</p>
+              <p className={styles.pageauthor}>
+                        By <a className={styles.authorLink} href="https://www.linkedin.com/in/aaryan-kumbhare-07428032a" target="_blank" rel="noopener noreferrer">Aaryan Kumbhare</a> | February 12, 2025
+                </p>
     
     <div className={styles.blogDescription}>
     <div className={styles.blogCard}>

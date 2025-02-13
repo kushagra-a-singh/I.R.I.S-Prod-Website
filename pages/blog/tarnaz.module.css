@@ -18,7 +18,11 @@
   margin-bottom: 10px;
 }
 
-
+.authorLink {
+  color: #ff00ff; 
+  text-decoration: none; 
+  transition: color 0.3s ease; 
+}
 .pageauthor {
   color: #b3b3b3;
   font-size: 15px;

@@ -78,7 +78,7 @@ function Recruitment() {
     {
       label: 'Non-tech',
       options: [
-        { value: 'content-writing', label: 'Content Writing' },
+        { value: 'content-writing', label: 'Content Writing (Blogs, Research Papers)' },
         { value: 'content-creation', label: 'Content Creation (Video Creation, Video Hosting)' },
         { value: 'photo-editor', label: 'Photo Editor' },
         { value: 'video-editor', label: 'Video Editor' },

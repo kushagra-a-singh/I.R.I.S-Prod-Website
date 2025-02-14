@@ -191,7 +191,7 @@ function Blog3() {
 
                     <div className={styles.blogDescription}>
                         <div className={styles.blogCard}>
-                            <h2>Introduction</h2>
+                            <h2><strong>Introduction</strong></h2>
                             <p>
                                 In the modern world, we humans heavily rely on computer systems for various tasks, such as data processing, decision making, and automating various tasks. Ever wondered how the 	page ranking algorithms on search engines or facial recognition on our mobile phones work?
                                 Well, the answer lies somewhere in the different paradigms of traditional algorithms and machine learning! In the upcoming sections, we will be diving deep into the world of computing with traditional algorithms and complex, yet beautiful domain of machine learning.
@@ -199,7 +199,7 @@ function Blog3() {
                         </div>
                         <div className='content-section'>
                             <div className={styles.blogCard}>
-                                <h2>What are traditional algorithms?</h2>
+                                <h2><strong>What are traditional algorithms?</strong></h2>
                                 <p>
                                     Traditional algorithms lay the foundation of computing. These are the algorithms which follow predefined rules to perform tasks and solve problems with precision. There won&apos;t be any harm in saying that the majority of modern computing, which we are about to discuss ahead, is somewhere built on top of traditional algos!
                                 </p>
@@ -216,7 +216,7 @@ function Blog3() {
                         </div>
                         <div className='content-section'>
                             <div className={styles.blogCard}>
-                                <h2>Similarities between traditional algorithms and machine learning algorithms </h2>
+                                <h2><strong>Similarities between traditional algorithms and machine learning algorithms</strong></h2>
                                 <p>
                                     Traditional algorithms marked the beginning of computing, whereas AI and ML are the present and give us an idea of what can be achieved in the upcoming years for computing.
                                     BUT! There is one major similarity between the both.
@@ -235,6 +235,7 @@ function Blog3() {
                                     <br /><br />
                                     This is where the interesting part starts and will also help us understand the differences between the 2 paradigms of this blog!
                                 </p>
+                                <br></br>
                                 <h3>Google&apos;s PageRank Algorithm:</h3>
                                 <p>This is our example for traditional, rule-based algorithms.
                                     PageRank (PR) algorithm was developed by Larry Page and Sergey Brin in the year of 1996, at Stanford University.
@@ -244,6 +245,7 @@ function Blog3() {
                                     <br /><br />
                                     The math behind this: the algorithm outputs a probability distribution used to represent the likelihood that a person randomly clicking on links will arrive at any particular page.
                                 </p>
+                                <br></br>
                                 <h3>Google&apos;s RankBrain and BERT algorithm:</h3>
                                 <p>PageRank was a revolutionary algorithm. But, with the advancements in technology, Google Search also kept evolving. This came in the form of integration of ML, Neural Networks and Natural Language Processing with page ranking.
                                     <br /><br />
@@ -259,7 +261,7 @@ function Blog3() {
                         </div>
                         <div className='content-section'>
                             <div className={styles.blogCard}>
-                                <h2>Efficiency, Pros and Cons</h2>
+                                <h2><strong>Efficiency, Pros and Cons</strong></h2>
                                 <p>
                                     Traditional algorithms, being predefined, work efficiently with specific tasks and structured data. The traditional algorithms have well-defined time and space complexities.
                                     These algorithms do not require cutting edge hardware to train upon, i.e., lesser RAM + GPU power is required.
@@ -273,7 +275,7 @@ function Blog3() {
                         </div>
                         <div className='content-section'>
                             <div className={styles.blogCard}>
-                                <h2>Conclusion</h2>
+                                <h2><strong>Conclusion</strong></h2>
                                 <p>
                                     From the above sections, we have got to understand the difference between traditional algos and ML. This also answers the question asked in the 1st paragraph. Page ranking works on the basis of traditional algorithms, and in the modern world, it incorporates the modern technologies like ML and NLP for better results. Our mobile phones use computer vision, another domain of ML, to analyze an image, helping the system to know that the person in front of the camera is you!
                                     <br /><br />
@@ -285,7 +287,7 @@ function Blog3() {
                         </div>
                         <div className='content-section'>
                             <div className={styles.blogCard}>
-                                <h2>Summary for Newsletter</h2>
+                                <h2><strong>Summary for Newsletter</strong></h2>
                                 <p>
                                     In the modern world, most of us rely on computers and mobiles for various tasks. But have you ever wondered, what goes on in the backend of those tasks? Suppose you search for your favourite food&apos;s recipe, how is Google able to bring in all the answers so quickly? Or how is your phone able to unlock just by looking at our face?
                                     This article dives into the forever evolving world of computing, its foundation laid by traditional algorithms and how machine learning is changing the landscape for the future. Also, we will find the answers to the questions mentioned above!
@@ -294,7 +296,7 @@ function Blog3() {
                         </div>
                         <div className='content-section'>
                             <div className={styles.blogCard}>
-                                <h2>Free Resources</h2>
+                                <h2><strong>Free Resources</strong></h2>
                                 <ol className={styles.List}>
                                     <li><strong>PageRank</strong>: <a href="https://www.geeksforgeeks.org/page-rank-algorithm-implementation/" target="_blank"
                                         rel="noopener noreferrer" >https://www.geeksforgeeks.org/page-rank-algorithm-implementation/</a></li>
@@ -334,11 +336,15 @@ function Blog3() {
                     <div className={styles.commentSection}>
                         <h3 className={styles.commentTitle}>Comments</h3>
                         <div className={styles.commentList}>
-                            {comments.map((comment) => (
-                                <div key={comment.id} className={styles.comment}>
-                                    <p><strong>{comment.username}</strong>: {comment.comment}</p>
-                                </div>
-                            ))}
+                            {comments.length === 0 ? (
+                                <p>No comments added yet.</p>
+                            ) : (
+                                comments.map((comment) => (
+                                    <div key={comment.id} className={styles.comment}>
+                                        <p><strong>{comment.username}</strong>: {comment.comment}</p>
+                                    </div>
+                                ))
+                            )}
                         </div>
                         <h3 className={styles.commentTitle}>Add your Comment</h3>
 

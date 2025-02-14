@@ -259,3 +259,20 @@
   font-size: 1.2rem;
   margin-top: 20px;
 }
+
+.blogCard ol,
+.blogCard ul {
+  padding-left: 20px;
+  margin: 10px 0;
+  text-align: left;
+}
+
+.blogCard li {
+  padding-left: 5px;
+  margin: 5px 0;
+  list-style-position: inside;
+}
+
+.blogCard li::marker {
+  color: #ff00ff;
+}

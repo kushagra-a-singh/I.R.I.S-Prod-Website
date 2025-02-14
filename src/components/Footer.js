@@ -42,7 +42,7 @@ function Footer() {
         </div>
         <hr className="mx-0" />
         <div className="text-center mt-4">
-          <p>&copy; 2024 I.R.I.S. All rights reserved</p>
+          <p>&copy; 2025 I.R.I.S. All rights reserved</p>
         </div>
       </div>
     </footer>

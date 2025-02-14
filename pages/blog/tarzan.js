@@ -190,7 +190,7 @@ function Blog1() {
 
           <div className={styles.blogDescription}>
             <div className={styles.blogCard}>
-              <h2>The Future of Intelligent Transportation</h2>
+              <h2><strong>The Future of Intelligent Transportation</strong></h2>
               <p>
                 In the rapidly evolving landscape of automotive technology, autonomous vehicles represent more than just a technological marvel—they are a transformative solution to transportation challenges. The I.R.I.S. club&apos;s TARZAN project emerges as a groundbreaking initiative that pushes the boundaries of what&apos;s possible in autonomous vehicle navigation, particularly in challenging road conditions.
               </p>
@@ -198,7 +198,7 @@ function Blog1() {
 
             <div className='content-section'>
               <div className={styles.blogCard}>
-                <h2>The Context of Autonomous Driving</h2>
+                <h2><strong>The Context of Autonomous Driving</strong></h2>
                 <p>
                   The journey of autonomous vehicles has been fascinating. From Google&apos;s Self-Driving Car Project in 2009 to Tesla&apos;s Autopilot in 2015, the automotive industry has witnessed exponential growth. However, most existing solutions are limited to high-end vehicles with Advanced Driver Assistance Systems (ADAS).
                 </p>
@@ -210,7 +210,7 @@ function Blog1() {
 
             <div className='content-section'>
               <div className={styles.blogCard}>
-                <h2>Understanding Autonomous Driving Levels</h2>
+                <h2><strong>Understanding Autonomous Driving Levels</strong></h2>
                 <p>
                   Before diving into TARZAN&apos;s specifics, let&apos;s understand the autonomous driving spectrum:
                 </p>
@@ -225,7 +225,7 @@ function Blog1() {
 
             <div className='content-section'>
               <div className={styles.blogCard}>
-                <h2>The TARZAN Approach: Intelligent Road Intelligent System</h2>
+                <h2><strong>The TARZAN Approach: Intelligent Road Intelligent System</strong></h2><br></br>
                 <h3>Core Technologies</h3>
                 <p>
                   TARZAN integrates multiple cutting-edge technologies:
@@ -241,7 +241,7 @@ function Blog1() {
 
           <div className='content-section'>
             <div className={styles.blogCard}>
-              <h2>Pothole Detection Mechanism</h2>
+              <h2><strong>Pothole Detection Mechanism</strong></h2>
               <p>
                 The heart of TARZAN is its sophisticated pothole detection system:
               </p>
@@ -268,7 +268,7 @@ function Blog1() {
 
           <div className='content-section'>
             <div className={styles.blogCard}>
-              <h2>Performance Metrics: Proving the Concept</h2>
+              <h2><strong>Performance Metrics: Proving the Concept</strong></h2>
               <p>
                 Our experimental results are compelling:
               </p>
@@ -288,7 +288,7 @@ function Blog1() {
 
           <div className='content-section'>
             <div className={styles.blogCard}>
-              <h2>Technical Deep Dive: How TARZAN Works</h2>
+              <h2><strong>Technical Deep Dive: How TARZAN Works</strong></h2><br></br>
               <h3>Data Processing Pipeline</h3>
               <ol className={styles.List}>
                 <li><strong>Input Capture</strong>: Video stream at 30 fps</li>
@@ -311,7 +311,7 @@ function Blog1() {
 
           <div className='content-section'>
             <div className={styles.blogCard}>
-              <h2>Beyond Technology: The Vision</h2>
+              <h2><strong>Beyond Technology: The Vision</strong></h2>
               <p>
                 TARZAN isn&apos;t just a technical project—it&apos;s a vision of making roads safer, more accessible, and intelligent. By extending autonomous capabilities to vehicles without ADAS, we&apos;re democratizing advanced transportation technology.
               </p>
@@ -320,12 +320,12 @@ function Blog1() {
 
           <div className='content-section'>
             <div className={styles.blogCard}>
-              <h2>Conclusion: The Road Ahead</h2>
+              <h2><strong>Conclusion: The Road Ahead</strong></h2>
               <p>
                 As we continue refining TARZAN, we&apos;re not just developing a system—we&apos;re shaping the future of intelligent transportation. Our project demonstrates that with creativity, advanced algorithms, and a commitment to innovation, we can transform how we navigate our world.
               </p>
-              <p><strong>Stay tuned for more updates from the I.R.I.S. Research Team!</strong></p>
-              <h3 className={styles.sectionTitle}>Visual Insights of TARZAN&apos;s System</h3>
+              <p><strong>Stay tuned for more updates from the I.R.I.S. Research Team!</strong></p><br></br>
+              <h3 className={styles.sectionTitle}><strong>Visual Insights of TARZAN&apos;s System</strong></h3>
 
               <div className={styles.imageGallery}>
                 <h4>MATLAB System Diagram</h4>
@@ -355,12 +355,16 @@ function Blog1() {
           <div className={styles.commentSection}>
             <h3 className={styles.commentTitle}>Comments</h3>
             <div className={styles.commentList}>
-              {comments.map((comment) => (
-                <div key={comment.id} className={styles.comment}>
-                  <p><strong>{comment.username}</strong>: {comment.comment}</p>
-                </div>
-              ))}
-            </div>
+                            {comments.length === 0 ? (
+                                <p>No comments added yet.</p>
+                            ) : (
+                                comments.map((comment) => (
+                                    <div key={comment.id} className={styles.comment}>
+                                        <p><strong>{comment.username}</strong>: {comment.comment}</p>
+                                    </div>
+                                ))
+                            )}
+                        </div>
             <h3 className={styles.commentTitle}>Add your Comment</h3>
 
             <div>

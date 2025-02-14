@@ -190,7 +190,7 @@ function Blog2() {
                     {/* Blog Content */}
                     <div className={styles.blogDescription}>
                         <div className={styles.blogCard}>
-                            <h2>Overview about I.R.I.S. Website.</h2>
+                            <h2><strong>Overview about I.R.I.S. Website.</strong></h2>
                             <p>
                                 In today&apos;s dynamic and rapidly-evolving digital ecosystem, it is important for an organisation to set up their online presence, so that they can meet the growing demands of their audience and help in increasing the scale of their services. Deployment of a muscular and scalable website acts as a hub for the operations of an organisation, real-time updates about the work of the organisation, showcasing their services and a portal for communication with their customers. This helps in enhancing the user engagement, quality of services; eventually leading to the overall growth of the organisation.
                                 <br />
@@ -203,7 +203,7 @@ function Blog2() {
                         </div>
                         <div className='content-section'>
                             <div className={styles.blogCard}>
-                                <h2>Let’s start with the main point:</h2>
+                                <h2><strong>Let’s start with the main point:</strong></h2>
                                 <p>
                                     Now, I’m sure that you are aware about the importance of our website.
                                     We will now start with some technicalities and components of our website.
@@ -236,7 +236,7 @@ function Blog2() {
                         </div>
                         <div className='content-section'>
                             <div className={styles.blogCard}>
-                                <h2>What caused the issue?</h2>
+                                <h2><strong>What caused the issue?</strong></h2>
                                 <p>
                                     Our team created and deployed the I.R.I.S. website for registrations and payments of our upcoming event in September, the I.R.I.S. Innovation Hackathon.
                                     So as discussed above, our website used Supabase SQL in the backend for storage of user data and payment details.
@@ -263,7 +263,7 @@ function Blog2() {
                         </div>
                         <div className='content-section'>
                             <div className={styles.blogCard}>
-                                <h2>Conclusion</h2>
+                                <h2><strong>Conclusion</strong></h2>
                                 <p>
                                     To sum it up, even a small mistake can also offer you a lot of lessons. As we read in the quote a few sections above, mistakes and problems are an opportunity for improvement and growth, which goes along pretty well with our example! The incident helped the team to emphasise more on security and building a more robust and reliable website for our users.
                                     <br />
@@ -298,11 +298,15 @@ function Blog2() {
                     <div className={styles.commentSection}>
                         <h3 className={styles.commentTitle}>Comments</h3>
                         <div className={styles.commentList}>
-                            {comments.map((comment) => (
-                                <div key={comment.id} className={styles.comment}>
-                                    <p><strong>{comment.username}</strong>: {comment.comment}</p>
-                                </div>
-                            ))}
+                            {comments.length === 0 ? (
+                                <p>No comments added yet.</p>
+                            ) : (
+                                comments.map((comment) => (
+                                    <div key={comment.id} className={styles.comment}>
+                                        <p><strong>{comment.username}</strong>: {comment.comment}</p>
+                                    </div>
+                                ))
+                            )}
                         </div>
                         <h3 className={styles.commentTitle}>Add your Comment</h3>
 

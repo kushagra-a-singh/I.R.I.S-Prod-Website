@@ -183,7 +183,7 @@ function Blog5() {
             <div className={styles.blogContent}>
                 <main className={styles.mainContent}>
                     <h1 className={styles.pageTitle}>CRISPR</h1>
-                    <p className={styles.pageSubtitle}>Revolutionizing Autonomous Vehicle Navigation</p>
+                    <p className={styles.pageSubtitle}>Revolutionizing Genetics with Precision and Possibility</p>
                     <p className={styles.pageauthor}>
                         By <a className={styles.authorLink} href="https://in.linkedin.com/in/aakanksha-pansare-43744a350" target="_blank" rel="noopener noreferrer">Aakanksha Pansare</a>{' '} &
                         <span className={styles.authorLink}> Nishtha</span>  | February 16, 2025
@@ -317,7 +317,7 @@ function Blog5() {
                                     <a href="https://en.wikipedia.org/wiki/CRISPR"
                                         target="_blank"
                                         rel="noopener noreferrer">
-                                        Crispr-Wikipedia
+                                        CRISPR-Wikipedia
                                     </a>
                                 </li>
                                 <li>
@@ -381,11 +381,15 @@ function Blog5() {
                     <div className={styles.commentSection}>
                         <h3 className={styles.commentTitle}>Comments</h3>
                         <div className={styles.commentList}>
-                            {comments.map((comment) => (
-                                <div key={comment.id} className={styles.comment}>
-                                    <p><strong>{comment.username}</strong>: {comment.comment}</p>
-                                </div>
-                            ))}
+                            {comments.length === 0 ? (
+                                <p>No comments added yet.</p>
+                            ) : (
+                                comments.map((comment) => (
+                                    <div key={comment.id} className={styles.comment}>
+                                        <p><strong>{comment.username}</strong>: {comment.comment}</p>
+                                    </div>
+                                ))
+                            )}
                         </div>
 
 

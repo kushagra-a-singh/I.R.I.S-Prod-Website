@@ -8,7 +8,7 @@ function Blog() {
   const blogPosts = [
     {
       id: 5,
-      title: 'Crispr',
+      title: 'CRISPR: Revolutionizing Genetics',
       subtitle: 'Revolutionizing Genetics with Precision and Possibility',
       description: 'CRISPR technology is revolutionizing genetics by enabling precise gene editing, unlocking new possibilities in medicine, agriculture, and biotechnology.',
       author: (

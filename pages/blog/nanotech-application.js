@@ -287,11 +287,15 @@ function Blog4() {
                     <div className={styles.commentSection}>
                         <h3 className={styles.commentTitle}>Comments</h3>
                         <div className={styles.commentList}>
-                            {comments.map((comment) => (
-                                <div key={comment.id} className={styles.comment}>
-                                    <p><strong>{comment.username}</strong>: {comment.comment}</p>
-                                </div>
-                            ))}
+                            {comments.length === 0 ? (
+                                <p>No comments added yet.</p>
+                            ) : (
+                                comments.map((comment) => (
+                                    <div key={comment.id} className={styles.comment}>
+                                        <p><strong>{comment.username}</strong>: {comment.comment}</p>
+                                    </div>
+                                ))
+                            )}
                         </div>
 
                         <h3 className={styles.commentTitle}>Add your Comment</h3>

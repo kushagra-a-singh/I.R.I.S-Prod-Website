@@ -14,7 +14,6 @@
   width: 100%;
   position: relative;
   margin: 0 auto;
-  top: 1px;
   display: flex;
   justify-content: space-between; /* Ensure proper spacing */
   align-items: center; /* Align vertically */
@@ -36,10 +35,11 @@
   text-decoration: none;
   position: absolute;
   left: 50%;
+
   transform: translateX(-50%);
 }
 
-.navbarCustom {
+.navbarCustom   {
   background: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(75, 1, 64) 50%, rgb(54, 1, 75) 100%);
   border-radius: 0 0 15px 15px;
   transition: all 0.3s ease;
@@ -50,13 +50,16 @@
   .navbarCollapse {
     background: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(75, 1, 64) 50%, rgb(54, 1, 75) 100%);
     border-radius: 0 0 15px 15px;
-    padding: 10px;
+    margin-top: 14px;
     position: absolute;
     width: 100%;
     left: 0;
-    top: 88%;
-    height: 430px; 
-   }
+    top: 80%;
+    height: 400px; 
+    /* padding-top: 2000px; */
+    /* border: 1px solid red; */
+
+  }
   
 }
 
@@ -65,6 +68,7 @@
 .navbarContainer {
   display: flex;
   align-items: center;
+  border: 1px solid red;
 }
 
 .logoImg {

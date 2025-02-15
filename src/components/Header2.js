@@ -38,10 +38,10 @@ function Header2() {
     <header className={`${styles.navbarWrapper} ${scrolled ? styles.scrolled : ''}`}>
       <div className={styles.headerContainer}>
         <nav
-          className={` ${styles.mainNavbar} navbar navbar-expand-lg navbar-dark ${styles.navbarCustom}`}
+          className={` ${styles.mainNavbar} border-blue-600 navbar navbar-expand-lg navbar-dark ${styles.navbarCustom}`}
         >
           <div className={`container ${styles.navbarContainer}`}>
-            <Link className="navbar-brand" href="/">
+            <Link className="navbar-brand " href="/">
               <Image
                 src="/logo3.gif"
                 alt="Logo"
@@ -65,7 +65,7 @@ function Header2() {
               className={`collapse ${styles.navbarCollapse} navbar-collapse`}
               id="navbarSupportedContent"
             >
-              <ul className={`navbar-nav ms-auto ${styles.navbarRightContent}`}>
+              <ul className={`navbar-nav ms-auto   ${styles.navbarRightContent}`}>
                 {[
                   { name: 'Home', path: '/' },
                   { name: 'Recruitments', path: '/recruitments' },

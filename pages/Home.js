@@ -38,6 +38,24 @@ function Home() {
       link: "/blog",
       image: "/db.jpg",
     },
+    {
+      title: "CRISPR: Revolutionizing Genetics",
+      description: "CRISPR technology is revolutionizing genetics by enabling precise gene editing, unlocking new possibilities in medicine, agriculture, and biotechnology.",
+      link: "/blog",
+      image: "/crispr-img.png",
+    },
+    {
+      title: "Application of Nanotechnology in Defence Sector",
+      description: "Revolutionizing Defense: The Power of Nanotechnology in Military Advancements.",
+      link: "/blog",
+      image: "/nanotech3.png",
+    },
+    {
+      title: "Traditional Algorithms vs. Machine Learning",
+      description: "A comprehensive dive into the definition, use cases, efficiency, positives and negatives.",
+      link: "/blog",
+      image: "/ai.png",
+    },
   ];
 
   const section2 = [
@@ -53,6 +71,12 @@ function Home() {
       link: "/events",
       image: "/past-innovation-hackathon.jpg",
     },
+    {
+      title: "I.R.I.S. Ice Breaker 2025",
+      description: "Held on: 1/24/2025",
+      link: "/events",
+      image: "/icebreaker.jpeg",
+    }
   ];
 
   const section3 = [

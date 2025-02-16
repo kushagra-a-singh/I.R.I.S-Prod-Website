@@ -188,7 +188,6 @@ function Blog3() {
                         By <a className={styles.authorLink} href="https://www.linkedin.com/in/aaryan-kumbhare-07428032a" target="_blank" rel="noopener noreferrer">Aaryan Kumbhare</a> | February 12, 2025
                     </p>
 
-
                     <div className={styles.blogDescription}>
                         <div className={styles.blogCard}>
                             <h2><strong>Introduction</strong></h2>

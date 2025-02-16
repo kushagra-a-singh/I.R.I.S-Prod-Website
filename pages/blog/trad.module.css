@@ -105,94 +105,6 @@
 }
 
 
-@media (max-width: 768px) {
-  .pageTitle {
-    font-size: 24px;
-    margin-bottom: 8px;
-  }
-
-  .pageSubtitle {
-    font-size: 16px;
-    margin-bottom: 8px;
-  }
-
-  .pageauthor {
-    font-size: 14px;
-    margin-bottom: 15px;
-  }
-
-  .blogCard {
-    width: 95%;
-    margin: 15px auto;
-    padding: 15px;
-  }
-
-  .blogContent {
-    padding: 15px;
-  }
-
-  .imageGallery img {
-    width: 100%;
-    margin: 8px 0;
-  }
-
-  .commentSection {
-    margin-top: 20px;
-    padding-top: 15px;
-  }
-
-  .commentInput {
-    padding: 8px;
-    margin-bottom: 10px;
-    font-size: 13px;
-  }
-
-  .commentSubmitButton {
-    padding: 10px 15px;
-    font-size: 14px;
-  }
-
-  .voteButton {
-    font-size: 20px;
-    padding: 8px;
-    margin: 0 8px;
-  }
-
-  .backtoblog {
-    padding: 8px 16px;
-    font-size: 14px;
-  }
-
-  .content-section {
-    padding: 10px;
-  }
-  
-  .blogDescription {
-    padding: 10px;
-    font-size: 14px;
-    line-height: 1.6;
-  }
-  
-  .blogCard p {
-    font-size: 14px;
-    line-height: 1.6;
-    margin: 10px 0;
-  }
-  
-  .blogCard h2, .blogCard h3 {
-    font-size: 18px;
-    margin: 15px 0 10px;
-  }
-  
-  .blogCard ul, .blogCard ol {
-    padding-left: 20px;
-    margin: 10px 0;
-  }
-  
-  .blogCard li {
-    margin: 5px 0;
-  }
-}
 .commentSection {
   margin-top: 30px;
   border-top: 2px solid #444;
@@ -360,4 +272,112 @@
 
 .blogCard li::marker {
   color: #ff00ff;
+}
+
+@media (max-width: 768px) {
+  
+  .content-section{
+    padding: 10px;
+  }
+  
+  .blogPage {
+    padding-top: 10px;
+  }
+
+  .pageTitle {
+    margin-top: 20px;
+    font-size: 24px;
+    margin-bottom: 5px;
+  }
+
+  .pageSubtitle {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+
+  .pageauthor {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+
+  .blogCard {
+    max-width: 95vw;
+    /* max-width: 430px; */
+    margin: 10px auto;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .blogContent {
+    padding: 10px;
+  }
+
+  .blogTitle {
+    font-size: 20px;
+  }
+
+  .blogDescription {
+    font-size: 16px;
+    padding: 5px;
+    line-height: 1.5;
+  }
+
+  .blogMeta {
+    font-size: 12px;
+    padding: 8px 0;
+  }
+
+  .commentSection {
+    padding-top: 10px;
+    justify-self: center;
+    max-width: 90vw;
+  }
+
+  .commentInput {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .commentSubmitButton {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .voteButton {
+    font-size: 18px;
+    padding: 6px;
+  }
+
+  .voteCount {
+    font-size: 16px;
+  }
+
+  .backtoblog {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  .imageGallery img {
+    width: 100%;
+    height: auto;
+  }
+
+  .blogCard h2, 
+  .blogCard h3 {
+    font-size: 16px;
+    margin: 10px 0;
+  }
+
+  .blogCard ol, 
+  .blogCard ul {
+    padding-left: 15px;
+    margin: 8px 0;
+  }
+
+  .blogCard li {
+    font-size: 14px;
+    padding-left: 5px;
+    margin: 3px 0;
+    max-width: 88vw;
+  }
 }

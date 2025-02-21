@@ -60,6 +60,10 @@
     /* border: 1px solid red; */
 
   }
+  .navbarContainer{
+    position: relative;
+    top: -10px;
+  }
   
 }
 

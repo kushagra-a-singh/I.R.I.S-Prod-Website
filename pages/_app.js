@@ -31,14 +31,14 @@ function App({ Component, pageProps }) {
         <meta name="theme-color" content="#ffffff" />
 
         {/* Google tag (gtag.js) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XB438PP3BZ"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-KCK2584ZLN"></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-XB438PP3BZ');
+              gtag('config', 'G-KCK2584ZLN');
             `,
           }}
         />

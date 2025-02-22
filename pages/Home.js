@@ -379,7 +379,7 @@ function Home() {
             <div className="container">
               <div className="row align-items-center">
                 <div className="col-lg-6 text-center text-lg-start">
-                  <h2 className="display-4 fw-bold">
+                  <h2 className="display-4 fw-bold" style={{fontSize: '2rem'}}>
                     {section1[SectionIndex1].title}
                   </h2>
                   <p className="mb-4">

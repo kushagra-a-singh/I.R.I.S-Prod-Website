@@ -187,6 +187,7 @@
   height: auto;
   min-height: 400px;
   overflow: hidden;
+  opacity: 0;
   position: relative;
 }
 

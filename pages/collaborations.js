@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Modal, Button } from 'react-bootstrap';
 import styles from './collaborations.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -7,8 +8,8 @@ import { Code, Shield, Server, Cloud, GraduationCap } from 'lucide-react';
 
 const domainIcons = {
   "Artificial Intelligence": <Code size={16} className={styles.icon} />,
-  "Blockchain": <Shield size={16} className={styles.icon} />,
-  "Cybersecurity": <Server size={16} className={styles.icon} />,
+  "Cybersecurity": <Shield size={16} className={styles.icon} />,
+  "Blockchain": <Server size={16} className={styles.icon} />,
   "IoT & Embedded Systems": <Cloud size={16} className={styles.icon} />,
 };
 
@@ -26,6 +27,8 @@ const borderColors = {
 };
 
 function Collaboration() {
+  const [selectedProject, setSelectedProject] = useState(null);
+
   const collabProjects = [
     {
       id: 1,
@@ -35,20 +38,14 @@ function Collaboration() {
       domain: 'Artificial Intelligence',
       branchYear: 'TY BTech CSE',
       status: 'Ongoing',
+      guides: ['Dr. Shamla Mantri', 'Dr. Yogesh Kulkarni'],
       contributors: (
         <>
-          <a
-            href="https://linkedin.com/in/example1"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.contributorLink}
-          >
-            John Doe
-          </a>
-          {' '} &
-          <span className={styles.contributorLink}> Jane Smith</span>
+          <a href="https://linkedin.com/in/example1" target="_blank" rel="noopener noreferrer" className={styles.contributorLink}>John Doe</a>
+          {' '} & <span className={styles.contributorLink}> Jane Smith</span>
         </>
       ),
+      githubLink: "https://github.com/example1/opensource-ai",
       date: 'March 10, 2025',
       image: '/ai.png',
       imageWidth: 500,
@@ -62,16 +59,11 @@ function Collaboration() {
       domain: 'Blockchain',
       branchYear: 'TY BTech IT',
       status: 'Completed',
+      guides: ['Dr. Shamla Mantri', 'Dr. Yogesh Kulkarni'],
       contributors: (
-        <a
-          href="https://linkedin.com/in/example2"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.contributorLink}
-        >
-          Alice Johnson
-        </a>
+        <a href="https://linkedin.com/in/example2" target="_blank" rel="noopener noreferrer" className={styles.contributorLink}>Alice Johnson</a>
       ),
+      githubLink: "https://github.com/example2/secure-transactions",
       date: 'February 20, 2025',
       image: '/ai.png',
       imageWidth: 500,
@@ -85,16 +77,11 @@ function Collaboration() {
       domain: 'Cybersecurity',
       branchYear: 'TY BTech CSE',
       status: 'In Review',
+      guides: ['Dr. Shamla Mantri', 'Dr. Yogesh Kulkarni'],
       contributors: (
-        <a
-          href="https://linkedin.com/in/example3"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.contributorLink}
-        >
-          Michael Lee
-        </a>
+        <a href="https://linkedin.com/in/example3" target="_blank" rel="noopener noreferrer" className={styles.contributorLink}>Michael Lee</a>
       ),
+      githubLink: "https://github.com/example3/cybersecurity-analysis",
       date: 'April 5, 2025',
       image: '/ai.png',
       imageWidth: 500,
@@ -108,22 +95,20 @@ function Collaboration() {
       domain: 'IoT & Embedded Systems',
       branchYear: 'TY BTech ECE',
       status: 'Ongoing',
+      guides: ['Dr. Shamla Mantri', 'Dr. Yogesh Kulkarni'],
       contributors: (
-        <a
-          href="https://linkedin.com/in/example4"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.contributorLink}
-        >
-          Sarah Patel
-        </a>
+        <a href="https://linkedin.com/in/example4" target="_blank" rel="noopener noreferrer" className={styles.contributorLink}>Sarah Patel</a>
       ),
+      githubLink: "https://github.com/example4/smart-agriculture",
       date: 'May 15, 2025',
       image: '/ai.png',
       imageWidth: 500,
       imageHeight: 300,
     },
   ];
+
+  const handleShow = (project) => setSelectedProject(project);
+  const handleClose = () => setSelectedProject(null);
 
   return (
     <div className={styles.collaborationPage}>
@@ -134,12 +119,12 @@ function Collaboration() {
           {collabProjects.map((project) => (
             <div key={project.id} className="col-md-6 col-lg-4 d-flex align-items-stretch">
               <div className={styles.collabCard} style={{ borderLeft: `5px solid ${borderColors[project.domain]}` }}>
-                <Image 
-                  src={project.image} 
-                  alt={project.title} 
-                  width={500} 
-                  height={300} 
-                  className={styles.collabImage} 
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  width={500}
+                  height={300}
+                  className={styles.collabImage}
                 />
                 <div className={styles.collabContent}>
                   <h3 className={styles.collabTitle}>{project.title}</h3>
@@ -169,16 +154,64 @@ function Collaboration() {
                         Dr. Yogesh Kulkarni
                       </a>
                     </div>
-                  </div> <br/>
-                  <Link href={`/collaboration/${project.id}`} passHref legacyBehavior>
-                    <button className={styles.viewMoreButton} style={{ width: "100%", textAlign: "center" }}>View More</button>
-                  </Link>
+                  </div> <br />
+                  <Button className={styles.viewMoreButton} onClick={() => handleShow(project)} style={{ width: "100%", textAlign: "center" }}>View More</Button>
                 </div>
               </div>
             </div>
           ))}
         </div>
       </div>
+      
+      {selectedProject && (
+        <Modal show={true} onHide={handleClose} size="lg" centered contentClassName={styles.modalContainer}>
+          <Modal.Header closeButton className={styles.modalHeader}>
+            <Modal.Title>{selectedProject.title}</Modal.Title>
+          </Modal.Header>
+          <Modal.Body className={styles.modalBody}>
+            <h5 className={styles.modalSubtitle}>{selectedProject.subtitle}</h5>
+            <p className={styles.modalDescription}>{selectedProject.description}</p>
+            <Image
+              src={selectedProject.image}
+              alt={selectedProject.title}
+              width={600}
+              height={400}
+              className={styles.modalImage}
+            />
+            <p><strong>Contributors:</strong> {selectedProject.contributors}</p>
+            <p><strong>Domain:</strong> {selectedProject.domain}</p>
+            <p><strong>Status:</strong>
+              <span className={`${styles.statusBadge} ${statusClasses[selectedProject.status]}`}>
+                {selectedProject.status}
+              </span>
+            </p>
+            <p>
+              <strong>GitHub Repository:</strong>
+              <a href={selectedProject.githubLink} target="_blank" rel="noopener noreferrer" className={styles.githubLink}>
+                {selectedProject.githubLink}
+              </a>
+            </p>
+            <div className={styles.guides}>
+              Guided by {' '}
+              <a href="https://scholar.google.com/citations?user=IUUENAMAAAAJ&hl=en"
+                target="_blank" rel="noopener noreferrer" className={styles.authorLink}>
+                Dr. Shamla Mantri
+              </a> {' '}
+              & {' '}
+              <a href="https://scholar.google.com/citations?user=9GsTeoQAAAAJ&hl=en"
+                target="_blank" rel="noopener noreferrer" className={styles.authorLink}>
+                Dr. Yogesh Kulkarni
+              </a>
+            </div>
+          </Modal.Body>
+          <Modal.Footer className={styles.modalFooter}>
+            <Button variant="secondary" onClick={handleClose} className={styles.closeButton}>
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      )}
+
     </div>
   );
 }

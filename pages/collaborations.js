@@ -5,6 +5,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Code, Shield, Server, Cloud, GraduationCap } from 'lucide-react';
+import supabase from '../src/utils/supabase';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const domainIcons = {
   "Artificial Intelligence": <Code size={16} className={styles.icon} />,
@@ -28,15 +31,14 @@ const borderColors = {
 
 function Collaboration() {
   const [selectedProject, setSelectedProject] = useState(null);
-  const [comments, setComments] = useState([]);
-  const [newComment, setNewComment] = useState('');
-  const [commenterName, setCommenterName] = useState('');
+  const [comments, setComments] = useState({});
+  const [formData, setFormData] = useState({});
   const [deviceId, setDeviceId] = useState(null);
   const [vote, setVote] = useState(null);
   const [voteCounts, setVoteCounts] = useState({ upvotes: 0, downvotes: 0 });
 
-  var postId = 1;
-
+  const getCurrentProjectId = () => selectedProject?.id;
+  // var postId = selectedProject ? selectedProject.id : 1;
 
   const collabProjects = [
     {
@@ -116,7 +118,16 @@ function Collaboration() {
     },
   ];
 
-  const handleShow = (project) => setSelectedProject(project);
+  const handleShow = (project) => {
+    setSelectedProject(project);
+    if (!formData[project.id]) {
+      setFormData(prev => ({
+        ...prev,
+        [project.id]: { commenterName: '', newComment: '' }
+      }));
+    }
+  };
+
   const handleClose = () => setSelectedProject(null);
 
   useEffect(() => {
@@ -131,20 +142,20 @@ function Collaboration() {
   }, []);
 
   useEffect(() => {
-    if (deviceId) {
+    if (deviceId && selectedProject) {
       console.log('Current Device ID:', deviceId);
-      fetchComments();
-      fetchVoteStatus();
+      fetchComments(selectedProject.id);
+      fetchVoteStatus(selectedProject.id);
     }
-  }, [deviceId]);
+  }, [deviceId, selectedProject]);
 
-  const fetchVoteStatus = async () => {
+  const fetchVoteStatus = async (projectId) => {
     try {
       const { data: voteData, error: voteError } = await supabase
-        .from('votes')
+        .from('collab_votes')
         .select('vote_type')
         .eq('device_id', deviceId)
-        .eq('post_id', postId)
+        .eq('post_id', projectId)
         .single();
 
       if (voteError && voteError.code !== 'PGRST116') {
@@ -154,15 +165,15 @@ function Collaboration() {
       }
 
       const { data: upvoteData, error: upvoteError } = await supabase
-        .from('votes')
+        .from('collab_votes')
         .select('*')
-        .eq('post_id', postId)
+        .eq('post_id', projectId)
         .eq('vote_type', 'upvote');
 
       const { data: downvoteData, error: downvoteError } = await supabase
-        .from('votes')
+        .from('collab_votes')
         .select('*')
-        .eq('post_id', postId)
+        .eq('post_id', projectId)
         .eq('vote_type', 'downvote');
 
       if (upvoteError || downvoteError) {
@@ -178,21 +189,27 @@ function Collaboration() {
     }
   };
 
-  const fetchComments = async () => {
+  const fetchComments = async (projectId) => {
     const { data, error } = await supabase
-      .from('comments')
+      .from('collab_comments')
       .select('*')
-      .eq('post_id', postId)
+      .eq('post_id', projectId)
       .order('created_at', { ascending: false });
 
     if (error) {
       console.error('Error fetching comments:', error);
     } else {
-      setComments(data || []);
+      setComments(prev => ({
+        ...prev,
+        [projectId]: data || []
+      }));
     }
   };
 
   const handleVote = async (voteType) => {
+    const projectId = getCurrentProjectId();
+    if (!projectId) return;
+
     try {
       if (!deviceId) {
         toast.error('Unable to vote at this time');
@@ -200,9 +217,9 @@ function Collaboration() {
       }
 
       const { data: existingVote, error: fetchError } = await supabase
-        .from('votes')
+        .from('collab_votes')
         .select('*')
-        .eq('post_id', postId)
+        .eq('post_id', projectId)
         .eq('device_id', deviceId)
         .single();
 
@@ -217,9 +234,9 @@ function Collaboration() {
           return;
         } else {
           const { error: updateError } = await supabase
-            .from('votes')
+            .from('collab_votes')
             .update({ vote_type: voteType })
-            .eq('post_id', postId)
+            .eq('post_id', projectId)
             .eq('device_id', deviceId);
 
           if (updateError) {
@@ -227,14 +244,14 @@ function Collaboration() {
             return;
           }
 
-          toast.success(`Vote changed to ${voteType}!`);
           setVote(voteType);
+          toast.success(`Vote changed to ${voteType}!`);
         }
       } else {
         const { error: insertError } = await supabase
-          .from('votes')
+          .from('collab_votes')
           .insert({
-            post_id: postId,
+            post_id: projectId,
             vote_type: voteType,
             device_id: deviceId
           });
@@ -244,11 +261,11 @@ function Collaboration() {
           return;
         }
 
-        toast.success(`Successfully ${voteType}d!`);
         setVote(voteType);
+        toast.success(`Successfully ${voteType}d!`);
       }
 
-      await fetchVoteStatus();
+      await fetchVoteStatus(projectId);
     } catch (error) {
       console.error('Error in handleVote:', error);
       toast.error('Error processing vote');
@@ -256,17 +273,22 @@ function Collaboration() {
   };
 
   const handleCommentSubmit = async () => {
-    if (!newComment || !commenterName) {
+    const projectId = getCurrentProjectId();
+    if (!projectId) return;
+
+    const currentFormData = formData[projectId] || { commenterName: '', newComment: '' };
+
+    if (!currentFormData.newComment || !currentFormData.commenterName) {
       toast.error('Please enter your name and comment!');
       return;
     }
 
     const { error } = await supabase
-      .from('comments')
+      .from('collab_comments')
       .insert({
-        post_id: postId,
-        username: commenterName,
-        comment: newComment,
+        post_id: projectId,
+        username: currentFormData.commenterName,
+        comment: currentFormData.newComment,
         device_id: deviceId,
       });
 
@@ -274,11 +296,24 @@ function Collaboration() {
       console.error('Error submitting comment:', error);
       toast.error('Failed to submit comment!');
     } else {
-      setNewComment('');
-      setCommenterName('');
-      fetchComments();
+      // Reset form data for this project only
+      setFormData(prev => ({
+        ...prev,
+        [projectId]: { commenterName: '', newComment: '' }
+      }));
+      fetchComments(projectId);
       toast.success('Comment added successfully!');
     }
+  };
+
+  const handleFormChange = (projectId, field, value) => {
+    setFormData(prev => ({
+      ...prev,
+      [projectId]: {
+        ...prev[projectId],
+        [field]: value
+      }
+    }));
   };
 
   return (
@@ -389,10 +424,10 @@ function Collaboration() {
             <div className={styles.commentSection}>
               <h3 className={styles.commentTitle}>Comments</h3>
               <div className={styles.commentList}>
-                {comments.length === 0 ? (
+                {!comments[selectedProject?.id] || comments[selectedProject?.id].length === 0 ? (
                   <p>No comments added yet.</p>
                 ) : (
-                  comments.map((comment) => (
+                  comments[selectedProject?.id].map((comment) => (
                     <div key={comment.id} className={styles.comment}>
                       <p><strong>{comment.username}</strong>: {comment.comment}</p>
                     </div>
@@ -400,13 +435,26 @@ function Collaboration() {
                 )}
               </div>
 
-
               <h3 className={styles.commentTitle}>Add your Comment</h3>
-              <input type="text" placeholder="Your Name" value={commenterName} onChange={(e) => setCommenterName(e.target.value)} className={styles.commentInput} />
-              <textarea placeholder="Write a comment..." value={newComment} onChange={(e) => setNewComment(e.target.value)} className={styles.commentInput} />
-              <button onClick={handleCommentSubmit} className={styles.commentSubmitButton}>Submit Comment</button>
-
+              <input
+                type="text"
+                placeholder="Your Name"
+                value={formData[selectedProject?.id]?.commenterName || ''}
+                onChange={(e) => handleFormChange(selectedProject?.id, 'commenterName', e.target.value)}
+                className={styles.commentInput}
+              />
+              <textarea
+                placeholder="Write a comment..."
+                value={formData[selectedProject?.id]?.newComment || ''}
+                onChange={(e) => handleFormChange(selectedProject?.id, 'newComment', e.target.value)}
+                className={styles.commentInput}
+              />
+              <button onClick={handleCommentSubmit} className={styles.commentSubmitButton}>
+                Submit Comment
+              </button>
             </div>
+            
+            <ToastContainer position="bottom-right" autoClose={3000} hideProgressBar={false} closeOnClick pauseOnHover draggable theme="dark" />
           </Modal.Body>
           <Modal.Footer className={styles.modalFooter}>
             <Button variant="secondary" onClick={handleClose} className={styles.closeButton}>

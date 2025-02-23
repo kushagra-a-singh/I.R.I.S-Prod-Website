@@ -1,0 +1,25 @@
+.blogContainer {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  min-height: 100vh;
+  overflow-x: hidden;
+  padding: 2rem;
+}
+
+.blogContent {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.blogItem {
+  width: 100%;
+  height: auto;
+  padding: 1rem;
+  overflow: hidden;
+}

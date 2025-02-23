@@ -1,0 +1,46 @@
+.newSectionContainer {
+  min-height: fit-content;
+  overflow: hidden;
+  padding: 2rem 1rem;
+}
+
+.newSectionImage {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 991px) {
+  .newSectionContainer {
+    padding: 1.5rem;
+  }
+
+  .newSectionContainer h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .newSectionContainer p {
+    font-size: 0.9rem;
+  }
+
+  .newSectionImage {
+    margin-top: 1rem;
+    max-height: 250px;
+  }
+}
+
+@media (max-width: 576px) {
+  .newSectionContainer {
+    padding: 1rem;
+  }
+
+  .newSectionContainer h2 {
+    font-size: 1.5rem;
+  }
+
+  .arrow {
+    padding: 0.5rem;
+    font-size: 1.5rem;
+  }
+}

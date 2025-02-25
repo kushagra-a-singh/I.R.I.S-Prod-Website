@@ -160,6 +160,16 @@
   border-radius: 12px;
   box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.15);
   margin-bottom: 18px;
+  justify-self: center !important;
+  /* max-width: 80wv !important; */
+}
+
+@media (max-width: 768px) { 
+  
+  .modalImage {
+    max-width: 300px; 
+    height: 200px;
+  }
 }
 
 /* GitHub Link */

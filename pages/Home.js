@@ -150,7 +150,7 @@ function Home() {
     <div className={styles.home}>
       <video className={styles.backgroundVideo} autoPlay muted loop>
       <source
-          src="https://rkvbuqdjkilvqlywzjsi.supabase.co/storage/v1/object/sign/AboutPhotos/Videos/vid2.mp4?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJBYm91dFBob3Rvcy9WaWRlb3MvdmlkMi5tcDQiLCJpYXQiOjE3MzA5MDA1MDcsImV4cCI6MTc2MjQzNjUwN30.qMfRi7Uxvtpz4rRnaN6bTSQzEE_AtxrRQMBp2qR5YEI&t=2024-11-06T13%3A41%3A48.487Z"
+          src="/bgVid.webm"
           type="video/mp4"
         />
         Your browser does not support the video tag.
@@ -183,7 +183,7 @@ function Home() {
                 <div className="col-lg-6 text-center">
                   <video className={styles.heroVideo} autoPlay loop muted>
                   <source
-                      src="https://rkvbuqdjkilvqlywzjsi.supabase.co/storage/v1/object/sign/AboutPhotos/Videos/vid1.mp4?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJBYm91dFBob3Rvcy9WaWRlb3MvdmlkMS5tcDQiLCJpYXQiOjE3MzA4OTk4MjMsImV4cCI6MTc2MjQzNTgyM30.C_yjMhQfYEszRhFBj9DrlK3rUF4-ugkIRdR7t4vkXkU&t=2024-11-06T13%3A30%3A24.685Z"
+                      src="/roboVid.webm"
                       type="video/mp4"
                     />
                     Your browser does not support the video tag.

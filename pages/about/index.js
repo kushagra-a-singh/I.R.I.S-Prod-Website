@@ -13,13 +13,13 @@ function About() {
     }
   }, []);
 
-  const backgroundVideo = '/bgVid.mp4';
+  const backgroundVideo = '/bgVid.webm';
 
   return (
     <div className={styles.aboutUs}>
       <div className={styles.videoBackground}>
-        <video autoPlay muted loop>
-          <source src={backgroundVideo} type="video/mp4" />
+        <video autoPlay muted loop className={styles.video}>
+          <source src={backgroundVideo} type="video/webm" />
           Your browser does not support the video tag.
         </video>
       </div>

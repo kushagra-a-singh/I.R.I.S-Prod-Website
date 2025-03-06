@@ -5,7 +5,7 @@ import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from 'react-icons/bs';
 
 export const Carousel = ({ data }) => {
   const [slide, setSlide] = useState(0);
-  const autoCaruoselSlideInterval = 3000;
+  const autoCarouselSlideInterval = 4000;
 
   const nextSlide = useCallback(() => {
     setSlide(slide === data.length - 1 ? 0 : slide + 1);
@@ -18,7 +18,7 @@ export const Carousel = ({ data }) => {
   useEffect(() => {
     const autoSlide = setInterval(() => {
       nextSlide();
-    }, autoCaruoselSlideInterval);
+    }, autoCarouselSlideInterval);
     return () => {
       clearInterval(autoSlide); 
     };
@@ -41,7 +41,7 @@ export const Carousel = ({ data }) => {
             className={`${styles.images} ${styles.slide} ${
               slide === index ? styles.slideActive : styles.slideHidden
             }`}
-            style={{ height: '500px', width: '100vw', maxHeight: '100vh' }}
+            style={{ height: '500px', width: '100%', maxHeight: '100vh' }}
             width={1200}   
             height={500}  
           />

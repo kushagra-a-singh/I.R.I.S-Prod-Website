@@ -23,7 +23,8 @@
 /* Optional: Add a media query for better responsiveness */
 @media (max-width: 768px) {
   .video {
-    height: auto; /* Adjust height for smaller screens if needed */
+    width: 100vw;
+    height: 100vh;
   }
 }
 

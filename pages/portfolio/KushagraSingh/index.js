@@ -163,7 +163,7 @@ function KushagraSingh() {
     <div>
       <div className={styles.videoBackground}>
         <video autoPlay muted loop>
-          <source src={link} type="video/mp4" />
+          <source src={link} type="video/webm" />
           Your browser does not support the video tag.
         </video>
       </div>

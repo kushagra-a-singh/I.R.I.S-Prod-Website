@@ -29,7 +29,7 @@ const skills = {
   ],
   protocols: [
     { name: 'MQTT', logo: '/images/mqtt.png' },
-    { name: 'LoRaWAN', logo: '/images/lorawan.png' },
+    { name: 'LoRaWAN', logo: '/images/lora.png' },
     { name: 'ESP-Now', logo: '/images/espnow.png' },
     { name: 'Cellular', logo: '/images/cellular.png' },
     { name: 'NB-IoT', logo: '/images/nbiot.png' }
@@ -84,7 +84,7 @@ const projects = [
       'Utilized open-source KERN datasets for German songs to generate unique melodies based on the input provided, giving continuations of them as a result.'
     ],
     link: 'https://github.com/TakshDhabalia/Research-and-MusicGeneration',
-    image: ''
+    image: '/music.jpeg'
   }
 ];
 
@@ -141,7 +141,7 @@ function TakshDhabalia() {
     <div>
       <div className={styles.videoBackground}>
         <video autoPlay muted loop>
-          <source src={link} type="video/mp4" />
+          <source src={link} type="video/webm" />
           Your browser does not support the video tag.
         </video>
       </div>

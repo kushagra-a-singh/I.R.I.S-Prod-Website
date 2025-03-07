@@ -108,6 +108,19 @@ function About() {
                 </div>
               </div>
             </div>
+            <div className="col-md-6" >
+              {/* Faculty Mentor 3 */}
+              <div className={styles.mentor}>
+                <Image src="/sumedha.png" alt="Sumedha Sirsikar" className={styles.mentorImage} width={150} height={150} />
+                <div className={styles.mentorInfo}>
+                  <h3>Dr. Sumedha Sirsikar</h3>
+                  <p>Project Mentor</p>
+                  <a href="https://scholar.google.com/citations?user=26-mdWgAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">
+                    View Profile
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div id="team-members" className={`${styles.teamMembers} p-4`}>

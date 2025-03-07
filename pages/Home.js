@@ -20,7 +20,7 @@ function Home() {
   const {
     ref: refBlogs,
     inView: inViewBlogs
-  } = useInView({ triggerOnce: true, threshold: 0.5 });
+  } = useInView({ triggerOnce: true, threshold: 0.5 });``
 
   // Remove the scroll listener that queried all elements at once.
   // Each container now has its own Intersection Observer reference.
@@ -149,10 +149,7 @@ function Home() {
   return (
     <div className={styles.home}>
       <video className={styles.backgroundVideo} autoPlay muted loop>
-      <source
-          src="/bgVid.webm"
-          type="video/mp4"
-        />
+        <source src="/bgVid.webm" type="video/webm" />
         Your browser does not support the video tag.
       </video>
 
@@ -184,7 +181,7 @@ function Home() {
                   <video className={styles.heroVideo} autoPlay loop muted>
                   <source
                       src="/roboVid.webm"
-                      type="video/mp4"
+                      type="video/webm"
                     />
                     Your browser does not support the video tag.
                   </video>

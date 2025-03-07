@@ -78,7 +78,7 @@ const projects = [
       'Uses OpenCV and Threading with YOLOv8 for real-time allocation, speeding up the process by 40%.',
       'Implemented using CCTV cameras and Raspberry Pi.'
     ],
-    link: 'https://github.com/TakshDhabalia/Driving_Optimization',
+    link: 'https://github.com/Scient025/Driving_Optimization',
     image: '/TakshProj1.jpg'
   },
   {
@@ -91,7 +91,7 @@ const projects = [
       'Completed MQTT publisher and broker setup, camera, and yolov8 integration.'
     ],
     link: '',
-    image: ''
+    image: '/rpl.png'
   },
 ];
 
@@ -134,7 +134,7 @@ function SamanyuBhate() {
     <div>
       <div className={styles.videoBackground}>
         <video autoPlay muted loop>
-          <source src={link} type="video/mp4" />
+          <source src={link} type="video/webm" />
           Your browser does not support the video tag.
         </video>
       </div>

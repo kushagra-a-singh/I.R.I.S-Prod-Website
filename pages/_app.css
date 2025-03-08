@@ -1,14 +1,48 @@
-
 *::-webkit-scrollbar {
-  width: 7px;               /* width of the entire scrollbar */
+  width: 7px;              
 }
 
 *::-webkit-scrollbar-track {
-  background: #2C2C2C;        /* color of the tracking area */
+  background: #2C2C2C;     
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: #9100cb;    /* color of the scroll thumb */
-  border-radius: 20px;       /* roundness of the scroll thumb */
-  border: 3px solid #9100cb;  /* creates padding around scroll thumb */
+  background-color: #9100cb;  
+  border-radius: 20px;      
+  border: 3px solid #9100cb;  
 }
+
+ @keyframes blink {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+.typing-dot {
+  display: inline-block;
+  animation: blink 1s infinite;
+}
+
+.typing-dot:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.typing-dot:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+.typing-text {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: 
+    typing 1s steps(40, end);
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities; 

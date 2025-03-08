@@ -2,7 +2,7 @@ import './_app.css';
 import Header2 from '../src/components/Header2';
 import Footer from '../src/components/Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import Chatbot from '../src/components/chatbot/Chatbot';
 import { useEffect } from 'react';
 import Head from 'next/head';
 
@@ -59,7 +59,11 @@ function App({ Component, pageProps }) {
         }
       `}</style>
       <Header2 style={{ position: 'fixed', top: 0, left: 0, right: 0}} />
+      <main className="flex-grow">
+        <Component {...pageProps} />
+      </main>
       <Component {...pageProps} />
+      <Chatbot />
       <Footer />
     </div>
   );

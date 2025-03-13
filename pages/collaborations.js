@@ -50,6 +50,7 @@ function Collaboration() {
       branchYear: 'TY BTech CSE',
       status: 'Ongoing',
       guides: ['Dr. Shamla Mantri', 'Dr. Yogesh Kulkarni'],
+      owners: 'Jane Doe',
       contributors: (
         <>
           <a href="https://linkedin.com/in/example1" target="_blank" rel="noopener noreferrer" className={styles.contributorLink}>John Doe</a>
@@ -71,6 +72,7 @@ function Collaboration() {
       branchYear: 'TY BTech IT',
       status: 'Completed',
       guides: ['Dr. Shamla Mantri', 'Dr. Yogesh Kulkarni'],
+      owners: 'Jane Doe',
       contributors: (
         <a href="https://linkedin.com/in/example2" target="_blank" rel="noopener noreferrer" className={styles.contributorLink}>Alice Johnson</a>
       ),
@@ -89,6 +91,7 @@ function Collaboration() {
       branchYear: 'TY BTech CSE',
       status: 'In Review',
       guides: ['Dr. Shamla Mantri', 'Dr. Yogesh Kulkarni'],
+      owners: 'Jane Doe',
       contributors: (
         <a href="https://linkedin.com/in/example3" target="_blank" rel="noopener noreferrer" className={styles.contributorLink}>Michael Lee</a>
       ),
@@ -107,6 +110,7 @@ function Collaboration() {
       branchYear: 'TY BTech ECE',
       status: 'Ongoing',
       guides: ['Dr. Shamla Mantri', 'Dr. Yogesh Kulkarni'],
+      owners: 'Jane Doe',
       contributors: (
         <a href="https://linkedin.com/in/example4" target="_blank" rel="noopener noreferrer" className={styles.contributorLink}>Sarah Patel</a>
       ),
@@ -339,7 +343,9 @@ function Collaboration() {
                     <span>{domainIcons[project.domain]} <strong>Domain:</strong> {project.domain}</span><br />
                     <span><GraduationCap size={16} className={styles.icon} /> <strong>Project Head:</strong> {project.branchYear}</span><br />
                     <span><strong>Status:</strong> <span className={`badge ${statusClasses[project.status]}`}>{project.status}</span></span><br />
-                    <span><strong>Contributors:</strong> {project.contributors}</span> | <span>{project.date}</span>
+                    <span><strong>Project Owners:</strong> {project.owners}</span> | <span>{project.date}</span><br />
+                    <span><strong>Contributors:</strong> {project.contributors}</span> {/*| <span>{project.date}</span>*/}
+
                     <div style={{ marginTop: '5px' }}>
                       Guided by {' '}
                       <a

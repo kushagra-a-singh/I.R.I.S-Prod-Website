@@ -161,7 +161,7 @@
   box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.15);
   margin-bottom: 18px;
   justify-self: center !important;
-  /* max-width: 80wv !important; */
+  max-width: 80% !important;
 }
 
 @media (max-width: 768px) { 
@@ -171,6 +171,7 @@
     height: 200px;
   }
 }
+
 
 /* GitHub Link */
 .githubLink {
@@ -237,12 +238,12 @@
   margin-top: 20px;
   padding: 16px;
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.18);
 }
 
 .commentTitle {
   font-size: 1.2rem;
-  color: #b07aff;
+  color: #8c43fa;
   font-weight: bold;
   margin-bottom: 8px;
 }
@@ -264,15 +265,15 @@
   width: 100%;
   padding: 10px;
   border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.15);
   color: #fff;
   margin-bottom: 10px;
   font-size: 1rem;
 }
 
 .commentInput::placeholder {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .commentSubmitButton {

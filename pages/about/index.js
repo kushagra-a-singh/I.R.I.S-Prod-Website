@@ -144,6 +144,7 @@ function About() {
                 { name: "Manasee Ambhore", role: "Sponsorship Head", imgSrc: "/manasee.jpg", linkedIn: "https://www.linkedin.com/in/manasee-ambhore-87ab65287/" },
                 { name: "Rochana Deshpande", role: "Content Head", imgSrc: "/rochana.jpg", linkedIn: "https://www.linkedin.com/in/rochana-deshpande-79a40a2b2/" },
                 { name: "Aaryan Joshi", role: "Research Head", imgSrc: "/aaryan.jpg", linkedIn: "https://www.linkedin.com/in/aaryanjoshi/" },
+                { name: "Purva Rana", role: "Website Team Member", imgSrc: "/Purva.jpg", linkedIn: "https://www.linkedin.com/in/purva-rana/" },
                 { name: "Divyansh Pathak", role: "Website Team Member", imgSrc: "/divyansh.jpg", linkedIn: "https://www.linkedin.com/in/divyansh-pathak/" },
                 { name: "Siya Shaha", role: "Website Team Member", imgSrc: "/siya.jpg", linkedIn: "https://www.linkedin.com/in/siya-shaha-5bb3822b4/" },
                 { name: "Ayushi Kadam", role: "Website Team Member", imgSrc: "/ayushi.jpg", linkedIn: "https://www.linkedin.com/in/ayushi-kadam-8a404a2b2/" },
@@ -153,7 +154,7 @@ function About() {
                 { name: "Raghunandan Veer", role: "Founder", imgSrc: "/logo2.png", linkedIn: "https://www.linkedin.com/in/raghunandan-veer-31b724266/" },
                 { name: "Sarthak Patil", role: "Founder", imgSrc: "/sarthak.jpeg", linkedIn: "https://www.linkedin.com/in/sarthak-patil-aa453a219/" },
               ].map((member, index) => (
-                <div key={index} className="col-md-4">
+                <div key={index} className="col-xl-4 col-md-6">
                   <div className={styles.card}>
                     <Image
                       src={member.imgSrc}

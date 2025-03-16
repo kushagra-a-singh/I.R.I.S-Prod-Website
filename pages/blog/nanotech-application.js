@@ -38,7 +38,7 @@ function Blog4() {
     const fetchVoteStatus = async () => {
         try {
             const { data: voteData, error: voteError } = await supabase
-                .from('votes')
+                .from('blog_votes')
                 .select('vote_type')
                 .eq('device_id', deviceId)
                 .eq('post_id', postId)
@@ -51,13 +51,13 @@ function Blog4() {
             }
 
             const { data: upvoteData, error: upvoteError } = await supabase
-                .from('votes')
+                .from('blog_votes')
                 .select('*')
                 .eq('post_id', postId)
                 .eq('vote_type', 'upvote');
 
             const { data: downvoteData, error: downvoteError } = await supabase
-                .from('votes')
+                .from('blog_votes')
                 .select('*')
                 .eq('post_id', postId)
                 .eq('vote_type', 'downvote');
@@ -77,7 +77,7 @@ function Blog4() {
 
     const fetchComments = async () => {
         const { data, error } = await supabase
-            .from('comments')
+            .from('blog_comments')
             .select('*')
             .eq('post_id', postId)
             .order('created_at', { ascending: false });
@@ -97,7 +97,7 @@ function Blog4() {
             }
 
             const { data: existingVote, error: fetchError } = await supabase
-                .from('votes')
+                .from('blog_votes')
                 .select('*')
                 .eq('post_id', postId)
                 .eq('device_id', deviceId)
@@ -114,7 +114,7 @@ function Blog4() {
                     return;
                 } else {
                     const { error: updateError } = await supabase
-                        .from('votes')
+                        .from('blog_votes')
                         .update({ vote_type: voteType })
                         .eq('post_id', postId)
                         .eq('device_id', deviceId);
@@ -129,7 +129,7 @@ function Blog4() {
                 }
             } else {
                 const { error: insertError } = await supabase
-                    .from('votes')
+                    .from('blog_votes')
                     .insert({
                         post_id: postId,
                         vote_type: voteType,
@@ -159,7 +159,7 @@ function Blog4() {
         }
 
         const { error } = await supabase
-            .from('comments')
+            .from('blog_comments')
             .insert({
                 post_id: postId,
                 username: commenterName,
@@ -186,8 +186,8 @@ function Blog4() {
                     <p className={styles.pageSubtitle}>Revolutionizing Defense: The Power of Nanotechnology in Military Advancements</p>
                     <p className={styles.pageauthor}>
                         By <a className={styles.authorLink} href="https://www.linkedin.com/in/shreya-more-284869321/" target="_blank" rel="noopener noreferrer">Shreya More</a> | February 15, 2025
-                </p>
-          
+                    </p>
+
                     <div className={styles.blogDescription}>
                         <div className={styles.blogCard}>
                             <h4>&ldquo;The nanotechnologies of the future will have the power to turn science fiction into reality.&rdquo;</h4>
@@ -250,27 +250,27 @@ function Blog4() {
                                 </li>
                             </ul>
                         </div>
-                    </div>
 
-                    <div className='content-section'>
-                        <div className={styles.blogCard}>
-                            <h2>Free Resources</h2>
-                            <ul>
-                                <li>
-                                    <a href="https://www.slideshare.net/slideshow/nanotechnology-in-defence-applications/16066727"
-                                        target="_blank"
-                                        rel="noopener noreferrer">
-                                        Nanotechnology in Defence applications
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://ftp.idu.ac.id/wp-content/uploads/ebook/tdg/MILITARY%20PLATFORM%20DESIGN/Military%20Nanotechnology.pdf"
-                                        target="_blank"
-                                        rel="noopener noreferrer">
-                                        Military Nanotechnology
-                                    </a>
-                                </li>
-                            </ul>
+                        <div className='content-section'>
+                            <div className={styles.blogCard}>
+                                <h2>Free Resources</h2>
+                                <ul>
+                                    <li>
+                                        <a href="https://www.slideshare.net/slideshow/nanotechnology-in-defence-applications/16066727"
+                                            target="_blank"
+                                            rel="noopener noreferrer">
+                                            Nanotechnology in Defence applications
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://ftp.idu.ac.id/wp-content/uploads/ebook/tdg/MILITARY%20PLATFORM%20DESIGN/Military%20Nanotechnology.pdf"
+                                            target="_blank"
+                                            rel="noopener noreferrer">
+                                            Military Nanotechnology
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
 

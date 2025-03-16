@@ -38,7 +38,7 @@ function Blog1() {
   const fetchVoteStatus = async () => {
     try {
       const { data: voteData, error: voteError } = await supabase
-        .from('votes')
+        .from('blog_votes')
         .select('vote_type')
         .eq('device_id', deviceId)
         .eq('post_id', postId)
@@ -51,13 +51,13 @@ function Blog1() {
       }
 
       const { data: upvoteData, error: upvoteError } = await supabase
-        .from('votes')
+        .from('blog_votes')
         .select('*')
         .eq('post_id', postId)
         .eq('vote_type', 'upvote');
 
       const { data: downvoteData, error: downvoteError } = await supabase
-        .from('votes')
+        .from('blog_votes')
         .select('*')
         .eq('post_id', postId)
         .eq('vote_type', 'downvote');
@@ -77,7 +77,7 @@ function Blog1() {
 
   const fetchComments = async () => {
     const { data, error } = await supabase
-      .from('comments')
+      .from('blog_comments')
       .select('*')
       .eq('post_id', postId)
       .order('created_at', { ascending: false });
@@ -97,7 +97,7 @@ function Blog1() {
       }
 
       const { data: existingVote, error: fetchError } = await supabase
-        .from('votes')
+        .from('blog_votes')
         .select('*')
         .eq('post_id', postId)
         .eq('device_id', deviceId)
@@ -114,7 +114,7 @@ function Blog1() {
           return;
         } else {
           const { error: updateError } = await supabase
-            .from('votes')
+            .from('blog_votes')
             .update({ vote_type: voteType })
             .eq('post_id', postId)
             .eq('device_id', deviceId);
@@ -129,7 +129,7 @@ function Blog1() {
         }
       } else {
         const { error: insertError } = await supabase
-          .from('votes')
+          .from('blog_votes')
           .insert({
             post_id: postId,
             vote_type: voteType,
@@ -159,7 +159,7 @@ function Blog1() {
     }
 
     const { error } = await supabase
-      .from('comments')
+      .from('blog_comments')
       .insert({
         post_id: postId,
         username: commenterName,
@@ -237,101 +237,101 @@ function Blog1() {
                 </ol>
               </div>
             </div>
-          </div>
 
-          <div className='content-section'>
-            <div className={styles.blogCard}>
-              <h2><strong>Pothole Detection Mechanism</strong></h2>
-              <p>
-                The heart of TARZAN is its sophisticated pothole detection system:
-              </p>
-              <ul>
-                <li><strong>Real-time Processing</strong>: 30 frames per second video analysis</li>
-                <li><strong>Intelligent Classification</strong>: Categorizing potholes by severity</li>
-                <ul className={styles.List}>
-                  <li><strong>Green</strong>: Small potholes (&lt; 15,000 pixels)</li>
-                  <li><strong>Yellow</strong>: Medium potholes (15,000 - 30,000 pixels)</li>
-                  <li><strong>Red</strong>: Large potholes (&gt; 30,000 pixels)</li>
-                </ul>
-              </ul>
-              <h3 className={styles.sectionTitle}>Navigation and Obstacle Avoidance</h3>
-              <p>
-                TARZAN employs an advanced A* pathfinding algorithm on a 30x30 grid, enabling:
-              </p>
-              <ul className={styles.List}>
-                <li>Dynamic route recalculation</li>
-                <li>Immediate obstacle response</li>
-                <li>Optimal path selection considering road surface quality</li>
-              </ul>
-            </div>
-          </div>
-
-          <div className='content-section'>
-            <div className={styles.blogCard}>
-              <h2><strong>Performance Metrics: Proving the Concept</strong></h2>
-              <p>
-                Our experimental results are compelling:
-              </p>
-              <ul className={styles.List}>
-                <li><strong>Path Tracking Accuracy</strong>: Less than 0.5 meters deviation</li>
-                <li><strong>Obstacle Response Time</strong>: Under 200 milliseconds</li>
-                <li><strong>Detection Accuracy</strong>:
+            <div className='content-section'>
+              <div className={styles.blogCard}>
+                <h2><strong>Pothole Detection Mechanism</strong></h2>
+                <p>
+                  The heart of TARZAN is its sophisticated pothole detection system:
+                </p>
+                <ul>
+                  <li><strong>Real-time Processing</strong>: 30 frames per second video analysis</li>
+                  <li><strong>Intelligent Classification</strong>: Categorizing potholes by severity</li>
                   <ul className={styles.List}>
-                    <li>Precision: 91%</li>
-                    <li>Recall: 89%</li>
+                    <li><strong>Green</strong>: Small potholes (&lt; 15,000 pixels)</li>
+                    <li><strong>Yellow</strong>: Medium potholes (15,000 - 30,000 pixels)</li>
+                    <li><strong>Red</strong>: Large potholes (&gt; 30,000 pixels)</li>
                   </ul>
-                </li>
-                <li><strong>Speed Adaptation</strong>: Seamless control between 0-60 km/h</li>
-              </ul>
+                </ul>
+                <h3 className={styles.sectionTitle}>Navigation and Obstacle Avoidance</h3>
+                <p>
+                  TARZAN employs an advanced A* pathfinding algorithm on a 30x30 grid, enabling:
+                </p>
+                <ul className={styles.List}>
+                  <li>Dynamic route recalculation</li>
+                  <li>Immediate obstacle response</li>
+                  <li>Optimal path selection considering road surface quality</li>
+                </ul>
+              </div>
             </div>
-          </div>
 
-          <div className='content-section'>
-            <div className={styles.blogCard}>
-              <h2><strong>Technical Deep Dive: How TARZAN Works</strong></h2><br></br>
-              <h3>Data Processing Pipeline</h3>
-              <ol className={styles.List}>
-                <li><strong>Input Capture</strong>: Video stream at 30 fps</li>
-                <li><strong>Frame Sampling</strong>: Process every fifth frame for efficiency</li>
-                <li><strong>Pothole Detection</strong>: YOLOv8 generates bounding boxes</li>
-                <li><strong>Severity Assessment</strong>: Area-based classification</li>
-                <li><strong>Navigation Adjustment</strong>: Immediate path recalculation</li>
-              </ol>
-              <h3 className={styles.sectionTitle}>Simulation Framework</h3>
-              <p>
-                Our Pure Pursuit Controller enables:
-              </p>
-              <ul className={styles.List}>
-                <li>Precise waypoint tracking</li>
-                <li>Dynamic velocity management</li>
-                <li>Smooth trajectory following</li>
-              </ul>
+            <div className='content-section'>
+              <div className={styles.blogCard}>
+                <h2><strong>Performance Metrics: Proving the Concept</strong></h2>
+                <p>
+                  Our experimental results are compelling:
+                </p>
+                <ul className={styles.List}>
+                  <li><strong>Path Tracking Accuracy</strong>: Less than 0.5 meters deviation</li>
+                  <li><strong>Obstacle Response Time</strong>: Under 200 milliseconds</li>
+                  <li><strong>Detection Accuracy</strong>:
+                    <ul className={styles.List}>
+                      <li>Precision: 91%</li>
+                      <li>Recall: 89%</li>
+                    </ul>
+                  </li>
+                  <li><strong>Speed Adaptation</strong>: Seamless control between 0-60 km/h</li>
+                </ul>
+              </div>
             </div>
-          </div>
 
-          <div className='content-section'>
-            <div className={styles.blogCard}>
-              <h2><strong>Beyond Technology: The Vision</strong></h2>
-              <p>
-                TARZAN isn&apos;t just a technical project—it&apos;s a vision of making roads safer, more accessible, and intelligent. By extending autonomous capabilities to vehicles without ADAS, we&apos;re democratizing advanced transportation technology.
-              </p>
+            <div className='content-section'>
+              <div className={styles.blogCard}>
+                <h2><strong>Technical Deep Dive: How TARZAN Works</strong></h2><br></br>
+                <h3>Data Processing Pipeline</h3>
+                <ol className={styles.List}>
+                  <li><strong>Input Capture</strong>: Video stream at 30 fps</li>
+                  <li><strong>Frame Sampling</strong>: Process every fifth frame for efficiency</li>
+                  <li><strong>Pothole Detection</strong>: YOLOv8 generates bounding boxes</li>
+                  <li><strong>Severity Assessment</strong>: Area-based classification</li>
+                  <li><strong>Navigation Adjustment</strong>: Immediate path recalculation</li>
+                </ol>
+                <h3 className={styles.sectionTitle}>Simulation Framework</h3>
+                <p>
+                  Our Pure Pursuit Controller enables:
+                </p>
+                <ul className={styles.List}>
+                  <li>Precise waypoint tracking</li>
+                  <li>Dynamic velocity management</li>
+                  <li>Smooth trajectory following</li>
+                </ul>
+              </div>
             </div>
-          </div>
 
-          <div className='content-section'>
-            <div className={styles.blogCard}>
-              <h2><strong>Conclusion: The Road Ahead</strong></h2>
-              <p>
-                As we continue refining TARZAN, we&apos;re not just developing a system—we&apos;re shaping the future of intelligent transportation. Our project demonstrates that with creativity, advanced algorithms, and a commitment to innovation, we can transform how we navigate our world.
-              </p>
-              <p><strong>Stay tuned for more updates from the I.R.I.S. Research Team!</strong></p><br></br>
-              <h3 className={styles.sectionTitle}><strong>Visual Insights of TARZAN&apos;s System</strong></h3>
+            <div className='content-section'>
+              <div className={styles.blogCard}>
+                <h2><strong>Beyond Technology: The Vision</strong></h2>
+                <p>
+                  TARZAN isn&apos;t just a technical project—it&apos;s a vision of making roads safer, more accessible, and intelligent. By extending autonomous capabilities to vehicles without ADAS, we&apos;re democratizing advanced transportation technology.
+                </p>
+              </div>
+            </div>
 
-              <div className={styles.imageGallery}>
-                <h4>MATLAB System Diagram</h4>
-                <Image src="/systemDiagMATLAB.jpg" alt="TARZAN Simulation" width={500} height={300} className={styles.blogImage} />
-                <h4>Chassis Design</h4>
-                <Image src="/chassis.jpg" alt="TARZAN Chassis" width={500} height={300} className={styles.blogImage} />
+            <div className='content-section'>
+              <div className={styles.blogCard}>
+                <h2><strong>Conclusion: The Road Ahead</strong></h2>
+                <p>
+                  As we continue refining TARZAN, we&apos;re not just developing a system—we&apos;re shaping the future of intelligent transportation. Our project demonstrates that with creativity, advanced algorithms, and a commitment to innovation, we can transform how we navigate our world.
+                </p>
+                <p><strong>Stay tuned for more updates from the I.R.I.S. Research Team!</strong></p><br></br>
+                <h3 className={styles.sectionTitle}><strong>Visual Insights of TARZAN&apos;s System</strong></h3>
+
+                <div className={styles.imageGallery}>
+                  <h4>MATLAB System Diagram</h4>
+                  <Image src="/systemDiagMATLAB.jpg" alt="TARZAN Simulation" width={500} height={300} className={styles.blogImage} />
+                  <h4>Chassis Design</h4>
+                  <Image src="/chassis.jpg" alt="TARZAN Chassis" width={500} height={300} className={styles.blogImage} />
+                </div>
               </div>
             </div>
           </div>
@@ -355,16 +355,16 @@ function Blog1() {
           <div className={styles.commentSection}>
             <h3 className={styles.commentTitle}>Comments</h3>
             <div className={styles.commentList}>
-                            {comments.length === 0 ? (
-                                <p>No comments added yet.</p>
-                            ) : (
-                                comments.map((comment) => (
-                                    <div key={comment.id} className={styles.comment}>
-                                        <p><strong>{comment.username}</strong>: {comment.comment}</p>
-                                    </div>
-                                ))
-                            )}
-                        </div>
+              {comments.length === 0 ? (
+                <p>No comments added yet.</p>
+              ) : (
+                comments.map((comment) => (
+                  <div key={comment.id} className={styles.comment}>
+                    <p><strong>{comment.username}</strong>: {comment.comment}</p>
+                  </div>
+                ))
+              )}
+            </div>
             <h3 className={styles.commentTitle}>Add your Comment</h3>
 
             <div>

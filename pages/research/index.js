@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Modal, Button } from 'react-bootstrap';
-import styles from './collaborations.module.css';
+import styles from './research.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Code, Shield, Server, Cloud, GraduationCap } from 'lucide-react';
-import supabase from '../src/utils/supabase';
+import supabase from '../../src/utils/supabase';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -323,8 +323,8 @@ function Collaboration() {
   return (
     <div className={styles.collaborationPage}>
       <div className="container py-5">
-        <h1 className={styles.pageTitle}>Collaboration Projects</h1>
-        <p className={styles.pageSubtitle}>Discover our latest collaborative research and development initiatives.</p>
+        <h1 className={styles.pageTitle}>Research Projects</h1>
+        <p className={styles.pageSubtitle}>Discover our latest collaborative research initiatives.</p>
         <div className="row py-2" style={{ justifyContent: 'center' }}>
           {collabProjects.map((project) => (
             <div key={project.id} className="col-md-6 col-lg-4 d-flex align-items-stretch">

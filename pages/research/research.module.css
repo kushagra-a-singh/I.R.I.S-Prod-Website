@@ -1,0 +1,317 @@
+.collaborationPage {
+  background: linear-gradient(120deg, rgb(10, 2, 40) 0%, rgb(50, 1, 70) 50%, rgb(130, 1, 110) 100%);
+  color: #e0e0e0;
+  padding-top: 80px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.pageTitle {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #e6c5ff; /* Soft lavender for better readability */
+  text-transform: uppercase;
+}
+
+.pageSubtitle {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #b19cd9;
+  margin-bottom: 40px;
+}
+
+/* Collaboration Cards */
+.collabCard {
+  background: rgba(25, 1, 40, 0.85);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(220, 20, 140, 0.15);
+  padding: 20px;
+  margin-bottom: 30px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.collabCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(190, 64, 150, 0.3);
+}
+
+/* Card Content */
+.collabImage {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.collabContent {
+  padding-top: 15px;
+}
+
+.collabTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #f2c6ff;
+}
+
+.collabDescription {
+  font-size: 1rem;
+  color: #c9b8e3;
+  margin-bottom: 10px;
+}
+
+.collabMeta {
+  font-size: 0.9rem;
+  color: #a899c7;
+}
+
+/* Links */
+.contributorLink {
+  color: #ff6ad5;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contributorLink:hover {
+  color: #e040fb;
+  text-decoration: underline;
+}
+
+/* Button */
+.viewMoreButton {
+  background: linear-gradient(90deg, #ff6ad5, #8561e8);
+  color: white;
+  font-size: 1rem;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.viewMoreButton:hover {
+  background: linear-gradient(90deg, #e040fb, #6a45c2);
+  box-shadow: 0px 0px 10px rgba(255, 105, 180, 0.5);
+}
+/* Modal Container */
+.modalContainer {
+  background: linear-gradient(135deg, rgba(10, 10, 20, 0.95) 0%, rgba(40, 10, 70, 0.95) 100%) !important;
+  color: #fff;
+  border-radius: 14px;
+  box-shadow: 0 0 12px rgba(255, 0, 200, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Modal Header */
+.modalHeader {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-size: 1.2rem;
+}
+
+.modalHeader .btn-close {
+  filter: invert(1);
+  opacity: 0.8;
+}
+
+.modalHeader .btn-close:hover {
+  opacity: 1;
+}
+
+/* Modal Body */
+.modalBody {
+  font-size: 1rem;
+  line-height: 1.7;
+  padding: 20px;
+  color: #ddd;
+}
+
+/* Subtitle */
+.modalSubtitle {
+  font-size: 1.3rem;
+  color: #b07aff;
+  font-weight: bold;
+  text-shadow: none;
+}
+
+/* Description */
+.modalDescription {
+  font-size: 1rem;
+  color: #cfcfcf;
+}
+
+/* Status Badge */
+.statusBadge {
+  padding: 5px 12px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  display: inline-block;
+  margin-left: 10px;
+  text-transform: uppercase;
+}
+
+/* Image */
+.modalImage {
+  border-radius: 12px;
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.15);
+  margin-bottom: 18px;
+  justify-self: center !important;
+  max-width: 80% !important;
+}
+
+@media (max-width: 768px) { 
+  
+  .modalImage {
+    max-width: 300px; 
+    height: 200px;
+  }
+}
+
+
+/* GitHub Link */
+.githubLink {
+  color: #b07aff;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.githubLink:hover {
+  color: #d57aff;
+  text-decoration: underline;
+}
+
+/* Guides */
+.guides {
+  margin-top: 12px;
+  font-size: 0.95rem;
+  color: #cfcfcf;
+}
+
+/* Author Links */
+.authorLink {
+  color: #b07aff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.authorLink:hover {
+  text-decoration: underline;
+  color: #d57aff;
+}
+
+/* Vote Section */
+.voteSection {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.voteButton {
+  background: linear-gradient(120deg, #9a5fff, #5f2aff);
+  border: none;
+  color: white;
+  padding: 10px 16px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.voteButton:hover {
+  background: linear-gradient(120deg, #a070ff, #7030ff);
+}
+
+.voteButton.active {
+  background: linear-gradient(120deg, #7030ff, #a070ff);
+  transform: scale(1.05);
+}
+
+/* Comment Section */
+.commentSection {
+  margin-top: 20px;
+  padding: 16px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.commentTitle {
+  font-size: 1.2rem;
+  color: #8c43fa;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.commentList {
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 8px;
+}
+
+.comment {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.commentInput {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.commentInput::placeholder {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.commentSubmitButton {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  background: linear-gradient(120deg, #9a5fff, #5f2aff);
+  border: none;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.commentSubmitButton:hover {
+  background: linear-gradient(120deg, #a070ff, #7030ff);
+}
+
+/* Modal Footer */
+.modalFooter {
+  display: flex;
+  justify-content: center;
+  border-top: none;
+  padding-top: 12px;
+}
+
+/* Close Button */
+.closeButton {
+  background: linear-gradient(120deg, #9a5fff, #5f2aff);
+  border: none;
+  font-weight: bold;
+  transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+  color: #fff;
+  border-radius: 10px;
+  padding: 8px 16px;
+}
+
+.closeButton:hover {
+  background: linear-gradient(120deg, #a070ff, #7030ff);
+  transform: scale(1.05);
+}

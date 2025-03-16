@@ -250,7 +250,6 @@ function Blog4() {
                                 </li>
                             </ul>
                         </div>
-                    </div>
 
                     <div className='content-section'>
                         <div className={styles.blogCard}>
@@ -271,6 +270,7 @@ function Blog4() {
                                     </a>
                                 </li>
                             </ul>
+                        </div>
                         </div>
                     </div>
 

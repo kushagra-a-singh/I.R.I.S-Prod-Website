@@ -237,7 +237,6 @@ function Blog1() {
                 </ol>
               </div>
             </div>
-          </div>
 
           <div className='content-section'>
             <div className={styles.blogCard}>
@@ -334,7 +333,8 @@ function Blog1() {
                 <Image src="/chassis.jpg" alt="TARZAN Chassis" width={500} height={300} className={styles.blogImage} />
               </div>
             </div>
-          </div>
+            </div>
+            </div>
 
           <div className={styles.voteSection}>
             <button

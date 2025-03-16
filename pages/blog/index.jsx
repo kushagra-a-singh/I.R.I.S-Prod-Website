@@ -12,7 +12,7 @@ function Blog() {
       subtitle: 'Revolutionizing Genetics with Precision and Possibility',
       description: 'CRISPR technology is revolutionizing genetics by enabling precise gene editing, unlocking new possibilities in medicine, agriculture, and biotechnology.',
       author: (
-        <>
+        <> Authors:
           <a
             href="https://in.linkedin.com/in/aakanksha-pansare-43744a350"
             target="_blank"
@@ -20,11 +20,11 @@ function Blog() {
             className={styles.authorLink}
           > 
             Aakanksha Pansare
-          </a> {' '} &
+          </a> {' '} & 
           <span className={styles.authorLink}> Nishtha</span> {/* Use plain text if no link */}
         </>
       ),
-      date: 'February 16, 2025',
+      date:  'February 16, 2025',
       image: '/crispr-img.png',
       imageWidth: 500,
       imageHeight: 300,
@@ -35,6 +35,7 @@ function Blog() {
       subtitle: 'Revolutionizing Defense: The Power of Nanotechnology in Military Advancements',
       description: 'Nanotechnology is revolutionizing defense with advanced armor, medical care, and stealth technology.',
       author: (
+        <> Author:
         <a
           href="https://www.linkedin.com/in/shreya-more-284869321/"
           target="_blank"
@@ -43,6 +44,7 @@ function Blog() {
         >
           Shreya More
         </a>
+        </>
       ),
       date: 'February 15, 2025',
       image: '/nanotech3.png',
@@ -55,6 +57,7 @@ function Blog() {
       subtitle: 'A comprehensive dive into the definition, use cases, efficiency, positives and negatives',
       description: 'A comprehensive dive into the definition, use cases, efficiency, positives and negatives',
       author: (
+        <> Author: 
         <a
           href="https://www.linkedin.com/in/aaryan-kumbhare-07428032a"
           target="_blank"
@@ -63,6 +66,7 @@ function Blog() {
         >
           Aaryan Kumbhare
         </a>
+        </> 
       ),
       date: 'February 12, 2025',
       image: '/ai.png',
@@ -75,6 +79,7 @@ function Blog() {
       subtitle: 'An Inside Look at the Security Flaw That Nearly Wiped Our Data',
       description: 'Our journey in building a platform for collaboration, hackathon management and seamless user experience.',
       author: (
+        <> Author:
         <a
           href="https://www.linkedin.com/in/aaryan-kumbhare-07428032a"
           target="_blank"
@@ -83,6 +88,7 @@ function Blog() {
         >
           Aaryan Kumbhare
         </a>
+        </>
       ),
       date: 'November 18, 2024',
       image: '/db.jpg',
@@ -95,6 +101,7 @@ function Blog() {
       subtitle: 'Advanced Pothole Detection System',
       description: 'An innovative system using computer vision to enhance autonomous vehicle control.',
       author: (
+        <> Author:
         <a
           href="https://www.linkedin.com/in/aaryan-kumbhare-07428032a"
           target="_blank"
@@ -103,6 +110,7 @@ function Blog() {
         >
           Aaryan Kumbhare
         </a>
+        </>
       ),
       date: 'November 10, 2024',
       image: '/simulation.jpg',
@@ -122,7 +130,7 @@ function Blog() {
   return (
     <div className={styles.blogPage}>
       <div className="container py-5">
-        <h1 className={styles.pageTitle}>Our Blog</h1>
+        <h1 className={styles.pageTitle}>OUR BLOGS</h1>
         <p className={styles.pageSubtitle}>
           I.R.I.S. recent developments and ongoing projects.
         </p>
@@ -140,8 +148,9 @@ function Blog() {
                 <div className={styles.blogContent}>
                   <h3 className={styles.blogTitle}>{post.title}</h3>
                   <p className={styles.blogDescription}>{post.description}</p>
-                  <div className={styles.blogMeta}>
-                    <span>By {post.author}</span> | <span>{post.date}</span>
+                   
+                    <span> {post.author}</span> 
+                    <span>{post.date}</span>
                     <div style={{ marginTop: '5px' }}>
                       Guided by mentors{' '}
                       <a
@@ -152,7 +161,7 @@ function Blog() {
                       >
                         Dr. Shamla Mantri
                       </a>{' '}
-                      & <br />
+                      & {' '} 
                       <a
                         href="https://scholar.google.com/citations?user=9GsTeoQAAAAJ&hl=en"
                         target="_blank"
@@ -162,7 +171,7 @@ function Blog() {
                         Dr. Yogesh Kulkarni
                       </a>
                     </div>
-                  </div>
+                  
                   <Link href={`/blog/${postLinks[post.id] || "default-blog"}`} passHref legacyBehavior>
                     <button className={styles.readMoreButton} style={{ width: "100%", textAlign: "center" }}>
                         Read More

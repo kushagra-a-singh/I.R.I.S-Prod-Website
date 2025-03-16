@@ -187,7 +187,8 @@ function Blog5() {
                     <p className={styles.pageauthor}>
                         By <a className={styles.authorLink} href="https://in.linkedin.com/in/aakanksha-pansare-43744a350" target="_blank" rel="noopener noreferrer">Aakanksha Pansare</a>{' '} &
                         <span className={styles.authorLink}> Nishtha</span>  | February 16, 2025
-                </p>
+                    </p>
+                    <div className={styles.blogDescription}>
                     <div className='content-section'>
                         <div className={styles.blogCard}>
                             <p>
@@ -195,7 +196,6 @@ function Blog5() {
                             </p>
                         </div>
                     </div>
-                    <div className={styles.blogDescription}>
                         <div className={styles.blogCard}>
                             <p>
                                 The world of genetics has been completely transformed by a game changing
@@ -281,7 +281,6 @@ function Blog5() {
                                 </p>
                             </div>
                         </div>
-                    </div>
 
                     <div className='content-section'>
                         <div className={styles.blogCard}>
@@ -364,7 +363,8 @@ function Blog5() {
                                 </li>
                             </ul>
                         </div>
-                    </div>
+                        </div>
+                        </div>
 
                     <div className={styles.voteSection}>
 

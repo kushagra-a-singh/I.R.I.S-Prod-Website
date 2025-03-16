@@ -249,6 +249,7 @@
   text-decoration: none;
   transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
   margin-top: 20px; /* Adjust as needed */
+  margin-bottom: 25px;
   
 }
 

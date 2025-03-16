@@ -152,7 +152,7 @@ function Blog() {
                     <span> {post.author}</span> 
                     <span>{post.date}</span>
                     <div style={{ marginTop: '5px' }}>
-                      Guided by mentors{' '}
+                      Guided by mentors:<br></br>{' '}
                       <a
                         href="https://scholar.google.com/citations?user=IUUENAMAAAAJ&hl=en"
                         target="_blank"
@@ -161,7 +161,7 @@ function Blog() {
                       >
                         Dr. Shamla Mantri
                       </a>{' '}
-                      & {' '} 
+                      &{' '} 
                       <a
                         href="https://scholar.google.com/citations?user=9GsTeoQAAAAJ&hl=en"
                         target="_blank"

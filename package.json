@@ -9,34 +9,37 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.45.4",
-    "axios": "^1.7.4",
+    "@supabase/supabase-js": "^2.49.1",
+    "axios": "^1.8.3",
     "bootstrap": "^5.3.3",
-    "chalk": "^5.3.0",
+    "chalk": "^5.4.1",
     "cors": "^2.8.5",
-    "dotenv": "^16.4.5",
-    "lucide-react": "^0.475.0",
+    "dotenv": "^16.4.7",
+    "lucide-react": "^0.483.0",
     "mysql": "^2.18.1",
-    "mysql2": "^3.11.0",
-    "nanoid": "^3.3.8",
-    "next": "^15.1.4",
+    "mysql2": "^3.13.0",
+    "nanoid": "^5.1.4",
+    "next": "^15.2.3",
+
     "nodemailer": "^6.10.0",
-    "razorpay": "^2.9.4",
-    "react": "^18.3.1",
+    "razorpay": "^2.9.6",
+    "react": "^19.0.0",
     "react-bootstrap": "^2.10.9",
-    "react-dom": "^18.3.1",
-    "react-icons": "^5.3.0",
-    "react-intersection-observer": "^8.32.1",
-    "react-modal": "^3.16.1",
-    "react-select": "^5.9.0",
-    "react-toastify": "^11.0.2",
-    "sass": "^1.77.8",
-    "web-vitals": "^2.1.4"
+    "react-dom": "^19.0.0",
+    "react-icons": "^5.5.0",
+    "react-intersection-observer": "^9.16.0",
+    "react-modal": "^3.16.3",
+    "react-select": "^5.10.1",
+    "react-toastify": "^11.0.5",
+    "sass": "^1.86.0",
+    "web-vitals": "^4.2.4",
+    "@babel/runtime": "^7.26.10"
   },
   "devDependencies": {
-    "eslint": "^8",
-    "eslint-config-next": "15.0.2",
-    "nodemon": "^3.1.7"
+    "eslint": "^9.22.0",
+    "eslint-config-next": "15.2.3",
+    "nodemon": "^3.1.9",
+    "@babel/runtime": "^7.26.10"
   },
   "eslintConfig": {
     "extends": [

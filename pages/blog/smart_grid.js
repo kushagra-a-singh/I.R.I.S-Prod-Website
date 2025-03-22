@@ -186,26 +186,26 @@ function Blog6() {
                     <p className={styles.pageSubtitle}>How Tech Is Enabling Efficient Energy Distribution                    </p>
                     <p className={styles.pageauthor}>
                         By <a className={styles.authorLink} href="https://www.linkedin.com/in/shreya-more-284869321/" target="_blank" rel="noopener noreferrer">Shreya More </a>
-                         | March 24, 2025
+                        | March 24, 2025
                     </p>
                     <div className={styles.blogDescription}>
-                        
+
                         <div className={styles.blogCard}>
                             <p>
-                            Rising fuel prices and overreliance on fossil fuels have led to a global energy crisis, straining supply and demand while impacting economies and the environment. This crisis underscores the urgent need for renewable energy and efficient energy distribution to meet growing demand and technological advancements. One key innovation that is emerging as a game-changer in this crisis is smart grid technology.
-                            A smart grid is a digitalized electrical system that enables two-way communication, optimizing production, distribution, and consumption of electricity. Unlike traditional grids, it integrates renewable energy sources , IoT, and real-time monitoring, allowing automated issue detection and self-healing, reducing outages and enhancing efficiency.
+                                Rising fuel prices and overreliance on fossil fuels have led to a global energy crisis, straining supply and demand while impacting economies and the environment. This crisis underscores the urgent need for renewable energy and efficient energy distribution to meet growing demand and technological advancements. One key innovation that is emerging as a game-changer in this crisis is smart grid technology.
+                                A smart grid is a digitalized electrical system that enables two-way communication, optimizing production, distribution, and consumption of electricity. Unlike traditional grids, it integrates renewable energy sources , IoT, and real-time monitoring, allowing automated issue detection and self-healing, reducing outages and enhancing efficiency.
                             </p>
-                            
+
 
                         </div>
 
                         <div className='content-section'>
                             <div className={styles.blogCard}>
-                            <div className={styles.imageGallery}>
+                                <div className={styles.imageGallery}>
                                     <Image src="/smartgrid.jpg" alt="Smart grid" width={500} height={300} className={styles.blogImage} />
-                            </div>
+                                </div>
                                 <p>
-                                The above picture illustrates the integration of smart grid and renewable energy sources which helps in balancing the supply and demand of energy .Solar panels and wind turbines generate electricity from renewable sources, reducing reliance on fossil fuels.The energy produced is fed into the smart grid, either directly supplying power to consumers or being stored for later use.  Since renewables are intermittent , the smart grid balances supply and demand by integrating storage systems and real-time adjustments. Large-scale battery storage systems store excess energy generated from renewables. When supply is higher than demand, surplus energy is stored. When demand increases, stored energy is released into the grid.  This reduces energy waste and ensures a steady power supply even when renewable generation is low. The image shows an electric car and a bus plugged into the grid, indicating V2G technology, where electric vehicles can draw power or return excess power to the grid. This helps stabilize the grid and encourages sustainable transportation.   The power plant represents conventional energy generation, still essential for ensuring grid stability. The grid distributes electricity from both renewable and conventional sources, ensuring a stable power supply. By integrating renewables with traditional power, the smart grid optimizes energy use, reducing costs and emissions. Data flows between power sources, storage, EVs, and consumers, enabling automated balancing and outage detection. The system dynamically adjusts energy flow, preventing overloads and minimizing downtime.
+                                    The above picture illustrates the integration of smart grid and renewable energy sources which helps in balancing the supply and demand of energy .Solar panels and wind turbines generate electricity from renewable sources, reducing reliance on fossil fuels.The energy produced is fed into the smart grid, either directly supplying power to consumers or being stored for later use.  Since renewables are intermittent , the smart grid balances supply and demand by integrating storage systems and real-time adjustments. Large-scale battery storage systems store excess energy generated from renewables. When supply is higher than demand, surplus energy is stored. When demand increases, stored energy is released into the grid.  This reduces energy waste and ensures a steady power supply even when renewable generation is low. The image shows an electric car and a bus plugged into the grid, indicating V2G technology, where electric vehicles can draw power or return excess power to the grid. This helps stabilize the grid and encourages sustainable transportation.   The power plant represents conventional energy generation, still essential for ensuring grid stability. The grid distributes electricity from both renewable and conventional sources, ensuring a stable power supply. By integrating renewables with traditional power, the smart grid optimizes energy use, reducing costs and emissions. Data flows between power sources, storage, EVs, and consumers, enabling automated balancing and outage detection. The system dynamically adjusts energy flow, preventing overloads and minimizing downtime.
                                 </p>
                             </div>
                         </div>
@@ -219,7 +219,7 @@ function Blog6() {
                                 </p>
                                 <div className={styles.imageGallery}>
                                     <Image src="/smart grid.jpg" alt="Smart grid" width={500} height={300} className={styles.blogImage} />
-                            </div>
+                                </div>
                             </div>
                         </div>
 
@@ -227,8 +227,8 @@ function Blog6() {
                             <div className={styles.blogCard}>
                                 <h2>Summary</h2>
                                 <p>
-                                The world is facing an energy crisis driven by rising fuel prices and environmental concerns. The transition to renewable energy and improved energy distribution is critical, with smart grids offering a key solution. Smart grids use digital technology to optimize electricity production and distribution, enabling real-time adjustments and better integration of renewable energy.
-                                By managing renewable energy fluctuations, smart grids reduce reliance on storage solutions and improve efficiency. Thailand's USD1.8 billion smart grid initiative with Gorilla Technology highlights global efforts to enhance energy flow and security using AI. In the face of the energy crisis, integrating smart grids with renewable energy is essential for a sustainable, efficient future.
+                                    The world is facing an energy crisis driven by rising fuel prices and environmental concerns. The transition to renewable energy and improved energy distribution is critical, with smart grids offering a key solution. Smart grids use digital technology to optimize electricity production and distribution, enabling real-time adjustments and better integration of renewable energy.
+                                    By managing renewable energy fluctuations, smart grids reduce reliance on storage solutions and improve efficiency. Thailand&apos;s USD1.8 billion smart grid initiative with Gorilla Technology highlights global efforts to enhance energy flow and security using AI. In the face of the energy crisis, integrating smart grids with renewable energy is essential for a sustainable, efficient future.
 
                                 </p>
                             </div>
@@ -242,14 +242,14 @@ function Blog6() {
                                         <a href="https://www.renewableinstitute.org/training-courses/#:~:text=Hydrogen%20Energy,Study"
                                             target="_blank"
                                             rel="noopener noreferrer">
-                                            Renewable Energy Management & Finance 
+                                            Renewable Energy Management & Finance
                                         </a>
                                     </li>
                                     <li>
                                         <a href="https://www.coursera.org/courses?query=renewable%20energy"
                                             target="_blank"
                                             rel="noopener noreferrer">
-                                            Best renewable energy courses and certificates 
+                                            Best renewable energy courses and certificates
                                         </a>
                                     </li>
                                 </ul>

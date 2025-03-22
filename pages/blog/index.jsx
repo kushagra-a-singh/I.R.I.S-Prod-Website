@@ -7,6 +7,29 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function Blog() {
   const blogPosts = [
     {
+      id: 6,
+      title: 'Smart Grids and Renewable Energy',
+      //subtitle: 'Revolutionizing Genetics with Precision and Possibility',
+      description: 'How Tech Is Enabling Efficient Energy Distribution',
+      author: (
+        <> Authors: 
+          <a
+            href="https://www.linkedin.com/in/shreya-more-284869321/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.authorLink}
+          > 
+             Shreya More 
+          </a> 
+          
+        </>
+      ),
+      date:  'March 24, 2025',
+      image: '/smart grid.jpg',
+      imageWidth: 500,
+      imageHeight: 300,
+    },
+    {
       id: 5,
       title: 'CRISPR: Revolutionizing Genetics',
       subtitle: 'Revolutionizing Genetics with Precision and Possibility',
@@ -125,6 +148,7 @@ function Blog() {
     3: "nanotech-application",
     4: "traditional-algo",
     5: "crispr",
+    6: "smart_grid",
   };
 
   return (

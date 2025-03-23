@@ -186,46 +186,46 @@ function Blog6() {
                     {/* <p className={styles.pageSubtitle}>Revolutionizing Defense: The Power of Nanotechnology in Military Advancements</p> */}
                     <p className={styles.pageauthor}>
                         By <a className={styles.authorLink}>Aakanksha Pansare & Nishtha Mandaliya</a> | March 24, 2025
-                </p>
-          
+                    </p>
+
                     <div className={styles.blogDescription}>
                         <div className={styles.blogCard}>
-                            <h4>&ldquo;Imagine a fleet of intelligent robots, soaring through space, navigating icy moons around shiny stars, and diving into alien oceans filled with meteors of various sizes. Do you think it's the story line of a science fiction movie? Then let me dive you through the future of cosmic universe&rdquo;</h4>
+                            <h4>&ldquo;Imagine a fleet of intelligent robots, soaring through space, navigating icy moons around shiny stars, and diving into alien oceans filled with meteors of various sizes. Do you think it&apos;s the story line of a science fiction movie? Then let me dive you through the future of cosmic universe&rdquo;</h4>
                             {/* <h4> — Bill Gates</h4> */}
                         </div>
 
                         <div className={styles.blogCard}>
                             <h2>Advantages of Next gen space probes over traditional methods:</h2>
                             <p>
-                            The exploration of the outer solar system has always been a major challenge due to vast distances, harsh environments, and communication delays. Traditional space probes rely on commands from Earth, which can take hours to transmit. However, the next generation of space probes will incorporate artificial intelligence (AI) and autonomous decision-making, allowing them to navigate, analyze, and adapt to their surroundings on their own.                         
+                                The exploration of the outer solar system has always been a major challenge due to vast distances, harsh environments, and communication delays. Traditional space probes rely on commands from Earth, which can take hours to transmit. However, the next generation of space probes will incorporate artificial intelligence (AI) and autonomous decision-making, allowing them to navigate, analyze, and adapt to their surroundings on their own.
                             </p>
                         </div>
                         <div className={styles.blogCard}>
                             <p>
-                            Current few space probes are also working with the help of advanced technologies like advanced propulsion systems (like plasma rockets or nuclear propulsion) for faster transit and more efficient space travel. 
-                            A few notable disadvantages of traditional methods that are overcome by AI space probes are:
+                                Current few space probes are also working with the help of advanced technologies like advanced propulsion systems (like plasma rockets or nuclear propulsion) for faster transit and more efficient space travel.
+                                A few notable disadvantages of traditional methods that are overcome by AI space probes are:
                             </p>
                         </div>
 
                         <div className={styles.blogCard}>
                             <h3>Communication Delays</h3>
                             <p>
-                            Real-time control becomes unfeasible as signals take hours to travel between Earth and the probe.                              </p>
+                                Real-time control becomes unfeasible as signals take hours to travel between Earth and the probe.                              </p>
                         </div>
                         <div className={styles.blogCard}>
                             <h3>Harsh Environments</h3>
                             <p>
-                            Probes and landers are at risk because of severe cold, vigorous radiation, and harsh landscapes.
+                                Probes and landers are at risk because of severe cold, vigorous radiation, and harsh landscapes.
                             </p>
                         </div>
                         <div className={styles.blogCard}>
                             <h3>Limited Energy Sources</h3>
                             <p>
-                            Effecient energy budgetting is absolutely imperative, as solar energy is deficient in the out regions of the solar system.
+                                Effecient energy budgetting is absolutely imperative, as solar energy is deficient in the out regions of the solar system.
                             </p>
                         </div>
                         <div className={styles.blogCard}>
-                        <div className={styles.imageGallery}>
+                            <div className={styles.imageGallery}>
                                 <Image src="/space-probes1.png" alt="Space Probes" width={500} height={300} className={styles.blogImage} />
                             </div>
                         </div>
@@ -241,57 +241,57 @@ function Blog6() {
                         <div className={styles.blogCard}>
                             <h3>Examples of Current and Future Probes:</h3>
                             <p>
-                            1.	Interstellar Probe:
-                             they are designed to enter the interstellar space which is beyond the heliosphere (the region where the sun's magnetic field dominates).
-                            <br />
-                            2.	Voyager 1 and 2: 
-                            they are already launched and are considered as the pioneer of interstellar probes as it has already entered interstellar space.
-                            <br />
-                            3.	New Horizons:
-                            It was launched in 2006, and it is still  exploring the Kuiper belt on outer reached of solar system. 
-                            <br />
-                            4.	4. Parker Solar Probe:
-                            It was launched in 2018. This spacecraft is gravitationally driven even closer to the sun with the help of seven flybys of Venus.
+                                1.	Interstellar Probe:
+                                they are designed to enter the interstellar space which is beyond the heliosphere (the region where the sun&apos;s magnetic field dominates).
+                                <br />
+                                2.	Voyager 1 and 2:
+                                they are already launched and are considered as the pioneer of interstellar probes as it has already entered interstellar space.
+                                <br />
+                                3.	New Horizons:
+                                It was launched in 2006, and it is still  exploring the Kuiper belt on outer reached of solar system.
+                                <br />
+                                4.	4. Parker Solar Probe:
+                                It was launched in 2018. This spacecraft is gravitationally driven even closer to the sun with the help of seven flybys of Venus.
 
                             </p>
                         </div>
                         <div className={styles.blogCard}>
                             <h3>Key advancements in Autonomous robots are as follows:</h3>
                             <p>
-                            AI-Based Navigation : Autonomous probes will use machine learning to map unknown terrain and avoid obstacles in real time (NASA, 2023).  
-                            <br />
-                            <br />
-                            Autonomous Sample Collection : Robotic explorers will independently select and analyze samples, prioritizing important discoveries (ESA, 2022).  
-                            <br />
-                            <br />                            
-                            Self-Repair and Adaptability :Probes will be equipped with diagnostics and self-repair mechanisms to extend their lifespan in harsh environments (National Academies of Sciences, 2021).  
+                                AI-Based Navigation : Autonomous probes will use machine learning to map unknown terrain and avoid obstacles in real time (NASA, 2023).
+                                <br />
+                                <br />
+                                Autonomous Sample Collection : Robotic explorers will independently select and analyze samples, prioritizing important discoveries (ESA, 2022).
+                                <br />
+                                <br />
+                                Self-Repair and Adaptability :Probes will be equipped with diagnostics and self-repair mechanisms to extend their lifespan in harsh environments (National Academies of Sciences, 2021).
                             </p>
                         </div>
                         <div className={styles.blogCard}>
                             <h3>Upcoming Missions and Future Prospects</h3>
                             <p>
-                            Several upcoming missions are pushing the boundaries of autonomous exploration:  
-                            <br />
-                            <br />
-                            Europa Clipper (NASA, 2024–2030): Aims to study Jupiter’s moon Europa, searching for potential habitability and subsurface oceans.  
-                            <br />
-                            JUICE (ESA, 2023–2034): The Jupiter Icy Moons Explorer will explore Ganymede, Callisto, and Europa with advanced autonomous systems.
-                            <br />
-                            Dragonfly (NASA, 2027–2035): A drone-like lander set to explore Titan’s complex chemistry and potential for life.  
-                            <br />
-                            <br />
+                                Several upcoming missions are pushing the boundaries of autonomous exploration:
+                                <br />
+                                <br />
+                                Europa Clipper (NASA, 2024–2030): Aims to study Jupiter’s moon Europa, searching for potential habitability and subsurface oceans.
+                                <br />
+                                JUICE (ESA, 2023–2034): The Jupiter Icy Moons Explorer will explore Ganymede, Callisto, and Europa with advanced autonomous systems.
+                                <br />
+                                Dragonfly (NASA, 2027–2035): A drone-like lander set to explore Titan’s complex chemistry and potential for life.
+                                <br />
+                                <br />
 
-                             space exploration is improving with modern advancements within AI and autonomous robotics. Future probes will be more efficient and self sufficient because they will be able to navigate, analyze, and conduct repairs without the need for human input.
-                             As technology progresses further, there will be a greater reliance on autonomous systems to help us solve the enigmas of our solar system and beyond.
+                                space exploration is improving with modern advancements within AI and autonomous robotics. Future probes will be more efficient and self sufficient because they will be able to navigate, analyze, and conduct repairs without the need for human input.
+                                As technology progresses further, there will be a greater reliance on autonomous systems to help us solve the enigmas of our solar system and beyond.
                             </p>
                             <Image src="/space-probes2.jpg" alt="Space Probes" width={500} height={300} className={styles.blogImage} />
                         </div>
                         <div className={styles.blogCard}>
                             <h2>Summary</h2>
                             <p>
-                            Are you ready to explore cosmosic universe filled with robots that can make their own decision? This ain't any imagination! It's a reality that is breaking all boundaries and revealing the secrets to the most complex mysteries ever known!
-                            Traditional probes in use are complex and tedious for deep space missions because they need constant inputs from Earth; which is nearly impossible due to the harsh environment, communication delays and limited power resources. 
-                            The future of space exploration will be defined by intelligent, autonomous robots which are capable of making decisions without human assistance.
+                                Are you ready to explore cosmosic universe filled with robots that can make their own decision? This ain&apos;t any imagination! It&apos;s a reality that is breaking all boundaries and revealing the secrets to the most complex mysteries ever known!
+                                Traditional probes in use are complex and tedious for deep space missions because they need constant inputs from Earth; which is nearly impossible due to the harsh environment, communication delays and limited power resources.
+                                The future of space exploration will be defined by intelligent, autonomous robots which are capable of making decisions without human assistance.
                             </p>
                         </div>
 
@@ -302,43 +302,43 @@ function Blog6() {
                                     <a href="https://www.nasa.gov"
                                         target="_blank"
                                         rel="noopener noreferrer">
-                                        NASA. (2023). Artificial Intelligence in Space Exploration. Retrieved from 
+                                        NASA. (2023). Artificial Intelligence in Space Exploration. Retrieved from
                                     </a>
                                 </li>
                                 <li>
                                     <a href="https://www.esa.int"
                                         target="_blank"
                                         rel="noopener noreferrer">
-                                        ESA. (2022). JUICE Mission Overview. Retrieved from 
+                                        ESA. (2022). JUICE Mission Overview. Retrieved from
                                     </a>
                                 </li>
                                 <li>
                                     <a>
-                                    National Academies of Sciences. (2021). Autonomous Systems in Space Exploration: A Future Perspective. Washington, DC: The National Academies Press.                                      </a>
+                                        National Academies of Sciences. (2021). Autonomous Systems in Space Exploration: A Future Perspective. Washington, DC: The National Academies Press.                                      </a>
                                 </li>
                             </ul>
                         </div>
 
-                    <div className='content-section'>
-                        <div className={styles.blogCard}>
-                            <h2>Free Resources</h2>
-                            <ul>
-                                <li>
-                                    <a href="https://www.slideshare.net/slideshow/nanotechnology-in-defence-applications/16066727"
-                                        target="_blank"
-                                        rel="noopener noreferrer">
-                                        Nanotechnology in Defence applications
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://ftp.idu.ac.id/wp-content/uploads/ebook/tdg/MILITARY%20PLATFORM%20DESIGN/Military%20Nanotechnology.pdf"
-                                        target="_blank"
-                                        rel="noopener noreferrer">
-                                        Military Nanotechnology
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                        <div className='content-section'>
+                            <div className={styles.blogCard}>
+                                <h2>Free Resources</h2>
+                                <ul>
+                                    <li>
+                                        <a href="https://www.slideshare.net/slideshow/nanotechnology-in-defence-applications/16066727"
+                                            target="_blank"
+                                            rel="noopener noreferrer">
+                                            Nanotechnology in Defence applications
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://ftp.idu.ac.id/wp-content/uploads/ebook/tdg/MILITARY%20PLATFORM%20DESIGN/Military%20Nanotechnology.pdf"
+                                            target="_blank"
+                                            rel="noopener noreferrer">
+                                            Military Nanotechnology
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
 

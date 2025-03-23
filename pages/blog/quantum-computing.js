@@ -191,38 +191,38 @@ function Blog7() {
                         <div className={styles.blogCard}>
                             <h2><strong>Introduction:</strong></h2>
                             <p>
-                            Technology has become an inevitable part of our lives. It is an industry which has kept evolving and keeps evolving. From the very beginning, the aim of technology was to make our lives easier. <br />One thing led to another and here we are today! One such creation of the human mind was the computer. The primary purpose of early computers was to perform complex calculations and process large amounts of data more quickly than what we humans could. We have all sorts of computers today, from personal computers to supercomputers. <br />But as time is progressing, we are somewhere approaching the limits of classical computing. Some extreme problems today require immense computational power, something where the classical computers struggle. This is where Quantum Computing comes into the picture. <br/>Being the 1st part in our series of Quantum Computing, in the later sections, we are going to take a dive into what quantum computing is, its history, modern state, industry leaders, and other things we need to know while getting into it!                            
+                                Technology has become an inevitable part of our lives. It is an industry which has kept evolving and keeps evolving. From the very beginning, the aim of technology was to make our lives easier. <br />One thing led to another and here we are today! One such creation of the human mind was the computer. The primary purpose of early computers was to perform complex calculations and process large amounts of data more quickly than what we humans could. We have all sorts of computers today, from personal computers to supercomputers. <br />But as time is progressing, we are somewhere approaching the limits of classical computing. Some extreme problems today require immense computational power, something where the classical computers struggle. This is where Quantum Computing comes into the picture. <br />Being the 1st part in our series of Quantum Computing, in the later sections, we are going to take a dive into what quantum computing is, its history, modern state, industry leaders, and other things we need to know while getting into it!
                             </p>
                         </div>
                         <div className='content-section'>
                             <div className={styles.blogCard}>
                                 <h2><strong>What is quantum computing?</strong></h2>
                                 <p>
-                                The widely accepted definition of quantum computing is, “Quantum computing is a type of computation that utilizes quantum-mechanical phenomena, such as superposition and entanglement, to perform operations on data”. 
+                                    The widely accepted definition of quantum computing is, “Quantum computing is a type of computation that utilizes quantum-mechanical phenomena, such as superposition and entanglement, to perform operations on data”.
                                     <br />
                                     <br />
-                                The major difference between classical computing and quantum computing lies in the architecture, in the low level. Unlike classical computers, which rely on bits (0s and 1s), quantum computers rely on quantum bits or qubits, which have the ability to exist in multiple states simultaneously. This allows quantum computers to perform complex computations faster than traditional computers.
-                                <br />
-                                <br />
+                                    The major difference between classical computing and quantum computing lies in the architecture, in the low level. Unlike classical computers, which rely on bits (0s and 1s), quantum computers rely on quantum bits or qubits, which have the ability to exist in multiple states simultaneously. This allows quantum computers to perform complex computations faster than traditional computers.
+                                    <br />
+                                    <br />
 
-                                Quantum computing relies on several principles from quantum mechanics, such as superposition, entanglement, decoherence, inference, etc. Understanding these is a necessary prerequisite before getting into quantum computers.
-                                <br />
-                                <br />
+                                    Quantum computing relies on several principles from quantum mechanics, such as superposition, entanglement, decoherence, inference, etc. Understanding these is a necessary prerequisite before getting into quantum computers.
+                                    <br />
+                                    <br />
 
-                                A Qubit is a fascinating concept in itself.                                     <br />
-                                A qubit is the basic unit of information in quantum computing. As said above, qubits can exist in multiple states simultaneously, this is known as superposition. One simple example to get an idea about its immense power is: 
-                                As classical bits can either be 0 or 1 at an instant. 4 such bits can be in one of 2^4 different configurations at a time, i.e., 1 from the 16 possible configurations. But, when we consider 4 qubits in superposition, it can be in all of those 16 possible combinations at once, allowing quantum computers to parallelly process multiple calculations at a larger scale.
-                                <br />
-                                <br />
+                                    A Qubit is a fascinating concept in itself.                                     <br />
+                                    A qubit is the basic unit of information in quantum computing. As said above, qubits can exist in multiple states simultaneously, this is known as superposition. One simple example to get an idea about its immense power is:
+                                    As classical bits can either be 0 or 1 at an instant. 4 such bits can be in one of 2^4 different configurations at a time, i.e., 1 from the 16 possible configurations. But, when we consider 4 qubits in superposition, it can be in all of those 16 possible combinations at once, allowing quantum computers to parallelly process multiple calculations at a larger scale.
+                                    <br />
+                                    <br />
 
-                                Just like superposition, entanglement is another key quantum principle which is important for the working of quantum computers. Entanglement enables stronger correlations between qubits, allowing faster computations and increased parallelism. 
-                                <br />
-                                <br />
+                                    Just like superposition, entanglement is another key quantum principle which is important for the working of quantum computers. Entanglement enables stronger correlations between qubits, allowing faster computations and increased parallelism.
+                                    <br />
+                                    <br />
 
-                                Decoherence is when the quantum state collapses into a non quantum state, allowing the quantum computers to interact with the classical computers.
-                                <br />
+                                    Decoherence is when the quantum state collapses into a non quantum state, allowing the quantum computers to interact with the classical computers.
+                                    <br />
 
-                                Interference is one more important concept required to understand the foundations. It refers to manipulating quantum states to perform calculations, amplify correct solutions, and suppress the incorrect ones, resulting in better computations and efficiency. 
+                                    Interference is one more important concept required to understand the foundations. It refers to manipulating quantum states to perform calculations, amplify correct solutions, and suppress the incorrect ones, resulting in better computations and efficiency.
 
                                 </p>
                             </div>
@@ -235,7 +235,7 @@ function Blog7() {
                                     <br /><br />
                                     Here, we will discuss the various scientists, companies, and the research breakthroughs which have shaped how we look at quantum computing today.
                                     <br /><br />
-                                    <Image src="/qm3.jpg" alt="Quantum Computing Summary" width={500} height={300} className={styles.blogImage}/>
+                                    <Image src="/qm3.jpg" alt="Quantum Computing Summary" width={500} height={300} className={styles.blogImage} />
                                     <br /><br />
                                     Paul Benioff, an American physicist, proposed a quantum mechanical model of the Turing Machine.
                                     <br />
@@ -243,13 +243,13 @@ function Blog7() {
                                     <br />
                                     David Deutsch, a British physicist, in 1985, published a groundbreaking research paper, talking about the concept of "universal quantum computer". He wrote about how quantum computers could operate, and demonstrated that they have the capability to perform any computation. His work laid the foundation for the developments of quantum algorithms.
                                     <br />
-                                    The next decade from here onwards, included the development of various algorithms, such as Deutsch–Jozsa algorithm (1992), Shor's algorithm (1994), Simon's algorithm (1994), Grover's algorithm (1996).
+                                    The next decade from here onwards, included the development of various algorithms, such as Deutsch–Jozsa algorithm (1992), Shor&apos;s algorithm (1994), Simon&apos;s algorithm (1994), Grover&apos;s algorithm (1996).
                                     <br />
                                     In the year of 1998, the 1st two-qubit quantum computer was demonstrated by a team led by Isaac Chuang at Los Alamos National Laboratory, MIT and UC Berkeley.
                                     <br />
                                     In 2000, researchers at MIT and Los Alamos National Laboratory demonstrated a 7-bit quantum computer using nuclear magnetic resonance (NMR) techniques.
                                     <br />
-                                    In 2001, IBM and Stanford successfully implemented the Shor's algorithm on a 7-bit quantum computer.
+                                    In 2001, IBM and Stanford successfully implemented the Shor&apos;s algorithm on a 7-bit quantum computer.
                                     <br />
                                     In 2007, D-Wave claimed to have built the first commercial quantum annealer, D-Wave One. They sold their first quantum computer to Lockheed Martin in 2011.
                                     <br /><br />
@@ -263,7 +263,7 @@ function Blog7() {
                                 <p>
                                     Talking about the major modern day quantum computers and processors, these include:
                                     <br /><br />
-                                    <Image src="/qm2.jpg" alt="Quantum Computing Summary" width={500} height={300} className={styles.blogImage}/>
+                                    <Image src="/qm2.jpg" alt="Quantum Computing Summary" width={500} height={300} className={styles.blogImage} />
                                     <br /><br />
                                     Google Sycamore (2019), a 53 qubit quantum computer, that achieved quantum supremacy.
                                     <br />
@@ -275,15 +275,15 @@ function Blog7() {
                                     <br />
                                     QuEra Aquila (2023), a 256-qubit neutral atom quantum computer.
                                     <br />
-                                    Atom Computing's Phoenix (2024, 1225-qubits).
+                                    Atom Computing&apos;s Phoenix (2024, 1225-qubits).
                                     <br /><br />
                                     Some of the major players in this industry today are: Google, Microsoft, IBM, Quantinuum, D-Wave, Atom Computing, etc.
                                     <br /><br />
                                     Some of the astonishing and mind-boggling advancements and developments in the recent time include:
                                     <br />
-                                    Google's Willow (2024). This is one of the fastest quantum processors as of today. According to its benchmark scores, it performed a computation in less than 5 minutes, which would take today's fastest supercomputers over 10 Septillion years to compute! This also somewhere gives evidence to the idea of us living in a multiverse, first proposed by David Deutsch, that the quantum computations occur in parallel universes!
+                                    Google&apos;s Willow (2024). This is one of the fastest quantum processors as of today. According to its benchmark scores, it performed a computation in less than 5 minutes, which would take today&apos;s fastest supercomputers over 10 Septillion years to compute! This also somewhere gives evidence to the idea of us living in a multiverse, first proposed by David Deutsch, that the quantum computations occur in parallel universes!
                                     <br />
-                                    Microsoft's Majorana 1 chip (2025): this chip utilizes topological qubits based on Majorana particles, helping in increasing stability of qubits and scalability.
+                                    Microsoft&apos;s Majorana 1 chip (2025): this chip utilizes topological qubits based on Majorana particles, helping in increasing stability of qubits and scalability.
                                 </p>
                             </div>
                         </div>
@@ -299,9 +299,9 @@ function Blog7() {
                             <div className={styles.blogCard}>
                                 <h2><strong>Summary</strong></h2>
                                 <p>
-                                    Quantum computing is revolutionizing the tech world by leveraging quantum-mechanical phenomena like superposition and entanglement to perform complex computations far faster than classical computers. Key milestones in quantum computing's history include the development of algorithms and the first demonstrations of quantum computers in the 1990s. Major players like Google, IBM, and Microsoft are pushing the boundaries of quantum computing with groundbreaking technologies, such as Google's Willow and Microsoft's Majorana 1 chip, promising unimaginable computational power for the future.
+                                    Quantum computing is revolutionizing the tech world by leveraging quantum-mechanical phenomena like superposition and entanglement to perform complex computations far faster than classical computers. Key milestones in quantum computing&apos;s history include the development of algorithms and the first demonstrations of quantum computers in the 1990s. Major players like Google, IBM, and Microsoft are pushing the boundaries of quantum computing with groundbreaking technologies, such as Google&apos;s Willow and Microsoft&apos;s Majorana 1 chip, promising unimaginable computational power for the future.
                                 </p>
-                                <Image src="/qm1.jpg" alt="Quantum Computing Summary" width={500} height={300} className={styles.blogImage}/>
+                                <Image src="/qm1.jpg" alt="Quantum Computing Summary" width={500} height={300} className={styles.blogImage} />
                             </div>
                         </div>
                         <div className='content-section'>
@@ -312,8 +312,8 @@ function Blog7() {
                                     <li><a href="https://en.wikipedia.org/wiki/Quantum_computing" target="_blank" rel="noopener noreferrer">History of Quantum Computing</a></li>
                                     <li><a href="https://en.wikipedia.org/wiki/Quantum_superposition" target="_blank" rel="noopener noreferrer">Quantum Superposition</a></li>
                                     <li><a href="https://royalsocietypublishing.org/doi/10.1098/rspa.1985.0070" target="_blank" rel="noopener noreferrer">David Deutsch - 1985</a></li>
-                                    <li><a href="https://blog.google/technology/ai/google-quantum-ai-willow-qpu/" target="_blank" rel="noopener noreferrer">Google's Willow</a></li>
-                                    <li><a href="https://www.microsoft.com/en-us/research/blog/majorana-zero-modes-enhance-coherence-times-in-superconducting-quantum-devices/" target="_blank" rel="noopener noreferrer">Microsoft's Majorana 1 Chip</a></li>
+                                    <li><a href="https://blog.google/technology/ai/google-quantum-ai-willow-qpu/" target="_blank" rel="noopener noreferrer">Google&apos;s Willow</a></li>
+                                    <li><a href="https://www.microsoft.com/en-us/research/blog/majorana-zero-modes-enhance-coherence-times-in-superconducting-quantum-devices/" target="_blank" rel="noopener noreferrer">Microsoft&apos;s Majorana 1 Chip</a></li>
                                     <li><a href="https://skillsbuild.org/students/quantum" target="_blank" rel="noopener noreferrer">IBM SkillsBuild</a></li>
                                 </ul>
                             </div>

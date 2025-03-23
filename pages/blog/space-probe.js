@@ -203,14 +203,14 @@ function Blog8() {
                                 A few notable disadvantages of traditional methods that are overcome by AI space probes are:
                                 <br></br>
                                 <br></br>
-                                <h3>Communication Delays</h3>
+                                <h4>Communication Delays</h4>
                                 Real-time control becomes unfeasible as signals take hours to travel between Earth and the probe.                              </p>
 
-                            <h3>Harsh Environments</h3>
+                            <h4>Harsh Environments</h4>
                             <p>
                                 Probes and landers are at risk because of severe cold, vigorous radiation, and harsh landscapes.
                             </p>
-                            <h3>Limited Energy Sources</h3>
+                            <h4>Limited Energy Sources</h4>
                             <p>
                                 Effecient energy budgetting is absolutely imperative, as solar energy is deficient in the out regions of the solar system.
                             </p>

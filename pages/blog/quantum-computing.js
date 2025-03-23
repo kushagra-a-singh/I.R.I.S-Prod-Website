@@ -198,7 +198,7 @@ function Blog7() {
                             <div className={styles.blogCard}>
                                 <h2><strong>What is quantum computing?</strong></h2>
                                 <p>
-                                    The widely accepted definition of quantum computing is, “Quantum computing is a type of computation that utilizes quantum-mechanical phenomena, such as superposition and entanglement, to perform operations on data”.
+                                    The widely accepted definition of quantum computing is, &quot;Quantum computing is a type of computation that utilizes quantum-mechanical phenomena, such as superposition and entanglement, to perform operations on data&quot;.
                                     <br />
                                     <br />
                                     The major difference between classical computing and quantum computing lies in the architecture, in the low level. Unlike classical computers, which rely on bits (0s and 1s), quantum computers rely on quantum bits or qubits, which have the ability to exist in multiple states simultaneously. This allows quantum computers to perform complex computations faster than traditional computers.
@@ -239,9 +239,9 @@ function Blog7() {
                                     <br /><br />
                                     Paul Benioff, an American physicist, proposed a quantum mechanical model of the Turing Machine.
                                     <br />
-                                    Richard Feynman, an American theoretical physicist, popularized the idea of "quantum computing", in 1981.
+                                    Richard Feynman, an American theoretical physicist, popularized the idea of &quot;quantum computing&quot;, in 1981.
                                     <br />
-                                    David Deutsch, a British physicist, in 1985, published a groundbreaking research paper, talking about the concept of "universal quantum computer". He wrote about how quantum computers could operate, and demonstrated that they have the capability to perform any computation. His work laid the foundation for the developments of quantum algorithms.
+                                    David Deutsch, a British physicist, in 1985, published a groundbreaking research paper, talking about the concept of &quot;universal quantum computer&quot;. He wrote about how quantum computers could operate, and demonstrated that they have the capability to perform any computation. His work laid the foundation for the developments of quantum algorithms.
                                     <br />
                                     The next decade from here onwards, included the development of various algorithms, such as Deutsch–Jozsa algorithm (1992), Shor&apos;s algorithm (1994), Simon&apos;s algorithm (1994), Grover&apos;s algorithm (1996).
                                     <br />

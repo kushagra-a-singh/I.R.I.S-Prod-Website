@@ -1,12 +1,8 @@
-import React, { useState, useRef, useEffect } from 'react';
-import supabase from '../../src/utils/supabase';
+import React, { useState, useRef } from 'react';
 import styles from './Contact.module.css';
 
 function Contact() {
-
-  const [link, setLink] = useState("/bgVid.webm")
-
-
+  const [link, setLink] = useState("/bgVid.webm");
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -14,11 +10,9 @@ function Contact() {
     subject: '',
     message: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
   const formRef = useRef(null);
-
-  useEffect(() => {
-  }, []);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -26,21 +20,24 @@ function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (isSubmitting) return;
+    setIsSubmitting(true);
+
     try {
-      const formDataWithTimestamp = {
-        ...formData,
-        created_at: new Date().toISOString(),
-      };
+      const response = await fetch('/api/contacts', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          created_at: new Date().toISOString(),
+        }),
+      });
 
-      // Insert form data into Supabase
-      const { data, error } = await supabase
-        .from('contacts')
-        .insert(formDataWithTimestamp);
+      const result = await response.json();
 
-      if (error) {
-        console.error('Error inserting data:', error);
-      } else {
-        console.log('Data inserted');
+      if (result.success) {
         setShowNotification(true);
         setFormData({
           name: '',
@@ -49,9 +46,15 @@ function Contact() {
           subject: '',
           message: '',
         });
+      } else {
+        console.error('Error submitting form:', result.error);
+        alert('There was an error submitting your form. Please try again.');
       }
     } catch (error) {
       console.error('Error submitting form:', error);
+      alert('There was an error submitting your form. Please try again.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -61,6 +64,7 @@ function Contact() {
 
   return (
     <div className={styles.contact}>
+      {/* Video background and overlay remain the same */}
       <div className={styles.videoBackground}>
         <video autoPlay muted loop>
           <source src={link} type="video/mp4" />
@@ -74,6 +78,7 @@ function Contact() {
           If you have a new and innovative scalable project, unique idea, or research you&apos;d like to pursue, fill out the form below. We&apos;re here to help guide and support you!
         </p>
         <form ref={formRef} onSubmit={handleSubmit} className={styles.form}>
+          {/* Form fields remain the same */}
           <div className={styles.formGroup}>
             <label htmlFor="name">Name*</label>
             <input
@@ -129,7 +134,9 @@ function Contact() {
             />
           </div>
           <div className={styles.formGroup}>
-            <button type="submit">Send Message</button>
+            <button type="submit" disabled={isSubmitting}>
+              {isSubmitting ? 'Sending...' : 'Send Message'}
+            </button>
           </div>
         </form>
         {showNotification && (
@@ -142,8 +149,8 @@ function Contact() {
           </div>
         )}
       </main>
-
     </div>
   );
 }
+
 export default Contact;

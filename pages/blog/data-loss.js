@@ -37,7 +37,7 @@ function Blog2() {
     const fetchVoteStatus = async () => {
         try {
             const { data: voteData, error: voteError } = await supabase
-                .from('votes')
+                .from('blog_votes')
                 .select('vote_type')
                 .eq('device_id', deviceId)
                 .eq('post_id', postId)
@@ -50,13 +50,13 @@ function Blog2() {
             }
 
             const { data: upvoteData, error: upvoteError } = await supabase
-                .from('votes')
+                .from('blog_votes')
                 .select('*')
                 .eq('post_id', postId)
                 .eq('vote_type', 'upvote');
 
             const { data: downvoteData, error: downvoteError } = await supabase
-                .from('votes')
+                .from('blog_votes')
                 .select('*')
                 .eq('post_id', postId)
                 .eq('vote_type', 'downvote');
@@ -76,7 +76,7 @@ function Blog2() {
 
     const fetchComments = async () => {
         const { data, error } = await supabase
-            .from('comments')
+            .from('blog_comments')
             .select('*')
             .eq('post_id', postId)
             .order('created_at', { ascending: false });
@@ -96,7 +96,7 @@ function Blog2() {
             }
 
             const { data: existingVote, error: fetchError } = await supabase
-                .from('votes')
+                .from('blog_votes')
                 .select('*')
                 .eq('post_id', postId)
                 .eq('device_id', deviceId)
@@ -113,7 +113,7 @@ function Blog2() {
                     return;
                 } else {
                     const { error: updateError } = await supabase
-                        .from('votes')
+                        .from('blog_votes')
                         .update({ vote_type: voteType })
                         .eq('post_id', postId)
                         .eq('device_id', deviceId);
@@ -128,7 +128,7 @@ function Blog2() {
                 }
             } else {
                 const { error: insertError } = await supabase
-                    .from('votes')
+                    .from('blog_votes')
                     .insert({
                         post_id: postId,
                         vote_type: voteType,
@@ -158,7 +158,7 @@ function Blog2() {
         }
 
         const { error } = await supabase
-            .from('comments')
+            .from('blog_comments')
             .insert({
                 post_id: postId,
                 username: commenterName,

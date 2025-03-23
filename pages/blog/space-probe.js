@@ -6,7 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Image from 'next/image';
 
-function Blog6() {
+function Blog8() {
     const [comments, setComments] = useState([]);
     const [newComment, setNewComment] = useState('');
     const [commenterName, setCommenterName] = useState('');
@@ -14,7 +14,7 @@ function Blog6() {
     const [vote, setVote] = useState(null);
     const [voteCounts, setVoteCounts] = useState({ upvotes: 0, downvotes: 0 });
 
-    const postId = 4;
+    const postId = 8;
 
     useEffect(() => {
         const storedDeviceId = localStorage.getItem('deviceId');
@@ -38,7 +38,7 @@ function Blog6() {
     const fetchVoteStatus = async () => {
         try {
             const { data: voteData, error: voteError } = await supabase
-                .from('votes')
+                .from('blog_votes')
                 .select('vote_type')
                 .eq('device_id', deviceId)
                 .eq('post_id', postId)
@@ -51,13 +51,13 @@ function Blog6() {
             }
 
             const { data: upvoteData, error: upvoteError } = await supabase
-                .from('votes')
+                .from('blog_votes')
                 .select('*')
                 .eq('post_id', postId)
                 .eq('vote_type', 'upvote');
 
             const { data: downvoteData, error: downvoteError } = await supabase
-                .from('votes')
+                .from('blog_votes')
                 .select('*')
                 .eq('post_id', postId)
                 .eq('vote_type', 'downvote');
@@ -77,7 +77,7 @@ function Blog6() {
 
     const fetchComments = async () => {
         const { data, error } = await supabase
-            .from('comments')
+            .from('blog_comments')
             .select('*')
             .eq('post_id', postId)
             .order('created_at', { ascending: false });
@@ -97,7 +97,7 @@ function Blog6() {
             }
 
             const { data: existingVote, error: fetchError } = await supabase
-                .from('votes')
+                .from('blog_votes')
                 .select('*')
                 .eq('post_id', postId)
                 .eq('device_id', deviceId)
@@ -114,7 +114,7 @@ function Blog6() {
                     return;
                 } else {
                     const { error: updateError } = await supabase
-                        .from('votes')
+                        .from('blog_votes')
                         .update({ vote_type: voteType })
                         .eq('post_id', postId)
                         .eq('device_id', deviceId);
@@ -129,7 +129,7 @@ function Blog6() {
                 }
             } else {
                 const { error: insertError } = await supabase
-                    .from('votes')
+                    .from('blog_votes')
                     .insert({
                         post_id: postId,
                         vote_type: voteType,
@@ -159,7 +159,7 @@ function Blog6() {
         }
 
         const { error } = await supabase
-            .from('comments')
+            .from('blog_comments')
             .insert({
                 post_id: postId,
                 username: commenterName,
@@ -198,27 +198,18 @@ function Blog6() {
                             <h2>Advantages of Next gen space probes over traditional methods:</h2>
                             <p>
                                 The exploration of the outer solar system has always been a major challenge due to vast distances, harsh environments, and communication delays. Traditional space probes rely on commands from Earth, which can take hours to transmit. However, the next generation of space probes will incorporate artificial intelligence (AI) and autonomous decision-making, allowing them to navigate, analyze, and adapt to their surroundings on their own.
-                            </p>
-                        </div>
-                        <div className={styles.blogCard}>
-                            <p>
+                                <br></br>
                                 Current few space probes are also working with the help of advanced technologies like advanced propulsion systems (like plasma rockets or nuclear propulsion) for faster transit and more efficient space travel.
                                 A few notable disadvantages of traditional methods that are overcome by AI space probes are:
-                            </p>
-                        </div>
-
-                        <div className={styles.blogCard}>
-                            <h3>Communication Delays</h3>
-                            <p>
+                                <br></br>
+                                <br></br>
+                                <h3>Communication Delays</h3>
                                 Real-time control becomes unfeasible as signals take hours to travel between Earth and the probe.                              </p>
-                        </div>
-                        <div className={styles.blogCard}>
+
                             <h3>Harsh Environments</h3>
                             <p>
                                 Probes and landers are at risk because of severe cold, vigorous radiation, and harsh landscapes.
                             </p>
-                        </div>
-                        <div className={styles.blogCard}>
                             <h3>Limited Energy Sources</h3>
                             <p>
                                 Effecient energy budgetting is absolutely imperative, as solar energy is deficient in the out regions of the solar system.
@@ -381,4 +372,4 @@ function Blog6() {
     );
 }
 
-export default Blog6;
+export default Blog8;

@@ -193,7 +193,7 @@ function Blog() {
     3: "nanotech-application",
     4: "traditional-algo",
     5: "crispr",
-    6: "smart-grids",
+    6: "smart-grid",
     7: "quantum-computing",
     8: 'space-probe',
   };

@@ -323,7 +323,7 @@ function Collaboration() {
   return (
     <div className={styles.collaborationPage}>
       <div className="container py-5">
-        <h1 className={styles.pageTitle}>Research Projects</h1>
+        <h1 className={styles.pageTitle}>Our Research Initiatives</h1>
         <p className={styles.pageSubtitle}>Discover our latest collaborative research initiatives.</p>
         <div className="row py-2" style={{ justifyContent: 'center' }}>
           {collabProjects.map((project) => (

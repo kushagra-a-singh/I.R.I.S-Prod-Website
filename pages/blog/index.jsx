@@ -7,6 +7,51 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function Blog() {
   const blogPosts = [
     {
+      id: 6,
+      title: 'Next-Generation Space Probes: Autonomous Robots Exploring the Outer Solar System',
+      subtitle: 'Revolutionizing Space Exploration with AI & Robotics',
+      description: 'Next-generation space probes are revolutionizing space exploration with AI & robotics.',
+      author: (
+        <> Authors:
+          <a
+            href="https://in.linkedin.com/in/aakanksha-pansare-43744a350"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.authorLink}
+          > 
+            Aakanksha Pansare
+          </a> {' '} & 
+          <span className={styles.authorLink}> Nishtha Mandaliya</span> {/* Use plain text if no link */}
+        </>
+      ),
+      date:  'March 24, 2025',
+      image: '/crispr-img.png',
+      imageWidth: 500,
+      imageHeight: 300,
+    },
+    {
+      id: 7,
+      title: 'Introduction to Quantum Computing',
+      subtitle: 'Revolutionizing Computing with Quantum Mechanics',
+      description: 'Quantum computing is revolutionizing computing with quantum mechanics, enabling faster and more efficient computation.',
+      author: (
+        <> Author: 
+        <a
+          href="https://www.linkedin.com/in/aaryan-kumbhare-07428032a"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.authorLink}
+        >
+          Aaryan Kumbhare
+        </a>
+        </> 
+      ),
+      date:  'March 24, 2025',
+      image: '/crispr-img.png',
+      imageWidth: 500,
+      imageHeight: 300,
+    },
+    {
       id: 5,
       title: 'CRISPR: Revolutionizing Genetics',
       subtitle: 'Revolutionizing Genetics with Precision and Possibility',
@@ -125,6 +170,8 @@ function Blog() {
     3: "nanotech-application",
     4: "traditional-algo",
     5: "crispr",
+    6: 'space-probe',
+    7: 'quantum-computing',
   };
 
   return (

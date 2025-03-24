@@ -204,7 +204,8 @@ function Blog8() {
                                 <br></br>
                                 <br></br>
                                 <h4>Communication Delays</h4>
-                                Real-time control becomes unfeasible as signals take hours to travel between Earth and the probe.                              </p>
+                                Real-time control becomes unfeasible as signals take hours to travel between Earth and the probe.  
+                            </p>
 
                             <h4>Harsh Environments</h4>
                             <p>

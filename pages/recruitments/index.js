@@ -1,14 +1,10 @@
 import React, { useState, useRef } from "react";
 import supabase from '../../src/utils/supabase';
 import styles from "./recruitment.module.css";
-// import "bootstrap/dist/css/bootstrap.min.css";
 import Select from "react-select";
 
 function Recruitment() {
-
   const [link, setLink] = useState("/bgVid.webm")
-
-
   const [formData, setFormData] = useState({
     name: "",
     prn: "",
@@ -23,7 +19,6 @@ function Recruitment() {
     experience: "",
     contribution: ""
   });
-
   const [formErrors, setFormErrors] = useState({
     name: "",
     prn: "",
@@ -38,7 +33,7 @@ function Recruitment() {
     experience: "",
     contribution: "",
   });
-
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
   const fileInputRef = useRef(null);
 
@@ -61,7 +56,6 @@ function Recruitment() {
     "Others"
   ];
   const uniqueSchools = [...new Set(schoolsList)];
-
   const validatePhone = (phone) => /^[0-9]{10}$/.test(phone);
   const validatePrn = (prn) => /^[0-9]{10}$/.test(prn);
   const validateEmail = (email) => /^(.*@gmail\.com|.*@mitwpu\.edu\.in)$/.test(email);
@@ -115,7 +109,6 @@ function Recruitment() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-
     if (name === "file") {
       const file = e.target.files[0];
       if (file && file.size > 200 * 1024) {
@@ -141,7 +134,10 @@ function Recruitment() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    
+    // Prevent multiple submissions
+    if (isSubmitting) return;
+    
     const newErrors = {};
     let formIsValid = true;
 
@@ -198,48 +194,109 @@ function Recruitment() {
       return;
     }
 
-    const fileUrl = formData.file ? await uploadFile(formData.file) : null;
+    // Set submitting state to true to show loading
+    setIsSubmitting(true);
 
-    const { error: insertError } = await supabase
-      .from('recruitment_forms')
-      .insert([{
-        name: formData.name,
-        prn: formData.prn,
-        email: formData.email,
-        phone: formData.phone,
-        domain: formData.domain,
-        interests: formData.interests,
-        experience: formData.experience,
-        contribution: formData.contribution,
-        cv_url: fileUrl,
-        school: formData.school,
-        branch: formData.branch,
-        current_year: formData.currentYear
-      }]);
+    try {
+      // File upload
+      const fileUrl = formData.file ? await uploadFile(formData.file) : null;
+      
+      // Format domain names for email readability
+      const domainLabels = formData.domain.map(value => {
+        const option = domainOptions
+          .flatMap(group => group.options)
+          .find(option => option.value === value);
+        return option ? option.label : value;
+      });
 
-    if (insertError) {
-      setFormErrors({ ...formErrors, form: "Error submitting form: " + insertError.message });
-      return;
+      // Handle database insertion and email sending in parallel
+      const databasePromise = supabase
+        .from('recruitment_forms')
+        .insert([{
+          name: formData.name,
+          prn: formData.prn,
+          email: formData.email,
+          phone: formData.phone,
+          domain: formData.domain,
+          interests: formData.interests,
+          experience: formData.experience,
+          contribution: formData.contribution,
+          cv_url: fileUrl,
+          school: formData.school,
+          branch: formData.branch,
+          current_year: formData.currentYear,
+          created_at: new Date().toISOString()
+        }]);
+
+      const emailPromise = fetch('/api/recruitment-emails', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          prn: formData.prn,
+          email: formData.email,
+          phone: formData.phone,
+          domain: domainLabels,
+          interests: formData.interests,
+          experience: formData.experience,
+          contribution: formData.contribution,
+          cv_url: fileUrl,
+          school: formData.school,
+          branch: formData.branch,
+          currentYear: formData.currentYear,
+          created_at: new Date().toISOString()
+        }),
+      });
+
+      // Wait for both operations to complete
+      const [dbResult, emailResult] = await Promise.all([databasePromise, emailPromise]);
+      
+      if (dbResult.error) {
+        throw new Error(`Database error: ${dbResult.error.message}`);
+      }
+
+      const emailResponse = await emailResult.json();
+      if (!emailResponse.success) {
+        throw new Error(`Email error: ${emailResponse.error || 'Failed to send emails'}`);
+      }
+
+      // Show success notification
+      setShowNotification(true);
+      
+      // Reset form
+      setFormData({
+        name: "",
+        prn: "",
+        interests: "",
+        domain: [],
+        email: "",
+        phone: "",
+        file: null,
+        contribution: "",
+        experience: "",
+        school: "",
+        branch: "",
+        currentYear: ""
+      });
+      
+      if (fileInputRef.current) {
+        fileInputRef.current.value = null;
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setFormErrors({ 
+        ...formErrors, 
+        form: `Error submitting form: ${error.message || 'An unknown error occurred'}` 
+      });
+      
+      // Show error to user
+      alert(`Failed to submit your application. ${error.message || 'Please try again later.'}`);
+    } finally {
+      // Reset submitting state
+      setIsSubmitting(false);
     }
-
-    setShowNotification(true);
-
-    setFormData({
-      name: "",
-      prn: "",
-      interests: "",
-      domain: [],
-      email: "",
-      phone: "",
-      file: null,
-      contribution: "",
-      experience: "",
-      school: "",
-      branch: "",
-      currentYear: ""
-    });
-
-    fileInputRef.current.value = null;
   };
 
   const uploadFile = async (file) => {
@@ -261,8 +318,6 @@ function Recruitment() {
     setShowNotification(false);
   };
 
-  // const [backgroundVideo, setLink] = useState("/bgVid.webm")
-
   return (
     <div className={styles.contact}>
       <div className={styles.videoBackground}>
@@ -272,14 +327,13 @@ function Recruitment() {
         </video>
       </div>
       <div className={styles.overlay}></div>
-
       <div className={styles.content}>
         <h1 style={{ textAlign: 'center', fontWeight: 'bold' }}>Club Recruitment Form</h1>
         <p className={styles.titleDesc}>
           Fill out the below recruitment form to join I.R.I.S.
         </p>
-
         <form className={styles.form} onSubmit={handleSubmit}>
+          {/* Form fields remain unchanged */}
           <div className={styles.formGroup}>
             <label htmlFor="name">Name*</label>
             <input
@@ -291,7 +345,6 @@ function Recruitment() {
             />
             {formErrors.name && <p className="text-danger">{formErrors.name}</p>}
           </div>
-
           <div className={styles.formGroup}>
             <label htmlFor="prn">PRN*</label>
             <input
@@ -303,7 +356,6 @@ function Recruitment() {
             />
             {formErrors.prn && <p className="text-danger">{formErrors.prn}</p>}
           </div>
-
           <div className={styles.formGroup}>
             <label htmlFor="email">Email*</label>
             <input
@@ -315,7 +367,6 @@ function Recruitment() {
             />
             {formErrors.email && <p className="text-danger">{formErrors.email}</p>}
           </div>
-
           <div className={styles.formGroup}>
             <label htmlFor="phone">Phone Number*</label>
             <input
@@ -327,7 +378,6 @@ function Recruitment() {
             />
             {formErrors.phone && <p className="text-danger">{formErrors.phone}</p>}
           </div>
-
           <div className={styles.formGroup}>
             <label htmlFor="school">School*</label>
             <select
@@ -344,7 +394,6 @@ function Recruitment() {
             </select>
             {formErrors.school && <p className="text-danger">{formErrors.school}</p>}
           </div>
-
           <div className={styles.formGroup}>
             <label htmlFor="branch">Branch*</label>
             <input
@@ -357,7 +406,6 @@ function Recruitment() {
             />
             {formErrors.branch && <p className="text-danger">{formErrors.branch}</p>}
           </div>
-
           <div className={styles.formGroup}>
             <label htmlFor="currentYear">Current Year*</label>
             <select
@@ -375,7 +423,6 @@ function Recruitment() {
             </select>
             {formErrors.currentYear && <p className="text-danger">{formErrors.currentYear}</p>}
           </div>
-
           <div className={styles.formGroup}>
             <label htmlFor="domain">Select Domain(s)*</label>
             <Select
@@ -397,7 +444,6 @@ function Recruitment() {
             />
             {formErrors.domain && <p className="text-danger">{formErrors.domain}</p>}
           </div>
-
           <div className={styles.formGroup}>
             <label htmlFor="file">Resume or CV (OPTIONAL)</label>
             <input
@@ -410,7 +456,6 @@ function Recruitment() {
             />
             {formErrors.file && <p className="text-danger">{formErrors.file}</p>}
           </div>
-
           <div className={styles.formGroup}>
             <label htmlFor="interests">What are your area of interests?*</label>
             <textarea
@@ -421,7 +466,6 @@ function Recruitment() {
             />
             {formErrors.interests && <p className="text-danger">{formErrors.interests}</p>}
           </div>
-
           <div className={styles.formGroup}>
             <label htmlFor="experience">Any past experiences in your area of interest?*</label>
             <textarea
@@ -432,7 +476,6 @@ function Recruitment() {
             />
             {formErrors.experience && <p className="text-danger">{formErrors.experience}</p>}
           </div>
-
           <div className={styles.formGroup}>
             <label htmlFor="contribution">Why do you want to join IRIS and how will you be able to contribute?*</label>
             <textarea
@@ -443,13 +486,14 @@ function Recruitment() {
             />
             {formErrors.contribution && <p className="text-danger">{formErrors.contribution}</p>}
           </div>
-
           <div className={styles.formGroup}>
-            <button type="submit">Submit</button>
+            <button type="submit" disabled={isSubmitting}>
+              {isSubmitting ? 'Submitting...' : 'Submit'}
+            </button>
           </div>
+          {formErrors.form && <p className="text-danger">{formErrors.form}</p>}
         </form>
       </div>
-
       {showNotification && (
         <div className={styles.notificationPopup}>
           <div className={styles.notificationContent}>

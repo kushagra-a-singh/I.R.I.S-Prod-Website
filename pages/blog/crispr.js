@@ -38,7 +38,7 @@ function Blog5() {
     const fetchVoteStatus = async () => {
         try {
             const { data: voteData, error: voteError } = await supabase
-                .from('votes')
+                .from('blog_votes')
                 .select('vote_type')
                 .eq('device_id', deviceId)
                 .eq('post_id', postId)
@@ -51,13 +51,13 @@ function Blog5() {
             }
 
             const { data: upvoteData, error: upvoteError } = await supabase
-                .from('votes')
+                .from('blog_votes')
                 .select('*')
                 .eq('post_id', postId)
                 .eq('vote_type', 'upvote');
 
             const { data: downvoteData, error: downvoteError } = await supabase
-                .from('votes')
+                .from('blog_votes')
                 .select('*')
                 .eq('post_id', postId)
                 .eq('vote_type', 'downvote');
@@ -77,7 +77,7 @@ function Blog5() {
 
     const fetchComments = async () => {
         const { data, error } = await supabase
-            .from('comments')
+            .from('blog_comments')
             .select('*')
             .eq('post_id', postId)
             .order('created_at', { ascending: false });
@@ -97,7 +97,7 @@ function Blog5() {
             }
 
             const { data: existingVote, error: fetchError } = await supabase
-                .from('votes')
+                .from('blog_votes')
                 .select('*')
                 .eq('post_id', postId)
                 .eq('device_id', deviceId)
@@ -114,7 +114,7 @@ function Blog5() {
                     return;
                 } else {
                     const { error: updateError } = await supabase
-                        .from('votes')
+                        .from('blog_votes')
                         .update({ vote_type: voteType })
                         .eq('post_id', postId)
                         .eq('device_id', deviceId);
@@ -129,7 +129,7 @@ function Blog5() {
                 }
             } else {
                 const { error: insertError } = await supabase
-                    .from('votes')
+                    .from('blog_votes')
                     .insert({
                         post_id: postId,
                         vote_type: voteType,
@@ -159,7 +159,7 @@ function Blog5() {
         }
 
         const { error } = await supabase
-            .from('comments')
+            .from('blog_comments')
             .insert({
                 post_id: postId,
                 username: commenterName,
@@ -187,15 +187,15 @@ function Blog5() {
                     <p className={styles.pageauthor}>
                         By <a className={styles.authorLink} href="https://in.linkedin.com/in/aakanksha-pansare-43744a350" target="_blank" rel="noopener noreferrer">Aakanksha Pansare</a>{' '} &
                         <span className={styles.authorLink}> Nishtha</span>  | February 16, 2025
-                </p>
-                    <div className='content-section'>
-                        <div className={styles.blogCard}>
-                            <p>
-                                <h4>&ldquo;Imagine having the power to edit the DNA of living organisms&mdash;Welcome to the world of CRISPR, where science fiction is becoming science fact!&rdquo;</h4>
-                            </p>
-                        </div>
-                    </div>
+                    </p>
                     <div className={styles.blogDescription}>
+                        <div className='content-section'>
+                            <div className={styles.blogCard}>
+                                <p>
+                                    <h4>&ldquo;Imagine having the power to edit the DNA of living organisms&mdash;Welcome to the world of CRISPR, where science fiction is becoming science fact!&rdquo;</h4>
+                                </p>
+                            </div>
+                        </div>
                         <div className={styles.blogCard}>
                             <p>
                                 The world of genetics has been completely transformed by a game changing
@@ -281,88 +281,88 @@ function Blog5() {
                                 </p>
                             </div>
                         </div>
-                    </div>
 
-                    <div className='content-section'>
-                        <div className={styles.blogCard}>
-                            <h2>Summary</h2>
-                            <p>
-                                CRISPER is no doubt one of the most successful inventions for gene editing, which is itself a
-                                heroic cure for many uncurable diseases. What&apos;s more interesting is its discovery and its
-                                working!
-                            </p>
-                            <p>
-                                The invention of CRISPR, which now encompasses clustered DNA sequences, was nothing short
-                                of revolutionary for genetic studies in the world. The amazing finding of CRISPR-Cas9 stemmed
-                                from researchers working independently in Spain, Japan, and the Netherlands in the late 1980s
-                                and early 1990s.
-                            </p>
-                            <p>
-                                The invention of CRISPR, which now encompasses clustered DNA sequences, was nothing short
-                                of revolutionary for genetic studies in the world. The amazing finding of CRISPR-Cas9 stemmed
-                                from researchers working independently in Spain, Japan, and the Netherlands in the late 1980s
-                                and early 1990s.
-                            </p>
-                            <div className={styles.imageGallery}>
-                                <Image src="/crispr.jpeg" alt="crispr" width={500} height={300} className={styles.blogImage} />
+                        <div className='content-section'>
+                            <div className={styles.blogCard}>
+                                <h2>Summary</h2>
+                                <p>
+                                    CRISPER is no doubt one of the most successful inventions for gene editing, which is itself a
+                                    heroic cure for many uncurable diseases. What&apos;s more interesting is its discovery and its
+                                    working!
+                                </p>
+                                <p>
+                                    The invention of CRISPR, which now encompasses clustered DNA sequences, was nothing short
+                                    of revolutionary for genetic studies in the world. The amazing finding of CRISPR-Cas9 stemmed
+                                    from researchers working independently in Spain, Japan, and the Netherlands in the late 1980s
+                                    and early 1990s.
+                                </p>
+                                <p>
+                                    The invention of CRISPR, which now encompasses clustered DNA sequences, was nothing short
+                                    of revolutionary for genetic studies in the world. The amazing finding of CRISPR-Cas9 stemmed
+                                    from researchers working independently in Spain, Japan, and the Netherlands in the late 1980s
+                                    and early 1990s.
+                                </p>
+                                <div className={styles.imageGallery}>
+                                    <Image src="/crispr.jpeg" alt="crispr" width={500} height={300} className={styles.blogImage} />
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div className='content-section'>
-                        <div className={styles.blogCard}>
-                            <h2>References</h2>
-                            <ul>
-                                <li>
-                                    <a href="https://en.wikipedia.org/wiki/CRISPR"
-                                        target="_blank"
-                                        rel="noopener noreferrer">
-                                        CRISPR-Wikipedia
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.yourgenome.org/theme/what-is-crispr-cas9/#:~:text=CRISPR%2DCas9%20is%20a%20unique,buzz%20in%20the%20science%20world"
-                                        target="_blank"
-                                        rel="noopener noreferrer">
-                                        Methods and Technology
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.genoway.com/technologies/crispr-cas9-gene-editing#:~:text=CRISPR/Cas9%20creates%20specific%20double%2Dstrand%20breaks%20at%20the,joining%20and%20Knockins%20(KI)%20through%20homologous%20recombination"
-                                        target="_blank"
-                                        rel="noopener noreferrer">
-                                        CRISPR/Cas9 gene editing
-                                    </a>
-                                </li>
-                            </ul>
+                        <div className='content-section'>
+                            <div className={styles.blogCard}>
+                                <h2>References</h2>
+                                <ul>
+                                    <li>
+                                        <a href="https://en.wikipedia.org/wiki/CRISPR"
+                                            target="_blank"
+                                            rel="noopener noreferrer">
+                                            CRISPR-Wikipedia
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.yourgenome.org/theme/what-is-crispr-cas9/#:~:text=CRISPR%2DCas9%20is%20a%20unique,buzz%20in%20the%20science%20world"
+                                            target="_blank"
+                                            rel="noopener noreferrer">
+                                            Methods and Technology
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.genoway.com/technologies/crispr-cas9-gene-editing#:~:text=CRISPR/Cas9%20creates%20specific%20double%2Dstrand%20breaks%20at%20the,joining%20and%20Knockins%20(KI)%20through%20homologous%20recombination"
+                                            target="_blank"
+                                            rel="noopener noreferrer">
+                                            CRISPR/Cas9 gene editing
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    <div className='content-section'>
-                        <div className={styles.blogCard}>
-                            <h2>Free Resources</h2>
-                            <ul>
-                                <li>
-                                    <a href="https://www.idtdna.com/pages/tools/rhampseq-crispr-analysis-tool?utm_source=google&utm_medium=cpc&utm_campaign=00586_1d_03&utm_content=search&gad_source=1&gclid=CjwKCAiAnpy9BhAkEiwA-P8N4nzXJTq_gkINbSe5aIMhiHJ1JORaZtnqJtoAp1LQxg2QiNfVCYov1xoCdMsQAvD_BwE"
-                                        target="_blank"
-                                        rel="noopener noreferrer">
-                                        rhAmpSeq™ CRISPR Data Analysis Tool
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.sciencedirect.com/book/9780128181409/genome-engineering-via-crispr-cas9-system"
-                                        target="_blank"
-                                        rel="noopener noreferrer">
-                                        Genome Engineering
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://link.springer.com/book/9783031737336"
-                                        target="_blank"
-                                        rel="noopener noreferrer">
-                                        Introduction to CRISPR-Cas9 Techniques
-                                    </a>
-                                </li>
-                            </ul>
+                        <div className='content-section'>
+                            <div className={styles.blogCard}>
+                                <h2>Free Resources</h2>
+                                <ul>
+                                    <li>
+                                        <a href="https://www.idtdna.com/pages/tools/rhampseq-crispr-analysis-tool?utm_source=google&utm_medium=cpc&utm_campaign=00586_1d_03&utm_content=search&gad_source=1&gclid=CjwKCAiAnpy9BhAkEiwA-P8N4nzXJTq_gkINbSe5aIMhiHJ1JORaZtnqJtoAp1LQxg2QiNfVCYov1xoCdMsQAvD_BwE"
+                                            target="_blank"
+                                            rel="noopener noreferrer">
+                                            rhAmpSeq™ CRISPR Data Analysis Tool
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.sciencedirect.com/book/9780128181409/genome-engineering-via-crispr-cas9-system"
+                                            target="_blank"
+                                            rel="noopener noreferrer">
+                                            Genome Engineering
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://link.springer.com/book/9783031737336"
+                                            target="_blank"
+                                            rel="noopener noreferrer">
+                                            Introduction to CRISPR-Cas9 Techniques
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
 

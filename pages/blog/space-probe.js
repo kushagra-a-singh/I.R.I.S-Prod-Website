@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
-import styles from './nanotech.module.css';
+import styles from './trad.module.css';
 import supabase from '../../src/utils/supabase';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Image from 'next/image';
 
-function Blog4() {
+function Blog8() {
     const [comments, setComments] = useState([]);
     const [newComment, setNewComment] = useState('');
     const [commenterName, setCommenterName] = useState('');
@@ -14,7 +14,7 @@ function Blog4() {
     const [vote, setVote] = useState(null);
     const [voteCounts, setVoteCounts] = useState({ upvotes: 0, downvotes: 0 });
 
-    const postId = 4;
+    const postId = 8;
 
     useEffect(() => {
         const storedDeviceId = localStorage.getItem('deviceId');
@@ -182,38 +182,46 @@ function Blog4() {
         <div className={styles.blogPage}>
             <div className={styles.blogContent}>
                 <main className={styles.mainContent}>
-                    <h1 className={styles.pageTitle}>Application of Nanotechnology in Defence Sector</h1>
-                    <p className={styles.pageSubtitle}>Revolutionizing Defense: The Power of Nanotechnology in Military Advancements</p>
+                    <h1 className={styles.pageTitle}>Next-Generation Space Probes: Autonomous Robots Exploring the Outer Solar System</h1>
+                    {/* <p className={styles.pageSubtitle}>Revolutionizing Defense: The Power of Nanotechnology in Military Advancements</p> */}
                     <p className={styles.pageauthor}>
-                        By <a className={styles.authorLink} href="https://www.linkedin.com/in/shreya-more-284869321/" target="_blank" rel="noopener noreferrer">Shreya More</a> | February 15, 2025
+                        By <a className={styles.authorLink}>Aakanksha Pansare & Nishtha Mandaliya</a> | March 24, 2025
                     </p>
 
                     <div className={styles.blogDescription}>
                         <div className={styles.blogCard}>
-                            <h4>&ldquo;The nanotechnologies of the future will have the power to turn science fiction into reality.&rdquo;</h4>
-                            <h4> — Bill Gates</h4>
+                            <h4>&ldquo;Imagine a fleet of intelligent robots, soaring through space, navigating icy moons around shiny stars, and diving into alien oceans filled with meteors of various sizes. Do you think it&apos;s the story line of a science fiction movie? Then let me dive you through the future of cosmic universe&rdquo;</h4>
+                            {/* <h4> — Bill Gates</h4> */}
                         </div>
 
                         <div className={styles.blogCard}>
+                            <h2>Advantages of Next gen space probes over traditional methods:</h2>
                             <p>
-                                One of the transformative areas of research in today&apos;s era is NANOTECHNOLOGY. Nanotechnology is transforming industries from medicine to electronics and is expected to drive the next major shift in science and technology. Its potential extends to defense, where its unique properties are being harnessed for advanced military technologies. The U.S. Department of Defense identified nanotechnology as one of six &ldquo;Strategic Research Areas&rdquo; in the mid-1990s.The main aims of military research into nanotechnology are to improve medical and casualty care for soldiers, and to produce lightweight, strong and multi-functional materials for use in clothing, both for protection and to provide enhanced connectivity.
+                                The exploration of the outer solar system has always been a major challenge due to vast distances, harsh environments, and communication delays. Traditional space probes rely on commands from Earth, which can take hours to transmit. However, the next generation of space probes will incorporate artificial intelligence (AI) and autonomous decision-making, allowing them to navigate, analyze, and adapt to their surroundings on their own.
+                                <br></br>
+                                Current few space probes are also working with the help of advanced technologies like advanced propulsion systems (like plasma rockets or nuclear propulsion) for faster transit and more efficient space travel.
+                                A few notable disadvantages of traditional methods that are overcome by AI space probes are:
+                                <br></br>
+                                <br></br>
+                                <h4>Communication Delays</h4>
+                                Real-time control becomes unfeasible as signals take hours to travel between Earth and the probe.  
+                            </p>
+
+                            <h4>Harsh Environments</h4>
+                            <p>
+                                Probes and landers are at risk because of severe cold, vigorous radiation, and harsh landscapes.
+                            </p>
+                            <h4>Limited Energy Sources</h4>
+                            <p>
+                                Effecient energy budgetting is absolutely imperative, as solar energy is deficient in the out regions of the solar system.
                             </p>
                         </div>
-
                         <div className={styles.blogCard}>
-                            <p>
-                                One of the primary objectives of military nanotechonolgy research  is to enhance battlefield dressings. Nanomaterials of copper and silver have been proven to have antimicrobial effects which when applied to bandages can help to keep wounds free of infection aiding the soldier&apos;s wound healing process.
-                                Better Body Armour is another noteworthy area of research for the defence sector. Current body armor is limited in weight and effectiveness, as it may stop bullets but not the impact energy that can still cause harm. Nanomaterials, including tungsten and carbon nanotubes, are being researched to improve ballistic protection and help disperse impact energy, offering better protection in body armor, bulletproof vests, and protective gear.
-                            </p>
+                            <div className={styles.imageGallery}>
+                                <Image src="/space-probes1.png" alt="Space Probes" width={500} height={300} className={styles.blogImage} />
+                            </div>
                         </div>
-
-                        <div className={styles.blogCard}>
-                            <p>
-                                Another field for integration of nanotechnology and defence  is Radar and Sonar Invisibility. Stealth ships and aircraft are being improved with the use of nanomaterials which can help &apos;hide&apos; military hardware, such as submarines, from detection by radar and sonar systems. IIT Kanpur has developed the Anālakṣhya Metamaterial Surface Cloaking System (MSCS), a breakthrough in stealth technology designed to make objects nearly invisible to radar.
-                            </p>
-                        </div>
-
-                        <div className={styles.blogCard}>
+                        {/* <div className={styles.blogCard}>
                             <p>
                                 In conclusion, nanotechnology in defense offers groundbreaking advancements in materials, weapons, communication, and healthcare. Its applications, from enhanced armor to improved medical care, are transformative. However, ethical and security concerns must be addressed to ensure responsible deployment.
                             </p>
@@ -221,13 +229,61 @@ function Blog4() {
                                 <Image src="/nanotech1.png" alt="TARZAN Simulation" width={500} height={300} className={styles.blogImage} />
                                 <Image src="/nanotech2.png" alt="TARZAN Chassis" width={500} height={300} className={styles.blogImage} />
                             </div>
-                        </div>
+                        </div> */}
+                        <div className={styles.blogCard}>
+                            <h3>Examples of Current and Future Probes:</h3>
+                            <p>
+                                1.	Interstellar Probe:
+                                they are designed to enter the interstellar space which is beyond the heliosphere (the region where the sun&apos;s magnetic field dominates).
+                                <br />
+                                2.	Voyager 1 and 2:
+                                they are already launched and are considered as the pioneer of interstellar probes as it has already entered interstellar space.
+                                <br />
+                                3.	New Horizons:
+                                It was launched in 2006, and it is still  exploring the Kuiper belt on outer reached of solar system.
+                                <br />
+                                4.	4. Parker Solar Probe:
+                                It was launched in 2018. This spacecraft is gravitationally driven even closer to the sun with the help of seven flybys of Venus.
 
+                            </p>
+                        </div>
+                        <div className={styles.blogCard}>
+                            <h3>Key advancements in Autonomous robots are as follows:</h3>
+                            <p>
+                                AI-Based Navigation : Autonomous probes will use machine learning to map unknown terrain and avoid obstacles in real time (NASA, 2023).
+                                <br />
+                                <br />
+                                Autonomous Sample Collection : Robotic explorers will independently select and analyze samples, prioritizing important discoveries (ESA, 2022).
+                                <br />
+                                <br />
+                                Self-Repair and Adaptability :Probes will be equipped with diagnostics and self-repair mechanisms to extend their lifespan in harsh environments (National Academies of Sciences, 2021).
+                            </p>
+                        </div>
+                        <div className={styles.blogCard}>
+                            <h3>Upcoming Missions and Future Prospects</h3>
+                            <p>
+                                Several upcoming missions are pushing the boundaries of autonomous exploration:
+                                <br />
+                                <br />
+                                Europa Clipper (NASA, 2024–2030): Aims to study Jupiter’s moon Europa, searching for potential habitability and subsurface oceans.
+                                <br />
+                                JUICE (ESA, 2023–2034): The Jupiter Icy Moons Explorer will explore Ganymede, Callisto, and Europa with advanced autonomous systems.
+                                <br />
+                                Dragonfly (NASA, 2027–2035): A drone-like lander set to explore Titan’s complex chemistry and potential for life.
+                                <br />
+                                <br />
+
+                                space exploration is improving with modern advancements within AI and autonomous robotics. Future probes will be more efficient and self sufficient because they will be able to navigate, analyze, and conduct repairs without the need for human input.
+                                As technology progresses further, there will be a greater reliance on autonomous systems to help us solve the enigmas of our solar system and beyond.
+                            </p>
+                            <Image src="/space-probes2.jpg" alt="Space Probes" width={500} height={300} className={styles.blogImage} />
+                        </div>
                         <div className={styles.blogCard}>
                             <h2>Summary</h2>
                             <p>
-                                Nanotechnology is revolutionizing various industries, and its potential in defense is vast. The U.S. Department of Defense identified it as a strategic research area in the 1990s, focusing on improving soldier care and developing advanced materials for protection and functionality. Key applications include improved battlefield dressings with antimicrobial nanomaterials like copper and silver to prevent infection and promote faster healing.Enhanced body armor using nanomaterials like tungsten and carbon nanotubes offers better protection against bullets and blasts, reducing fatal injury risks. Additionally, radar and sonar invisibility technologies are being developed using nanomaterials to enhance stealth capabilities in military vehicles, ships, and aircraft. While these innovations hold immense promise, the use of nanotechnology in defense also raises ethical and security concerns that must be addressed to ensure its responsible deployment.
-
+                                Are you ready to explore cosmosic universe filled with robots that can make their own decision? This ain&apos;t any imagination! It&apos;s a reality that is breaking all boundaries and revealing the secrets to the most complex mysteries ever known!
+                                Traditional probes in use are complex and tedious for deep space missions because they need constant inputs from Earth; which is nearly impossible due to the harsh environment, communication delays and limited power resources.
+                                The future of space exploration will be defined by intelligent, autonomous robots which are capable of making decisions without human assistance.
                             </p>
                         </div>
 
@@ -235,18 +291,22 @@ function Blog4() {
                             <h2>References</h2>
                             <ul>
                                 <li>
-                                    <a href="https://ftp.idu.ac.id/wp-content/uploads/ebook/tdg/MILITARY%20PLATFORM%20DESIGN/Military%20Nanotechnology.pdf"
+                                    <a href="https://www.nasa.gov"
                                         target="_blank"
                                         rel="noopener noreferrer">
-                                        Military Nanotechnology - PDF
+                                        NASA. (2023). Artificial Intelligence in Space Exploration. Retrieved from
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="https://www.slideshare.net/slideshow/nanotechnology-in-defence-applications/16066727"
+                                    <a href="https://www.esa.int"
                                         target="_blank"
                                         rel="noopener noreferrer">
-                                        Nanotechnology in Defence Applications - SlideShare
+                                        ESA. (2022). JUICE Mission Overview. Retrieved from
                                     </a>
+                                </li>
+                                <li>
+                                    <a>
+                                        National Academies of Sciences. (2021). Autonomous Systems in Space Exploration: A Future Perspective. Washington, DC: The National Academies Press.                                      </a>
                                 </li>
                             </ul>
                         </div>
@@ -313,4 +373,4 @@ function Blog4() {
     );
 }
 
-export default Blog4;
+export default Blog8;

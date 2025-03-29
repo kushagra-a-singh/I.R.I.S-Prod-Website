@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
-import styles from './nanotech.module.css';
+import styles from './data-loss.module.css';
 import supabase from '../../src/utils/supabase';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Image from 'next/image';
 
-function Blog4() {
+function Blog6() {
     const [comments, setComments] = useState([]);
     const [newComment, setNewComment] = useState('');
     const [commenterName, setCommenterName] = useState('');
@@ -14,7 +14,7 @@ function Blog4() {
     const [vote, setVote] = useState(null);
     const [voteCounts, setVoteCounts] = useState({ upvotes: 0, downvotes: 0 });
 
-    const postId = 4;
+    const postId = 6;
 
     useEffect(() => {
         const storedDeviceId = localStorage.getItem('deviceId');
@@ -182,91 +182,74 @@ function Blog4() {
         <div className={styles.blogPage}>
             <div className={styles.blogContent}>
                 <main className={styles.mainContent}>
-                    <h1 className={styles.pageTitle}>Application of Nanotechnology in Defence Sector</h1>
-                    <p className={styles.pageSubtitle}>Revolutionizing Defense: The Power of Nanotechnology in Military Advancements</p>
+                    <h1 className={styles.pageTitle}>Smart Grids and Renewable Energy</h1>
+                    <p className={styles.pageSubtitle}>How Tech Is Enabling Efficient Energy Distribution                    </p>
                     <p className={styles.pageauthor}>
-                        By <a className={styles.authorLink} href="https://www.linkedin.com/in/shreya-more-284869321/" target="_blank" rel="noopener noreferrer">Shreya More</a> | February 15, 2025
+                        By <a className={styles.authorLink} href="https://www.linkedin.com/in/shreya-more-284869321/" target="_blank" rel="noopener noreferrer">Shreya More </a>
+                        | March 24, 2025
                     </p>
-
                     <div className={styles.blogDescription}>
-                        <div className={styles.blogCard}>
-                            <h4>&ldquo;The nanotechnologies of the future will have the power to turn science fiction into reality.&rdquo;</h4>
-                            <h4> — Bill Gates</h4>
-                        </div>
 
                         <div className={styles.blogCard}>
                             <p>
-                                One of the transformative areas of research in today&apos;s era is NANOTECHNOLOGY. Nanotechnology is transforming industries from medicine to electronics and is expected to drive the next major shift in science and technology. Its potential extends to defense, where its unique properties are being harnessed for advanced military technologies. The U.S. Department of Defense identified nanotechnology as one of six &ldquo;Strategic Research Areas&rdquo; in the mid-1990s.The main aims of military research into nanotechnology are to improve medical and casualty care for soldiers, and to produce lightweight, strong and multi-functional materials for use in clothing, both for protection and to provide enhanced connectivity.
+                                Rising fuel prices and overreliance on fossil fuels have led to a global energy crisis, straining supply and demand while impacting economies and the environment. This crisis underscores the urgent need for renewable energy and efficient energy distribution to meet growing demand and technological advancements. One key innovation that is emerging as a game-changer in this crisis is smart grid technology.
+                                A smart grid is a digitalized electrical system that enables two-way communication, optimizing production, distribution, and consumption of electricity. Unlike traditional grids, it integrates renewable energy sources , IoT, and real-time monitoring, allowing automated issue detection and self-healing, reducing outages and enhancing efficiency.
                             </p>
-                        </div>
 
-                        <div className={styles.blogCard}>
-                            <p>
-                                One of the primary objectives of military nanotechonolgy research  is to enhance battlefield dressings. Nanomaterials of copper and silver have been proven to have antimicrobial effects which when applied to bandages can help to keep wounds free of infection aiding the soldier&apos;s wound healing process.
-                                Better Body Armour is another noteworthy area of research for the defence sector. Current body armor is limited in weight and effectiveness, as it may stop bullets but not the impact energy that can still cause harm. Nanomaterials, including tungsten and carbon nanotubes, are being researched to improve ballistic protection and help disperse impact energy, offering better protection in body armor, bulletproof vests, and protective gear.
-                            </p>
-                        </div>
 
-                        <div className={styles.blogCard}>
-                            <p>
-                                Another field for integration of nanotechnology and defence  is Radar and Sonar Invisibility. Stealth ships and aircraft are being improved with the use of nanomaterials which can help &apos;hide&apos; military hardware, such as submarines, from detection by radar and sonar systems. IIT Kanpur has developed the Anālakṣhya Metamaterial Surface Cloaking System (MSCS), a breakthrough in stealth technology designed to make objects nearly invisible to radar.
-                            </p>
-                        </div>
-
-                        <div className={styles.blogCard}>
-                            <p>
-                                In conclusion, nanotechnology in defense offers groundbreaking advancements in materials, weapons, communication, and healthcare. Its applications, from enhanced armor to improved medical care, are transformative. However, ethical and security concerns must be addressed to ensure responsible deployment.
-                            </p>
-                            <div className={styles.imageGallery}>
-                                <Image src="/nanotech1.png" alt="TARZAN Simulation" width={500} height={300} className={styles.blogImage} />
-                                <Image src="/nanotech2.png" alt="TARZAN Chassis" width={500} height={300} className={styles.blogImage} />
-                            </div>
-                        </div>
-
-                        <div className={styles.blogCard}>
-                            <h2>Summary</h2>
-                            <p>
-                                Nanotechnology is revolutionizing various industries, and its potential in defense is vast. The U.S. Department of Defense identified it as a strategic research area in the 1990s, focusing on improving soldier care and developing advanced materials for protection and functionality. Key applications include improved battlefield dressings with antimicrobial nanomaterials like copper and silver to prevent infection and promote faster healing.Enhanced body armor using nanomaterials like tungsten and carbon nanotubes offers better protection against bullets and blasts, reducing fatal injury risks. Additionally, radar and sonar invisibility technologies are being developed using nanomaterials to enhance stealth capabilities in military vehicles, ships, and aircraft. While these innovations hold immense promise, the use of nanotechnology in defense also raises ethical and security concerns that must be addressed to ensure its responsible deployment.
-
-                            </p>
-                        </div>
-
-                        <div className={styles.blogCard}>
-                            <h2>References</h2>
-                            <ul>
-                                <li>
-                                    <a href="https://ftp.idu.ac.id/wp-content/uploads/ebook/tdg/MILITARY%20PLATFORM%20DESIGN/Military%20Nanotechnology.pdf"
-                                        target="_blank"
-                                        rel="noopener noreferrer">
-                                        Military Nanotechnology - PDF
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.slideshare.net/slideshow/nanotechnology-in-defence-applications/16066727"
-                                        target="_blank"
-                                        rel="noopener noreferrer">
-                                        Nanotechnology in Defence Applications - SlideShare
-                                    </a>
-                                </li>
-                            </ul>
                         </div>
 
                         <div className='content-section'>
                             <div className={styles.blogCard}>
-                                <h2>Free Resources</h2>
+                                <div className={styles.imageGallery}>
+                                    <Image src="/smartgrid.jpg" alt="Smart grid" width={500} height={300} className={styles.blogImage} />
+                                </div>
+                                <p>
+                                    The above picture illustrates the integration of smart grid and renewable energy sources which helps in balancing the supply and demand of energy .Solar panels and wind turbines generate electricity from renewable sources, reducing reliance on fossil fuels.The energy produced is fed into the smart grid, either directly supplying power to consumers or being stored for later use.  Since renewables are intermittent , the smart grid balances supply and demand by integrating storage systems and real-time adjustments. Large-scale battery storage systems store excess energy generated from renewables. When supply is higher than demand, surplus energy is stored. When demand increases, stored energy is released into the grid.  This reduces energy waste and ensures a steady power supply even when renewable generation is low. The image shows an electric car and a bus plugged into the grid, indicating V2G technology, where electric vehicles can draw power or return excess power to the grid. This helps stabilize the grid and encourages sustainable transportation.   The power plant represents conventional energy generation, still essential for ensuring grid stability. The grid distributes electricity from both renewable and conventional sources, ensuring a stable power supply. By integrating renewables with traditional power, the smart grid optimizes energy use, reducing costs and emissions. Data flows between power sources, storage, EVs, and consumers, enabling automated balancing and outage detection. The system dynamically adjusts energy flow, preventing overloads and minimizing downtime.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className='content-section'>
+                            <div className={styles.blogCard}>
+                                <p>
+                                    The Government of Thailand has announced a USD1.8 billion agreement with Gorilla Technology Group to implement an AI-driven smart grid initiative over 15 years. Gorilla’s predictive grid management system will improve energy flow and response times, while AI-based cybersecurity will provide real-time threat monitoring and encrypted communications.
+                                    As the world moves toward a more sustainable future, the integration of renewable energy and smart grid technology is crucial in overcoming the challenges of the energy crisis. Smart grids not only improve the efficiency, reliability, and resilience of power systems but also enable the seamless incorporation of renewable energy sources, which are essential for reducing our carbon footprint and  to safeguard the mother earth .
+
+                                </p>
+                                <div className={styles.imageGallery}>
+                                    <Image src="/smart grid.jpg" alt="Smart grid" width={500} height={300} className={styles.blogImage} />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className='content-section'>
+                            <div className={styles.blogCard}>
+                                <h2>Summary</h2>
+                                <p>
+                                    The world is facing an energy crisis driven by rising fuel prices and environmental concerns. The transition to renewable energy and improved energy distribution is critical, with smart grids offering a key solution. Smart grids use digital technology to optimize electricity production and distribution, enabling real-time adjustments and better integration of renewable energy.
+                                    By managing renewable energy fluctuations, smart grids reduce reliance on storage solutions and improve efficiency. Thailand&apos;s USD1.8 billion smart grid initiative with Gorilla Technology highlights global efforts to enhance energy flow and security using AI. In the face of the energy crisis, integrating smart grids with renewable energy is essential for a sustainable, efficient future.
+
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className='content-section'>
+                            <div className={styles.blogCard}>
+                                <h2>References</h2>
                                 <ul>
                                     <li>
-                                        <a href="https://www.slideshare.net/slideshow/nanotechnology-in-defence-applications/16066727"
+                                        <a href="https://www.renewableinstitute.org/training-courses/#:~:text=Hydrogen%20Energy,Study"
                                             target="_blank"
                                             rel="noopener noreferrer">
-                                            Nanotechnology in Defence applications
+                                            Renewable Energy Management & Finance
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="https://ftp.idu.ac.id/wp-content/uploads/ebook/tdg/MILITARY%20PLATFORM%20DESIGN/Military%20Nanotechnology.pdf"
+                                        <a href="https://www.coursera.org/courses?query=renewable%20energy"
                                             target="_blank"
                                             rel="noopener noreferrer">
-                                            Military Nanotechnology
+                                            Best renewable energy courses and certificates
                                         </a>
                                     </li>
                                 </ul>
@@ -275,6 +258,7 @@ function Blog4() {
                     </div>
 
                     <div className={styles.voteSection}>
+
                         <button onClick={() => handleVote('upvote')} className={`${styles.voteButton} ${vote === 'upvote' ? styles.active : ''}`}>
                             ▲ Upvote ({voteCounts.upvotes})
                         </button>
@@ -283,6 +267,7 @@ function Blog4() {
                             ▼ Downvote ({voteCounts.downvotes})
                         </button>
                     </div>
+
 
                     <div className={styles.commentSection}>
                         <h3 className={styles.commentTitle}>Comments</h3>
@@ -298,19 +283,25 @@ function Blog4() {
                             )}
                         </div>
 
+
                         <h3 className={styles.commentTitle}>Add your Comment</h3>
                         <input type="text" placeholder="Your Name" value={commenterName} onChange={(e) => setCommenterName(e.target.value)} className={styles.commentInput} />
                         <textarea placeholder="Write a comment..." value={newComment} onChange={(e) => setNewComment(e.target.value)} className={styles.commentInput} />
                         <button onClick={handleCommentSubmit} className={styles.commentSubmitButton}>Submit Comment</button>
+
                     </div>
                 </main>
             </div>
             <ToastContainer position="bottom-right" autoClose={3000} hideProgressBar={false} closeOnClick pauseOnHover draggable theme="dark" />
             <div className={styles.centerContainer}>
-                <Link href="/blog" className={styles.backtoblog}>Back to Blogs</Link>
+
+                <Link href="/blog" className={styles.backtoblog}>
+                    Back to Blogs
+                </Link>
             </div>
         </div>
+
     );
 }
 
-export default Blog4;
+export default Blog6;

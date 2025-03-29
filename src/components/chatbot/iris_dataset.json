@@ -1,0 +1,138 @@
+[
+    {
+        "question": "What is IRIS?",
+        "answer": "I am the IRIS Assistant! IRIS is the Innovation, Research, Incubation, and Startup team at MIT WPU. We focus on research, innovation, and entrepreneurship."
+    },
+    {
+        "question": "Where can I find contact information for IRIS?",
+        "answer": "You can find our contact information on the Contact page. We have various team members you can reach out to for different inquiries."
+    },
+    {
+        "question": "What kind of events does IRIS host?",
+        "answer": "We host various events throughout the year including hackathons, workshops, and tech talks. Check our Events page for the latest information."
+    },
+    {
+        "question": "What projects does IRIS work on?",
+        "answer": "IRIS works on various innovative projects in fields like AI, robotics, and more. You can explore our Projects page to learn about our current and past projects."
+    },
+    {
+        "question": "What is featured on the IRIS blog?",
+        "answer": "Our blog features articles on various tech topics, research findings, and event recaps. Visit the Blog section to read our latest posts."
+    },
+    {
+        "question": "Who is part of the IRIS team?",
+        "answer": "Our team consists of students, faculty, and industry experts. You can learn more about our members on the About page."
+    },
+    {
+        "question": "What is the I.R.I.S. Club Website?",
+        "answer": "The I.R.I.S. Club Website is a dynamic platform designed to unite our community of innovators, learners, and leaders. The website acts as a central hub for information about events, announcements, and achievements, and facilitates communication with members, alumni, and external partners."
+    },
+    {
+        "question": "What features does the I.R.I.S. Club Website have?",
+        "answer": "The I.R.I.S. website features event management, podcasts, payment integration using Razorpay, responsive design, and dynamic content updates. It consolidates details for sponsors, partners, teachers, and participants, and promotes events while offering seamless registration."
+    },
+    {
+        "question": "What technologies were used to build the I.R.I.S. Club Website?",
+        "answer": "The website was developed using React JS, Bootstrap, Razorpay, GitHub, and Supabase SQL, and is deployed on Vercel."
+    },
+    {
+        "question": "Where can I find the I.R.I.S. Club Website code?",
+        "answer": "You can find the GitHub repository for the I.R.I.S. Club Website at https://github.com/IRIS-MITWPU/I.R.I.S-Prod-Website."
+    },
+    {
+        "question": "What is the Tarzan Project?",
+        "answer": "The Tarzan Project is an advanced autonomous vehicle control system that integrates computer vision and CAN bus communication. It uses YOLOv8 for real-time object detection and processes video feeds from mobile cameras to detect road conditions, obstacles, and threats."
+    },
+    {
+        "question": "How does the Tarzan Project work technically?",
+        "answer": "The system communicates with vehicle control systems through STM32 microcontrollers and the OBD-II interface. It's designed for both temporary actuator-based testing and long-term implementation with custom PCB boards. The vision system leverages YOLOv8 architecture, achieving 30+ FPS performance with sub-100ms latency."
+    },
+    {
+        "question": "What can Tarzan detect?",
+        "answer": "Tarzan can detect road obstacles, lane markings, traffic signs, and dynamic obstacles like vehicles and pedestrians. The system includes frame pre-processing, multi-scale detection algorithms, custom post-processing filters, and real-time data streaming protocols."
+    },
+    {
+        "question": "Where can I find the Tarzan Project code?",
+        "answer": "You can find the GitHub repository for the Tarzan Project at https://github.com/IRIS-MITWPU/Tarzan."
+    },
+    {
+        "question": "Tell me about the Inter-Campus Innovation Hackathon",
+        "answer": "The Inter-Campus Open Innovation Hackathon was held on 16th February 2024 at the MIT-WPU Campus. It was hosted by MIT-TBI in collaboration with ASPIRE, Engineer's Cradle, and I.R.I.S. The event brought together the brightest minds from Pune campuses to tackle real-world challenges through creativity and innovation."
+    },
+    {
+        "question": "What were the highlights of the Inter-Campus Innovation Hackathon?",
+        "answer": "Teams formed across universities, and the event culminated in a 12-hour grand finale at MIT-WPU Pune. Highlights included teamwork, mentorship from faculty and industry experts, prototyping, and final presentations to a panel of judges. Prizes included ₹10,000 for 1st place, ₹6,000 for 2nd place, and ₹4,000 for 3rd place, along with mentorship and incubation opportunities."
+    },
+    {
+        "question": "What were the outcomes of the Inter-Campus Innovation Hackathon?",
+        "answer": "The top 10 teams received certificates and ongoing technical and research support from Engineer's Cradle and MIT-TBI. The hackathon emphasized creativity, technical complexity, problem-solving effectiveness, and potential impact in its judging criteria."
+    },
+    {
+        "question": "Tell me about the IRIS Innovation Hackathon",
+        "answer": "The IRIS Innovation Hackathon was held on 27th-28th September 2024 at the MIT-WPU Campus, hosted by IRIS in collaboration with BharatGo. The event brought together participants from MIT to tackle real-world challenges with creativity and technical expertise."
+    },
+    {
+        "question": "What were the results of the IRIS Innovation Hackathon?",
+        "answer": "The winning teams were Team Turtle (1st place), Neuro Guardian (2nd place), and Hydrosols (3rd place). Prizes included ₹10,000 for 1st place, ₹6,000 for 2nd place, and ₹4,000 for 3rd place, along with continued support and growth opportunities."
+    },
+    {
+        "question": "Who were the mentors at the IRIS Innovation Hackathon?",
+        "answer": "Mentors included Dr. Shamla Mantri, Dr. Yogesh Kulkarni, Dr. Mangesh Bedekar, Dr. Balaji M Patil, and special guests Mr. Pravin Adik (BharatGo CEO) and Mr. Saurabh Kane."
+    },
+    {
+        "question": "What was the IRIS Ice Breaker 2025?",
+        "answer": "The IRIS Ice Breaker 2025 was held on 24th January 2025 at the MIT-WPU Campus to welcome and familiarize new recruits with the IRIS team. The event included interactive activities, team introductions, and discussions on upcoming events."
+    },
+    {
+        "question": "What were the outcomes of the IRIS Ice Breaker 2025?",
+        "answer": "Highlights included strengthened relationships among members, increased enthusiasm from recruits, and valuable ideas for future events. The event concluded with a group photo and set a positive tone for the year ahead, successfully building team spirit and fostering a collaborative environment."
+    },
+    {
+        "question": "Tell me about the CRISPR blog post",
+        "answer": "The blog titled 'CRISPR: Revolutionizing Genetics with Precision and Possibility' was published on February 16, 2025, by Aakanksha Pansare and Nishtha. It explains how CRISPR works, its discovery, and its potential to transform fields like genetic engineering and disease treatment, including the CRISPR-Cas9 system, its mechanism, and applications in biological research and therapeutic engineering."
+    },
+    {
+        "question": "What are the ethical considerations of CRISPR?",
+        "answer": "The CRISPR blog also highlights the ethical considerations and future implications of this revolutionary gene-editing technology that allows precise modifications to DNA, with applications in medicine, agriculture, and biotechnology."
+    },
+    {
+        "question": "Tell me about the 'Almost a Data Loss' blog post",
+        "answer": "The blog titled 'Almost a Data Loss: The Security Breach We Overcame' was published on February 12, 2025, by Aaryan Kumbhare. It discusses a security vulnerability in the I.R.I.S. website that was identified and resolved during the hackathon registration phase, emphasizing the importance of prioritizing security measures."
+    },
+    {
+        "question": "What caused the security vulnerability mentioned in the blog?",
+        "answer": "The issue arose due to the temporary disabling of Row Level Security (RLS) in Supabase SQL, which exposed the database to unauthorized access. A college peer identified the vulnerability and alerted the team, leading to the implementation of a custom RLS script to secure the database."
+    },
+    {
+        "question": "Tell me about the 'Traditional Algorithms vs. Machine Learning' blog post",
+        "answer": "The blog titled 'Traditional Algorithms vs. Machine Learning' was published on February 12, 2025, by Aaryan Kumbhare. It compares traditional algorithms and machine learning, highlighting their similarities, differences, and use cases, using Google's PageRank algorithm (traditional) and RankBrain/BERT algorithms (machine learning) as examples."
+    },
+    {
+        "question": "What are the key differences between traditional algorithms and machine learning?",
+        "answer": "Traditional algorithms follow predefined rules, while machine learning algorithms learn from data and improve over time. The blog discusses key topics including efficiency, adaptability, and the role of mathematics in both paradigms."
+    },
+    {
+        "question": "Tell me about the 'Nanotechnology in Defense' blog post",
+        "answer": "The blog titled 'Application of Nanotechnology in Defense Sector' was published on February 15, 2025, by Shreya More. It explores how nanotechnology is revolutionizing the defense sector, with applications in materials, weapons, communication, and healthcare, including improved body armor, radar and sonar invisibility."
+    },
+    {
+        "question": "What are some examples of nanotechnology in defense?",
+        "answer": "Examples include the Anālakṣhya Metamaterial Surface Cloaking System (MSCS) developed by IIT Kanpur for stealth technology. The blog also discusses the ethical and security concerns associated with the use of nanotechnology in defense."
+    },
+    {
+        "question": "How does the IRIS Contact Form work?",
+        "answer": "The Contact Form on the I.R.I.S. website allows users to reach out to the team with inquiries, ideas, or collaboration proposals. It requires users to provide their name, email, phone number, subject, and a detailed message, and is designed to help users share innovative projects, research ideas, or scalable projects with the IRIS team."
+    },
+    {
+        "question": "Where can I access the IRIS Contact Form?",
+        "answer": "You can access the Contact Form at https://www.iris-club.in/contact. Once submitted, the form data is stored securely in the I.R.I.S. database for follow-up."
+    },
+    {
+        "question": "How does the IRIS Recruitment Form work?",
+        "answer": "The Recruitment Form on the I.R.I.S. website allows students to apply to join the IRIS team. It requires applicants to provide their name, PRN, email, phone number, school, branch, current year, and areas of interest, and includes options for selecting domains of interest like Tech (e.g., TARZAN project, website development) and Non-Tech (e.g., content writing, graphic design, event management)."
+    },
+    {
+        "question": "Where can I access the IRIS Recruitment Form?",
+        "answer": "You can access the Recruitment Form at https://www.iris-club.in/recruitments. Applicants can upload a resume or CV and provide details about their past experiences. Once submitted, the form data is stored securely for review by the recruitment team."
+    }
+]

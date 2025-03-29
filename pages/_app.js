@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Chatbot from '../src/components/chatbot/Chatbot';
 import { useEffect } from 'react';
 import Head from 'next/head';
+import Chatbot1 from '@/components/chatbot/Chatbot1';
 
 function App({ Component, pageProps }) {
 
@@ -63,7 +64,7 @@ function App({ Component, pageProps }) {
         <Component {...pageProps} />
       </main>
       <Component {...pageProps} />
-      <Chatbot />
+      <Chatbot1 />
       <Footer />
     </div>
   );

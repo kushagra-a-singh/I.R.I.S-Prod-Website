@@ -1,3 +1,95 @@
+.mentorsContainer {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+  justify-items: center;
+}
+
+@media (max-width: 1200px) {
+  .mentorsContainer {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .mentorsContainer {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .mentorsContainer {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.mentor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(to right, rgba(23, 37, 90, 0.8), rgba(201, 64, 101, 0.8));
+  border-radius: 10px;
+  padding: 20px 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 100%;
+  margin:0 auto;
+}
+
+.mentor:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.mentorImage {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.mentorInfo {
+  text-align: center;
+  width: 100%;
+}
+
+.mentorInfo h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.mentorInfo p {
+  margin: 0.5rem 0;
+  color: #ffffff;
+  font-size: 0.95rem;
+}
+
+.mentorInfo a {
+  display: inline-block;
+  background-color: #007bff;
+  color: #fff;
+  padding: 8px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  width: 150px;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.mentorInfo a:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
 .collaborationPage {
   background: linear-gradient(120deg, rgb(10, 2, 40) 0%, rgb(50, 1, 70) 50%, rgb(130, 1, 110) 100%);
   color: #e0e0e0;
@@ -9,7 +101,7 @@
   text-align: center;
   font-size: 2.5rem;
   font-weight: 600;
-  color: #e6c5ff; /* Soft lavender for better readability */
+  color: #e6c5ff;
   text-transform: uppercase;
 }
 
@@ -17,7 +109,7 @@
   text-align: center;
   font-size: 1.2rem;
   color: #b19cd9;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 }
 
 /* Collaboration Cards */
@@ -34,6 +126,11 @@
 .collabCard:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 20px rgba(190, 64, 150, 0.3);
+}
+
+.mentor:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 /* Card Content */
@@ -163,15 +260,6 @@
   justify-self: center !important;
   max-width: 80% !important;
 }
-
-@media (max-width: 768px) { 
-  
-  .modalImage {
-    max-width: 300px; 
-    height: 200px;
-  }
-}
-
 
 /* GitHub Link */
 .githubLink {
@@ -314,4 +402,33 @@
 .closeButton:hover {
   background: linear-gradient(120deg, #a070ff, #7030ff);
   transform: scale(1.05);
+}
+
+@media (max-width: 767.98px) { 
+  
+  .modalImage {
+    max-width: 300px; 
+    height: 200px;
+  }
+
+  .mentor {
+    /* Ensure that mentor is centered on mobile */
+    align-items: center; /* Keep items centered */
+    text-align: center; /* Center text */
+    padding: 10px; 
+    margin-bottom: 1.5rem; /* Ensure there's space between mentors */
+  }
+
+  .mentorImage {
+    width: 120px; 
+    height: 120px; 
+    margin: 0 auto 1rem; /* Center image and add margin below */
+    border-radius: 50%; /* Keep the circular image */
+    border: 1px solid #fff; /* Optional border */
+  }
+
+  .mentorInfo a {
+    padding: 8px 16px; 
+    font-size: 0.9rem; 
+  }
 }

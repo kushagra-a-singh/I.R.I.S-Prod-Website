@@ -1,5 +1,28 @@
 import { useState } from "react";
 
+// ChatMessage component
+const ChatMessage = ({ message }) => {
+  return (
+    <div style={{
+      marginBottom: "10px",
+      textAlign: message.sender === "user" ? "right" : "left",
+    }}>
+      <strong>{message.sender}:</strong> 
+      {message.contains_html ? (
+        <div 
+          dangerouslySetInnerHTML={{ __html: message.text }}
+          style={{
+            display: "inline-block",
+            marginLeft: "5px",
+          }}
+        />
+      ) : (
+        <span style={{ marginLeft: "5px" }}>{message.text}</span>
+      )}
+    </div>
+  );
+};
+
 const Chatbot1 = () => {
   const [isOpen, setIsOpen] = useState(false); // State to toggle chat panel
   const [messages, setMessages] = useState([]); // State to store chat messages
@@ -22,14 +45,23 @@ const Chatbot1 = () => {
     const data = await response.json();
 
     // Add bot response to the chat
-    setMessages((prev) => [...prev, { sender: "bot", text: data.response }]);
+    setMessages((prev) => [...prev, { 
+      sender: "bot", 
+      text: data.response,
+      contains_html: data.contains_html || false 
+    }]);
 
     // Clear the input
     setInput("");
   };
 
   return (
-    <div style={{ position: "fixed", bottom: "20px", right: "20px", zIndex: 1000 }}>
+    <div style={{ 
+      position: "fixed", 
+      bottom: "20px", 
+      right: "20px", 
+      zIndex: 1000 
+    }}>
       {/* Chatbot Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
@@ -81,15 +113,10 @@ const Chatbot1 = () => {
             }}
           >
             {messages.map((msg, index) => (
-              <div
-                key={index}
-                style={{
-                  marginBottom: "10px",
-                  textAlign: msg.sender === "user" ? "right" : "left",
-                }}
-              >
-                <strong>{msg.sender}:</strong> {msg.text}
-              </div>
+              <ChatMessage 
+                key={index} 
+                message={msg} 
+              />
             ))}
           </div>
 
@@ -99,6 +126,7 @@ const Chatbot1 = () => {
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
+              onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
               style={{
                 flex: 1,
                 padding: "10px",

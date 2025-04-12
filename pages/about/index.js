@@ -59,7 +59,7 @@ function About() {
 
           <div className="row">
             <h2>Faculty Mentors</h2>
-            <div className="col-md-6">
+            <div className="col-6">
               <div className={styles.mentor}>
                 <Image
                   src="/shamlaMaam.jpeg"
@@ -77,7 +77,7 @@ function About() {
                 </div>
               </div>
             </div>
-            <div className="col-md-6">
+            <div className="col-6">
               <div className={styles.mentor}>
                 <Image
                   src="/yogeshSir.jpg"
@@ -95,7 +95,7 @@ function About() {
                 </div>
               </div>
             </div>
-            <div className="col-md-6" >
+            <div className="col-6" >
               {/* Faculty Mentor 3 */}
               <div className={styles.mentor}>
                 <Image src="/Pratvina_mam.png" alt="Pratvina Talele" className={styles.mentorImage} width={150} height={150} />
@@ -108,7 +108,7 @@ function About() {
                 </div>
               </div>
             </div>
-            <div className="col-md-6" >
+            <div className="col-6" >
               {/* Faculty Mentor 3 */}
               <div className={styles.mentor}>
                 <Image src="/sumedha.png" alt="Sumedha Sirsikar" className={styles.mentorImage} width={150} height={150} />
@@ -123,7 +123,7 @@ function About() {
             </div>
           </div>
 
-          <div id="team-members" className={`${styles.teamMembers} p-4`}>
+          <div id="team-members" className={`${styles.teamMembers} py-4`}>
             <h2>Team Members</h2>
             <div className="row">
               {[ 
@@ -154,7 +154,7 @@ function About() {
                 { name: "Raghunandan Veer", role: "Founder", imgSrc: "/logo2.png", linkedIn: "https://www.linkedin.com/in/raghunandan-veer-31b724266/" },
                 { name: "Sarthak Patil", role: "Founder", imgSrc: "/sarthak.jpeg", linkedIn: "https://www.linkedin.com/in/sarthak-patil-aa453a219/" },
               ].map((member, index) => (
-                <div key={index} className="col-xl-4 col-md-6">
+                <div key={index} className="col-6 col-xl-4 ">
                   <div className={styles.card}>
                     <Image
                       src={member.imgSrc}

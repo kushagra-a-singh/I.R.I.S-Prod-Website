@@ -73,6 +73,7 @@ function Header2() {
                   { name: 'About Us', path: '/about' },
                   { name: 'Club Gallery', path: '/gallery' },
                   { name: 'Projects', path: '/Projects' },
+                  { name: 'Research', path: '/research' },
                   { name: 'Blog', path: '/blog' },
                   { name: 'Contact', path: '/contact' },
                 ].map((item) => (

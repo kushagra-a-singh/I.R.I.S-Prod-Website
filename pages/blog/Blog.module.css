@@ -31,6 +31,12 @@
     align-items: center;
     z-index: 1000;
   }
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch; /* Ensures all cards stretch to the same height */
+  }
   .blogCard {
     background: #040422;
     border-radius: 12px;
@@ -39,6 +45,7 @@
     margin-bottom: 30px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
+    /* height: 80%;  */
     height: 700px;
     flex-direction: column;
     padding: 20px
@@ -49,9 +56,19 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.75);
   }
   
-  .blogImage {
+  .blogImageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 220px; /* Adjust based on design needs */
     width: 100%;
-    height: 220px;
+  }
+
+  .blogImage {
+    /* width: auto; */
+    width: 100%;
+    height: auto;
+    max-height: 200px;
     object-fit: cover;
     transition: transform 0.3s ease;
     border-radius: 8px
@@ -64,7 +81,7 @@
   .blogContent {
     padding: 20px;
     text-align: left;
-    flex: 1;
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between; /* Ensures even spacing */
@@ -104,6 +121,8 @@
     text-decoration: none;
     transition: background-color 0.3s ease, transform 0.3s ease;
     margin-top: auto;
+    width: 100%;
+    text-align: center;
   }
   
   .readMoreButton:hover {
@@ -127,20 +146,26 @@
     font-size: 1.2rem;
     margin-top: 20px;
   }
-  @media (max-width: 1024px) {
+
+
+  @media (max-width: 1200px) and (min-width: 1000px) {
     .blogCard {
-        min-height: auto; /* Adjust dynamically for smaller screens */
+      min-height: 750px; /* Adjust height as needed */
     }
   }
-
+  
   @media (max-width: 768px) {
+    .row {
+      flex-direction: column;
+      align-items: center;
+    }
     .blogCard {
       height: auto; /* Adjust height dynamically */
       padding: 15px;
-  }
-  .blogContent {
+    }
+    .blogContent {
       padding: 15px;
-  }
+    }
 
     .content-section{
       padding: 10px;

@@ -235,7 +235,9 @@ function Blog7() {
                                     <br /><br />
                                     Here, we will discuss the various scientists, companies, and the research breakthroughs which have shaped how we look at quantum computing today.
                                     <br /><br />
+                                </p>
                                     <Image src="/qm3.jpg" alt="Quantum Computing Summary" width={500} height={300} className={styles.blogImage} />
+                                <p>
                                     <br /><br />
                                     Paul Benioff, an American physicist, proposed a quantum mechanical model of the Turing Machine.
                                     <br />
@@ -263,7 +265,9 @@ function Blog7() {
                                 <p>
                                     Talking about the major modern day quantum computers and processors, these include:
                                     <br /><br />
+                                </p>
                                     <Image src="/qm2.jpg" alt="Quantum Computing Summary" width={500} height={300} className={styles.blogImage} />
+                                <p>
                                     <br /><br />
                                     Google Sycamore (2019), a 53 qubit quantum computer, that achieved quantum supremacy.
                                     <br />

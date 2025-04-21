@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 import os
 import re
 
-load_dotenv()
+load_dotenv(dotenv_path="../../../.env.local")
 
 # Initialize Flask app
 app = Flask(__name__)

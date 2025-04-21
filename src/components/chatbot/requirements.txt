@@ -4,3 +4,6 @@ langchain
 transformers
 sentence-transformers
 faiss-cpu
+langchain-huggingface
+langchain-community
+langchain-groq

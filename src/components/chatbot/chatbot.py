@@ -20,13 +20,37 @@ CORS(app)
 
 def make_links_clickable(text):
     """
-    Convert plain text URLs to HTML anchor tags
+    Convert plain text URLs to HTML anchor tags while properly handling trailing punctuation
     """
-    url_pattern = re.compile(r'https?://\S+')
-    return url_pattern.sub(
-        lambda match: f'<a href="{match.group(0)}" target="_blank" rel="noopener noreferrer">{match.group(0)}</a>',
-        text
+    # Pattern that matches URLs but excludes common trailing punctuation
+    url_pattern = re.compile(
+        r'(https?://[^\s<>"]+[^\s<>".,!?:;])'  # Main URL without trailing punctuation
+        r'(?=[.,!?:;]|\s|$)'  # Lookahead for punctuation or whitespace
     )
+    
+    def replace_match(match):
+        url = match.group(1)
+        return f'<a href="{url}" target="_blank" rel="noopener noreferrer">{url}</a>'
+    
+    # First pass - replace URLs without trailing punctuation
+    text = url_pattern.sub(replace_match, text)
+    
+    # Second pass - handle cases where punctuation was part of the URL
+    # This catches URLs that legitimately end with punctuation (like .in domains)
+    url_with_punct_pattern = re.compile(
+        r'(https?://[^\s<>"]+)'  # More inclusive pattern
+    )
+    
+    def replace_punct_match(match):
+        url = match.group(1)
+        # Only modify if not already converted to a link
+        if not url.startswith('<a href="'):
+            # Check if it ends with valid TLD punctuation (like .in)
+            if re.search(r'\.(com|org|net|in|io|etc)[^\w]*$', url, re.IGNORECASE):
+                return f'<a href="{url}" target="_blank" rel="noopener noreferrer">{url}</a>'
+        return match.group(0)
+    
+    return url_with_punct_pattern.sub(replace_punct_match, text)
 
 data = [
     "I am the IRIS Assistant! IRIS is the Innovation, Research, and Intelligence Support team at MIT WPU. We focus on research, innovation, and entrepreneurship.",

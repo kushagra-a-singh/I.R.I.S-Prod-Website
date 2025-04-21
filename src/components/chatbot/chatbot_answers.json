@@ -1,0 +1,22 @@
+[
+    {
+        "question": "What is IRIS?",
+        "answer": "IRIS is the Innovation, Research, and Intelligence Support team at MIT WPU, which focuses on research, innovation, and entrepreneurship. It is a tech community that aims to provide a platform for tech enthusiasts to collaborate, learn, and innovate through hands-on projects and events."
+    },
+    {
+        "question": "What is the Tarzan project?",
+        "answer": "The Tarzan Project is an advanced autonomous vehicle control system that integrates computer vision and CAN bus communication, using YOLOv8 for real-time object detection to detect road conditions, obstacles, and threats."
+    },
+    {
+        "question": "What was the Inter Campus Innovation Hacakthon?",
+        "answer": "The Inter-Campus Open Innovation Hackathon was held on 16th February 2024 at the MIT-WPU Campus. It was hosted by MIT-TBI in collaboration with ASPIRE, Engineer's Cradle, and I.R.I.S. The event brought together the brightest minds from Pune campuses to tackle real-world challenges through creativity and innovation. The hackathon included expert mentorship, prototyping, and final presentations to a panel of judges. The top 3 teams received cash prizes of ₹10,000, ₹6,000, and ₹4,000 respectively, along with mentorship and incubation opportunities. The top 10 teams also received certificates and ongoing technical and research support from Engineer's Cradle and MIT-TBI. The event culminated in a 12-hour grand finale at MIT-WPU Pune, where teams formed across universities showcased their innovative solutions."
+    },
+    {
+        "question": "How can I join IRIS?",
+        "answer": "To join IRIS, you can fill out the Recruitment Form on the IRIS website, which can be accessed at https://www.iris-club.in/recruitments. The form will ask for your details such as name, PRN, email, phone number, school, branch, current year, and areas of interest. Once you submit the form, your data will be stored securely in the IRIS database for follow-up."
+    },
+    {
+        "question": "How do I make pizza dough?",
+        "answer": "I don't know."
+    }
+]

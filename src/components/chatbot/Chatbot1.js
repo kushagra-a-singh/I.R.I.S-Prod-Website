@@ -27,19 +27,30 @@ const Chatbot1 = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
+  const [usedQuestions, setUsedQuestions] = useState([]);
 
-  // Predefined questions
-  const predefinedQuestions = [
+  // All possible questions (not filtered yet)
+  const allQuestions = [
     "What is I.R.I.S?",
     "What is the recruitment process?",
     "What are the current projects in I.R.I.S?"
   ];
+
+  // Filter out used questions
+  const availableQuestions = allQuestions.filter(
+    question => !usedQuestions.includes(question)
+  );
 
   const sendMessage = async (messageText = input) => {
     if (!messageText.trim()) return;
 
     // Add user message to the chat
     setMessages((prev) => [...prev, { sender: "user", text: messageText }]);
+
+    // Mark this question as used if it's one of our predefined ones
+    if (allQuestions.includes(messageText)) {
+      setUsedQuestions(prev => [...prev, messageText]);
+    }
 
     // Send the query to the backend API
     const response = await fetch("/api/chat", {
@@ -180,38 +191,39 @@ const Chatbot1 = () => {
           </div>
 
           {/* Predefined Questions */}
-          <div style={{
-            padding: "12px",
-            background: "#fff",
-            borderTop: "1px solid rgba(0, 0, 0, 0.08)",
-            display: "flex",
-            flexWrap: "wrap",
-            gap: "8px"
-          }}>
-            {predefinedQuestions.map((question, index) => (
-              <button
-                key={index}
-                onClick={() => sendMessage(question)}
-                style={{
-                  padding: "8px 14px",
-                  background: "rgba(23, 37, 90, 0.05)",
-                  color: "rgba(23, 37, 90, 0.9)",
-                  border: "1px solid rgba(23, 37, 90, 0.15)",
-                  borderRadius: "20px",
-                  fontSize: "12px",
-                  cursor: "pointer",
-                  whiteSpace: "nowrap",
-                  transition: "all 0.2s",
-                  ':hover': {
-                    background: "rgba(23, 37, 90, 0.1)",
-                    borderColor: "rgba(23, 37, 90, 0.3)"
-                  }
-                }}
-              >
-                {question}
-              </button>
-            ))}
-          </div>
+      {/* Predefined Questions - now using availableQuestions */}
+        <div style={{
+          padding: "12px",
+          background: "#fff",
+          borderTop: "1px solid rgba(0, 0, 0, 0.08)",
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "8px"
+        }}>
+        {availableQuestions.map((question, index) => (
+          <button
+            key={index}
+            onClick={() => sendMessage(question)}
+            style={{
+              padding: "8px 14px",
+              background: "rgba(23, 37, 90, 0.05)",
+              color: "rgba(23, 37, 90, 0.9)",
+              border: "1px solid rgba(23, 37, 90, 0.15)",
+              borderRadius: "20px",
+              fontSize: "12px",
+              cursor: "pointer",
+              whiteSpace: "nowrap",
+              transition: "all 0.2s",
+              ':hover': {
+                background: "rgba(23, 37, 90, 0.1)",
+                borderColor: "rgba(23, 37, 90, 0.3)"
+              }
+            }}
+          >
+            {question}
+          </button>
+        ))}
+      </div>
 
           {/* Chat Input */}
           <div style={{ 

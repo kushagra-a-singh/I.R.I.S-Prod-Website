@@ -63,7 +63,6 @@ function App({ Component, pageProps }) {
       <main className="flex-grow">
         <Component {...pageProps} />
       </main>
-      <Component {...pageProps} />
       <Chatbot1 />
       <Footer />
     </div>

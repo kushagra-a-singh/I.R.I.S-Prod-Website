@@ -1,0 +1,6 @@
+flask
+flask_cors
+langchain
+transformers
+sentence-transformers
+faiss-cpu

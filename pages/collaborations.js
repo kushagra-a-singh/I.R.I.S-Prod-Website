@@ -386,8 +386,8 @@ function Collaboration() {
             <Image
               src={selectedProject.image}
               alt={selectedProject.title}
-              width={600}
-              height={400}
+              width={500}
+              height={300}
               className={styles.modalImage}
             />
             <p><strong>Contributors:</strong> {selectedProject.contributors}</p>

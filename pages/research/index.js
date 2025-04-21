@@ -43,65 +43,83 @@ function Collaboration() {
   const collabProjects = [
     {
       id: 1,
-      title: 'Open Source AI Models',
-      subtitle: 'Contributing to the Future of AI',
-      description: 'An initiative to develop and refine AI models for diverse applications.',
-      domain: 'Artificial Intelligence',
-      branchYear: 'TY BTech CSE',
+      title: 'DIGITAL FORENSICS',
+      //subtitle: 'A Full-Fledge Digital Forensic Tool for Malcious activites',
+      description: 'A Full-Fledge Digital Forensic Tool for Malcious activites',
+      //domain: 'Artificial Intelligence',
+      branchYear: 'FY BTech CSE (CSF)',
       status: 'Ongoing',
-      guides: ['Dr. Shamla Mantri', 'Dr. Yogesh Kulkarni'],
-      owners: 'Jane Doe',
-      contributors: (
-        <>
-          <a href="https://linkedin.com/in/example1" target="_blank" rel="noopener noreferrer" className={styles.contributorLink}>John Doe</a>
-          {' '} & <span className={styles.contributorLink}> Jane Smith</span>
-        </>
+      //guides: ['Dr. Shamla Mantri'],
+      //owners: 'Parag Bhat',
+      owners: (
+        <a href="https://www.linkedin.com/in/parag-bhat-1b92ab330/" target="_blank" rel="noopener noreferrer" className={styles.contributorLink}>
+          Parag Bhat
+        </a>
       ),
-      githubLink: "https://github.com/example1/opensource-ai",
-      date: 'March 10, 2025',
-      image: '/ai.png',
+      mentor: (
+        <a href="https://in.linkedin.com/in/dr-shamla-mantri-2180201b1" target="_blank" rel="noopener noreferrer" className={styles.contributorLink}>
+          Dr. Shamla Mantri
+        </a>
+      ),
+      //githubLink: "https://github.com/example1/opensource-ai",
+      //date: 'March 10, 2025',
+      image: '/digital forensics.jpeg',
       imageWidth: 500,
       imageHeight: 300,
     },
     {
       id: 2,
-      title: 'Secure Transactions',
-      subtitle: 'Enhancing Security and Transparency',
-      description: 'A project leveraging blockchain to ensure secure and transparent transactions.',
-      domain: 'Blockchain',
-      branchYear: 'TY BTech IT',
-      status: 'Completed',
-      guides: ['Dr. Shamla Mantri', 'Dr. Yogesh Kulkarni'],
-      owners: 'Jane Doe',
-      contributors: (
-        <a href="https://linkedin.com/in/example2" target="_blank" rel="noopener noreferrer" className={styles.contributorLink}>Alice Johnson</a>
+      title: 'Biochemistry & Human Health',
+      //subtitle: 'A Full-Fledge Digital Forensic Tool for Malcious activites',
+      description: 'Short Chained Fatty Acids and their effect on Human Health',
+      //domain: 'Artificial Intelligence',
+      branchYear: 'SY Integrated M.Sc. Biotechnology',
+      status: 'Ongoing',
+      //guides: ['Dr. Shamla Mantri'],
+      //owners: 'Parag Bhat',
+      owners: (
+        <a href="https://www.linkedin.com/in/aadyaa-saran/" target="_blank" rel="noopener noreferrer" className={styles.contributorLink}>
+          Aadyaa Saran
+        </a>
       ),
-      githubLink: "https://github.com/example2/secure-transactions",
-      date: 'February 20, 2025',
-      image: '/ai.png',
+      mentor: (
+        <a href="https://in.linkedin.com/in/neha-bokey-7819b814a" target="_blank" rel="noopener noreferrer" className={styles.contributorLink}>
+          Dr. Neha Bokey
+        </a>
+      ),
+      //githubLink: "https://github.com/example1/opensource-ai",
+      //date: 'March 10, 2025',
+      image: '/biochemistry.jpg',
       imageWidth: 500,
       imageHeight: 300,
     },
     {
       id: 3,
-      title: 'Cybersecurity Threat Analysis',
-      subtitle: 'Detecting and Preventing Cyber Threats',
-      description: 'A research project focused on identifying and mitigating cybersecurity threats using AI.',
-      domain: 'Cybersecurity',
-      branchYear: 'TY BTech CSE',
-      status: 'In Review',
-      guides: ['Dr. Shamla Mantri', 'Dr. Yogesh Kulkarni'],
-      owners: 'Jane Doe',
-      contributors: (
-        <a href="https://linkedin.com/in/example3" target="_blank" rel="noopener noreferrer" className={styles.contributorLink}>Michael Lee</a>
+      title: 'Pharmacology',
+      //subtitle: 'A Full-Fledge Digital Forensic Tool for Malcious activites',
+      description: 'The presence of food can alter drug absorption, affecting its effectiveness and bioavailability.',
+      //domain: 'Artificial Intelligence',
+      branchYear: 'SY B Pharm',
+      status: 'Ongoing',
+      //guides: ['Dr. Shamla Mantri'],
+      //owners: 'Parag Bhat',
+      owners: (
+        <a href="https://www.linkedin.com/in/aadyaa-saran/" target="_blank" rel="noopener noreferrer" className={styles.contributorLink}>
+          Nishtha Mandaliya
+        </a>
       ),
-      githubLink: "https://github.com/example3/cybersecurity-analysis",
-      date: 'April 5, 2025',
-      image: '/ai.png',
+      mentor: (
+        <a href="https://in.linkedin.com/in/dr-aarti-shastri-ba5043109" target="_blank" rel="noopener noreferrer" className={styles.contributorLink}>
+          Dr. Aarti Shastri
+        </a>
+      ),
+      //githubLink: "https://github.com/example1/opensource-ai",
+      //date: 'March 10, 2025',
+      image: '/pharmacology.jpg',
       imageWidth: 500,
       imageHeight: 300,
     },
-    {
+    /*{
       id: 4,
       title: 'IoT-based Smart Agriculture',
       subtitle: 'Automating Farming with IoT',
@@ -119,7 +137,7 @@ function Collaboration() {
       image: '/ai.png',
       imageWidth: 500,
       imageHeight: 300,
-    },
+    }*/
   ];
 
   const handleShow = (project) => {
@@ -134,7 +152,7 @@ function Collaboration() {
 
   const handleClose = () => setSelectedProject(null);
 
-  useEffect(() => {
+  /*useEffect(() => {
     const storedDeviceId = localStorage.getItem('deviceId');
     if (!storedDeviceId) {
       const newDeviceId = 'device-' + Math.random().toString(36).substring(2);
@@ -152,8 +170,8 @@ function Collaboration() {
       fetchVoteStatus(selectedProject.id);
     }
   }, [deviceId, selectedProject]);
-
-  const fetchVoteStatus = async (projectId) => {
+*/
+  /*const fetchVoteStatus = async (projectId) => {
     try {
       const { data: voteData, error: voteError } = await supabase
         .from('collab_votes')
@@ -318,13 +336,266 @@ function Collaboration() {
         [field]: value
       }
     }));
-  };
+  };*/
 
   return (
     <div className={styles.collaborationPage}>
       <div className="container py-5">
-        <h1 className={styles.pageTitle}>Research Projects</h1>
+        <h1 className={styles.pageTitle}>Our Research Initiatives</h1>
         <p className={styles.pageSubtitle}>Discover our latest collaborative research initiatives.</p>
+
+        {/* Faculty Mentors Section */}
+        <div className="mb-5">
+          <h2 className="text-center mb-4">Faculty Mentors</h2>
+          <div className={styles.mentorsContainer}>
+            <div className={styles.mentor}>
+              <Image
+                src="/shamlaMaam.jpeg"
+                alt="Dr. Shamla Mantri"
+                className={styles.mentorImage}
+                width={150}
+                height={150}
+              />
+              <div className={styles.mentorInfo}>
+                <h3>Dr. Shamla Mantri</h3>
+                <p>Associate Professor</p>
+                <a href="https://scholar.google.com/citations?user=IUUENAMAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">
+                  View Profile
+                </a>
+              </div>
+            </div>
+
+            <div className={styles.mentor}>
+              <Image
+                src="/yogeshSir.jpg"
+                alt="Dr. Yogesh Kulkarni"
+                className={styles.mentorImage}
+                width={150}
+                height={150}
+              />
+              <div className={styles.mentorInfo}>
+                <h3>Dr. Yogesh Kulkarni</h3>
+                <p>Assistant Professor</p>
+                <a href="https://scholar.google.com/citations?user=9GsTeoQAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">
+                  View Profile
+                </a>
+              </div>
+            </div>
+
+            <div className={styles.mentor}>
+              <Image
+                src="/Pratvina_mam.png"
+                alt="Pratvina Talele"
+                className={styles.mentorImage}
+                width={150}
+                height={150}
+              />
+              <div className={styles.mentorInfo}>
+                <h3>Dr. Pratvina Talele</h3>
+                <p>Assistant Professor</p>
+                <a href="https://scholar.google.com/citations?hl=en&user=_sFHQ8UAAAAJ" target="_blank" rel="noopener noreferrer">
+                  View Profile
+                </a>
+              </div>
+            </div>
+
+            <div className={styles.mentor}>
+              <Image
+                src="/sumedha.png"
+                alt="Sumedha Sirsikar"
+                className={styles.mentorImage}
+                width={150}
+                height={150}
+              />
+              <div className={styles.mentorInfo}>
+                <h3>Dr. Sumedha Sirsikar</h3>
+                <p>Associate Professor</p>
+                <a href="https://scholar.google.com/citations?user=26-mdWgAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">
+                  View Profile
+                </a>
+              </div>
+            </div>
+            <div className={styles.mentor}>
+              <Image
+                src="/anuradha.jpg"
+                alt="Dr. Anuradha Kanade"
+                className={styles.mentorImage}
+                width={150}
+                height={150}
+              />
+              <div className={styles.mentorInfo}>
+                <h3>Dr. Anuradha Kanade</h3>
+                <p>Assistant Professor</p>
+                <a href="https://scholar.google.com/citations?user=Kmy27SUAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener noreferrer">
+                  View Profile
+                </a>
+              </div>
+            </div>
+            <div className={styles.mentor}>
+              <Image
+                src="/sachin.jpg"
+                alt="Dr. Sachin Bhoite"
+                className={styles.mentorImage}
+                width={150}
+                height={150}
+              />
+              <div className={styles.mentorInfo}>
+                <h3>Dr. Sachin Bhoite</h3>
+                <p>Assistant Professor</p>
+                <a href="https://scholar.google.com/citations?hl=en&user=l-Ibk20AAAAJ" target="_blank" rel="noopener noreferrer">
+                  View Profile
+                </a>
+              </div>
+            </div>
+            <div className={styles.mentor}>
+              <Image
+                src="/shikha.jpg"
+                alt="Dr. Shikha Gaikwad"
+                className={styles.mentorImage}
+                width={150}
+                height={150}
+              />
+              <div className={styles.mentorInfo}>
+                <h3>Dr. Shikha Gaikwad</h3>
+                <p>Assistant Professor</p>
+                <a href="https://scholar.google.com/citations?hl=en&user=pD4ECgoAAAAJ" target="_blank" rel="noopener noreferrer">
+                  View Profile
+                </a>
+              </div>
+            </div>
+            <div className={styles.mentor}>
+              <Image
+                src="/pradeep.jpeg"
+                alt="Dr. Pradeep Tiwari"
+                className={styles.mentorImage}
+                width={150}
+                height={150}
+              />
+              <div className={styles.mentorInfo}>
+                <h3>Dr. Pradeep Tiwari</h3>
+                <p>Associate Professor</p>
+                <a href="https://scholar.google.com/citations?hl=en&user=td62dXoAAAAJ" target="_blank" rel="noopener noreferrer">
+                  View Profile
+                </a>
+              </div>
+            </div>
+            <div className={styles.mentor}>
+              <Image
+                src="/krishna.webp"
+                alt="Dr. Krishna Warhade"
+                className={styles.mentorImage}
+                width={150}
+                height={150}
+              />
+              <div className={styles.mentorInfo}>
+                <h3>Dr. Krishna Warhade</h3>
+                <p>Professor</p>
+                <a href="https://scholar.google.com/citations?user=QDEX3B8AAAAJ&hl=en&oi=ao" target="_blank" rel="noopener noreferrer">
+                  View Profile
+                </a>
+              </div>
+            </div>
+            <div className={styles.mentor}>
+              <Image
+                src="/samarth.jpeg"
+                alt="Samarth D. Patwardhan"
+                className={styles.mentorImage}
+                width={150}
+                height={150}
+              />
+              <div className={styles.mentorInfo}>
+                <h3>Samarth D. Patwardhan</h3>
+                <p>Professor</p>
+                <a href="https://scholar.google.com/citations?user=1D0jfpkAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener noreferrer">
+                  View Profile
+                </a>
+              </div>
+            </div>
+            <div className={styles.mentor}>
+              <Image
+                src="/chpatil.jpg"
+                alt="Dr. Chandrashekhar H. Patil"
+                className={styles.mentorImage}
+                width={150}
+                height={150}
+              />
+              <div className={styles.mentorInfo}>
+                <h3>Dr. Chandrashekhar H. Patil</h3>
+                <p>Associate Professor</p>
+                <a href="https://scholar.google.co.in/citations?user=nsHuJd0AAAAJ&hl=en" target="_blank" rel="noopener noreferrer">
+                  View Profile
+                </a>
+              </div>
+            </div>
+            <div className={styles.mentor}>
+              <Image
+                src="/madhura.jpeg"
+                alt="Dr. Madhura Phatak"
+                className={styles.mentorImage}
+                width={150}
+                height={150}
+              />
+              <div className={styles.mentorInfo}>
+                <h3>Dr. Madhura Phatak</h3>
+                <p>Assistant Professor</p>
+                <a href="https://scholar.google.com/citations?user=kzvLFH8AAAAJ&hl=en&oi=ao" target="_blank" rel="noopener noreferrer">
+                  View Profile
+                </a>
+              </div>
+            </div>
+            <div className={styles.mentor}>
+              <Image
+                src="/anamika.jpg"
+                alt="Anamika Jain"
+                className={styles.mentorImage}
+                width={150}
+                height={150}
+              />
+              <div className={styles.mentorInfo}>
+                <h3>Dr. Anamika Jain</h3>
+                <p>Assistant Professor</p>
+                <a href="https://scholar.google.fi/citations?user=6bnMzvkAAAAJ&hl=pt-BR" target="_blank" rel="noopener noreferrer">
+                  View Profile
+                </a>
+              </div>
+            </div>
+            <div className={styles.mentor}>
+              <Image
+                src="/sheetal.webp"
+                alt="Sheetal Girase"
+                className={styles.mentorImage}
+                width={150}
+                height={150}
+              />
+              <div className={styles.mentorInfo}>
+                <h3>Dr. Sheetal Girase</h3>
+                <p>Assistant Professor</p>
+                <a href="https://scholar.google.com/citations?user=O8siZOYAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">
+                  View Profile
+                </a>
+              </div>
+            </div>
+            <div className={styles.mentor}>
+              <Image
+                src="/bhagat.webp"
+                alt="Dhananjay Bhagat"
+                className={styles.mentorImage}
+                width={150}
+                height={150}
+              />
+              <div className={styles.mentorInfo}>
+                <h3>Dhananjay Bhagat</h3>
+                <p>Assistant Professor</p>
+                <a href="https://scholar.google.com/citations?user=mB-2UeMAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">
+                  View Profile
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Ongoing Research Projects Section */}
+        <h2 className="text-center mt-5 mb-4">Ongoing Research Projects</h2>
         <div className="row py-2" style={{ justifyContent: 'center' }}>
           {collabProjects.map((project) => (
             <div key={project.id} className="col-md-6 col-lg-4 d-flex align-items-stretch">
@@ -340,32 +611,14 @@ function Collaboration() {
                   <h3 className={styles.collabTitle}>{project.title}</h3>
                   <p className={styles.collabDescription}>{project.description}</p>
                   <div className={styles.collabMeta}>
-                    <span>{domainIcons[project.domain]} <strong>Domain:</strong> {project.domain}</span><br />
+                    {/*<span>{domainIcons[project.domain]} <strong>Domain:</strong> {project.domain}</span><br />*/}
                     <span><GraduationCap size={16} className={styles.icon} /> <strong>Project Head:</strong> {project.branchYear}</span><br />
                     <span><strong>Status:</strong> <span className={`badge ${statusClasses[project.status]}`}>{project.status}</span></span><br />
-                    <span><strong>Project Owners:</strong> {project.owners}</span> | <span>{project.date}</span><br />
-                    <span><strong>Contributors:</strong> {project.contributors}</span> {/*| <span>{project.date}</span>*/}
+                    <span><strong>Researcher:</strong> {project.owners}</span><br />
+                    {/*<span><strong>Contributors:</strong> {project.contributors}</span> | <span>{project.date}</span>*/}
+                    <span><strong>Mentor:</strong> {project.mentor}</span>
 
-                    <div style={{ marginTop: '5px' }}>
-                      Guided by {' '}
-                      <a
-                        href="https://scholar.google.com/citations?user=IUUENAMAAAAJ&hl=en"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={styles.authorLink}
-                      >
-                        Dr. Shamla Mantri
-                      </a>{' '}
-                      & {' '}
-                      <a
-                        href="https://scholar.google.com/citations?user=9GsTeoQAAAAJ&hl=en"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={styles.authorLink}
-                      >
-                        Dr. Yogesh Kulkarni
-                      </a>
-                    </div>
+
                   </div> <br />
                   <Button className={styles.viewMoreButton} onClick={() => handleShow(project)} style={{ width: "100%", textAlign: "center" }}>View More</Button>
                 </div>
@@ -390,32 +643,17 @@ function Collaboration() {
               height={400}
               className={styles.modalImage}
             />
-            <p><strong>Contributors:</strong> {selectedProject.contributors}</p>
-            <p><strong>Domain:</strong> {selectedProject.domain}</p>
+            <p><strong>Researcher:</strong> {selectedProject.owners}</p>
+            {/*<p><strong>Domain:</strong> {selectedProject.domain}</p>*/}
             <p><strong>Status:</strong>
               <span className={`${styles.statusBadge} ${statusClasses[selectedProject.status]}`}>
                 {selectedProject.status}
               </span>
             </p>
-            <p>
-              <strong>GitHub Repository:</strong>
-              <a href={selectedProject.githubLink} target="_blank" rel="noopener noreferrer" className={styles.githubLink}>
-                {selectedProject.githubLink}
-              </a>
-            </p>
-            <div className={styles.guides}>
-              Guided by {' '}
-              <a href="https://scholar.google.com/citations?user=IUUENAMAAAAJ&hl=en"
-                target="_blank" rel="noopener noreferrer" className={styles.authorLink}>
-                Dr. Shamla Mantri
-              </a> {' '}
-              & {' '}
-              <a href="https://scholar.google.com/citations?user=9GsTeoQAAAAJ&hl=en"
-                target="_blank" rel="noopener noreferrer" className={styles.authorLink}>
-                Dr. Yogesh Kulkarni
-              </a>
-            </div>
-            <div className={styles.voteSection}>
+            <p><strong>Mentor:</strong> {selectedProject.mentor}</p>
+
+
+            {/*<div className={styles.voteSection}>
 
               <button onClick={() => handleVote('upvote')} className={`${styles.voteButton} ${vote === 'upvote' ? styles.active : ''}`}>
                 ▲ Upvote ({voteCounts.upvotes})
@@ -459,7 +697,7 @@ function Collaboration() {
                 Submit Comment
               </button>
             </div>
-            
+            */}
             <ToastContainer position="bottom-right" autoClose={3000} hideProgressBar={false} closeOnClick pauseOnHover draggable theme="dark" />
           </Modal.Body>
           <Modal.Footer className={styles.modalFooter}>

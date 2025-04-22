@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-// ChatMessage component
+// ChatMessage component remains the same
 const ChatMessage = ({ message }) => {
   return (
     <div style={{
@@ -28,6 +28,19 @@ const Chatbot1 = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [usedQuestions, setUsedQuestions] = useState([]);
+  const [showPredefinedQuestions, setShowPredefinedQuestions] = useState(true);
+  const [isWaving, setIsWaving] = useState(false);
+
+  // Add waving animation effect
+  useEffect(() => {
+    if (!isOpen) {
+      const waveInterval = setInterval(() => {
+        setIsWaving(prev => !prev);
+      }, 900);
+      
+      return () => clearInterval(waveInterval);
+    }
+  }, [isOpen]);
 
   // All possible questions (not filtered yet)
   const allQuestions = [
@@ -43,6 +56,9 @@ const Chatbot1 = () => {
 
   const sendMessage = async (messageText = input) => {
     if (!messageText.trim()) return;
+
+    // Hide predefined questions when sending any message
+    setShowPredefinedQuestions(false);
 
     // Add user message to the chat
     setMessages((prev) => [...prev, { sender: "user", text: messageText }]);
@@ -74,6 +90,17 @@ const Chatbot1 = () => {
     }
   };
 
+  const handleInputChange = (e) => {
+    setInput(e.target.value);
+    // Hide predefined questions when user starts typing
+    if (e.target.value.length > 0) {
+      setShowPredefinedQuestions(false);
+    } else {
+      // Show predefined questions only if there are no messages and input is empty
+      setShowPredefinedQuestions(messages.length === 0);
+    }
+  };
+
   return (
     <div style={{ 
       position: "fixed", 
@@ -82,36 +109,43 @@ const Chatbot1 = () => {
       zIndex: 1000,
       fontFamily: "Arial, sans-serif"
     }}>
-      {/* Chatbot Button */}
+      {/* Chatbot Button - Updated with animation and no circle */}
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => {
+          setIsOpen(!isOpen);
+          setIsWaving(false); // Stop waving when opened
+          // Reset predefined questions visibility when opening
+          if (!isOpen) {
+            setShowPredefinedQuestions(messages.length === 0);
+          }
+        }}
         style={{
-          background: "linear-gradient(135deg, rgba(23, 37, 90, 0.9), rgba(201, 64, 101, 0.9))",
-          color: "#fff",
+          background: "transparent",
           border: "none",
-          borderRadius: "50%",
-          width: "60px",
-          height: "60px",
           cursor: "pointer",
-          boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)",
-          fontSize: "24px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          transition: "transform 0.2s",
+          padding: "0",
+          transform: isWaving ? "translateX(-5px)" : "translateX(5px)",
+          transition: "transform 0.3s ease-in-out",
+          filter: "drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2))",
           ':hover': {
-            transform: "scale(1.05)"
+            transform: "scale(1.1) rotate(-5deg)",
+            filter: "drop-shadow(0 6px 12px rgba(0, 0, 0, 0.3))"
           }
         }}
       >
         <img 
-          src="/images/chatbot.avif" 
+          src="/images/chatbot1.png" 
           alt="Chatbot" 
-          style={{ width: "60%", height: "60%", objectFit: "contain", borderRadius: "50%" }} 
+          style={{ 
+            width: "60px", 
+            height: "60px", 
+            objectFit: "contain",
+            transition: "transform 0.2s",
+          }} 
         />
       </button>
 
-      {/* Chat Panel */}
+      {/* Rest of the chat panel remains the same */}
       {isOpen && (
         <div
           style={{
@@ -190,40 +224,41 @@ const Chatbot1 = () => {
             )}
           </div>
 
-          {/* Predefined Questions */}
-      {/* Predefined Questions - now using availableQuestions */}
-        <div style={{
-          padding: "12px",
-          background: "#fff",
-          borderTop: "1px solid rgba(0, 0, 0, 0.08)",
-          display: "flex",
-          flexWrap: "wrap",
-          gap: "8px"
-        }}>
-        {availableQuestions.map((question, index) => (
-          <button
-            key={index}
-            onClick={() => sendMessage(question)}
-            style={{
-              padding: "8px 14px",
-              background: "rgba(23, 37, 90, 0.05)",
-              color: "rgba(23, 37, 90, 0.9)",
-              border: "1px solid rgba(23, 37, 90, 0.15)",
-              borderRadius: "20px",
-              fontSize: "12px",
-              cursor: "pointer",
-              whiteSpace: "nowrap",
-              transition: "all 0.2s",
-              ':hover': {
-                background: "rgba(23, 37, 90, 0.1)",
-                borderColor: "rgba(23, 37, 90, 0.3)"
-              }
-            }}
-          >
-            {question}
-          </button>
-        ))}
-      </div>
+          {/* Predefined Questions - only show when enabled and there are available questions */}
+          {showPredefinedQuestions && availableQuestions.length > 0 && (
+            <div style={{
+              padding: "12px",
+              background: "#fff",
+              borderTop: "1px solid rgba(0, 0, 0, 0.08)",
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "8px"
+            }}>
+              {availableQuestions.map((question, index) => (
+                <button
+                  key={index}
+                  onClick={() => sendMessage(question)}
+                  style={{
+                    padding: "8px 14px",
+                    background: "rgba(23, 37, 90, 0.05)",
+                    color: "rgba(23, 37, 90, 0.9)",
+                    border: "1px solid rgba(23, 37, 90, 0.15)",
+                    borderRadius: "20px",
+                    fontSize: "12px",
+                    cursor: "pointer",
+                    whiteSpace: "nowrap",
+                    transition: "all 0.2s",
+                    ':hover': {
+                      background: "rgba(23, 37, 90, 0.1)",
+                      borderColor: "rgba(23, 37, 90, 0.3)"
+                    }
+                  }}
+                >
+                  {question}
+                </button>
+              ))}
+            </div>
+          )}
 
           {/* Chat Input */}
           <div style={{ 
@@ -237,7 +272,7 @@ const Chatbot1 = () => {
             <input
               type="text"
               value={input}
-              onChange={(e) => setInput(e.target.value)}
+              onChange={handleInputChange}
               onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
               style={{
                 flex: 1,

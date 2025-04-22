@@ -60,9 +60,7 @@ function App({ Component, pageProps }) {
         }
       `}</style>
       <Header2 style={{ position: 'fixed', top: 0, left: 0, right: 0}} />
-      <main className="flex-grow">
-        <Component {...pageProps} />
-      </main>
+      <Component {...pageProps} />
       <Chatbot1 />
       <Footer />
     </div>

@@ -175,7 +175,7 @@ const Chatbot1 = () => {
               width: "42px",
               height: "42px",
               borderRadius: "50%",
-              background: "rgba(255, 255, 255, 0.2)",
+              background: "rgba(0, 0, 0, 0.2)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",

@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
+import Image from 'next/image'
 
 // ChatMessage component remains the same
 const ChatMessage = ({ message }) => {
@@ -31,6 +32,9 @@ const Chatbot1 = () => {
   const [showPredefinedQuestions, setShowPredefinedQuestions] = useState(true);
   const [isWaving, setIsWaving] = useState(false);
 
+  // Ref for autoscroll
+  const messagesEndRef = useRef(null);
+
   // Add waving animation effect
   useEffect(() => {
     if (!isOpen) {
@@ -41,6 +45,13 @@ const Chatbot1 = () => {
       return () => clearInterval(waveInterval);
     }
   }, [isOpen]);
+
+  // Auto-scroll to bottom when messages change
+  useEffect(() => {
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [messages, isOpen]);
 
   // All possible questions (not filtered yet)
   const allQuestions = [
@@ -124,7 +135,7 @@ const Chatbot1 = () => {
           border: "none",
           cursor: "pointer",
           padding: "0",
-          transform: isWaving ? "translateX(-5px)" : "translateX(5px)",
+          transform: isWaving ? "translateY(-5px)" : "translateY(5px)",
           transition: "transform 0.3s ease-in-out",
           filter: "drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2))",
           ':hover': {
@@ -133,12 +144,12 @@ const Chatbot1 = () => {
           }
         }}
       >
-        <img 
+        <Image 
           src="/images/chatbot1.png" 
           alt="Chatbot" 
+          width={80} 
+          height={80} 
           style={{ 
-            width: "60px", 
-            height: "60px", 
             objectFit: "contain",
             transition: "transform 0.2s",
           }} 
@@ -168,7 +179,8 @@ const Chatbot1 = () => {
               color: "#fff",
               display: "flex",
               alignItems: "center",
-              gap: "12px"
+              gap: "12px",
+              justifyContent: "space-between"
             }}
           >
             <div style={{
@@ -183,15 +195,39 @@ const Chatbot1 = () => {
               fontWeight: "bold",
               backdropFilter: "blur(4px)"
             }}>
-              <img 
+              <Image 
                 src="/images/chatbot.avif" 
                 alt="Chatbot" 
-                style={{ width: "60%", height: "60%", objectFit: "contain", borderRadius: "50%" }} 
+                width={42} 
+                height={42} 
+                style={{ 
+                  objectFit: "contain", 
+                  borderRadius: "50%" 
+                }} 
               />
             </div>
-            <div>
+            <div style={{ flex: 1, marginLeft: 8 }}>
               <strong style={{ fontSize: "16px", display: "block" }}>IrisBot</strong>
             </div>
+            <button
+              onClick={() => setIsOpen(false)}
+              aria-label="Close chat"
+              style={{
+                background: "transparent",
+                border: "none",
+                color: "#fff",
+                fontSize: "22px",
+                cursor: "pointer",
+                padding: "4px 8px",
+                marginLeft: "8px",
+                lineHeight: 1,
+                borderRadius: "4px",
+                transition: "background 0.2s",
+              }}
+              title="Close"
+            >
+              &#10005;
+            </button>
           </div>
 
           {/* Chat Messages */}
@@ -222,6 +258,8 @@ const Chatbot1 = () => {
                 />
               ))
             )}
+            {/* Dummy div for autoscroll */}
+            <div ref={messagesEndRef} />
           </div>
 
           {/* Predefined Questions - only show when enabled and there are available questions */}

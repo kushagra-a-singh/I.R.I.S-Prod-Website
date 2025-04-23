@@ -344,6 +344,37 @@ function Collaboration() {
         <h1 className={styles.pageTitle}>Our Research Initiatives</h1>
         <p className={styles.pageSubtitle}>Discover our latest collaborative research initiatives.</p>
 
+        {/* Ongoing Research Projects Section */}
+        <h2 className="text-center mt-5 mb-4">Ongoing Research Projects</h2>
+        <div className="row py-2" style={{ justifyContent: 'center' }}>
+          {collabProjects.map((project) => (
+            <div key={project.id} className="col-md-6 col-lg-4 d-flex align-items-stretch">
+              <div className={styles.collabCard} style={{ borderLeft: `5px solid ${borderColors[project.domain]}` }}>
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  width={500}
+                  height={300}
+                  className={styles.collabImage}
+                />
+                <div className={styles.collabContent}>
+                  <h3 className={styles.collabTitle}>{project.title}</h3>
+                  <p className={styles.collabDescription}>{project.description}</p>
+                  <div className={styles.collabMeta}>
+                    {/*<span>{domainIcons[project.domain]} <strong>Domain:</strong> {project.domain}</span><br />*/}
+                    <span><GraduationCap size={16} className={styles.icon} /> <strong>Project Head:</strong> {project.branchYear}</span><br />
+                    <span><strong>Status:</strong> <span className={`badge ${statusClasses[project.status]}`}>{project.status}</span></span><br />
+                    <span><strong>Researcher:</strong> {project.owners}</span><br />
+                    {/*<span><strong>Contributors:</strong> {project.contributors}</span> | <span>{project.date}</span>*/}
+                    <span><strong>Mentor:</strong> {project.mentor}</span>
+                  </div> <br />
+                  <Button className={styles.viewMoreButton} onClick={() => handleShow(project)} style={{ width: "100%", textAlign: "center" }}>View More</Button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
         {/* Faculty Mentors Section */}
         <div className="mb-5">
           <h2 className="text-center mb-4">Faculty Mentors</h2>
@@ -381,7 +412,6 @@ function Collaboration() {
                 </a>
               </div>
             </div>
-
             <div className={styles.mentor}>
               <Image
                 src="/Pratvina_mam.png"
@@ -398,7 +428,6 @@ function Collaboration() {
                 </a>
               </div>
             </div>
-
             <div className={styles.mentor}>
               <Image
                 src="/sumedha.png"
@@ -594,120 +623,85 @@ function Collaboration() {
           </div>
         </div>
 
-        {/* Ongoing Research Projects Section */}
-        <h2 className="text-center mt-5 mb-4">Ongoing Research Projects</h2>
-        <div className="row py-2" style={{ justifyContent: 'center' }}>
-          {collabProjects.map((project) => (
-            <div key={project.id} className="col-md-6 col-lg-4 d-flex align-items-stretch">
-              <div className={styles.collabCard} style={{ borderLeft: `5px solid ${borderColors[project.domain]}` }}>
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  width={500}
-                  height={300}
-                  className={styles.collabImage}
-                />
-                <div className={styles.collabContent}>
-                  <h3 className={styles.collabTitle}>{project.title}</h3>
-                  <p className={styles.collabDescription}>{project.description}</p>
-                  <div className={styles.collabMeta}>
-                    {/*<span>{domainIcons[project.domain]} <strong>Domain:</strong> {project.domain}</span><br />*/}
-                    <span><GraduationCap size={16} className={styles.icon} /> <strong>Project Head:</strong> {project.branchYear}</span><br />
-                    <span><strong>Status:</strong> <span className={`badge ${statusClasses[project.status]}`}>{project.status}</span></span><br />
-                    <span><strong>Researcher:</strong> {project.owners}</span><br />
-                    {/*<span><strong>Contributors:</strong> {project.contributors}</span> | <span>{project.date}</span>*/}
-                    <span><strong>Mentor:</strong> {project.mentor}</span>
+        {selectedProject && (
+          <Modal show={true} onHide={handleClose} size="lg" centered contentClassName={styles.modalContainer}>
+            <Modal.Header closeButton className={styles.modalHeader}>
+              <Modal.Title>{selectedProject.title}</Modal.Title>
+            </Modal.Header>
+            <Modal.Body className={styles.modalBody}>
+              <h5 className={styles.modalSubtitle}>{selectedProject.subtitle}</h5>
+              <p className={styles.modalDescription}>{selectedProject.description}</p>
+              <Image
+                src={selectedProject.image}
+                alt={selectedProject.title}
+                width={600}
+                height={400}
+                className={styles.modalImage}
+              />
+              <p><strong>Researcher:</strong> {selectedProject.owners}</p>
+              {/*<p><strong>Domain:</strong> {selectedProject.domain}</p>*/}
+              <p><strong>Status:</strong>
+                <span className={`${styles.statusBadge} ${statusClasses[selectedProject.status]}`}>
+                  {selectedProject.status}
+                </span>
+              </p>
+              <p><strong>Mentor:</strong> {selectedProject.mentor}</p>
+              {/*<div className={styles.voteSection}>
+
+                <button onClick={() => handleVote('upvote')} className={`${styles.voteButton} ${vote === 'upvote' ? styles.active : ''}`}>
+                  ▲ Upvote ({voteCounts.upvotes})
+                </button>
+
+                <button onClick={() => handleVote('downvote')} className={`${styles.voteButton} ${vote === 'downvote' ? styles.active : ''}`}>
+                  ▼ Downvote ({voteCounts.downvotes})
+                </button>
+              </div>
 
 
-                  </div> <br />
-                  <Button className={styles.viewMoreButton} onClick={() => handleShow(project)} style={{ width: "100%", textAlign: "center" }}>View More</Button>
+              <div className={styles.commentSection}>
+                <h3 className={styles.commentTitle}>Comments</h3>
+                <div className={styles.commentList}>
+                  {!comments[selectedProject?.id] || comments[selectedProject?.id].length === 0 ? (
+                    <p>No comments added yet.</p>
+                  ) : (
+                    comments[selectedProject?.id].map((comment) => (
+                      <div key={comment.id} className={styles.comment}>
+                        <p><strong>{comment.username}</strong>: {comment.comment}</p>
+                      </div>
+                    ))
+                  )}
                 </div>
+
+                <h3 className={styles.commentTitle}>Add your Comment</h3>
+                <input
+                  type="text"
+                  placeholder="Your Name"
+                  value={formData[selectedProject?.id]?.commenterName || ''}
+                  onChange={(e) => handleFormChange(selectedProject?.id, 'commenterName', e.target.value)}
+                  className={styles.commentInput}
+                />
+                <textarea
+                  placeholder="Write a comment..."
+                  value={formData[selectedProject?.id]?.newComment || ''}
+                  onChange={(e) => handleFormChange(selectedProject?.id, 'newComment', e.target.value)}
+                  className={styles.commentInput}
+                />
+                <button onClick={handleCommentSubmit} className={styles.commentSubmitButton}>
+                  Submit Comment
+                </button>
               </div>
-            </div>
-          ))}
-        </div>
+              */}
+              <ToastContainer position="bottom-right" autoClose={3000} hideProgressBar={false} closeOnClick pauseOnHover draggable theme="dark" />
+            </Modal.Body>
+            <Modal.Footer className={styles.modalFooter}>
+              <Button variant="secondary" onClick={handleClose} className={styles.closeButton}>
+                Close
+              </Button>
+            </Modal.Footer>
+          </Modal>
+        )}
+
       </div>
-
-      {selectedProject && (
-        <Modal show={true} onHide={handleClose} size="lg" centered contentClassName={styles.modalContainer}>
-          <Modal.Header closeButton className={styles.modalHeader}>
-            <Modal.Title>{selectedProject.title}</Modal.Title>
-          </Modal.Header>
-          <Modal.Body className={styles.modalBody}>
-            <h5 className={styles.modalSubtitle}>{selectedProject.subtitle}</h5>
-            <p className={styles.modalDescription}>{selectedProject.description}</p>
-            <Image
-              src={selectedProject.image}
-              alt={selectedProject.title}
-              width={600}
-              height={400}
-              className={styles.modalImage}
-            />
-            <p><strong>Researcher:</strong> {selectedProject.owners}</p>
-            {/*<p><strong>Domain:</strong> {selectedProject.domain}</p>*/}
-            <p><strong>Status:</strong>
-              <span className={`${styles.statusBadge} ${statusClasses[selectedProject.status]}`}>
-                {selectedProject.status}
-              </span>
-            </p>
-            <p><strong>Mentor:</strong> {selectedProject.mentor}</p>
-
-
-            {/*<div className={styles.voteSection}>
-
-              <button onClick={() => handleVote('upvote')} className={`${styles.voteButton} ${vote === 'upvote' ? styles.active : ''}`}>
-                ▲ Upvote ({voteCounts.upvotes})
-              </button>
-
-              <button onClick={() => handleVote('downvote')} className={`${styles.voteButton} ${vote === 'downvote' ? styles.active : ''}`}>
-                ▼ Downvote ({voteCounts.downvotes})
-              </button>
-            </div>
-
-
-            <div className={styles.commentSection}>
-              <h3 className={styles.commentTitle}>Comments</h3>
-              <div className={styles.commentList}>
-                {!comments[selectedProject?.id] || comments[selectedProject?.id].length === 0 ? (
-                  <p>No comments added yet.</p>
-                ) : (
-                  comments[selectedProject?.id].map((comment) => (
-                    <div key={comment.id} className={styles.comment}>
-                      <p><strong>{comment.username}</strong>: {comment.comment}</p>
-                    </div>
-                  ))
-                )}
-              </div>
-
-              <h3 className={styles.commentTitle}>Add your Comment</h3>
-              <input
-                type="text"
-                placeholder="Your Name"
-                value={formData[selectedProject?.id]?.commenterName || ''}
-                onChange={(e) => handleFormChange(selectedProject?.id, 'commenterName', e.target.value)}
-                className={styles.commentInput}
-              />
-              <textarea
-                placeholder="Write a comment..."
-                value={formData[selectedProject?.id]?.newComment || ''}
-                onChange={(e) => handleFormChange(selectedProject?.id, 'newComment', e.target.value)}
-                className={styles.commentInput}
-              />
-              <button onClick={handleCommentSubmit} className={styles.commentSubmitButton}>
-                Submit Comment
-              </button>
-            </div>
-            */}
-            <ToastContainer position="bottom-right" autoClose={3000} hideProgressBar={false} closeOnClick pauseOnHover draggable theme="dark" />
-          </Modal.Body>
-          <Modal.Footer className={styles.modalFooter}>
-            <Button variant="secondary" onClick={handleClose} className={styles.closeButton}>
-              Close
-            </Button>
-          </Modal.Footer>
-        </Modal>
-      )}
-
     </div>
   );
 }

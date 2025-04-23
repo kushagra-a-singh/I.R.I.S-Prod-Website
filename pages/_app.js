@@ -2,10 +2,10 @@ import './_app.css';
 import Header2 from '../src/components/Header2';
 import Footer from '../src/components/Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Chatbot from '../src/components/chatbot/Chatbot';
 import { useEffect } from 'react';
 import Head from 'next/head';
 import Chatbot1 from '@/components/chatbot/Chatbot1';
+import Script from 'next/script';
 
 function App({ Component, pageProps }) {
 

@@ -11,8 +11,10 @@ from langchain_groq import ChatGroq
 from dotenv import load_dotenv
 import os
 import re
+from pathlib import Path
 
-load_dotenv(dotenv_path="../../../.env.local")
+env_path = Path(__file__).resolve().parents[3] / ".env.local"
+load_dotenv(dotenv_path=env_path)
 
 # Initialize Flask app
 app = Flask(__name__)

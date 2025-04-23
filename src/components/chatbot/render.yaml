@@ -6,6 +6,3 @@ services:
     buildCommand: pip install -r requirements.txt
     startCommand: gunicorn chatbot:app --bind 0.0.0.0:$PORT
     autoDeploy: true
-    envVars:
-      - key: PORT
-        value: 5800

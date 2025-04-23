@@ -18,7 +18,11 @@ load_dotenv(dotenv_path=env_path)
 
 # Initialize Flask app
 app = Flask(__name__)
-CORS(app) 
+CORS(app, origins=[
+    "https://iris-dummy-nextjs.vercel.app",
+    "https://www.iris-club.in/",
+    "http://localhost:3000"
+]) 
 
 def make_links_clickable(text):
     """

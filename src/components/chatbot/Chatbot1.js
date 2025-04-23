@@ -80,7 +80,7 @@ const Chatbot1 = () => {
     }
 
     // Send the query to the backend API
-    const response = await fetch("/api/chat", {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/chat`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ query: messageText }),

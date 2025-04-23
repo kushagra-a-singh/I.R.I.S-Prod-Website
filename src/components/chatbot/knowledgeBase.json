@@ -261,7 +261,7 @@
     ]
   },
   {
-    "route": "d:\\Kushagra\\Programming\\IRIS MIT WPU\\I.R.I.S-nextjs\\pages\\postcss.config",
+    "route": "d:\\Kushagra\\Programming\\IRIS MIT WPU\\I.R.I.S-nextjs\\postcss.config.js",
     "content": "module.exports = { plugins: { tailwindcss: {}, autoprefixer: {}, }, }",
     "questions": [
       "Tell me about postcss.config",
@@ -315,7 +315,7 @@
     ]
   },
   {
-    "route": "d:\\Kushagra\\Programming\\IRIS MIT WPU\\I.R.I.S-nextjs\\pages\\tailwind.config",
+    "route": "d:\\Kushagra\\Programming\\IRIS MIT WPU\\I.R.I.S-nextjs\\tailwind.config.js",
     "content": "module.exports = { content: [ './pages/**/*.{js,ts,jsx,tsx}', './src/components/**/*.{js,ts,jsx,tsx}', ], theme: { extend: {}, }, plugins: [], }",
     "questions": [
       "Tell me about tailwind.config",

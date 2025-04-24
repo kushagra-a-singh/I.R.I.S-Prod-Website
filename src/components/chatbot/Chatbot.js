@@ -163,31 +163,40 @@ const Chatbot = () => {
       setIsOpen(false);
       return;
     }
-    
+
     // Add user message
     setMessages(prev => [...prev, { sender: 'user', text, isNew: true }]);
-    
+
     // Add typing indicator
     setMessages(prev => [...prev, { sender: 'bot', text: '...' }]);
-    
-    // Get response
-    let response;
-    if (model) {
-      response = await findBestResponse(text);
-    } else {
-      response = "I'm still loading my knowledge. Please try again in a moment!";
-      loadModel();
+
+    // --- FLASK API CALL START ---
+    let responseText = "Sorry, I couldn't get a response.";
+    let containsHtml = false;
+    try {
+      const res = await fetch('http://localhost:5800/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ query: text }),
+      });
+      const data = await res.json();
+      console.log("Chatbot API response:", data); // DEBUG LOG
+      responseText = data.response || responseText;
+      containsHtml = data.contains_html || false;
+    } catch (error) {
+      responseText = "Sorry, there was a problem contacting the server.";
+      console.error("Chatbot API error:", error);
     }
-    
+    // --- FLASK API CALL END ---
+
     // Replace typing indicator with actual response
     setMessages(prev => [
       ...prev.slice(0, prev.length - 1),
-      { sender: 'bot', text: response, isNew: true }
+      { sender: 'bot', text: responseText, isNew: true, contains_html: containsHtml }
     ]);
 
-    // After a while, mark message as not new (for animation purposes)
     setTimeout(() => {
-      setMessages(prev => 
+      setMessages(prev =>
         prev.map(msg => msg.isNew ? { ...msg, isNew: false } : msg)
       );
     }, 1000);

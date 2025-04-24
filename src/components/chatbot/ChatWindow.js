@@ -35,7 +35,7 @@ const ChatWindow = ({ isOpen, messages, onSendMessage, onFeedback }) => {
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className="fixed bottom-24 right-6 w-80 md:w-96 h-96 bg-white rounded-lg shadow-xl z-40 flex flex-col overflow-hidden"
+          className="fixed bottom-24 right-6 w-80 md:w-96 h-[48rem] bg-white rounded-lg shadow-xl z-40 flex flex-col overflow-hidden"
           initial={{ opacity: 0, y: 50, scale: 0.9 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 50, scale: 0.9 }}
@@ -71,7 +71,11 @@ const ChatWindow = ({ isOpen, messages, onSendMessage, onFeedback }) => {
                       <TypingIndicator />
                     ) : (
                       <div className={msg.isNew ? 'typing-text' : ''}>
-                        {msg.text}
+                        {msg.sender === 'bot' && msg.text !== '...'
+                          ? (msg.contains_html
+                              ? <span dangerouslySetInnerHTML={{ __html: msg.text }} />
+                              : <span dangerouslySetInnerHTML={{ __html: linkify(msg.text) }} />)
+                          : msg.text}
                       </div>
                     )}
                   </div>
@@ -129,5 +133,19 @@ const ChatWindow = ({ isOpen, messages, onSendMessage, onFeedback }) => {
     </AnimatePresence>
   );
 };
+
+// Helper function to convert URLs in text to clickable links
+function linkify(text) {
+  if (!text) return '';
+  // Improved regex for URLs that avoids trailing unbalanced ')'
+  const urlPattern = /(https?:\/\/[^\s<>"]+?)(?=[.,!?:;\)]?(?:\s|$))/g;
+  return text.replace(urlPattern, url => {
+    // Remove a trailing ')' if there are more ')' than '(' in the url
+    if (url.endsWith(')') && (url.split('(').length - 1) < (url.split(')').length - 1)) {
+      url = url.slice(0, -1);
+    }
+    return `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>`;
+  });
+}
 
 export default ChatWindow;

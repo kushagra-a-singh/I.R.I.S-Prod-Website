@@ -31,7 +31,7 @@ app = Flask(__name__)
 CORS(app,
      origins=[
          "https://iris-dummy-nextjs.vercel.app",
-         "https://www.iris-club.in/",
+         "https://www.iris-club.in",
          "http://localhost:3000",
          "http://localhost:3001",
          "http://localhost:5800"

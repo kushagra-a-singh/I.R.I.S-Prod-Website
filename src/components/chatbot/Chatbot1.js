@@ -3,6 +3,15 @@ import Image from 'next/image'
 
 // ChatMessage component remains the same
 const ChatMessage = ({ message }) => {
+  // Use a linkify function if message is not already HTML
+  function linkify(text) {
+    if (!text) return '';
+    const urlPattern = /(https?:\/\/[^\s]+)/g;
+    return text.replace(urlPattern, url =>
+      `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>`
+    );
+  }
+
   return (
     <div style={{
       margin: "10px",
@@ -15,8 +24,12 @@ const ChatMessage = ({ message }) => {
       fontSize: "14px",
       color: "#333",
     }}>
-      {message.contains_html ? (
-        <div dangerouslySetInnerHTML={{ __html: message.text }} />
+      {message.sender === 'bot' ? (
+        message.contains_html ? (
+          <div dangerouslySetInnerHTML={{ __html: message.text }} />
+        ) : (
+          <div dangerouslySetInnerHTML={{ __html: linkify(message.text) }} />
+        )
       ) : (
         message.text
       )}
@@ -118,7 +131,8 @@ const Chatbot1 = () => {
       bottom: "20px", 
       right: "20px", 
       zIndex: 1000,
-      fontFamily: "Arial, sans-serif"
+      fontFamily: "Arial, sans-serif",
+      
     }}>
       {/* Chatbot Button - Updated with animation and no circle */}
       <button
@@ -167,7 +181,8 @@ const Chatbot1 = () => {
             marginTop: "10px",
             display: "flex",
             flexDirection: "column",
-            height: "500px",
+            height: "455px",
+            maxHeight: "85vh",
             overflow: "hidden"
           }}
         >

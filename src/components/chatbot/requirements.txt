@@ -8,3 +8,8 @@ langchain-huggingface
 langchain-community
 langchain-groq
 gunicorn
+python-dotenv
+dotenv
+numpy
+supabase
+pytz

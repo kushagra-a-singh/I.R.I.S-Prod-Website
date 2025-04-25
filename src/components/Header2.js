@@ -48,6 +48,7 @@ function Header2() {
                 className={styles.logoImg}
                 width={40}
                 height={40}
+                unoptimized
               />
             </Link>
             <button

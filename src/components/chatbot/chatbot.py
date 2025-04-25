@@ -57,7 +57,7 @@ def make_links_clickable(text):
         # Remove a trailing ')' if there are more ')' than '(' in the url
         if url.endswith(')') and url.count('(') < url.count(')'):
             url = url[:-1]
-        return f'<a href="{url}" target="_blank" rel="noopener noreferrer">{url}</a>'
+        return f'<a href="{url}">{url}</a>'
 
     text = url_pattern.sub(replace_match, text)
     return text

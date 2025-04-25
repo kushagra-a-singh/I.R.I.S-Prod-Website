@@ -138,13 +138,13 @@ const ChatWindow = ({ isOpen, messages, onSendMessage, onFeedback }) => {
 function linkify(text) {
   if (!text) return '';
   // Improved regex for URLs that avoids trailing unbalanced ')'
-  const urlPattern = /(https?:\/\/[^\s<>"]+?)(?=[.,!?:;\)]?(?:\s|$))/g;
+  const urlPattern = /(https?:\/\/[^\s\u003c\u003e\"]+?)(?=[.,!?:;\)]?(?:\s|$))/g;
   return text.replace(urlPattern, url => {
-    // Remove a trailing ')' if there are more ')' than '(' in the url
+    // Remove a trailing ')' if there are more '(' than ')' in the url
     if (url.endsWith(')') && (url.split('(').length - 1) < (url.split(')').length - 1)) {
       url = url.slice(0, -1);
     }
-    return `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>`;
+    return `<a href="${url}">${url}</a>`;
   });
 }
 

@@ -8,7 +8,7 @@ const ChatMessage = ({ message }) => {
     if (!text) return '';
     const urlPattern = /(https?:\/\/[^\s]+)/g;
     return text.replace(urlPattern, url =>
-      `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>`
+      `<a href="${url}">${url}</a>`
     );
   }
 

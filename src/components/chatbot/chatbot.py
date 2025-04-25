@@ -244,6 +244,10 @@ def chat():
         traceback.print_exc()
         return jsonify({"error": str(e)}), 500
 
+@app.route("/health")
+def health():
+    return "OK", 200
+
 # Add a root route for testing
 @app.route("/")
 def home():

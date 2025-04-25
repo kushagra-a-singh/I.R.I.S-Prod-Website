@@ -78,37 +78,56 @@ const Chatbot1 = () => {
     question => !usedQuestions.includes(question)
   );
 
+  // Utility: Promise with timeout
+  function withTimeout(promise, ms) {
+    return Promise.race([
+      promise,
+      new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), ms))
+    ]);
+  }
+
   const sendMessage = async (messageText = input) => {
     if (!messageText.trim()) return;
 
-    // Hide predefined questions when sending any message
     setShowPredefinedQuestions(false);
-
-    // Add user message to the chat
     setMessages((prev) => [...prev, { sender: "user", text: messageText }]);
-
-    // Mark this question as used if it's one of our predefined ones
     if (allQuestions.includes(messageText)) {
       setUsedQuestions(prev => [...prev, messageText]);
     }
 
-    // Send the query to the backend API
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/chat`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ query: messageText }),
+    // Add typing indicator
+    setMessages((prev) => [...prev, { sender: "bot", text: '...', isTyping: true }]);
+
+    let botMessage = { sender: "bot", text: '', contains_html: false };
+    try {
+      const response = await withTimeout(
+        fetch(`${process.env.NEXT_PUBLIC_API_URL}/chat`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ query: messageText }),
+        }),
+        10000 // 10 seconds
+      );
+      const data = await response.json();
+      botMessage = {
+        sender: "bot",
+        text: data.response,
+        contains_html: data.contains_html || false
+      };
+    } catch (error) {
+      botMessage = {
+        sender: "bot",
+        text: "We're facing connectivity issues. Please try again in a moment.",
+        contains_html: false
+      };
+    }
+
+    // Remove typing indicator and add bot message
+    setMessages((prev) => {
+      const msgs = prev.filter(m => !m.isTyping);
+      return [...msgs, botMessage];
     });
 
-    const data = await response.json();
-
-    // Add bot response to the chat
-    setMessages((prev) => [...prev, { 
-      sender: "bot", 
-      text: data.response,
-      contains_html: data.contains_html || false 
-    }]);
-
-    // Clear the input if it was from the input field
     if (messageText === input) {
       setInput("");
     }

@@ -53,6 +53,19 @@
   }
 }
 
+@media (max-width: 600px) {
+  .heroImageWrapper {
+    margin-top: 48px;
+  }
+  .newSectionContainer {
+    min-height: 400px;
+  }
+  .animate {
+    opacity: 1 !important;
+    animation: galleryScroll 0.8s ease-out forwards;
+  }
+}
+
 .heroContent {
   display: flex;
   gap: 4.5rem;

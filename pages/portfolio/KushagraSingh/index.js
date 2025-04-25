@@ -248,13 +248,21 @@ const achievements = [
   }
 ];
 
+function getMobileThreshold() {
+  if (typeof window !== 'undefined' && window.innerWidth <= 600) {
+    return 0.01;
+  }
+  return 0.2;
+}
+
 function KushagraSingh() {
-  const [link, setLink] = useState("/bgVid.webm")
-  
-  const { ref: refExperience, inView: inViewExperience } = useInView({ triggerOnce: true, threshold: 0.2 });
-  const { ref: refProjects, inView: inViewProjects } = useInView({ triggerOnce: true, threshold: 0.2 });
-  const { ref: refSkills, inView: inViewSkills } = useInView({ triggerOnce: true, threshold: 0.2 });
-  const { ref: refRoles, inView: inViewRoles } = useInView({ triggerOnce: true, threshold: 0.2 });
+  const [link, setLink] = useState("/bgVid.webm");
+  const threshold = getMobileThreshold();
+
+  const { ref: refExperience, inView: inViewExperience } = useInView({ triggerOnce: true, threshold });
+  const { ref: refProjects, inView: inViewProjects } = useInView({ triggerOnce: true, threshold });
+  const { ref: refSkills, inView: inViewSkills } = useInView({ triggerOnce: true, threshold });
+  const { ref: refRoles, inView: inViewRoles } = useInView({ triggerOnce: true, threshold });
 
   return (
     <div>
@@ -350,41 +358,43 @@ function KushagraSingh() {
       {/* Projects Section */}
       <section id="projects">
         <h2 className={styles.heading2}>Projects</h2>
-        <div
-          ref={refProjects}
-          className={`${styles.newSectionContainer} ${inViewProjects ? styles.animate : ''}`}
-        >
-          <div className={styles.projectsgrid}>
-            {projects.map((project, idx) => (
-              <div className={styles.projectcard} key={idx}>
-                <div className={styles.projectimageWrapper}>
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className={styles.projectimage}
-                    width={350}
-                    height={170}
-                    style={{ objectFit: 'contain' }}
-                  />
+        <div style={{ width: '100%', padding: '16px 0' }}>
+          <div
+            ref={refProjects}
+            className={`${styles.newSectionContainer} ${inViewProjects ? styles.animate : ''}`}
+          >
+            <div className={styles.projectsgrid}>
+              {projects.map((project, idx) => (
+                <div className={styles.projectcard} key={idx}>
+                  <div className={styles.projectimageWrapper}>
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className={styles.projectimage}
+                      width={350}
+                      height={170}
+                      style={{ objectFit: 'contain' }}
+                    />
+                  </div>
+                  <div className={styles.projectdetails}>
+                    <p className={styles.projecttitle}><strong>{project.title}</strong></p>
+                    <ul className={styles.projectpoints}>
+                      {project.points.map((point, i) => (
+                        <li key={i}>{point}</li>
+                      ))}
+                    </ul>
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.projectbutton}
+                    >
+                      View on GitHub
+                    </a>
+                  </div>
                 </div>
-                <div className={styles.projectdetails}>
-                  <p className={styles.projecttitle}><strong>{project.title}</strong></p>
-                  <ul className={styles.projectpoints}>
-                    {project.points.map((point, i) => (
-                      <li key={i}>{point}</li>
-                    ))}
-                  </ul>
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.projectbutton}
-                  >
-                    View on GitHub
-                  </a>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -392,26 +402,28 @@ function KushagraSingh() {
       {/* Skills Section */}
       <section id="skills">
         <h2 className={styles.heading2}>Skills</h2>
-        <div
-          ref={refSkills}
-          className={`${styles.newSectionContainer} ${inViewSkills ? styles.animate : ''}`}
-        >
-          <div className={styles.skillscontainer}>
-            {Object.keys(skills).map((category, categoryIdx) => (
-              skills[category] && Array.isArray(skills[category]) && skills[category].length > 0 ? (
-                <div className={styles.skillscategory} key={category}>
-                  <h3>{camelCaseToWords(category.charAt(0).toUpperCase()) + camelCaseToWords(category.slice(1))}</h3>
-                  <div className={styles.skillslist}>
-                    {skills[category].map((skill, skillIdx) => (
-                      <div className={styles.skillbox} key={skill.name}>
-                        <Image src={skill.logo} alt={`${skill.name} Logo`} width={50} height={50} />
-                        <p>{skill.name}</p>
-                      </div>
-                    ))}
+        <div style={{ width: '100%', padding: '16px 0' }}>
+          <div
+            ref={refSkills}
+            className={`${styles.newSectionContainer} ${inViewSkills ? styles.animate : ''}`}
+          >
+            <div className={styles.skillscontainer}>
+              {Object.keys(skills).map((category, categoryIdx) => (
+                skills[category] && Array.isArray(skills[category]) && skills[category].length > 0 ? (
+                  <div className={styles.skillscategory} key={category}>
+                    <h3>{camelCaseToWords(category.charAt(0).toUpperCase()) + camelCaseToWords(category.slice(1))}</h3>
+                    <div className={styles.skillslist}>
+                      {skills[category].map((skill, skillIdx) => (
+                        <div className={styles.skillbox} key={skill.name}>
+                          <Image src={skill.logo} alt={`${skill.name} Logo`} width={50} height={50} />
+                          <p>{skill.name}</p>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              ) : null
-            ))}
+                ) : null
+              ))}
+            </div>
           </div>
         </div>
       </section>

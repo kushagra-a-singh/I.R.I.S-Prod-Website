@@ -55,7 +55,7 @@
 
 @media (max-width: 600px) {
   .heroImageWrapper {
-    margin-top: 48px;
+    margin-top: 60px;
   }
   .newSectionContainer {
     min-height: 400px;
@@ -187,6 +187,26 @@
 .sectionLinks a:hover {
   color: #fff;
   border-bottom: 2px solid #a084ee;
+}
+
+@media (max-width: 600px) {
+  .sectionLinks {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    gap: 8px;
+    margin-top: 18px;
+    margin-bottom: 8px;
+  }
+  .sectionLinks a {
+    flex: 1;
+    text-align: center;
+    font-size: 1.1rem;
+    padding: 2px 0;
+  }
 }
 
 .projectsgrid {

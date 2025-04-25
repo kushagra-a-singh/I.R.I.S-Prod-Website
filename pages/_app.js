@@ -26,23 +26,24 @@ function App({ Component, pageProps }) {
         <title>I.R.I.S - Innovation Research & Intelligence Support</title>
         <link rel="icon" href="/logo.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/logo.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/logo-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/logo-16x16.png" />
+        {/* <link rel="icon" type="image/png" sizes="32x32" href="/logo-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/logo-16x16.png" /> */}
         {/* <link rel="manifest" href="/site.webmanifest" /> */}
         <meta name="theme-color" content="#ffffff" />
 
         {/* Google tag (gtag.js) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-KCK2584ZLN"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-KCK2584ZLN');
-            `,
-          }}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-KCK2584ZLN"
+          strategy="afterInteractive"
         />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-KCK2584ZLN');
+          `}
+        </Script>
       </Head>
       <style jsx global>{`
         body {

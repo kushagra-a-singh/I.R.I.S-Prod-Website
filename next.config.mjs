@@ -2,8 +2,6 @@
 const nextConfig = {
     reactStrictMode: true,
     images: {
-      domains: ['rkvbuqdjkilvqlywzjsi.supabase.co'],
-      // Optionally, you can also use remotePatterns for more specific control
       remotePatterns: [
         {
           protocol: 'https',

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import styles from './collaborations.module.css';
 import Image from 'next/image';
@@ -145,15 +145,7 @@ function Collaboration() {
     }
   }, []);
 
-  useEffect(() => {
-    if (deviceId && selectedProject) {
-      console.log('Current Device ID:', deviceId);
-      fetchComments(selectedProject.id);
-      fetchVoteStatus(selectedProject.id);
-    }
-  }, [deviceId, selectedProject]);
-
-  const fetchVoteStatus = async (projectId) => {
+  const fetchVoteStatus = useCallback(async (projectId) => {
     try {
       const { data: voteData, error: voteError } = await supabase
         .from('collab_votes')
@@ -191,7 +183,15 @@ function Collaboration() {
     } catch (error) {
       console.error('Error in fetchVoteStatus:', error);
     }
-  };
+  }, [deviceId]);
+
+  useEffect(() => {
+    if (deviceId && selectedProject) {
+      console.log('Current Device ID:', deviceId);
+      fetchComments(selectedProject.id);
+      fetchVoteStatus(selectedProject.id);
+    }
+  }, [deviceId, selectedProject, fetchVoteStatus]);
 
   const fetchComments = async (projectId) => {
     const { data, error } = await supabase

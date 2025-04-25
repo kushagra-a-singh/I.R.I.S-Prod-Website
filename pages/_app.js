@@ -30,21 +30,20 @@ function App({ Component, pageProps }) {
         <link rel="icon" type="image/png" sizes="16x16" href="/logo-16x16.png" /> */}
         {/* <link rel="manifest" href="/site.webmanifest" /> */}
         <meta name="theme-color" content="#ffffff" />
-
-        {/* Google tag (gtag.js) */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-KCK2584ZLN"
-          strategy="afterInteractive"
-        />
-        <Script id="gtag-init" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-KCK2584ZLN');
-          `}
-        </Script>
       </Head>
+      {/* Google tag (gtag.js) */}
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-KCK2584ZLN"
+        strategy="afterInteractive"
+      />
+      <Script id="gtag-init" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-KCK2584ZLN');
+        `}
+      </Script>
       <style jsx global>{`
         body {
           margin: 0;

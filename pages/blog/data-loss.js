@@ -32,9 +32,9 @@ function Blog2() {
             fetchComments();
             fetchVoteStatus();
         }
-    }, [deviceId]);
+    }, [deviceId, fetchVoteStatus]);
 
-    const fetchVoteStatus = async () => {
+    const fetchVoteStatus = useCallback(async () => {
         try {
             const { data: voteData, error: voteError } = await supabase
                 .from('blog_votes')
@@ -72,7 +72,7 @@ function Blog2() {
         } catch (error) {
             console.error('Error in fetchVoteStatus:', error);
         }
-    };
+    }, [deviceId, postId]);
 
     const fetchComments = async () => {
         const { data, error } = await supabase

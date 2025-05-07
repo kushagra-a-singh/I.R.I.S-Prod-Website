@@ -71,34 +71,24 @@ with open(os.path.join(script_dir, 'embeddings.pkl'), 'rb') as f:
 texts = data['texts']
 index = faiss.read_index(os.path.join(script_dir, 'faiss.index'))
 
-HF_API_URL = "https://api-inference.huggingface.co/pipeline/feature-extraction/sentence-transformers/all-MiniLM-L6-v2"
+HF_API_URL = "https://api-inference.huggingface.co/models/sentence-transformers/all-MiniLM-L6-v2"
 HF_API_TOKEN = os.getenv("HF_API_TOKEN")
 
 # Simple in-memory cache for user query embeddings
 query_embedding_cache = {}
 
+# Add this import at the top with other imports
+from sentence_transformers import SentenceTransformer
+
+# Load the model once at startup
+embedding_model_local = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
+
 def embed_query(query):
     if query in query_embedding_cache:
         return query_embedding_cache[query]
-    response = requests.post(
-        HF_API_URL,
-        headers={"Authorization": f"Bearer {HF_API_TOKEN}"},
-        json={"inputs": query}
-    )
-    print("HF API status:", response.status_code)
-    print("HF API response:", response.text)
-    if response.status_code != 200:
-        raise RuntimeError(f"HuggingFace API error: {response.status_code} {response.text}")
-    embedding_json = response.json()
-    print("HF API embedding_json:", embedding_json)
-    # Accept both [float, ...] and [[float, ...]]
-    if not embedding_json or not isinstance(embedding_json, list):
-        raise ValueError("HuggingFace API returned empty embedding.")
-    if isinstance(embedding_json[0], list):
-        embedding = np.array(embedding_json[0])
-    else:
-        embedding = np.array(embedding_json)
-    embedding = embedding.astype('float32')
+    # Use local model for embedding
+    embedding = embedding_model_local.encode([query])[0]
+    embedding = np.array(embedding).astype('float32')
     query_embedding_cache[query] = embedding
     return embedding
 

@@ -77,11 +77,13 @@ HF_API_TOKEN = os.getenv("HF_API_TOKEN")
 # Simple in-memory cache for user query embeddings
 query_embedding_cache = {}
 
-# Add this import at the top with other imports
+# Import SentenceTransformer (keep only one import)
 from sentence_transformers import SentenceTransformer
 
-# Load the model once at startup
-embedding_model_local = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
+# Load the model once at startup - using a much smaller model
+# Comment out the larger model to save memory
+# embedding_model_local = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
+embedding_model_local = SentenceTransformer('paraphrase-MiniLM-L3-v2')  # Much smaller model (only ~50MB vs ~200MB)
 
 def embed_query(query):
     if query in query_embedding_cache:
@@ -246,5 +248,8 @@ def home():
     return "Chatbot API is running! Use the /chat endpoint to interact with the chatbot."
 
 # Run the Flask app
+# Make sure the port binding is correct for Render
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5800)
+    import os
+    port = int(os.environ.get("PORT", 5800))
+    app.run(host="0.0.0.0", port=port)

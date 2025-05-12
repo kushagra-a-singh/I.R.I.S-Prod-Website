@@ -98,7 +98,7 @@ const projects = [
       'Benchmarked against fine-tuned DistilBERT (0.92 BERTScore).',
       'Developed a hybrid RAG-finetune architecture for improved contextual accuracy.'
     ],
-    link: 'https://github.com/kushagra-a-singh/IRIS-Club-RAG-Chatbot',
+    link: 'https://github.com/kushagra-a-singh/I.R.I.S-Prod-Website',
     image: '/rag-chatbot.png'
   },
   {
@@ -143,7 +143,7 @@ const projects = [
       'Features include event registrations with a payment gateway, dynamic blogging with a voting system and comment section, club project highlights, recruitment and contact forms.',
       'Utilized Razorpay SDK, Supabase Database, and continuous deployment on Vercel with GitHub CI/CD integration.'
     ],
-    link: 'https://github.com/kushagra-a-singh/I.R.I.S-PROD',
+    link: 'https://github.com/kushagra-a-singh/I.R.I.S-Prod-Website',
     image: '/website_img.png'
   },
   {

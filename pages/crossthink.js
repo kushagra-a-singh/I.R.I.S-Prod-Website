@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Modal, Button } from 'react-bootstrap';
-import styles from './collaborations.module.css';
+import styles from './crossthink.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -323,7 +323,7 @@ function Collaboration() {
   return (
     <div className={styles.collaborationPage}>
       <div className="container py-5">
-        <h1 className={styles.pageTitle}>Collaboration Projects</h1>
+        <h1 className={styles.pageTitle}>CrossThink Projects</h1>
         <p className={styles.pageSubtitle}>Discover our latest collaborative research and development initiatives.</p>
         <div className="row py-2" style={{ justifyContent: 'center' }}>
           {collabProjects.map((project) => (

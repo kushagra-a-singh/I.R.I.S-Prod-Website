@@ -26,7 +26,6 @@ import numbers
 env_path = Path(__file__).resolve().parents[3] / ".env.local"
 load_dotenv(dotenv_path=env_path)
 
-# Initialize Flask app
 app = Flask(__name__)
 CORS(app,
      origins=[
@@ -47,14 +46,12 @@ def make_links_clickable(text):
     """
     Convert plain text URLs to HTML anchor tags while properly handling trailing punctuation, especially unbalanced closing parenthesis.
     """
-    # Pattern that matches URLs but excludes common trailing punctuation and unbalanced closing parenthesis
     url_pattern = re.compile(
-        r'(https?://[^\s<>"]+?)(?=[.,!?:;\)]?(?:\s|$))'  # Main URL
+        r'(https?://[^\s<>"]+?)(?=[.,!?:;\)]?(?:\s|$))'  
     )
 
     def replace_match(match):
         url = match.group(1)
-        # Remove a trailing ')' if there are more ')' than '(' in the url
         if url.endswith(')') and url.count('(') < url.count(')'):
             url = url[:-1]
         return f'<a href="{url}">{url}</a>'
@@ -65,16 +62,17 @@ def make_links_clickable(text):
 import os
 script_dir = os.path.dirname(os.path.abspath(__file__))
 
-# Load precomputed texts and FAISS index
 with open(os.path.join(script_dir, 'embeddings.pkl'), 'rb') as f:
     data = pickle.load(f)
 texts = data['texts']
 index = faiss.read_index(os.path.join(script_dir, 'faiss.index'))
 
-HF_API_URL = "https://api-inference.huggingface.co/pipeline/feature-extraction/sentence-transformers/all-MiniLM-L6-v2"
+HF_API_URL = os.getenv("HF_API_URL")
 HF_API_TOKEN = os.getenv("HF_API_TOKEN")
 
-# Simple in-memory cache for user query embeddings
+if not HF_API_URL or not HF_API_TOKEN:
+    raise ValueError("HF_API_URL and HF_API_TOKEN must be set in environment variables")
+
 query_embedding_cache = {}
 
 def embed_query(query):
@@ -91,7 +89,6 @@ def embed_query(query):
         raise RuntimeError(f"HuggingFace API error: {response.status_code} {response.text}")
     embedding_json = response.json()
     print("HF API embedding_json:", embedding_json)
-    # Accept both [float, ...] and [[float, ...]]
     if not embedding_json or not isinstance(embedding_json, list):
         raise ValueError("HuggingFace API returned empty embedding.")
     if isinstance(embedding_json[0], list):
@@ -107,8 +104,8 @@ groq_api_key = os.getenv("GROQ_API_KEY")
 llm = ChatGroq(
     temperature=0,  
     groq_api_key=groq_api_key,
-    model_name="llama-3.3-70b-versatile",  # Use the desired Groq model
-    request_timeout=120, # Increase timeout for API calls
+    model_name="llama-3.3-70b-versatile",  
+    request_timeout=120, 
 )
 
 SUPABASE_URL = os.getenv("SUPABASE_URL")
@@ -258,3 +255,4 @@ def home():
 # Run the Flask app
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5800)
+    

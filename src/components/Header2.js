@@ -41,15 +41,17 @@ function Header2() {
           className={` ${styles.mainNavbar} border-blue-600 navbar navbar-expand-lg navbar-dark ${styles.navbarCustom}`}
         >
           <div className={`container ${styles.navbarContainer}`}>
-            <Link className="navbar-brand " href="/">
-              <Image
-                src="/logo3.gif"
-                alt="Logo"
-                className={styles.logoImg}
-                width={40}
-                height={40}
-                unoptimized
-              />
+            <Link className="navbar-brand" href="/" passHref>
+              <div onClick={handleNavLinkClick} style={{ cursor: 'pointer' }}>
+                <Image
+                  src="/logo3.gif"
+                  alt="Logo"
+                  className={styles.logoImg}
+                  width={40}
+                  height={40}
+                  unoptimized
+                />
+              </div>
             </Link>
             <button
               className="navbar-toggler"
@@ -85,9 +87,10 @@ function Header2() {
                         router.pathname === item.path ? styles.active : ''
                       }`}
                       href={item.path}
-                      onClick={handleNavLinkClick}
-                    >
-                      {item.name}
+                      passHref>
+                      <span onClick={handleNavLinkClick} style={{ cursor: 'pointer' }}>
+                        {item.name}
+                      </span>
                     </Link>
                   </li>
                 ))}

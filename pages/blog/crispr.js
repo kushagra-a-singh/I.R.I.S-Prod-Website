@@ -16,26 +16,9 @@ function Blog5() {
 
     const postId = 5;
 
-    useEffect(() => {
-        const storedDeviceId = localStorage.getItem('deviceId');
-        if (!storedDeviceId) {
-            const newDeviceId = 'device-' + Math.random().toString(36).substring(2);
-            localStorage.setItem('deviceId', newDeviceId);
-            setDeviceId(newDeviceId);
-        } else {
-            setDeviceId(storedDeviceId);
-        }
-    }, []);
-
-    useEffect(() => {
-        if (deviceId) {
-            console.log('Current Device ID:', deviceId);
-            fetchComments();
-            fetchVoteStatus();
-        }
-    }, [deviceId, fetchVoteStatus]);
-
     const fetchVoteStatus = useCallback(async () => {
+        if (!deviceId) return;
+        
         try {
             const { data: voteData, error: voteError } = await supabase
                 .from('blog_votes')
@@ -75,19 +58,42 @@ function Blog5() {
         }
     }, [deviceId, postId]);
 
-    const fetchComments = async () => {
-        const { data, error } = await supabase
-            .from('blog_comments')
-            .select('*')
-            .eq('post_id', postId)
-            .order('created_at', { ascending: false });
+    const fetchComments = useCallback(async () => {
+        if (!deviceId) return;
+        
+        try {
+            const { data, error } = await supabase
+                .from('blog_comments')
+                .select('*')
+                .eq('post_id', postId)
+                .order('created_at', { ascending: false });
 
-        if (error) {
-            console.error('Error fetching comments:', error);
-        } else {
+            if (error) throw error;
             setComments(data || []);
+        } catch (error) {
+            console.error('Error fetching comments:', error);
+            toast.error('Failed to load comments');
         }
-    };
+    }, [deviceId, postId]);
+
+    useEffect(() => {
+        const storedDeviceId = localStorage.getItem('deviceId');
+        if (!storedDeviceId) {
+            const newDeviceId = 'device-' + Math.random().toString(36).substring(2);
+            localStorage.setItem('deviceId', newDeviceId);
+            setDeviceId(newDeviceId);
+        } else {
+            setDeviceId(storedDeviceId);
+        }
+    }, []);
+
+    useEffect(() => {
+        if (deviceId) {
+            console.log('Current Device ID:', deviceId);
+            fetchComments();
+            fetchVoteStatus();
+        }
+    }, [deviceId, fetchComments, fetchVoteStatus]);
 
     const handleVote = async (voteType) => {
         try {

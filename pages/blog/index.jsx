@@ -274,14 +274,10 @@ function Blog() {
                   <Link
                     href={`/blog/${postLinks[post.id] || "default-blog"}`}
                     passHref
-                    legacyBehavior
+                    className={styles.readMoreButton}
+                    style={{ width: "100%", textAlign: "center", display: 'block' }}
                   >
-                    <button
-                      className={styles.readMoreButton}
-                      style={{ width: "100%", textAlign: "center" }}
-                    >
-                      Read More
-                    </button>
+                    Read More
                   </Link>
 
                 </div>

@@ -245,14 +245,125 @@ def chat():
 
 @app.route("/health")
 def health():
-    return "OK", 200
+    """Health check endpoint with detailed logging"""
+    try:
+        #get client IP and user agent for logging
+        client_ip = request.headers.get('X-Forwarded-For', request.remote_addr)
+        user_agent = request.headers.get('User-Agent', 'unknown')
+        
+        #prepare response data
+        response_data = {
+            "status": "OK",
+            "timestamp": datetime.now(pytz.utc).isoformat(),
+            "service": "iris-chatbot",
+            "server_time": datetime.now(pytz.utc).strftime('%Y-%m-%d %H:%M:%S UTC'),
+            "version": "1.0.0"
+        }
+        
+        #log the health check
+        print(f"🔍 Health check from {client_ip} - {user_agent}")
+        print(f"✅ Health check successful at {datetime.now(pytz.utc).strftime('%Y-%m-%d %H:%M:%S UTC')}")
+        
+        return jsonify(response_data), 200
+        
+    except Exception as e:
+        error_msg = f"❌ Health check failed: {str(e)}"
+        print(error_msg)
+        return jsonify({
+            "status": "error",
+            "error": str(e),
+            "timestamp": datetime.now(pytz.utc).isoformat()
+        }), 503
 
-# Add a root route for testing
+def self_ping():
+    """
+    Ping the health endpoint to keep the server alive
+    Logs detailed information about each ping attempt
+    """
+    import threading
+    import time
+    import requests
+    import json
+    
+    def get_status_emoji(status_code):
+        if 200 <= status_code < 300:
+            return "✅"
+        elif 400 <= status_code < 500:
+            return "⚠️"
+        else:
+            return "❌"
+    
+    def ping():
+        ping_count = 0
+        while True:
+            ping_count += 1
+            try:
+                #determine the base URL based on environment
+                if os.getenv('RENDER') == 'true':
+                    base_url = 'https://i-r-i-s-prod-website.onrender.com'
+                    env = 'PRODUCTION'
+                else:
+                    base_url = 'http://localhost:5800'
+                    env = 'DEVELOPMENT'
+                
+                #make the request with timing
+                start_time = time.time()
+                response = requests.get(
+                    f"{base_url}/health",
+                    timeout=10,
+                    headers={'User-Agent': 'IRIS-Self-Ping/1.0'}
+                )
+                end_time = time.time()
+                response_time = (end_time - start_time) * 1000 
+                
+                status_emoji = get_status_emoji(response.status_code)
+                log_msg = (
+                    f"{status_emoji} Ping #{ping_count} [{env}] - "
+                    f"Status: {response.status_code} - "
+                    f"Time: {response_time:.2f}ms - "
+                    f"At: {time.strftime('%Y-%m-%d %H:%M:%S')}"
+                )
+                
+                #log additional info for non-200 responses
+                if response.status_code != 200:
+                    try:
+                        error_data = response.json()
+                        log_msg += f"\n   Error: {json.dumps(error_data, indent=2)}"
+                    except:
+                        log_msg += f"\n   Response: {response.text[:200]}..."
+                
+                print(log_msg)
+                
+            except requests.exceptions.RequestException as e:
+                error_type = e.__class__.__name__
+                print(
+                    f"❌ Ping #{ping_count} [ERROR] - "
+                    f"{error_type}: {str(e)} - "
+                    f"At: {time.strftime('%Y-%m-%d %H:%M:%S')}"
+                )
+            except Exception as e:
+                print(
+                    f"❌ Ping #{ping_count} [CRITICAL] - "
+                    f"Unexpected error: {str(e)} - "
+                    f"At: {time.strftime('%Y-%m-%d %H:%M:%S')}"
+                )
+            
+            time.sleep(240)  #ping every 4 minutes
+    
+    print("🚀 Starting self-ping service...")
+    print(f"🔄 Will ping every 4 minutes to prevent server sleep")
+    thread = threading.Thread(target=ping, daemon=True)
+    thread.start()
+
+#start self-ping in production environment
+if os.getenv('RENDER') == 'true':
+    self_ping()
+    print("🌐 Running in production mode with self-ping enabled")
+
 @app.route("/")
 def home():
     return "Chatbot API is running! Use the /chat endpoint to interact with the chatbot."
 
-# Run the Flask app
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5800)
     

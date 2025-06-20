@@ -50,16 +50,16 @@ function Collaboration() {
       branchYear: 'TY BTech CSE',
       status: 'Ongoing',
       guides: ['Dr. Shamla Mantri', 'Dr. Yogesh Kulkarni'],
-      owners: 'Jane Doe',
+      owners: 'I.R.I.S',
       contributors: (
         <>
-          <a href="https://linkedin.com/in/example1" target="_blank" rel="noopener noreferrer" className={styles.contributorLink}>John Doe</a>
-          {' '} & <span className={styles.contributorLink}> Jane Smith</span>
+          <a target="_blank" rel="noopener noreferrer" className={styles.contributorLink}>I.R.I.S Tech Team</a>
+          {/* {' '} & <span className={styles.contributorLink}> Jane Smith</span> */}
         </>
       ),
       githubLink: "https://github.com/example1/opensource-ai",
       date: 'March 10, 2025',
-      image: '/ai.png',
+      image: '/open_source.png',
       imageWidth: 500,
       imageHeight: 300,
     },
@@ -72,13 +72,13 @@ function Collaboration() {
       branchYear: 'TY BTech IT',
       status: 'Completed',
       guides: ['Dr. Shamla Mantri', 'Dr. Yogesh Kulkarni'],
-      owners: 'Jane Doe',
+      owners: 'I.R.I.S',
       contributors: (
-        <a href="https://linkedin.com/in/example2" target="_blank" rel="noopener noreferrer" className={styles.contributorLink}>Alice Johnson</a>
+        <a target="_blank" rel="noopener noreferrer" className={styles.contributorLink}>I.R.I.S Tech Team</a>
       ),
       githubLink: "https://github.com/example2/secure-transactions",
       date: 'February 20, 2025',
-      image: '/ai.png',
+      image: '/transaction.jpg',
       imageWidth: 500,
       imageHeight: 300,
     },
@@ -91,13 +91,13 @@ function Collaboration() {
       branchYear: 'TY BTech CSE',
       status: 'In Review',
       guides: ['Dr. Shamla Mantri', 'Dr. Yogesh Kulkarni'],
-      owners: 'Jane Doe',
+      owners: 'I.R.I.S',
       contributors: (
-        <a href="https://linkedin.com/in/example3" target="_blank" rel="noopener noreferrer" className={styles.contributorLink}>Michael Lee</a>
+        <a target="_blank" rel="noopener noreferrer" className={styles.contributorLink}>I.R.I.S Tech Team</a>
       ),
       githubLink: "https://github.com/example3/cybersecurity-analysis",
       date: 'April 5, 2025',
-      image: '/ai.png',
+      image: '/cyber_security.png',
       imageWidth: 500,
       imageHeight: 300,
     },
@@ -110,13 +110,13 @@ function Collaboration() {
       branchYear: 'TY BTech ECE',
       status: 'Ongoing',
       guides: ['Dr. Shamla Mantri', 'Dr. Yogesh Kulkarni'],
-      owners: 'Jane Doe',
+      owners: 'I.R.I.S',
       contributors: (
-        <a href="https://linkedin.com/in/example4" target="_blank" rel="noopener noreferrer" className={styles.contributorLink}>Sarah Patel</a>
+        <a target="_blank" rel="noopener noreferrer" className={styles.contributorLink}>I.R.I.S Tech Team</a>
       ),
       githubLink: "https://github.com/example4/smart-agriculture",
       date: 'May 15, 2025',
-      image: '/ai.png',
+      image: '/iot.jpg',
       imageWidth: 500,
       imageHeight: 300,
     },

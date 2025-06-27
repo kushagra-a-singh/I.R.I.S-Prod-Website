@@ -59,7 +59,7 @@ const handler = async (req, res) => {
           <p><strong>Experience:</strong> ${experience}</p>
           <p><strong>Why join IRIS:</strong> ${contribution}</p>
           ${cv_url ? `<p><strong>Resume:</strong> <a href="${cv_url}" target="_blank">View Resume</a></p>` : '<p><strong>Resume:</strong> Not provided</p>'}
-          <p><strong>Submitted at:</strong> ${new Date(created_at).toLocaleString()}</p>
+          <p><strong>Submitted at:</strong> ${new Date(created_at).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata', dateStyle: 'medium', timeStyle: 'long' })} (IST)</p>
         </div>
         `,
       });

@@ -1,36 +1,131 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# I.R.I.S. Club Website  
+**Innovation, Research and Intelligence Support**
 
-## Getting Started
+## Overview  
+The official website for **I.R.I.S.**, a college club dedicated to fostering innovation, research and collaboration. Built with modern web technologies, this platform serves as a hub for event information, member engagement and intelligent interactions through an AI-powered chatbot.
 
-First, run the development server:
+## ✨ Features  
+- **AI-Powered Chatbot**: Intelligent Q&A system using TensorFlow.js, Universal Sentence Encoder, LangChain, HuggingFace embeddings and Groq LLM
+- **Event Management**: Comprehensive event listings with registration and payment processing  
+- **Modern UI/UX**: Responsive design with Tailwind CSS and Framer Motion animations  
+- **Secure Authentication**: User management with Supabase Auth  
+- **Real-time Updates**: Dynamic content loading and state management  
+- **Email Notifications**: Automated email system for registrations and updates
+
+## 🛠️ Tech Stack  
+- **Frontend**: 
+  - Next.js 15 with React 19
+  - Tailwind CSS + Framer Motion
+  - React Bootstrap components
+  - Redux for state management
+
+- **Backend**:
+  - **Live Backend**: Python/Flask with LangChain deployed on Render
+  - **Testing Backend**: Python/Flask with LangChain deployed on AWS App Runner (see [AWS Deployment Branch](#aws-deployment-branch))
+  - Supabase for database and authentication
+
+- **AI/ML**:
+  - LangChain for RAG (Retrieval-Augmented Generation)
+  - HuggingFace embeddings for semantic search
+  - Groq LLM for text generation
+  - FAISS for vector similarity search
+
+- **Infrastructure**:
+  - **Frontend Hosting**: Vercel
+  - **Live Backend**: Render (Python/Flask)
+  - **Testing Backend**: AWS App Runner (Python/Flask)
+  - **Database**: Supabase
+  - **CI/CD**: GitHub Actions with automated deployments
+  - **Environment Management**: Multi-environment configuration (development, production)
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js 18+ and npm 9+
+- Python 3.8+
+- Supabase account
+- Razorpay account (for payments)
+
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/kushagra-a-singh/I.R.I.S-Prod-Website.git
+   cd I.R.I.S-Prod-Website
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Set up environment variables:
+   Create a `.env.local` file in the root directory with the following variables:
+   ```env
+   NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+   RAZORPAY_KEY_ID=your_razorpay_key
+   RAZORPAY_KEY_SECRET=your_razorpay_secret
+   NEXT_PUBLIC_API_URL=https://your-render-backend-url.onrender.com
+   ```
+
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
+   This will start the Next.js development server. The backend is deployed separately on Render.
+
+## 🤖 AI Chatbot Setup
+The AI chatbot requires Python dependencies. Set it up with:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pip install -r requirements.txt  
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Deployment
+- **Frontend**: Hosted on Vercel with automatic deployments from the `main` branch
+- **Live Backend**: Deployed on Render for reliable server-side operations
+- **Database**: Managed by Supabase
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Deployment Process
+1. Push your changes to the `main` branch
+2. Vercel will automatically deploy frontend changes
+3. Backend updates are automatically deployed from the main branch via Render's GitHub integration
+4. Monitor deployments in the respective dashboards (Vercel & Render)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🔧 AWS Deployment Branch
 
-## Learn More
+We maintain a separate branch for AWS deployment testing and experimentation:
 
-To learn more about Next.js, take a look at the following resources:
+### Branch: `aws-deployment`
+- **Purpose**: Testing and learning AWS services
+- **Backend**: Python/Flask deployed on AWS App Runner
+- **Container Registry**: Amazon ECR
+- **Documentation**: Comprehensive AWS deployment guide
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Why AWS Branch?
+- **Learning**: Hands-on experience with AWS services
+- **Testing**: Alternative deployment strategy
+- **Scalability**: Future-proofing for potential migration
+- **Cost Comparison**: Understanding different hosting costs
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Access AWS Deployment Guide
+For detailed AWS deployment instructions, check out the `aws-deployment` branch:
+```bash
+git checkout aws-deployment
+```
+Or view the [AWS Deployment Guide](./AWS_APP_RUNNER_README.md) in this branch.
 
-## Deploy on Vercel
+**Note**: The main branch continues to use Render for the live backend. The AWS implementation is for testing and learning purposes.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🤝 Contributing
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Added some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📄 License
+Distributed under the MIT License. See `LICENSE` for more information.
+
+## 📫 Contact
+For any questions or feedback, please open an issue on GitHub.

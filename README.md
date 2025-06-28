@@ -21,7 +21,7 @@ The official website for **I.R.I.S.**, a college club dedicated to fostering inn
 
 - **Backend**:
   - **Live Backend**: Python/Flask with LangChain deployed on Render
-  - **Testing Backend**: Python/Flask with LangChain deployed on AWS App Runner (see [AWS Deployment Branch](#aws-deployment-branch))
+  - **Testing Backend**: Python/Flask with LangChain deployed on AWS App Runner (see [AWS Deployment Branch](https://github.com/kushagra-a-singh/I.R.I.S-Prod-Website/tree/aws-deployment))
   - Supabase for database and authentication
 
 - **AI/ML**:
@@ -113,7 +113,7 @@ For detailed AWS deployment instructions, check out the `aws-deployment` branch:
 ```bash
 git checkout aws-deployment
 ```
-Or view the [AWS Deployment Guide](./AWS_APP_RUNNER_README.md) in this branch.
+Or view the [AWS Deployment Guide](https://github.com/kushagra-a-singh/I.R.I.S-Prod-Website/blob/aws-deployment/AWS_APP_RUNNER_README.md) in this branch.
 
 **Note**: The main branch continues to use Render for the live backend. The AWS implementation is for testing and learning purposes.
 

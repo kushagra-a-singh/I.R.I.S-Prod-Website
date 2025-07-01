@@ -77,7 +77,7 @@ function Header2() {
                   { name: 'Club Gallery', path: '/gallery' },
                   { name: 'Projects', path: '/Projects' },
                   { name: 'Research', path: '/research' },
-                  { name: 'Crossthink', path: '/crossthink' },
+                  { name: 'CrossThink', path: '/crossthink' },
                   { name: 'Blog', path: '/blog' },
                   { name: 'Contact', path: '/contact' },
                 ].map((item) => (

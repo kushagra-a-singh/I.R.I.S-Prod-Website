@@ -41,7 +41,7 @@ const handler = async (req, res) => {
           <p><strong>Phone:</strong> ${phone}</p>
           <p><strong>Subject:</strong> ${subject}</p>
           <p><strong>Message:</strong> ${message}</p>
-          <p><strong>Submitted at:</strong> ${new Date(created_at).toLocaleString()}</p>
+          <p><strong>Submitted at:</strong> ${new Date(created_at).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata', dateStyle: 'medium', timeStyle: 'long' })} (IST)</p>
         </div>
 
 

@@ -311,7 +311,12 @@ function Recruitment() {
       return null;
     }
 
-    return supabase.storage.from('cv_bucket').getPublicUrl(data.path).publicURL;
+    const { data: { publicUrl } } = supabase
+      .storage
+      .from('cv_bucket')
+      .getPublicUrl(filePath);
+      
+    return publicUrl;
   };
 
   const handleOkayButton = () => {

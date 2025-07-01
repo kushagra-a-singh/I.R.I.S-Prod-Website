@@ -154,10 +154,10 @@ function About() {
                 { name: "Raghunandan Veer", role: "Founder", imgSrc: "/logo2.png", linkedIn: "https://www.linkedin.com/in/raghunandan-veer-31b724266/" },
                 { name: "Sarthak Patil", role: "Founder", imgSrc: "/sarthak.jpeg", linkedIn: "https://www.linkedin.com/in/sarthak-patil-aa453a219/" },
               ].map((member, index) => (
-                <div key={index} className="col-6 col-xl-4 ">
+                <div key={index} className="col-12 col-sm-6 col-lg-4">
                   <div className={styles.card}>
                     <Image
-                      src={member.imgSrc}
+                      src={member.imgSrc}zz
                       alt={`${member.name} image`}
                       width={300}
                       height={300}

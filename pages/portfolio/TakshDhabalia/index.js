@@ -204,6 +204,39 @@ function TakshDhabalia() {
                     <li key={idx}>{desc}</li>
                   ))}
                 </ul>
+                {exp.company === 'Team Bolt' && (
+                  <div className={styles.extraImages}>
+                    <Image
+                      src="/bolt1.jpg"
+                      alt="Team Bolt Work 1"
+                      width={200}
+                      height={150}
+                      className={styles.extraImage}
+                    />
+                    <Image
+                      src="/bolt2.jpg"
+                      alt="Team Bolt Work 2"
+                      width={200}
+                      height={150}
+                      className={styles.extraImage}
+                    />
+                    <Image
+                      src="/bolt3.jpg"
+                      alt="Team Bolt Work 3"
+                      width={200}
+                      height={150}
+                      className={styles.extraImage}
+                    />
+                    <Image
+                      src="/bolt4.jpg"
+                      alt="Team Bolt Work 4"
+                      width={200}
+                      height={150}
+                      className={styles.extraImage}
+                    />
+                    {/* Add more images as needed */}
+                  </div>
+                )}
               </div>
             </div>
           ))}

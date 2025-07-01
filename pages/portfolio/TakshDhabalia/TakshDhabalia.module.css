@@ -292,6 +292,18 @@
     color: #fff;
 }
 
+.extraImages {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.extraImage {
+  border-radius: 8px;
+  object-fit: cover;
+}
+
 #skills {
     padding: 50px 20px;
     background: linear-gradient(to right, rgba(23, 37, 90, 0.8), rgba(201, 64, 101, 0.8)); 

@@ -125,7 +125,7 @@ function About() {
 
           <div id="team-members" className={`${styles.teamMembers} py-4`}>
             <h2>Team Members</h2>
-            <div className="row">
+            <div className="row gx-2 gy-3">
               {[ 
                 { name: "Durgesh Deore", role: "Founder", imgSrc: "/durgesh.jpg", linkedIn: "https://www.linkedin.com/in/durgesh-deore-74a75a281/" },
                 { name: "Kavish Jain", role: "Founder", imgSrc: "/kavish.jpeg", linkedIn: "https://www.linkedin.com/in/kavish-jain-38b812247/" },
@@ -154,7 +154,7 @@ function About() {
                 { name: "Raghunandan Veer", role: "Founder", imgSrc: "/logo2.png", linkedIn: "https://www.linkedin.com/in/raghunandan-veer-31b724266/" },
                 { name: "Sarthak Patil", role: "Founder", imgSrc: "/sarthak.jpeg", linkedIn: "https://www.linkedin.com/in/sarthak-patil-aa453a219/" },
               ].map((member, index) => (
-                <div key={index} className="col-12 col-sm-6 col-lg-4">
+                <div key={index} className="col-6 col-sm-6 col-lg-4">
                   <div className={styles.card}>
                     <Image
                       src={member.imgSrc}zz

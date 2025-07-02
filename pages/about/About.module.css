@@ -100,7 +100,7 @@
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   overflow: hidden;
-  margin: 1rem;
+  margin: 0.5rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
@@ -242,3 +242,34 @@
     font-size: 0.9rem; 
   }
 }
+
+@media (max-width: 768.98px) {
+  .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .content {
+    padding-inline: 10px;
+  }
+
+  .card {
+    margin: 0 auto; 
+    width: 100%;
+  }
+  
+}
+  @media (max-width: 480px) {
+    .cardContent h3 {
+      font-size: 1rem;
+    }
+  
+    .cardContent p{
+      font-size: 0.85rem;
+    }
+
+  .cardContent a {
+    padding: 6px 10px;
+    font-size: 0.9rem;
+  }
+  }

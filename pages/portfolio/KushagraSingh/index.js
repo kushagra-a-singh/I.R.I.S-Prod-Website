@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './KushagraSingh.module.css';
 import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
@@ -37,7 +37,7 @@ const skills = {
     { name: 'Scikit-Learn', logo: '/images/scikit.png' },
     { name: 'Tkinter', logo: '/images/tkinter.png' },
     { name: 'StreamLit', logo: '/images/stramlit.png' },
-    { name: 'PyQt5', logo: '/images/pyqt5.jpg' },    
+    { name: 'PyQt5', logo: '/images/pyqt5.jpg' },
     { name: 'NLTK', logo: '/images/nltk.png' },
     { name: 'spaCy', logo: '/images/spacy.webp' },
     { name: 'LangChain', logo: '/images/langchain.webp' },
@@ -92,6 +92,8 @@ const skills = {
 const projects = [
   {
     title: 'IRIS Club RAG Chatbot',
+    category: 'Conversational AI & NLP',
+    tags: ['LLaMA-3 70B', 'LangChain', 'FAISS', 'HuggingFace', 'Next.js', 'Groq API', 'DistilBERT'],
     points: [
       'Engineered a RAG chatbot using LLaMA-3 70B, FAISS-based semantic search, and LangChain for club info retrieval.',
       'Optimized for 10ms query latency and 200+ daily queries.',
@@ -99,10 +101,52 @@ const projects = [
       'Developed a hybrid RAG-finetune architecture for improved contextual accuracy.'
     ],
     link: 'https://github.com/kushagra-a-singh/I.R.I.S-Prod-Website',
+    liveDemo: 'https://www.iris-club.in/',
     image: '/rag-chatbot.png'
   },
   {
-    title: 'Data Orchestrate – Distributed File Sync',
+    title: 'DocsVerse - Document Research & Theme Identification Chatbot',
+    category: 'Document Intelligence & RAG',
+    tags: ['React', 'FastAPI', 'ChromaDB', 'SQLAlchemy', 'TypeScript', 'Material UI', 'LLM Integration', 'OCR'],
+    points: [
+      'Developed interactive web application for document upload, AI-powered chat with citations, and theme identification across document sets.',
+      'Built FastAPI backend with SQLAlchemy ORM, ChromaDB vector database for semantic search, and integration with external LLM services.',
+      'Created React.js frontend with Material UI, React Query for state management, and drag-and-drop document upload functionality.',
+      'Implemented document processing pipeline with OCR support, chunking, embedding generation, and theme analysis capabilities.'
+    ],
+    link: 'https://github.com/kushagra-a-singh/DocsVerse',
+    image: '/docsverse.jpg'
+  },
+  {
+    title: 'LangGraph Researcher',
+    category: 'Multi-Agent Systems & Research Automation',
+    tags: ['LangChain', 'LangGraph', 'Tavily API', 'Ollama', 'Python', 'Streamlit', 'Multi-Agent System'],
+    points: [
+      'Implemented dual-agent system for deep research using Tavily, LangChain, and LangGraph with Research Agent for web crawling and Answer Drafter Agent for synthesis.',
+      'Built modular agent architecture with LangGraph workflow orchestration, supporting multiple LLM backends (Ollama, phi3, llama3, mistral).',
+      'Developed clean Streamlit web UI for interactive research queries with real-time results display and source citations.',
+      'Created extensible system architecture allowing easy addition of new agents (fact-checker, summarizer) and integration with different LLM providers.'
+    ],
+    link: 'https://github.com/kushagra-a-singh/LangGraph-Researcher',
+    image: '/langgraph-researcher.jpg'
+  },
+  {
+    title: 'SynapTrack - Parkinson\'s Disease Detection using EEG',
+    category: 'Healthcare & Biomedical ML',
+    tags: ['Python', 'PyTorch', 'EEG Analysis', 'Random Forest', 'SVM', 'CNN', 'RNN', 'SHAP', 'LIME', 'Streamlit'],
+    points: [
+      'Developed an advanced machine learning-based EEG analysis platform combining signal processing and AI for brain activity pattern decoding.',
+      'Implemented ensemble of state-of-the-art classifiers (Random Forest, SVM, KNN, LDA, CNN, RNN, ANN) with optimized hyperparameters.',
+      'Built comprehensive feature engineering pipeline with SHAP values, LIME explanations, and statistical significance testing.',
+      'Created interactive Streamlit dashboard for real-time EEG visualization, model performance metrics and feature importance analysis.'
+    ],
+    link: 'https://github.com/kushagra-a-singh/SynapTrack',
+    image: '/synaptrack.jpg'
+  },
+  {
+    title: 'Data Orchestrate - Distributed File Sync',
+    category: 'Distributed Systems & Cloud Infrastructure',
+    tags: ['Java', 'Spring Boot', 'Kubernetes', 'Docker', 'Apache Kafka', 'MongoDB Atlas', 'Minikube', 'CI/CD'],
     points: [
       'Built a cloud-native, microservices-based file sync system in Java (Spring Boot) with Docker/Kubernetes deployment.',
       'Integrated Kafka for real-time cross-device replication and MongoDB Atlas for metadata storage.',
@@ -113,7 +157,22 @@ const projects = [
     image: '/distributed-sync.png'
   },
   {
-    title: 'ForVis – Formula 1 Analytics',
+    title: 'Airfield Wildlife Risk Classification',
+    category: 'Computer Vision & Real-time Detection',
+    tags: ['YOLOv8', 'OpenCV', 'Flask', 'Python', 'TensorFlow', 'Real-time Detection', 'Risk Assessment'],
+    points: [
+      'Built comprehensive real-time bird detection and classification system for airport bird strike prevention using multi-model ensemble detection.',
+      'Implemented species classification for 207 bird species (200 CUB + 7 Airport Birds) with size, behavior, altitude, and speed estimation.',
+      'Developed comprehensive risk assessment model (0-10 scale) with collision probability calculation and real-time alert system.',
+      'Created interactive Flask dashboard with live video streaming, risk trend analysis, and RESTful API endpoints for integration.'
+    ],
+    link: 'https://github.com/kushagra-a-singh/Airfield-Wildlife-Risk-Classification',
+    image: '/wildlife-risk.jpg'
+  },
+  {
+    title: 'ForVis - Formula 1 Analytics',
+    category: 'Sports Analytics & Big Data',
+    tags: ['Python', 'PyQt5', 'Apache Spark', 'HDFS', 'FastF1 API', 'Random Forest', 'Linear Regression', 'Data Visualization'],
     points: [
       'Developed a dynamic PyQt5 GUI for real-time and historical Formula 1 telemetry analysis.',
       'Integrated FastF1 APIs, Apache Spark, and HDFS to reduce processing time by 30%.',
@@ -124,12 +183,27 @@ const projects = [
     image: '/KushagraProj1.png'
   },
   {
-    title: 'Tarzan – Autonomous Vehicle Module',
+    title: 'Cardiovascular Diseases Prediction',
+    category: 'Predictive Healthcare & Ensemble Machine Learning',
+    tags: ['Python', 'Streamlit', 'XGBoost', 'LightGBM', 'CatBoost', 'SHAP', 'Multi-Output ML', 'ROC Analysis'],
+    points: [
+      'Built comprehensive machine learning pipeline for cardiovascular disease risk prediction using ensemble models (Logistic Regression, SVM, KNN, Random Forest, XGBoost, LightGBM, CatBoost).',
+      'Developed custom multi-output Random Forest model to predict multiple disease types simultaneously with feature engineering and polynomial features.',
+      'Created interactive Streamlit web application with risk assessment, SHAP value visualizations, and emergency warning system for critical conditions.',
+      'Implemented comprehensive model evaluation with ROC curves, confusion matrices, learning curves, and feature correlation analysis.'
+    ],
+    link: 'https://github.com/kushagra-a-singh/Cardiovascular-Diseases-Prediction',
+    image: '/cardiovascular-prediction.png'
+  },
+  {
+    title: 'Tarzan - Autonomous Vehicle Module',
+    category: 'Autonomous Systems & Sensor Fusion',
+    tags: ['YOLOv8', 'MATLAB', 'C++', 'Arduino', 'LiDAR', 'Pure-Pursuit Algorithm', 'Sensor Fusion', 'Deep Learning'],
     points: [
       'Developing an autonomous vehicle portable module for non-ADAS-enabled cars using custom deep learning models (YOLOv8).',
       'Implements vision-based real-time obstacle detection, path planning using pure-pursuit algorithm in MATLAB.',
       'Designing multi-modal sensor fusion combining camera, LiDAR, and ultrasonic sensors for robust perception.',
-      'App-based image input for decision making – steering, acceleration, braking.',
+      'App-based image input for decision making like steering, acceleration, braking.',
       'Simulates real-world scenarios (cars, potholes, barricades, etc.) for safe navigation.'
     ],
     link: 'https://github.com/kushagra-a-singh/Tarzan-I.R.I.S.',
@@ -137,6 +211,8 @@ const projects = [
   },
   {
     title: 'IRIS Club Website',
+    category: 'Full-Stack Web Development',
+    tags: ['Next.js', 'Supabase', 'Razorpay', 'Vercel', 'TypeScript', 'Real-time Payments', 'Blogging System'],
     points: [
       'Developed an official website for the club to provide a centralized platform to share IRIS updates, event details, recruitments and resources.',
       'Handling multiple concurrent real-time payments and updating entries for events.',
@@ -147,25 +223,45 @@ const projects = [
     image: '/website_img.png'
   },
   {
-    title: 'PlantWise – Ayurvedic AI Companion',
+    title: 'PlantWise - Ayurvedic AI Companion',
+    category: 'Healthcare AI & Natural Language Processing',
+    tags: ['Python', 'Cohere API', 'PyQt', 'RAG Pipeline', 'NLP', 'Ayurvedic Medicine', 'Disease Prediction'],
     points: [
       'Built an AI-driven health assistant using LLMs (Cohere API) for disease prediction and Ayurvedic remedy recommendation.',
       'Implemented RAG pipeline with PyQt GUI for dynamic responses.',
       'Top 25 Finalist at Smart India Hackathon 2024.',
       'Achieved 89% user satisfaction across 500+ curated mappings.'
     ],
-    link: 'https://github.com/kushagra-a-singh/PlantWise',
-    image: '/plantwise.png'
+    link: 'https://github.com/kushagra-a-singh/PlantWise-SIH',
+    image: '/plantwise1.jpg'
   },
   {
     title: 'Driver Safety Monitoring System',
+    category: 'IoT & Real-time Monitoring',
+    tags: ['Arduino', 'C++', 'MQ3 Sensor', 'GPS Module', 'GSM Module', 'Accelerometer', 'Real-time Monitoring'],
     points: [
-      'Integrated MQ3 alcohol sensor, accelerometer/gyroscope, GPS module, LED screen, GSM module and buzzer into a vehicle’s onboard system using C++ and Arduino.',
+      'Integrated MQ3 alcohol sensor, accelerometer/gyroscope, GPS module, LED screen, GSM module and buzzer into a vehicle\'s onboard system using C++ and Arduino.',
       'Developed a comprehensive system to monitor driver behavior, detect alcohol presence, and deliver real-time alerts to promote safe driving practices.',
       'Enabled timely feedback for enhanced driver safety, utilizing sensors for real-time monitoring and instant notifications.'
     ],
     link: 'https://github.com/kushagra-a-singh/Embedded-Arduino-System-for-Car-Road-Safety',
-    image: '/KushagraProj2.jpg'
+    image: '/KushagraProj2-1.jpg'
+  }
+];
+
+const publications = [
+  {
+    title: 'Domain-Specific Conversational AI for IRIS MITWPU: From Research Paper to Production',
+    authors: 'Kushagra Singh, Brandon Cerejo, Samanyu Bhate, Taksh Dhabalia',
+    conference: 'IEEE International Conference on Information, Communication and Computing Technology (ICoICC) 2025',
+    description: [
+      'Developed and compared Retrieval-Augmented Generation (RAG) and Fine-Tuned Transformer approaches for domain-specific chatbot implementation.',
+      'Implemented RAG pipeline using LangChain, HuggingFace embeddings, FAISS, and LLaMA-3 70B model via Groq API.',
+      'Built fine-tuned DistilBERT model optimized for question-answering tasks with comprehensive evaluation metrics.',
+      'Successfully deployed hybrid approach on official IRIS MIT-WPU website, handling real queries with 0.92 BERTScore accuracy.'
+    ],
+    link: 'https://ieeexplore.ieee.org/document/11052088',
+    image: '/ieee-paper.jpeg'
   }
 ];
 
@@ -257,12 +353,36 @@ function getMobileThreshold() {
 
 function KushagraSingh() {
   const [link, setLink] = useState("/bgVid.webm");
+  const [showScrollTop, setShowScrollTop] = useState(false);
+  const [loadedImages, setLoadedImages] = useState(new Set());
   const threshold = getMobileThreshold();
 
   const { ref: refExperience, inView: inViewExperience } = useInView({ triggerOnce: true, threshold });
   const { ref: refProjects, inView: inViewProjects } = useInView({ triggerOnce: true, threshold });
+  const { ref: refPublications, inView: inViewPublications } = useInView({ triggerOnce: true, threshold });
   const { ref: refSkills, inView: inViewSkills } = useInView({ triggerOnce: true, threshold });
   const { ref: refRoles, inView: inViewRoles } = useInView({ triggerOnce: true, threshold });
+
+  const handleImageLoad = (imageSrc) => {
+    setLoadedImages(prev => new Set([...prev, imageSrc]));
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      setShowScrollTop(scrollTop > 300);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
 
   return (
     <div>
@@ -289,7 +409,7 @@ function KushagraSingh() {
           <div className={styles.heroTextCard}>
             <h1 className={styles.heroTitle}>Hi, I am Kushagra Singh</h1>
             <p className={styles.heroDescription}>
-              I am a Third Year Computer Science Engineering student at MIT World Peace University, Pune, passionate about building impactful tech solutions at the intersection of Artificial Intelligence, Machine Learning, Web Development and Embedded Systems.<br /><br />
+              I am a Final Year Computer Science Engineering student at MIT World Peace University, Pune, passionate about building impactful tech solutions at the intersection of Artificial Intelligence, Machine Learning, Web Development and Embedded Systems.<br /><br />
               As the Technical Head of the IRIS Tech Club, I lead a team of developers to deliver innovative projects, including the club&apos;s official website and autonomous vehicle modules.<br /><br />
               I have hands-on experience as a Machine Learning Research Associate at IIMT University, contributing to PhD-level healthcare analytics with advanced ML models and interactive web applications. My internship at Infosys Springboard deepened my expertise in deep learning and computer vision, where I developed high-accuracy neural networks and user-friendly applications.<br /><br />
               I thrive in collaborative, fast-paced environments, demonstrated by my achievements as a Top 25 Finalist in the Smart India Hackathon 2024 and a Top 18 Finalist in the Bosch BOROSA Hackathon 2025. My technical toolkit spans Python, Java, C++, PyTorch, TensorFlow, Next.js, Spring Boot, AWS, Docker and more.<br /><br />
@@ -304,18 +424,48 @@ function KushagraSingh() {
                 <Image src="/images/github.png" alt="GitHub" width={24} height={24} className={styles.icon} />
                 GitHub
               </a>
+              <span className={styles.emailDisplay}>
+                <Image src="/gmail.webp" alt="Gmail" width={24} height={24} className={styles.icon} />
+                kushagraa.n@gmail.com
+              </span>
               <a href="https://linktr.ee/kushagra_singh" target="_blank" rel="noopener noreferrer">
                 <Image src="/images/linktree.png" alt="Linktree" width={24} height={24} className={styles.icon} />
                 Linktree
               </a>
+              <a href="https://scholar.google.com/citations?user=upUymaUAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">
+                <Image src="/gscholar.png" alt="Google Scholar" width={24} height={24} className={styles.icon} />
+                Google Scholar
+              </a>
+            </div>
+
+            {/* Mobile-only social links with Gmail at the end */}
+            <div className={styles.socialLinksMobile}>
+              <a href="https://www.linkedin.com/in/kushagra-anit-singh/" target="_blank" rel="noopener noreferrer">
+                <Image src="/images/linkedin.png" alt="LinkedIn" width={24} height={24} className={styles.icon} />
+                LinkedIn
+              </a>
+              <a href="https://github.com/kushagra-a-singh" target="_blank" rel="noopener noreferrer">
+                <Image src="/images/github.png" alt="GitHub" width={24} height={24} className={styles.icon} />
+                GitHub
+              </a>
+              <a href="https://linktr.ee/kushagra_singh" target="_blank" rel="noopener noreferrer">
+                <Image src="/images/linktree.png" alt="Linktree" width={24} height={24} className={styles.icon} />
+                Linktree
+              </a>
+              <a href="https://scholar.google.com/citations?user=upUymaUAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">
+                <Image src="/gscholar.png" alt="Google Scholar" width={24} height={24} className={styles.icon} />
+                Google Scholar
+              </a>
               <span className={styles.emailDisplay}>
-                <Image src="/images/gmail.png" alt="Gmail" width={24} height={24} className={styles.icon} />
+                <Image src="/gmail.webp" alt="Gmail" width={24} height={24} className={styles.icon} />
                 kushagraa.n@gmail.com
               </span>
             </div>
             <div className={styles.sectionLinks}>
+              <div className={styles.navigationLabel}>Visit Section:</div>
               <a href="#experience">Experience</a>
               <a href="#projects">Projects</a>
+              <a href="#publications">Publications</a>
               <a href="#skills">Skills</a>
               <a href="#rolesachievements">Roles & Achievements</a>
             </div>
@@ -366,30 +516,90 @@ function KushagraSingh() {
             <div className={styles.projectsgrid}>
               {projects.map((project, idx) => (
                 <div className={styles.projectcard} key={idx}>
-                  <div className={styles.projectimageWrapper}>
-                    <img
+                  <div className={`${styles.projectimageWrapper} ${loadedImages.has(project.image) ? styles.loaded : ''}`}>
+                    <Image
                       src={project.image}
                       alt={project.title}
                       className={styles.projectimage}
                       width={350}
-                      height={170}
-                      style={{ objectFit: 'contain' }}
+                      height={200}
+                      onLoad={() => handleImageLoad(project.image)}
+                      quality={90}
+                      priority={idx < 4}
+                      placeholder="blur"
+                      blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
                     />
                   </div>
                   <div className={styles.projectdetails}>
-                    <p className={styles.projecttitle}><strong>{project.title}</strong></p>
+                    <div className={styles.projectheader}>
+                      <p className={styles.projecttitle}><strong>{project.title}</strong></p>
+                      <span className={styles.projectcategory}>{project.category}</span>
+                    </div>
+                    <div className={styles.projecttags}>
+                      {project.tags.map((tag, tagIdx) => (
+                        <span key={tagIdx} className={styles.projecttag}>{tag}</span>
+                      ))}
+                    </div>
                     <ul className={styles.projectpoints}>
                       {project.points.map((point, i) => (
                         <li key={i}>{point}</li>
                       ))}
                     </ul>
+                    <div className={styles.projectbuttons}>
+                      {project.link && (
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={styles.projectbutton}
+                        >
+                          View on GitHub
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Publications Section */}
+      <section id="publications">
+        <h2 className={styles.heading2}>Publications</h2>
+        <div style={{ width: '100%', padding: '16px 0' }}>
+          <div
+            ref={refPublications}
+            className={`${styles.newSectionContainer} ${inViewPublications ? styles.animate : ''}`}
+          >
+            <div className={styles.publicationscontainer}>
+              {publications.map((publication, index) => (
+                <div className={styles.publicationcard} key={index}>
+                  <div className={styles.publicationimageWrapper}>
+                    <Image
+                      src={publication.image}
+                      alt={publication.title}
+                      className={styles.publicationimage}
+                      width={350}
+                      height={170}
+                      style={{ objectFit: 'contain' }}
+                      quality={90}
+                      priority={index === 0}
+                    />
+                  </div>
+                  <div className={styles.publicationdetails}>
+                    <p className={styles.publicationtitle}><strong>{publication.title}</strong></p>
+                    <p className={styles.publicationauthors}>{publication.authors}</p>
+                    <p className={styles.publicationconference}>{publication.conference}</p>
+                    <p className={styles.publicationdescription}>{publication.description.join(' ')}</p>
                     <a
-                      href={project.link}
+                      href={publication.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={styles.projectbutton}
+                      className={styles.publicationbutton}
                     >
-                      View on GitHub
+                      View on IEEE Xplore
                     </a>
                   </div>
                 </div>
@@ -465,7 +675,14 @@ function KushagraSingh() {
               <div className={styles.achievementslist}>
                 {achievements.map((achievement, index) => (
                   <div className={styles.achievementitem} key={index}>
-                    <img src={achievement.logo} alt="Achievement Logo" className={styles.achievementlogo} />
+                    <Image
+                      src={achievement.logo}
+                      alt="Achievement Logo"
+                      className={styles.achievementlogo}
+                      width={38}
+                      height={38}
+                      quality={90}
+                    />
                     {achievement.text}
                   </div>
                 ))}
@@ -474,6 +691,29 @@ function KushagraSingh() {
           </div>
         </div>
       </section>
+
+      {/* Scroll to Top Button */}
+      {showScrollTop && (
+        <button
+          className={styles.scrollToTop}
+          onClick={scrollToTop}
+          aria-label="Scroll to top"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="m18 15-6-6-6 6" />
+          </svg>
+          <span>Top</span>
+        </button>
+      )}
     </div>
   );
 }

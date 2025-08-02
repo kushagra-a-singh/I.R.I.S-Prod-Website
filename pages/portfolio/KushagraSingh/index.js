@@ -345,23 +345,64 @@ const achievements = [
 ];
 
 function getMobileThreshold() {
-  if (typeof window !== 'undefined' && window.innerWidth <= 600) {
-    return 0.01;
+  if (typeof window !== 'undefined') {
+    return window.innerWidth <= 768 ? 0.05 : 0.1;
   }
-  return 0.2;
+  return 0.1;
+}
+
+function getRootMargin() {
+  if (typeof window !== 'undefined' && window.innerWidth <= 768) {
+    return '-100px 0px -150px 0px';
+  }
+  return '-50px 0px -50px 0px';
 }
 
 function KushagraSingh() {
   const [link, setLink] = useState("/bgVid.webm");
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [loadedImages, setLoadedImages] = useState(new Set());
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkIfMobile();
+    
+    window.addEventListener('resize', checkIfMobile);
+    
+    return () => window.removeEventListener('resize', checkIfMobile);
+  }, []);
+  
   const threshold = getMobileThreshold();
+  const rootMargin = getRootMargin();
 
-  const { ref: refExperience, inView: inViewExperience } = useInView({ triggerOnce: true, threshold });
-  const { ref: refProjects, inView: inViewProjects } = useInView({ triggerOnce: true, threshold });
-  const { ref: refPublications, inView: inViewPublications } = useInView({ triggerOnce: true, threshold });
-  const { ref: refSkills, inView: inViewSkills } = useInView({ triggerOnce: true, threshold });
-  const { ref: refRoles, inView: inViewRoles } = useInView({ triggerOnce: true, threshold });
+  const observerOptions = {
+    rootMargin: rootMargin,
+    triggerOnce: true,
+    threshold: threshold
+  };
+  
+  const projectsObserverOptions = {
+    rootMargin: isMobile ? '-50px 0px -50px 0px' : '0px 0px 0px 0px',
+    triggerOnce: true, 
+    threshold: 0.01 
+  };
+  
+  const { ref: refExperience, inView: inViewExperience } = useInView(observerOptions);
+  const { ref: refProjects, inView: inViewProjects } = useInView(projectsObserverOptions);
+  const { ref: refPublications, inView: inViewPublications } = useInView(observerOptions);
+  const { ref: refSkills, inView: inViewSkills } = useInView(observerOptions);
+  const { ref: refRoles, inView: inViewRoles } = useInView(observerOptions);
+
+  useEffect(() => {
+    if (inViewProjects) {
+      setHasAnimated(true);
+    }
+  }, [inViewProjects]);
 
   const handleImageLoad = (imageSrc) => {
     setLoadedImages(prev => new Set([...prev, imageSrc]));
@@ -511,7 +552,7 @@ function KushagraSingh() {
         <div style={{ width: '100%', padding: '16px 0' }}>
           <div
             ref={refProjects}
-            className={`${styles.newSectionContainer} ${inViewProjects ? styles.animate : ''}`}
+            className={`${styles.newSectionContainer} ${(inViewProjects || hasAnimated) ? styles.animate : ''}`}
           >
             <div className={styles.projectsgrid}>
               {projects.map((project, idx) => (

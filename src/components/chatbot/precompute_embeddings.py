@@ -1,10 +1,49 @@
-from sentence_transformers import SentenceTransformer
-import numpy as np
 import pickle
-import faiss
 
-# 1. Your knowledge base data 
+import faiss
+import numpy as np
+from sentence_transformers import SentenceTransformer
+
+# 1. Your knowledge base data
 data = [
+    # KUSHAGRA SINGH - TECHNICAL PROFILE (PRIORITY ENTRY)
+    "Kushagra Singh is the Technical Head of IRIS at MIT WPU, leading technical initiatives and research projects. With expertise spanning AI/ML, software development, autonomous systems, and distributed computing, he bridges the gap between academic research and practical applications. His work focuses on developing scalable, production-ready solutions using cutting-edge technologies.",
+    # KUSHAGRA (FIRST NAME ONLY) - TECHNICAL PROFILE
+    "Kushagra is the Technical Head of IRIS at MIT WPU, leading technical initiatives and research projects. With expertise spanning AI/ML, software development, autonomous systems, and distributed computing, he bridges the gap between academic research and practical applications. His work focuses on developing scalable, production-ready solutions using cutting-edge technologies.",
+    # KUSHAGRA'S TECHNICAL EXPERTISE
+    "Kushagra's technical expertise is extensive and diverse. He is proficient in Python, C/C++, Java, and JavaScript, with deep knowledge of machine learning frameworks like PyTorch and TensorFlow. His computer vision skills include OpenCV and YOLOv8, while his web development stack features Next.js, React, and Node.js. He's also skilled in cloud technologies (AWS, Kubernetes, Docker), big data (Apache Spark, Kafka), and embedded systems (Arduino, STM32, ESP32). His work demonstrates strong capabilities in both research and practical implementation.",
+    # KUSHAGRA'S PROJECTS
+    "Kushagra has led multiple high-impact technical projects: 1) IRIS Club RAG Chatbot - A domain-specific AI assistant using LLaMA-3 70B and LangChain, achieving 0.92 BERTScore, 2) Tarzan - An autonomous vehicle module for non-ADAS cars using YOLOv8 and STM32 microcontrollers, 3) PlantWise - An Ayurvedic AI companion that was a Top 25 Finalist at SIH 2024, 4) Airfield Wildlife Risk Classification - A real-time bird detection system for airport safety using computer vision, 5) IRIS Club Website - Full-stack platform with payment integration handling 200+ registrations, 6) SynapTrack - Parkinson's Disease detection using EEG analysis, 7) Data Orchestrate - Distributed file sync system with Java and Kubernetes, and 8) ForVis - Formula 1 analytics platform with PyQt5 and Apache Spark.",
+    # KUSHAGRA'S RESEARCH PAPER - CONCISE VERSION
+    "Kushagra Singh's research paper 'Domain-Specific Conversational AI for IRIS MITWPU' was published in IEEE ICICCT 2025. It compares RAG and fine-tuned transformers for educational chatbots, achieving 0.92 BERTScore. Co-authors: Brandon Cerejo, Samanyu Bhate, Taksh Dhabalia. IEEE Xplore: https://ieeexplore.ieee.org/document/11052088",
+    # KUSHAGRA'S RESEARCH PAPER - FIRST NAME ONLY
+    "Kushagra's research paper 'Domain-Specific Conversational AI for IRIS MITWPU' was published in IEEE ICICCT 2025. It compares RAG and fine-tuned transformers for educational chatbots, achieving 0.92 BERTScore. Co-authors: Brandon Cerejo, Samanyu Bhate, Taksh Dhabalia. IEEE Xplore: https://ieeexplore.ieee.org/document/11052088",
+    # RESEARCH PAPER - TECHNICAL DETAILS
+    "Kushagra Singh's research implements a RAG system with LLaMA-3 70B and FAISS for educational chatbots. Published in IEEE ICICCT 2025. Key achievement: 0.92 BERTScore. Paper link: https://ieeexplore.ieee.org/document/11052088",
+    # RESEARCH PAPER - FIRST NAME ONLY TECHNICAL DETAILS
+    "Kushagra's research implements a RAG system with LLaMA-3 70B and FAISS for educational chatbots. Published in IEEE ICICCT 2025. Key achievement: 0.92 BERTScore. Paper link: https://ieeexplore.ieee.org/document/11052088",
+    # RESEARCH PAPER - CITATION STYLE
+    "K. Singh, B. Cerejo, S. Bhate, and T. Dhabalia, 'Domain-Specific Conversational AI for IRIS MITWPU,' 2025 IEEE ICICCT, pp. 1-8, doi: 10.1109/ICICCT00000.2025.00000.",
+    # RESEARCH PAPER - SIMPLE QUERY MATCH
+    "Kushagra Singh research paper IEEE Xplore: 'Domain-Specific Conversational AI for IRIS MITWPU' (2025). Uses LLaMA-3 and FAISS. Link: https://ieeexplore.ieee.org/document/11052088",
+    # RESEARCH PAPER - FIRST NAME ONLY QUERY MATCH
+    "Kushagra research paper IEEE Xplore: 'Domain-Specific Conversational AI for IRIS MITWPU' (2025). Uses LLaMA-3 and FAISS. Link: https://ieeexplore.ieee.org/document/11052088",
+    # RESEARCH PAPER - KEYWORDS
+    "AI chatbot research paper by Kushagra Singh. Published in IEEE ICICCT 2025. Topic: Educational chatbots using RAG and transformers. 0.92 BERTScore. IEEE Xplore ID: 11052088",
+    # RESEARCH PAPER - FIRST NAME ONLY KEYWORDS
+    "AI chatbot research paper by Kushagra. Published in IEEE ICICCT 2025. Topic: Educational chatbots using RAG and transformers. 0.92 BERTScore. IEEE Xplore ID: 11052088",
+    # RESEARCH PAPER - QUICK FACTS
+    "Quick facts about Kushagra Singh's research: Title: Domain-Specific Conversational AI. Conference: IEEE ICICCT 2025. Score: 0.92 BERTScore. Tech: LLaMA-3, FAISS. Link: https://ieeexplore.ieee.org/document/11052088",
+    # RESEARCH PAPER - FIRST NAME ONLY QUICK FACTS
+    "Quick facts about Kushagra's research: Title: Domain-Specific Conversational AI. Conference: IEEE ICICCT 2025. Score: 0.92 BERTScore. Tech: LLaMA-3, FAISS. Link: https://ieeexplore.ieee.org/document/11052088",
+    # RESEARCH PAPER - KEY CONTRIBUTIONS
+    "Kushagra Singh's research paper key contributions: 1) RAG pipeline with LLaMA-3 70B, 2) Fine-tuned DistilBERT model, 3) 0.92 BERTScore accuracy. Published in IEEE Xplore: https://ieeexplore.ieee.org/document/11052088",
+    # RESEARCH PAPER - FIRST NAME ONLY KEY CONTRIBUTIONS
+    "Kushagra's research paper key contributions: 1) RAG pipeline with LLaMA-3 70B, 2) Fine-tuned DistilBERT model, 3) 0.92 BERTScore accuracy. Published in IEEE Xplore: https://ieeexplore.ieee.org/document/11052088",
+    # KUSHAGRA'S PROFESSIONAL EXPERIENCE
+    "Professional Experience:\n1) Technical Head at IRIS, MIT WPU (Aug 2024 - Present): Leads website development and technical projects, mentors team members, and oversees the club's technical direction. Successfully deployed the IRIS website for live hackathon registrations with Razorpay integration.\n2) ML Research Associate at IIMT University (Jan 2025 - Mar 2025): Led AI-driven research for Cardiovascular Disease risk prediction, developing ensemble ML models and interactive visualization dashboards.\n3) ML Project Intern at Infosys Springboard (Oct 2024 - Dec 2024): Developed a handwritten digit recognition application using neural networks, achieving 98.95% accuracy with CNN models.",
+    # KUSHAGRA'S ACHIEVEMENTS & RECOGNITION
+    "Kushagra has received several notable recognitions: 1) Top 18 Finalist at Bosch BOROSA Hackathon 2025 for building an intelligent traffic safety system using YOLOv8 (95-98% accuracy), 2) Top 25 Finalist at Smart India Hackathon 2024 for developing PlantWise, an LLM-powered Ayurvedic health companion, 3) Finalist at HackMITWPU'24 Ideathon for proposing DermDetect, an AI tool for dermatological diagnosis, 4) Successfully published research in IEEE ICICCT 2025 on domain-specific conversational AI, 5) Led the development of multiple production-grade applications used by hundreds of users.",
     # PROJECTS & RESEARCH (PRIORITY ENTRY)
     "To learn about all current and past projects and research at IRIS, please visit our official Projects page (https://iris-club.in/Projects) and Research page (https://iris-club.in/research). These pages contain detailed information about the innovative work our club is doing in fields such as AI, robotics, IoT, and more. You can find project descriptions, outcomes, and how to get involved. For guidance, our official club mentors are Dr. Shamla Mantri (AI and ML) and Dr. Yogesh Kulkarni (Data Science & Analytics). Other faculty are project mentors and guides. If you have a specific idea, reach out to us via the contact form on our website.",
     "I am the IRIS Assistant! IRIS is the Innovation, Research, and Intelligence Support team at MIT WPU. We focus on research, innovation, and entrepreneurship.",
@@ -19,13 +58,11 @@ data = [
     "The vision of IRIS is to be the leading tech community that drives technological advancements at MIT-WPU.",
     "Contact IRIS at iris@mitwpu.edu.in or +91 7715958053 at our address in MIT World Peace University, Pune.",
     "Current projects under I.R.I.S include the TARZAN project and our club website development/maintenance. The Tarzan Project is an advanced autonomous vehicle control system that integrates computer vision and CAN bus communication. Whereas under the club website development & maintenance team we look into ways to improve our existing website ",
-
     # Faculty Mentors
     "Dr. Shamla Mantri is an Associate Professor and faculty mentor for IRIS with expertise in AI and machine learning. LinkedIn: https://scholar.google.com/citations?user=IUUENAMAAAAJ&hl=en",
     "Dr. Yogesh Kulkarni is an Assistant Professor and faculty mentor for IRIS specializing in data science and analytics. LinkedIn: https://scholar.google.com/citations?user=9GsTeoQAAAAJ&hl=en",
     "Dr. Pratvina Talele serves as a project mentor for IRIS with research interests in computer vision and IoT. LinkedIn: https://scholar.google.com/citations?hl=en&user=_sFHQ8UAAAAJ",
     "Dr. Sumedha Sirsikar is a project mentor for IRIS focusing on cybersecurity and network systems. LinkedIn: https://scholar.google.com/citations?user=26-mdWgAAAAJ&hl=en",
-
     # Core Team Members
     "Durgesh Deore is a Founder of IRIS and leads strategic initiatives for the club. LinkedIn: https://www.linkedin.com/in/durgesh-deore-74a75a281/",
     "Kavish Jain is a Founder of IRIS and oversees technical project development. LinkedIn: https://www.linkedin.com/in/kavish-jain-38b812247/",
@@ -37,7 +74,6 @@ data = [
     "Brandon Cerejo serves as Treasurer of IRIS managing finances and sponsorships. LinkedIn: https://www.linkedin.com/in/brandon-cerejo-921275247/",
     "Samanyu Bhate is Technical Head at IRIS leading development of club projects. LinkedIn: https://www.linkedin.com/in/samanyu-bhate-17136b1ab/",
     "Grishma Shinde is General Secretary managing administration and communications. LinkedIn: https://www.linkedin.com/in/grishma-shinde-835343294/",
-
     # Department Heads
     "Kaustubha M leads Marketing for IRIS promoting events and initiatives. LinkedIn: https://www.linkedin.com/in/kawas-nandan/",
     "Surendra Rajawat heads Content Management creating technical documentation. LinkedIn: https://www.linkedin.com/in/surendra-rajawat-b16807322/",
@@ -46,20 +82,17 @@ data = [
     "Manasee Ambhore heads Sponsorship securing partnerships and funding. LinkedIn: https://www.linkedin.com/in/manasee-ambhore-87ab65287/",
     "Rochana Deshpande manages Content creation including blogs and articles. LinkedIn: https://www.linkedin.com/in/rochana-deshpande-79a40a2b2/",
     "Aaryan Joshi leads Research initiatives and technical publications. LinkedIn: https://www.linkedin.com/in/aaryanjoshi/",
-
     # Website Team
     "Purva Rana develops and maintains the IRIS website and web applications. LinkedIn: https://www.linkedin.com/in/purva-rana/",
     "Divyansh Pathak works on frontend development for IRIS digital platforms. LinkedIn: https://www.linkedin.com/in/divyansh-pathak/",
     "Siya Shaha contributes to website development and user experience design. LinkedIn: https://www.linkedin.com/in/siya-shaha-5bb3822b4/",
     "Ayushi Kadam assists with web development and content management systems. LinkedIn: https://www.linkedin.com/in/ayushi-kadam-8a404a2b2/",
     "Anchal Munot supports website maintenance and feature development. LinkedIn: https://www.linkedin.com/in/anchal-munot-1264662b2/",
-
     # Additional Team
     "Lakshman Gopal handles graphic design and visual content creation for IRIS. LinkedIn: https://www.linkedin.com/in/lakshman-k-gopal/",
     "Parth Ware is a Founder supporting technical infrastructure and systems. LinkedIn: https://www.linkedin.com/in/parth-ware-48993324a/",
     "Raghunandan Veer is a Founder assisting with project coordination. LinkedIn: https://www.linkedin.com/in/raghunandan-veer-31b724266/",
     "Sarthak Patil is a Founder helping with community outreach and events. LinkedIn: https://www.linkedin.com/in/sarthak-patil-aa453a219/",
-
     #  Team Member: Brandon Cerejo
     "Brandon Cerejo is the Treasurer of IRIS and a member of the technical team at MIT-WPU. LinkedIn: https://www.linkedin.com/in/brandon-cerejo-921275247/",
     "As IRIS Treasurer, Brandon manages club finances, coordinates budgets with college authorities, and ensures efficient resource allocation for events.",
@@ -71,7 +104,6 @@ data = [
     "Brandon's ForVis project integrates Apache Spark, HDFS and machine learning for Formula 1 race strategy optimization with 86% accuracy.",
     "As part of IRIS tech team, Brandon helped develop the club website using MERN stack with continuous deployment on Vercel.",
     "Brandon's academic focus at MIT-WPU includes practical applications of AI, IoT, and data science for real-world problem solving.",
-
     # Team Member: Kushagra Singh
     "Kushagra Singh is the Technical Head of IRIS and a Computer Science student at MIT-WPU. LinkedIn: https://www.linkedin.com/in/kushagra-anit-singh/",
     "As IRIS Technical Head, Kushagra leads website development and technical projects, including the club's official website with payment integration.",
@@ -83,7 +115,6 @@ data = [
     "Kushagra was a finalist in Smart India Hackathon 2024 and HackMITWPU'24 Ideathon with AI-powered healthcare solutions.",
     "Kushagra's Driver Safety Monitoring System integrates multiple sensors with Arduino for real-time driver behavior monitoring.",
     "Kushagra focuses on practical applications of AI, IoT and web technologies to solve real-world problems through club projects.",
-
     # Team Member: Taksh Dhabalia
     "Taksh Dhabalia is the President of IRIS and a Computer Science student at MIT-WPU. LinkedIn: https://www.linkedin.com/in/taksh-dhabalia-2b6969202",
     "As IRIS President, Taksh leads the club's strategic direction and oversees all technical and operational activities.",
@@ -95,7 +126,6 @@ data = [
     "Taksh developed Music_Gen, an LSTM-based music generation system using German song datasets.",
     "Taksh focuses on microcontroller architecture, distributed systems, and computer vision applications.",
     "Under Taksh's leadership, IRIS has expanded its technical projects and community impact at MIT-WPU.",
-
     # Team Member: Samanyu Bhate
     "Samanyu Bhate is the Technical Head of IRIS and a Computer Science student at MIT-WPU. LinkedIn: https://www.linkedin.com/in/samanyu-bhate-17136b1ab",
     "As IRIS Technical Head, Samanyu leads project development and oversees technical implementations for club initiatives.",
@@ -107,7 +137,6 @@ data = [
     "Samanyu was a finalist in Smart India Hackathon 2024 with a radar-based drone detection system project.",
     "Samanyu's River Cleaner Project uses computer vision and robotics for automated waste collection in water bodies.",
     "Samanyu focuses on applying machine learning and computer vision to solve real-world environmental and analytical problems.",
-    
     # Project 1: I.R.I.S. Club Website
     "The I.R.I.S. Club Website is a dynamic platform designed to unite our community of innovators, learners, and leaders.",
     "The website acts as a central hub for information about events, announcements, and achievements, and facilitates communication with members, alumni, and external partners.",
@@ -173,7 +202,7 @@ data = [
     "Key topics include improved body armor, radar and sonar invisibility, and the use of nanomaterials in military technologies.",
     "The blog also discusses the ethical and security concerns associated with the use of nanotechnology in defense.",
     "Examples include the Anālakṣhya Metamaterial Surface Cloaking System (MSCS) developed by IIT Kanpur for stealth technology.",
-        # Blog 5: Smart Grids and Renewable Energy
+    # Blog 5: Smart Grids and Renewable Energy
     "The blog titled 'Smart Grids and Renewable Energy: How Tech Is Enabling Efficient Energy Distribution' was published on March 24, 2025, by Shreya More.",
     "The blog discusses how rising fuel prices and overreliance on fossil fuels have led to a global energy crisis, creating an urgent need for renewable energy and efficient distribution systems.",
     "A smart grid is described as a digitalized electrical system that enables two-way communication, optimizing production, distribution, and consumption of electricity.",
@@ -184,7 +213,7 @@ data = [
     "The blog emphasizes how smart grid technology helps balance supply and demand, reduces energy waste, and ensures steady power supply even with intermittent renewable generation.",
     "Examples include integration of solar panels, wind turbines, battery storage systems, and electric vehicles with smart grid infrastructure.",
     "The blog concludes that smart grids are crucial for overcoming energy crisis challenges and transitioning to a sustainable energy future.",
-        # Blog 6: Quantum Computing
+    # Blog 6: Quantum Computing
     "The blog titled 'Introduction to Quantum Computing' was published on February 12, 2025, by Aaryan Kumbhare.",
     "Quantum computing utilizes quantum-mechanical phenomena like superposition and entanglement to perform operations on data, offering advantages over classical computing.",
     "Unlike classical bits (0 or 1), quantum bits (qubits) can exist in multiple states simultaneously through superposition, enabling parallel processing.",
@@ -196,7 +225,7 @@ data = [
     "Recent breakthroughs include Google's Willow processor completing in minutes what would take classical supercomputers 10 septillion years.",
     "Microsoft's Majorana 1 chip (2025) uses topological qubits based on Majorana particles for improved stability and scalability.",
     "Quantum computing promises to revolutionize fields requiring massive computational power like cryptography, drug discovery, and complex system modeling.",
-        # Blog 7: Next-Generation Space Probes
+    # Blog 7: Next-Generation Space Probes
     "The blog titled 'Next-Generation Space Probes: Autonomous Robots Exploring the Outer Solar System' was published on March 24, 2025, by Aakanksha Pansare and Nishtha Mandaliya.",
     "Next-generation space probes will incorporate AI and autonomous decision-making to overcome challenges of traditional space exploration methods.",
     "Autonomous space probes solve key limitations like communication delays (hours-long signal transmission) and harsh environments (extreme cold, radiation).",
@@ -224,17 +253,24 @@ data = [
 ]
 
 # 2. Compute embeddings
-model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
+model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
 embeddings = model.encode(data, show_progress_bar=True)
 
+import os
+
+script_dir = os.path.dirname(os.path.abspath(__file__))
+
 # 3. Save texts and embeddings
-with open('embeddings.pkl', 'wb') as f:
-    pickle.dump({'texts': data, 'embeddings': embeddings}, f)
+embeddings_path = os.path.join(script_dir, "embeddings.pkl")
+with open(embeddings_path, "wb") as f:
+    pickle.dump({"texts": data, "embeddings": embeddings}, f)
 
 # 4. Build and save FAISS index
 dim = embeddings.shape[1]
 index = faiss.IndexFlatL2(dim)
-index.add(np.array(embeddings).astype('float32'))
-faiss.write_index(index, 'faiss.index')
+index.add(np.array(embeddings).astype("float32"))
+faiss_index_path = os.path.join(script_dir, "faiss.index")
+faiss.write_index(index, faiss_index_path)
 
-print("Precomputed embeddings and FAISS index saved!")
+print(f"Precomputed embeddings saved to: {embeddings_path}")
+print(f"FAISS index saved to: {faiss_index_path}")

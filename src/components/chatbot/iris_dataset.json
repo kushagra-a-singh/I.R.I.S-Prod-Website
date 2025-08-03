@@ -15,6 +15,87 @@
         "question": "What projects does IRIS work on?",
         "answer": "IRIS works on various innovative projects in fields like AI, robotics, and more. You can explore our Projects page to learn about our current and past projects."
     },
+
+    {
+        "question": "Who is Kushagra Singh?",
+        "answer": "Kushagra Singh is the Technical Head of IRIS at MIT WPU, leading technical initiatives and managing the club's website development. He is a Computer Science student with expertise spanning AI/ML, software development, autonomous systems, and distributed computing. His work focuses on bridging the gap between research and practical applications in technology."
+    },
+    {
+        "question": "Who is Kushagra?",
+        "answer": "Kushagra Singh is the Technical Head of IRIS at MIT WPU, leading technical initiatives and managing the club's website development. He is a Computer Science student with expertise spanning AI/ML, software development, autonomous systems, and distributed computing. His work focuses on bridging the gap between research and practical applications in technology."
+    },
+    {
+        "question": "What are Kushagra Singh's technical skills?",
+        "answer": "Kushagra is highly skilled in multiple domains:\n- Programming Languages: Python, C, C++, Java, JavaScript\n- Machine Learning: PyTorch, TensorFlow, Scikit-Learn, HuggingFace, LangChain\n- Computer Vision: OpenCV, YOLOv8, Image Processing\n- Web Development: Next.js, React, Node.js, Express.js, FastAPI, Spring Boot\n- Databases: MySQL, MongoDB, PostgreSQL, MongoDB Atlas\n- Cloud & DevOps: AWS, Kubernetes, Docker, CI/CD Pipelines, Minikube\n- Big Data: Apache Spark, HDFS, Kafka, Hive, HBase\n- Embedded Systems: Arduino, STM32, ESP32, Raspberry Pi\n- Other: Tableau, Matplotlib, Seaborn, Git, Linux"
+    },
+    {
+        "question": "What are Kushagra's technical skills?",
+        "answer": "Kushagra is highly skilled in multiple domains:\n- Programming Languages: Python, C, C++, Java, JavaScript\n- Machine Learning: PyTorch, TensorFlow, Scikit-Learn, HuggingFace, LangChain\n- Computer Vision: OpenCV, YOLOv8, Image Processing\n- Web Development: Next.js, React, Node.js, Express.js, FastAPI, Spring Boot\n- Databases: MySQL, MongoDB, PostgreSQL, MongoDB Atlas\n- Cloud & DevOps: AWS, Kubernetes, Docker, CI/CD Pipelines, Minikube\n- Big Data: Apache Spark, HDFS, Kafka, Hive, HBase\n- Embedded Systems: Arduino, STM32, ESP32, Raspberry Pi\n- Other: Tableau, Matplotlib, Seaborn, Git, Linux"
+    },
+    {
+        "question": "What projects has Kushagra Singh worked on?",
+        "answer": "Kushagra has led several high-impact projects:\n1) IRIS Club RAG Chatbot - Domain-specific AI assistant using LLaMA-3 70B and LangChain, achieving 0.92 BERTScore\n2) Tarzan - Autonomous vehicle module for non-ADAS cars using YOLOv8 and STM32 microcontrollers\n3) PlantWise - Ayurvedic AI companion (Top 25 at SIH 2024)\n4) Airfield Wildlife Risk Classification - Real-time bird detection system for airports\n5) IRIS Club Website - Full-stack platform with payment integration handling 200+ registrations\n6) SynapTrack - Parkinson's Disease detection using EEG analysis\n7) Data Orchestrate - Distributed file sync system with Java and Kubernetes\n8) ForVis - Formula 1 analytics platform with PyQt5 and Apache Spark"
+    },
+    {
+        "question": "What projects has Kushagra worked on?",
+        "answer": "Kushagra has led several high-impact projects:\n1) IRIS Club RAG Chatbot - Domain-specific AI assistant using LLaMA-3 70B and LangChain, achieving 0.92 BERTScore\n2) Tarzan - Autonomous vehicle module for non-ADAS cars using YOLOv8 and STM32 microcontrollers\n3) PlantWise - Ayurvedic AI companion (Top 25 at SIH 2024)\n4) Airfield Wildlife Risk Classification - Real-time bird detection system for airports\n5) IRIS Club Website - Full-stack platform with payment integration handling 200+ registrations\n6) SynapTrack - Parkinson's Disease detection using EEG analysis\n7) Data Orchestrate - Distributed file sync system with Java and Kubernetes\n8) ForVis - Formula 1 analytics platform with PyQt5 and Apache Spark"
+    },
+    {
+        "question": "Has Kushagra Singh published any research papers?",
+        "answer": "Yes, Kushagra Singh co-authored a research paper titled 'Domain-Specific Conversational AI for IRIS MITWPU: From Research Paper to Production' which was published in the IEEE International Conference on Information, Communication and Computing Technology (ICoICC) 2025. The paper presents a comprehensive comparison between Retrieval-Augmented Generation (RAG) and Fine-Tuned Transformer approaches for implementing domain-specific chatbots."
+    },
+    {
+        "question": "Has Kushagra published any research papers?",
+        "answer": "Yes, Kushagra Singh co-authored a research paper titled 'Domain-Specific Conversational AI for IRIS MITWPU: From Research Paper to Production' which was published in the IEEE International Conference on Information, Communication and Computing Technology (ICoICC) 2025. The paper presents a comprehensive comparison between Retrieval-Augmented Generation (RAG) and Fine-Tuned Transformer approaches for implementing domain-specific chatbots."
+    },
+    {
+        "question": "Did Kushagra Singh publish any research paper?",
+        "answer": "Yes, Kushagra Singh co-authored a research paper titled 'Domain-Specific Conversational AI for IRIS MITWPU: From Research Paper to Production' which was published in the IEEE International Conference on Information, Communication and Computing Technology (ICoICC) 2025. The paper presents a comprehensive comparison between Retrieval-Augmented Generation (RAG) and Fine-Tuned Transformer approaches for implementing domain-specific chatbots."
+    },
+    {
+        "question": "Did Kushagra publish any research paper?",
+        "answer": "Yes, Kushagra Singh co-authored a research paper titled 'Domain-Specific Conversational AI for IRIS MITWPU: From Research Paper to Production' which was published in the IEEE International Conference on Information, Communication and Computing Technology (ICoICC) 2025. The paper presents a comprehensive comparison between Retrieval-Augmented Generation (RAG) and Fine-Tuned Transformer approaches for implementing domain-specific chatbots."
+    },
+    {
+        "question": "Kushagra research paper",
+        "answer": "Kushagra Singh co-authored a research paper titled 'Domain-Specific Conversational AI for IRIS MITWPU: From Research Paper to Production' which was published in the IEEE International Conference on Information, Communication and Computing Technology (ICoICC) 2025. The paper presents a comprehensive comparison between Retrieval-Augmented Generation (RAG) and Fine-Tuned Transformer approaches for implementing domain-specific chatbots."
+    },
+    {
+        "question": "Kushagra Singh research paper",
+        "answer": "Kushagra Singh co-authored a research paper titled 'Domain-Specific Conversational AI for IRIS MITWPU: From Research Paper to Production' which was published in the IEEE International Conference on Information, Communication and Computing Technology (ICoICC) 2025. The paper presents a comprehensive comparison between Retrieval-Augmented Generation (RAG) and Fine-Tuned Transformer approaches for implementing domain-specific chatbots."
+    },
+    {
+        "question": "Tell me about Kushagra",
+        "answer": "Kushagra Singh is the Technical Head of IRIS at MIT WPU, leading technical initiatives and managing the club's website development. He is a Computer Science student with expertise spanning AI/ML, software development, autonomous systems, and distributed computing. His work focuses on bridging the gap between research and practical applications in technology."
+    },
+    {
+        "question": "Tell me about Kushagra Singh",
+        "answer": "Kushagra Singh is the Technical Head of IRIS at MIT WPU, leading technical initiatives and managing the club's website development. He is a Computer Science student with expertise spanning AI/ML, software development, autonomous systems, and distributed computing. His work focuses on bridging the gap between research and practical applications in technology."
+    },
+    {
+        "question": "What was Kushagra Singh's research paper about?",
+        "answer": "Kushagra Singh's research paper, published in IEEE ICICCT 2025, focused on developing and comparing different approaches to domain-specific conversational AI. The paper details the implementation of a RAG pipeline using LangChain, HuggingFace embeddings, FAISS, and the LLaMA-3 70B model via Groq API. It also includes the development of a fine-tuned DistilBERT model optimized for question-answering tasks. The research achieved a 0.92 BERTScore accuracy and was successfully deployed on the official IRIS MIT-WPU website."
+    },
+    {
+        "question": "What was Kushagra's research paper about?",
+        "answer": "Kushagra Singh's research paper, published in IEEE ICICCT 2025, focused on developing and comparing different approaches to domain-specific conversational AI. The paper details the implementation of a RAG pipeline using LangChain, HuggingFace embeddings, FAISS, and the LLaMA-3 70B model via Groq API. It also includes the development of a fine-tuned DistilBERT model optimized for question-answering tasks. The research achieved a 0.92 BERTScore accuracy and was successfully deployed on the official IRIS MIT-WPU website."
+    },
+    {
+        "question": "Who were the co-authors of Kushagra Singh's research paper?",
+        "answer": "Kushagra Singh's research paper 'Domain-Specific Conversational AI for IRIS MITWPU: From Research Paper to Production' was co-authored with Brandon Cerejo, Samanyu Bhate, and Taksh Dhabalia. The paper was presented at the IEEE International Conference on Information, Communication and Computing Technology (ICoICC) in 2025."
+    },
+    {
+        "question": "Who were the co-authors of Kushagra's research paper?",
+        "answer": "Kushagra Singh's research paper 'Domain-Specific Conversational AI for IRIS MITWPU: From Research Paper to Production' was co-authored with Brandon Cerejo, Samanyu Bhate, and Taksh Dhabalia. The paper was presented at the IEEE International Conference on Information, Communication and Computing Technology (ICoICC) in 2025."
+    },
+    {
+        "question": "Where can I find Kushagra Singh's research paper?",
+        "answer": "Kushagra Singh's research paper 'Domain-Specific Conversational AI for IRIS MITWPU: From Research Paper to Production' is available on IEEE Xplore. You can access it directly at: https://ieeexplore.ieee.org/document/11052088. The paper was published in the proceedings of the IEEE International Conference on Information, Communication and Computing Technology (ICoICC) 2025. You can also find it by searching for the paper title or DOI on the IEEE Xplore Digital Library."
+    },
+    {
+        "question": "Where can I find Kushagra's research paper?",
+        "answer": "Kushagra Singh's research paper 'Domain-Specific Conversational AI for IRIS MITWPU: From Research Paper to Production' is available on IEEE Xplore. You can access it directly at: https://ieeexplore.ieee.org/document/11052088. The paper was published in the proceedings of the IEEE International Conference on Information, Communication and Computing Technology (ICoICC) 2025. You can also find it by searching for the paper title or DOI on the IEEE Xplore Digital Library."
+    },
     {
         "question": "What is featured on the IRIS blog?",
         "answer": "Our blog features articles on various tech topics, research findings, and event recaps. Visit the Blog section to read our latest posts."

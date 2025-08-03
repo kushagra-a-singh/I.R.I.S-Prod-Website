@@ -23,6 +23,9 @@ const ChatMessage = ({ message }) => {
       maxWidth: "80%",
       fontSize: "14px",
       color: "#333",
+      wordBreak: "break-word",
+      overflowWrap: "break-word",
+      wordWrap: "break-word"
     }}>
       {message.sender === 'bot' ? (
         message.contains_html ? (
@@ -54,7 +57,7 @@ const Chatbot1 = () => {
       const waveInterval = setInterval(() => {
         setIsWaving(prev => !prev);
       }, 900);
-      
+
       return () => clearInterval(waveInterval);
     }
   }, [isOpen]);
@@ -91,6 +94,12 @@ const Chatbot1 = () => {
 
     setShowPredefinedQuestions(false);
     setMessages((prev) => [...prev, { sender: "user", text: messageText }]);
+
+    // Clear input immediately after adding user message
+    if (messageText === input) {
+      setInput("");
+    }
+
     if (allQuestions.includes(messageText)) {
       setUsedQuestions(prev => [...prev, messageText]);
     }
@@ -127,10 +136,6 @@ const Chatbot1 = () => {
       const msgs = prev.filter(m => !m.isTyping);
       return [...msgs, botMessage];
     });
-
-    if (messageText === input) {
-      setInput("");
-    }
   };
 
   const handleInputChange = (e) => {
@@ -145,13 +150,13 @@ const Chatbot1 = () => {
   };
 
   return (
-    <div style={{ 
-      position: "fixed", 
-      bottom: "20px", 
-      right: "20px", 
+    <div style={{
+      position: "fixed",
+      bottom: "20px",
+      right: "20px",
       zIndex: 1000,
       fontFamily: "Arial, sans-serif",
-      
+
     }}>
       {/* Chatbot Button - Updated with animation and no circle */}
       <button
@@ -177,15 +182,15 @@ const Chatbot1 = () => {
           }
         }}
       >
-        <Image 
-          src="/images/chatbot1.png" 
-          alt="Chatbot" 
-          width={80} 
-          height={80} 
-          style={{ 
+        <Image
+          src="/images/chatbot1.png"
+          alt="Chatbot"
+          width={80}
+          height={80}
+          style={{
             objectFit: "contain",
             transition: "transform 0.2s",
-          }} 
+          }}
         />
       </button>
 
@@ -193,14 +198,14 @@ const Chatbot1 = () => {
       {isOpen && (
         <div
           style={{
-            width: "350px",
+            width: "480px",
             background: "#fff",
             borderRadius: "12px",
             boxShadow: "0 4px 16px rgba(0, 0, 0, 0.15)",
             marginTop: "10px",
             display: "flex",
             flexDirection: "column",
-            height: "455px",
+            height: "535px",
             maxHeight: "85vh",
             overflow: "hidden"
           }}
@@ -229,15 +234,15 @@ const Chatbot1 = () => {
               fontWeight: "bold",
               backdropFilter: "blur(4px)"
             }}>
-              <Image 
-                src="/images/chatbot.avif" 
-                alt="Chatbot" 
-                width={42} 
-                height={42} 
-                style={{ 
-                  objectFit: "contain", 
-                  borderRadius: "50%" 
-                }} 
+              <Image
+                src="/images/chatbot.avif"
+                alt="Chatbot"
+                width={42}
+                height={42}
+                style={{
+                  objectFit: "contain",
+                  borderRadius: "50%"
+                }}
               />
             </div>
             <div style={{ flex: 1, marginLeft: 8 }}>
@@ -286,9 +291,9 @@ const Chatbot1 = () => {
               </div>
             ) : (
               messages.map((msg, index) => (
-                <ChatMessage 
-                  key={index} 
-                  message={msg} 
+                <ChatMessage
+                  key={index}
+                  message={msg}
                 />
               ))
             )}
@@ -333,7 +338,7 @@ const Chatbot1 = () => {
           )}
 
           {/* Chat Input */}
-          <div style={{ 
+          <div style={{
             padding: "12px",
             background: "#fff",
             borderTop: "1px solid rgba(0, 0, 0, 0.08)",

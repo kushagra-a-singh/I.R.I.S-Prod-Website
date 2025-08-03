@@ -35,7 +35,7 @@ const ChatWindow = ({ isOpen, messages, onSendMessage, onFeedback }) => {
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className="fixed bottom-24 right-6 w-80 md:w-96 h-[48rem] bg-white rounded-lg shadow-xl z-40 flex flex-col overflow-hidden"
+          className="fixed bottom-24 right-6 w-96 md:w-[28rem] h-[40rem] bg-white rounded-lg shadow-xl z-40 flex flex-col overflow-hidden"
           initial={{ opacity: 0, y: 50, scale: 0.9 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 50, scale: 0.9 }}
@@ -43,8 +43,8 @@ const ChatWindow = ({ isOpen, messages, onSendMessage, onFeedback }) => {
         >
           <div className="bg-purple-600 text-white p-4 flex justify-between items-center">
             <h3 className="text-lg font-medium">IRIS Assistant</h3>
-            <button 
-              onClick={() => onSendMessage('exit')} 
+            <button
+              onClick={() => onSendMessage('exit')}
               className="text-white hover:text-gray-200"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -52,20 +52,24 @@ const ChatWindow = ({ isOpen, messages, onSendMessage, onFeedback }) => {
               </svg>
             </button>
           </div>
-          
+
           <div className="flex-1 overflow-y-auto p-4 space-y-4">
             {messages.map((msg, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
               >
                 <div className="max-w-3/4">
-                  <div 
-                    className={`p-3 rounded-lg ${
-                      msg.sender === 'user' 
-                        ? 'bg-purple-500 text-white rounded-br-none' 
-                        : 'bg-gray-100 text-gray-800 rounded-bl-none'
-                    }`}
+                  <div
+                    className={`p-3 rounded-lg ${msg.sender === 'user'
+                      ? 'bg-purple-500 text-white rounded-br-none'
+                      : 'bg-gray-100 text-gray-800 rounded-bl-none'
+                      }`}
+                    style={{
+                      wordBreak: 'break-word',
+                      overflowWrap: 'break-word',
+                      wordWrap: 'break-word'
+                    }}
                   >
                     {msg.text === '...' ? (
                       <TypingIndicator />
@@ -73,13 +77,13 @@ const ChatWindow = ({ isOpen, messages, onSendMessage, onFeedback }) => {
                       <div className={msg.isNew ? 'typing-text' : ''}>
                         {msg.sender === 'bot' && msg.text !== '...'
                           ? (msg.contains_html
-                              ? <span dangerouslySetInnerHTML={{ __html: msg.text }} />
-                              : <span dangerouslySetInnerHTML={{ __html: linkify(msg.text) }} />)
+                            ? <span dangerouslySetInnerHTML={{ __html: msg.text }} />
+                            : <span dangerouslySetInnerHTML={{ __html: linkify(msg.text) }} />)
                           : msg.text}
                       </div>
                     )}
                   </div>
-                  
+
                   {msg.sender === 'bot' && msg.text !== '...' && onFeedback && (
                     <div className="flex justify-end mt-1 space-x-2">
                       <button
@@ -107,7 +111,7 @@ const ChatWindow = ({ isOpen, messages, onSendMessage, onFeedback }) => {
             ))}
             <div ref={messagesEndRef} />
           </div>
-          
+
           <form onSubmit={handleSubmit} className="p-3 border-t">
             <div className="flex space-x-2">
               <input
@@ -117,7 +121,7 @@ const ChatWindow = ({ isOpen, messages, onSendMessage, onFeedback }) => {
                 className="flex-1 border rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
                 placeholder="Ask me anything..."
               />
-              <button 
+              <button
                 type="submit"
                 className="bg-purple-600 text-white rounded-full p-2 hover:bg-purple-700 transition-colors"
                 disabled={!input.trim()}

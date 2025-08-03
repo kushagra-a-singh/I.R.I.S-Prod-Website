@@ -216,20 +216,45 @@ faiss_db = FAISS(
     docstore=InMemoryDocstore({i: doc for i, doc in enumerate(faiss_docs)}),
     index_to_docstore_id={i: i for i in range(len(faiss_docs))},
 )
-retriever = faiss_db.as_retriever(search_type="similarity", search_kwargs={"k": 5})
+retriever = faiss_db.as_retriever(search_type="similarity", search_kwargs={"k": 8})
 
 prompt_template = """
 You are an AI assistant for the IRIS club at MIT WPU. Answer the question using the context provided below.
-If the answer is not explicitly in the context, try to infer it based on the available information.
-If the context contains any URLs (such as LinkedIn, project pages, or other links), always include them in your answer.
-If the question is about projects or research, always start your answer by mentioning the official IRIS Projects page (https://iris-club.in/Projects) and Research page (https://iris-club.in/research), describing what users will find there. Only after that, mention that Dr. Shamla Mantri and Dr. Yogesh Kulkarni are the club mentors, and other faculty are project mentors if relevant.
-If you still can't find the answer, say \"Please try again asking anything related to I.R.I.S.\"
 
-Context: {context}
+INSTRUCTIONS:
+1. For RESEARCH PAPER questions:
+   - If the context contains details about a research paper, provide a detailed response including:
+     * Paper title in quotes
+     * List of all authors
+     * Publication venue/conference
+     * Year of publication
+     * Key findings or contributions
+     * Link to the paper if available
+   - Do not mention IRIS Projects/Research pages for paper-specific queries
+   - If multiple papers are found, list them all
 
-Question: {question}
+2. For QUESTIONS ABOUT KUSHAGRA SINGH or KUSHAGRA:
+   - Recognize that "Kushagra" and "Kushagra Singh" refer to the same person
+   - If asking about his research, follow the research paper instructions above
+   - For other aspects (projects, role, skills), provide a concise summary
+   - Include relevant links when available
+   - Always provide the full name "Kushagra Singh" in responses for clarity
 
-Answer:
+3. For other PROJECTS or GENERAL questions:
+   - Start by mentioning the official IRIS Projects page (https://iris-club.in/Projects) and Research page (https://iris-club.in/research)
+   - Include that Dr. Shamla Mantri and Dr. Yogesh Kulkarni are the club mentors
+   - Include any relevant links from the context
+
+4. If the answer is not in the context, say "I couldn't find specific information about that. Could you try rephrasing your question?"
+
+IMPORTANT: Be direct and specific in your answers. If the context contains detailed information, include it in your response. Don't be vague.
+
+CONTEXT:
+{context}
+
+QUESTION: {question}
+
+ANSWER:
 """
 
 prompt = PromptTemplate(
@@ -305,12 +330,18 @@ def chat():
             query_vec = np.expand_dims(query_vec, axis=0)
         print("query_vec shape after expand_dims (if applied):", query_vec.shape)
         print("index.d:", getattr(index, "d", "N/A"))
-        D, I = index.search(query_vec, 5)
-        print("D shape:", D.shape)
-        print("I shape:", I.shape)
-        print("I:", I)
+        # Search with more results to increase chance of finding research paper
+        num_results = 10  # Increased from 5 to 10
+        D, I = index.search(query_vec, num_results)
+
+        print(f"\n=== SEARCH QUERY ===\n{query}")
+        print(f"\n=== SEARCH RESULTS (Top {num_results}) ===")
+        print(f"D shape: {D.shape}, I shape: {I.shape}")
+
         if I.shape[0] == 0 or I.shape[1] == 0:
-            print("No results from FAISS index. Check embedding and index dimensions.")
+            print(
+                "ERROR: No results from FAISS index. Check embedding and index dimensions."
+            )
             return (
                 jsonify(
                     {
@@ -319,7 +350,48 @@ def chat():
                 ),
                 500,
             )
+
+        # Print detailed search results
+        print("\n--- SEARCH RESULT DETAILS ---")
+        for i, (idx, score) in enumerate(zip(I[0], D[0]), 1):
+            similarity = 1 - score  # Convert distance to similarity
+            text_preview = texts[idx][:200].replace("\n", " ")
+            if len(texts[idx]) > 200:
+                text_preview += "..."
+
+            # Check if this is a research paper entry
+            is_research = (
+                "paper" in texts[idx].lower() or "research" in texts[idx].lower()
+            )
+
+            # Use ASCII-friendly markers to avoid encoding issues
+            if is_research:
+                print(
+                    f"[RESEARCH] Result {i:2d}: Index={idx:4d}, Similarity={similarity:.4f}"
+                )
+            else:
+                print(
+                    f"          Result {i:2d}: Index={idx:4d}, Similarity={similarity:.4f}"
+                )
+
+            print(f"   Preview: {text_preview}")
+
+        # Get top contexts for the response
         top_contexts = [texts[i] for i in I[0]]
+
+        # If no research paper found in top results, try to find it explicitly
+        research_contexts = [
+            texts[i]
+            for i in I[0]
+            if "paper" in texts[i].lower() or "research" in texts[i].lower()
+        ]
+        if research_contexts:
+            print("\n[INFO] Found research paper entries in results")
+            # Prepend research contexts to ensure they're included
+            top_contexts = research_contexts + top_contexts
+            top_contexts = list(
+                dict.fromkeys(top_contexts)
+            )  # Remove duplicates while preserving order
         context = "\n".join(top_contexts)
         response = qa_chain.invoke({"query": query, "context": context})
         answer = response["result"].split("Answer:")[-1].strip()

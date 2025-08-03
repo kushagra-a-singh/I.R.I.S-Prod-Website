@@ -28,6 +28,8 @@ from langchain_huggingface.embeddings import HuggingFaceEmbeddings
 from langchain_huggingface.llms import HuggingFacePipeline
 from supabase import Client, create_client
 
+print("🚀 Starting chatbot initialization...")
+
 if sys.platform.startswith("win"):
     import codecs
 
@@ -44,9 +46,12 @@ def safe_print(text):
         print(safe_text)
 
 
+print("📁 Loading environment variables...")
 env_path = Path(__file__).resolve().parents[3] / ".env.local"
 load_dotenv(dotenv_path=env_path)
+print("✅ Environment variables loaded")
 
+print("🌐 Initializing Flask app...")
 app = Flask(__name__)
 CORS(
     app,
@@ -63,6 +68,7 @@ CORS(
     allow_headers="*",
     methods=["GET", "POST", "OPTIONS"],
 )
+print("✅ Flask app initialized with CORS")
 
 
 # Rate limiting
@@ -107,20 +113,30 @@ def make_links_clickable(text):
     return text
 
 
+print("📂 Setting up file paths...")
 import os
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
+print(f"✅ Script directory: {script_dir}")
 
+print("📖 Loading embeddings.pkl file...")
 with open(os.path.join(script_dir, "embeddings.pkl"), "rb") as f:
     data = pickle.load(f)
 texts = data["texts"]
-index = faiss.read_index(os.path.join(script_dir, "faiss.index"))
+print(f"✅ Loaded {len(texts)} text entries from embeddings.pkl")
 
+print("🔍 Loading FAISS index...")
+index = faiss.read_index(os.path.join(script_dir, "faiss.index"))
+print("✅ FAISS index loaded successfully")
+
+print("🔑 Loading API configurations...")
 HF_API_URL = os.getenv("HF_API_URL")
 HF_API_TOKEN = os.getenv("HF_API_TOKEN")
 
 if not HF_API_URL or not HF_API_TOKEN:
     raise ValueError("HF_API_URL and HF_API_TOKEN must be set in environment variables")
+
+print("✅ HuggingFace API configuration loaded")
 
 query_embedding_cache = {}
 
@@ -188,6 +204,7 @@ def embed_query(query):
                 raise e
 
 
+print("🤖 Initializing Groq LLM...")
 groq_api_key = os.getenv("GROQ_API_KEY")
 
 llm = ChatGroq(
@@ -196,10 +213,13 @@ llm = ChatGroq(
     model_name="llama-3.3-70b-versatile",
     request_timeout=120,
 )
+print("✅ Groq LLM initialized")
 
+print("🗄️ Initializing Supabase client...")
 SUPABASE_URL = os.getenv("SUPABASE_URL")
 SUPABASE_KEY = os.getenv("SUPABASE_KEY")
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
+print("✅ Supabase client initialized")
 
 INDIA_TZ = pytz.timezone("Asia/Kolkata")
 
@@ -212,6 +232,9 @@ def log_chatbot_interaction(query, response):
         ).execute()
     except Exception as e:
         print(f"Failed to log chatbot interaction: {str(e)}")
+
+
+print("🔧 Setting up FAISS retriever...")
 
 
 # Build FAISS retriever
@@ -234,6 +257,8 @@ faiss_db = FAISS(
     index_to_docstore_id={i: i for i in range(len(faiss_docs))},
 )
 retriever = faiss_db.as_retriever(search_type="similarity", search_kwargs={"k": 8})
+print("✅ FAISS retriever setup complete")
+
 
 prompt_template = """
 You are an AI assistant for the IRIS club at MIT WPU. Answer the question using the context provided below.
@@ -286,6 +311,8 @@ qa_chain = RetrievalQA.from_chain_type(
     return_source_documents=False,
     chain_type_kwargs={"prompt": prompt},
 )
+
+print("🎉 Chatbot initialization complete! Ready to serve requests.")
 
 
 # Step 5: Create an API endpoint
@@ -347,7 +374,7 @@ def chat():
             query_vec = np.expand_dims(query_vec, axis=0)
         print("query_vec shape after expand_dims (if applied):", query_vec.shape)
         print("index.d:", getattr(index, "d", "N/A"))
-        num_results = 10  
+        num_results = 10
         D, I = index.search(query_vec, num_results)
 
         print(f"\n=== SEARCH QUERY ===\n{query}")
@@ -369,7 +396,7 @@ def chat():
 
         print("\n--- SEARCH RESULT DETAILS ---")
         for i, (idx, score) in enumerate(zip(I[0], D[0]), 1):
-            similarity = 1 - score  
+            similarity = 1 - score
             text_preview = texts[idx][:200].replace("\n", " ")
             if len(texts[idx]) > 200:
                 text_preview += "..."
@@ -398,11 +425,9 @@ def chat():
         ]
         if research_contexts:
             safe_print("\n[INFO] Found research paper entries in results")
-            
+
             top_contexts = research_contexts + top_contexts
-            top_contexts = list(
-                dict.fromkeys(top_contexts)
-            )  
+            top_contexts = list(dict.fromkeys(top_contexts))
         context = "\n".join(top_contexts)
         response = qa_chain.invoke({"query": query, "context": context})
         answer = response["result"].split("Answer:")[-1].strip()

@@ -2,6 +2,7 @@ import numbers
 import os
 import pickle
 import re
+import sys
 import threading
 import time
 import traceback
@@ -26,6 +27,22 @@ from langchain_groq import ChatGroq
 from langchain_huggingface.embeddings import HuggingFaceEmbeddings
 from langchain_huggingface.llms import HuggingFacePipeline
 from supabase import Client, create_client
+
+if sys.platform.startswith("win"):
+    import codecs
+
+    sys.stdout = codecs.getwriter("utf-8")(sys.stdout.detach())
+    sys.stderr = codecs.getwriter("utf-8")(sys.stderr.detach())
+
+
+def safe_print(text):
+    """Safely print text that may contain Unicode characters"""
+    try:
+        print(text)
+    except UnicodeEncodeError:
+        safe_text = text.encode("ascii", "replace").decode("ascii")
+        print(safe_text)
+
 
 env_path = Path(__file__).resolve().parents[3] / ".env.local"
 load_dotenv(dotenv_path=env_path)
@@ -330,8 +347,7 @@ def chat():
             query_vec = np.expand_dims(query_vec, axis=0)
         print("query_vec shape after expand_dims (if applied):", query_vec.shape)
         print("index.d:", getattr(index, "d", "N/A"))
-        # Search with more results to increase chance of finding research paper
-        num_results = 10  # Increased from 5 to 10
+        num_results = 10  
         D, I = index.search(query_vec, num_results)
 
         print(f"\n=== SEARCH QUERY ===\n{query}")
@@ -351,47 +367,42 @@ def chat():
                 500,
             )
 
-        # Print detailed search results
         print("\n--- SEARCH RESULT DETAILS ---")
         for i, (idx, score) in enumerate(zip(I[0], D[0]), 1):
-            similarity = 1 - score  # Convert distance to similarity
+            similarity = 1 - score  
             text_preview = texts[idx][:200].replace("\n", " ")
             if len(texts[idx]) > 200:
                 text_preview += "..."
 
-            # Check if this is a research paper entry
             is_research = (
                 "paper" in texts[idx].lower() or "research" in texts[idx].lower()
             )
 
-            # Use ASCII-friendly markers to avoid encoding issues
             if is_research:
-                print(
+                safe_print(
                     f"[RESEARCH] Result {i:2d}: Index={idx:4d}, Similarity={similarity:.4f}"
                 )
             else:
-                print(
+                safe_print(
                     f"          Result {i:2d}: Index={idx:4d}, Similarity={similarity:.4f}"
                 )
 
-            print(f"   Preview: {text_preview}")
+            safe_print(f"   Preview: {text_preview}")
 
-        # Get top contexts for the response
         top_contexts = [texts[i] for i in I[0]]
 
-        # If no research paper found in top results, try to find it explicitly
         research_contexts = [
             texts[i]
             for i in I[0]
             if "paper" in texts[i].lower() or "research" in texts[i].lower()
         ]
         if research_contexts:
-            print("\n[INFO] Found research paper entries in results")
-            # Prepend research contexts to ensure they're included
+            safe_print("\n[INFO] Found research paper entries in results")
+            
             top_contexts = research_contexts + top_contexts
             top_contexts = list(
                 dict.fromkeys(top_contexts)
-            )  # Remove duplicates while preserving order
+            )  
         context = "\n".join(top_contexts)
         response = qa_chain.invoke({"query": query, "context": context})
         answer = response["result"].split("Answer:")[-1].strip()
@@ -428,10 +439,10 @@ def chat():
                 ),
                 200,
             )
-        print("RuntimeError occurred:", error_message)
+        safe_print("RuntimeError occurred:", error_message)
         return jsonify({"error": error_message}), 500
     except Exception as e:
-        print("Exception occurred:", str(e))
+        safe_print("Exception occurred:", str(e))
         traceback.print_exc()
         return jsonify({"error": str(e)}), 500
 
@@ -454,8 +465,8 @@ def health():
         }
 
         # log the health check
-        print(f"🔍 Health check from {client_ip} - {user_agent}")
-        print(
+        safe_print(f"🔍 Health check from {client_ip} - {user_agent}")
+        safe_print(
             f"✅ Health check successful at {datetime.now(pytz.utc).strftime('%Y-%m-%d %H:%M:%S UTC')}"
         )
 
@@ -463,7 +474,7 @@ def health():
 
     except Exception as e:
         error_msg = f"❌ Health check failed: {str(e)}"
-        print(error_msg)
+        safe_print(error_msg)
         return (
             jsonify(
                 {

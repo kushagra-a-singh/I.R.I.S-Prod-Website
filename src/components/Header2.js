@@ -6,6 +6,7 @@ import styles from './Header2.module.css';
 
 function Header2() {
   const [scrolled, setScrolled] = useState(false);
+  const [isNavOpen, setIsNavOpen] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -25,14 +26,36 @@ function Header2() {
   }, []);
 
   const handleNavLinkClick = () => {
-    const navbarCollapse = document.getElementById('navbarSupportedContent');
-    if (navbarCollapse && navbarCollapse.classList.contains('show')) {
-      const bsCollapse =
-        bootstrap.Collapse.getInstance(navbarCollapse) ||
-        new bootstrap.Collapse(navbarCollapse, { toggle: false });
-      bsCollapse.hide();
+    setIsNavOpen(false);
+
+    try {
+      const navbarCollapse = document.getElementById('navbarSupportedContent');
+      if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+        
+        if (typeof window !== 'undefined' && window.bootstrap) {
+          const bsCollapse =
+            window.bootstrap.Collapse.getInstance(navbarCollapse) ||
+            new window.bootstrap.Collapse(navbarCollapse, { toggle: false });
+          bsCollapse.hide();
+        } else {
+          navbarCollapse.classList.remove('show');
+        }
+      }
+    } catch (error) {
+      const navbarCollapse = document.getElementById('navbarSupportedContent');
+      if (navbarCollapse) {
+        navbarCollapse.classList.remove('show');
+      }
     }
   };
+
+  useEffect(() => {
+    setIsNavOpen(false);
+    const navbarCollapse = document.getElementById('navbarSupportedContent');
+    if (navbarCollapse) {
+      navbarCollapse.classList.remove('show');
+    }
+  }, [router.pathname]);
 
   return (
     <header className={`${styles.navbarWrapper} ${scrolled ? styles.scrolled : ''}`}>
@@ -59,13 +82,14 @@ function Header2() {
               data-bs-toggle="collapse"
               data-bs-target="#navbarSupportedContent"
               aria-controls="navbarSupportedContent"
-              aria-expanded="false"
+              aria-expanded={isNavOpen}
               aria-label="Toggle navigation"
+              onClick={() => setIsNavOpen(!isNavOpen)}
             >
               <span className="navbar-toggler-icon"></span>
             </button>
             <div
-              className={`collapse ${styles.navbarCollapse} navbar-collapse`}
+              className={`collapse ${styles.navbarCollapse} navbar-collapse ${isNavOpen ? 'show' : ''}`}
               id="navbarSupportedContent"
             >
               <ul className={`navbar-nav ms-auto   ${styles.navbarRightContent}`}>
@@ -84,9 +108,8 @@ function Header2() {
                   <li className={styles.navItem} key={item.path}>
                     <Link
                       style={{ textDecoration: 'none' }}
-                      className={`${styles.navLink} ${
-                        router.pathname === item.path ? styles.active : ''
-                      }`}
+                      className={`${styles.navLink} ${router.pathname === item.path ? styles.active : ''
+                        }`}
                       href={item.path}
                       passHref>
                       <span onClick={handleNavLinkClick} style={{ cursor: 'pointer' }}>

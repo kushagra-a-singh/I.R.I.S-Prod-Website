@@ -275,7 +275,15 @@ def log_chatbot_interaction(query, response):
         print(f"Log data: {log_data}")
 
         result = supabase.table("chatbot_logs").insert(log_data).execute()
-        print(f"Supabase log result: {result}")
+
+        # Handle the result properly
+        if hasattr(result, "data") and result.data:
+            print(
+                f"Successfully logged to Supabase. Inserted {len(result.data)} records."
+            )
+        else:
+            print("Supabase insert completed but no data returned.")
+
         print("Successfully logged to Supabase")
 
     except Exception as e:
@@ -536,6 +544,38 @@ def chat():
         )
 
 
+@app.route("/check-supabase-table")
+def check_supabase_table():
+    """Check if the chatbot_logs table exists and has the right structure"""
+    try:
+        print("Checking Supabase table structure...")
+
+        # Try to select from the table to see if it exists
+        result = supabase.table("chatbot_logs").select("*").limit(1).execute()
+
+        if hasattr(result, "data"):
+            print(f"Table exists. Sample data: {result.data}")
+            return jsonify(
+                {
+                    "status": "success",
+                    "message": "Table exists and is accessible",
+                    "table_name": "chatbot_logs",
+                    "sample_data": result.data[:1] if result.data else [],
+                }
+            )
+        else:
+            return jsonify(
+                {"status": "error", "message": "Table exists but no data returned"}
+            )
+
+    except Exception as e:
+        print(f"Table check failed: {str(e)}")
+        return (
+            jsonify({"status": "error", "message": f"Table check failed: {str(e)}"}),
+            500,
+        )
+
+
 @app.route("/test-supabase")
 def test_supabase():
     """Test Supabase connectivity"""
@@ -545,6 +585,12 @@ def test_supabase():
         # Test basic connection
         result = supabase.table("chatbot_logs").select("count", count="exact").execute()
         print(f"Supabase test result: {result}")
+
+        # Convert result to serializable format
+        count_result = {
+            "count": result.count if hasattr(result, "count") else "unknown",
+            "data": result.data if hasattr(result, "data") else [],
+        }
 
         # Test inserting a test record
         test_data = {
@@ -556,12 +602,19 @@ def test_supabase():
         insert_result = supabase.table("chatbot_logs").insert(test_data).execute()
         print(f"Test insert result: {insert_result}")
 
+        # Convert insert result to serializable format
+        insert_data = {
+            "data": insert_result.data if hasattr(insert_result, "data") else [],
+            "count": insert_result.count if hasattr(insert_result, "count") else 0,
+        }
+
         return jsonify(
             {
                 "status": "success",
                 "message": "Supabase connection working",
                 "test_data": test_data,
-                "insert_result": insert_result,
+                "count_result": count_result,
+                "insert_result": insert_data,
             }
         )
 

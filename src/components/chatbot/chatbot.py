@@ -25,9 +25,6 @@ from langchain.schema import Document
 from langchain_community.docstore.in_memory import InMemoryDocstore
 from langchain_community.vectorstores import FAISS
 from langchain_groq import ChatGroq
-
-# from langchain_huggingface.embeddings import HuggingFaceEmbeddings
-# from langchain_huggingface.llms import HuggingFacePipeline
 from supabase import Client, create_client
 
 print("Starting chatbot initialization...")
@@ -262,13 +259,31 @@ INDIA_TZ = pytz.timezone("Asia/Kolkata")
 
 
 def log_chatbot_interaction(query, response):
+    """Log chatbot interactions to Supabase"""
     try:
+        print(f"Logging interaction to Supabase...")
+        print(f"Query: {query[:100]}...")
+        print(f"Response length: {len(response)} characters")
+
         now_ist = datetime.now(INDIA_TZ)
-        supabase.table("chatbot_logs").insert(
-            {"query": query, "response": response, "created_at": now_ist.isoformat()}
-        ).execute()
+        log_data = {
+            "query": query,
+            "response": response,
+            "created_at": now_ist.isoformat(),
+        }
+
+        print(f"Log data: {log_data}")
+
+        result = supabase.table("chatbot_logs").insert(log_data).execute()
+        print(f"Supabase log result: {result}")
+        print("Successfully logged to Supabase")
+
     except Exception as e:
         print(f"Failed to log chatbot interaction: {str(e)}")
+        print(f"Error type: {type(e)}")
+        import traceback
+
+        print(f"Traceback: {traceback.format_exc()}")
 
 
 print("Setting up FAISS retriever...")
@@ -490,9 +505,16 @@ def chat():
 
         # Log the interaction
         try:
+            print(f"About to log interaction to Supabase...")
+            print(f"Supabase URL: {SUPABASE_URL}")
+            print(f"Supabase key exists: {bool(SUPABASE_KEY)}")
             log_chatbot_interaction(query, answer)
         except Exception as e:
             print(f"Failed to log interaction: {str(e)}")
+            print(f"Error type: {type(e)}")
+            import traceback
+
+            print(f"Traceback: {traceback.format_exc()}")
 
         # Force garbage collection after processing
         gc.collect()
@@ -509,6 +531,45 @@ def chat():
         return (
             jsonify(
                 {"error": f"Internal server error: {str(e)}", "contains_html": False}
+            ),
+            500,
+        )
+
+
+@app.route("/test-supabase")
+def test_supabase():
+    """Test Supabase connectivity"""
+    try:
+        print("Testing Supabase connectivity...")
+
+        # Test basic connection
+        result = supabase.table("chatbot_logs").select("count", count="exact").execute()
+        print(f"Supabase test result: {result}")
+
+        # Test inserting a test record
+        test_data = {
+            "query": "test query",
+            "response": "test response",
+            "created_at": datetime.now(INDIA_TZ).isoformat(),
+        }
+
+        insert_result = supabase.table("chatbot_logs").insert(test_data).execute()
+        print(f"Test insert result: {insert_result}")
+
+        return jsonify(
+            {
+                "status": "success",
+                "message": "Supabase connection working",
+                "test_data": test_data,
+                "insert_result": insert_result,
+            }
+        )
+
+    except Exception as e:
+        print(f"Supabase test failed: {str(e)}")
+        return (
+            jsonify(
+                {"status": "error", "message": f"Supabase connection failed: {str(e)}"}
             ),
             500,
         )

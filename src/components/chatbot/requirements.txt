@@ -3,6 +3,7 @@ flask_cors
 langchain
 langchain-community
 langchain-groq
+langchain-core
 gunicorn
 python-dotenv
 numpy

@@ -25,8 +25,8 @@ from langchain.schema import Document
 from langchain_community.docstore.in_memory import InMemoryDocstore
 from langchain_community.vectorstores import FAISS
 from langchain_groq import ChatGroq
-from langchain_huggingface.embeddings import HuggingFaceEmbeddings
-from langchain_huggingface.llms import HuggingFacePipeline
+# from langchain_huggingface.embeddings import HuggingFaceEmbeddings
+# from langchain_huggingface.llms import HuggingFacePipeline
 from supabase import Client, create_client
 
 print("🚀 Starting chatbot initialization...")

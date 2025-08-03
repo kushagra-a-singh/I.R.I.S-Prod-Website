@@ -171,7 +171,7 @@ const WelcomeMessage = ({ isDarkMode }) => {
         lineHeight: "1.4",
         padding: "0 4px"
       }}>
-        I'm here to help you with information about IRIS, our projects, research, and more.
+        I&apos;m here to help you with information about IRIS, our projects, research, and more.
         Feel free to ask me anything!
       </p>
 
@@ -431,11 +431,11 @@ const Chatbot1 = () => {
         position: "fixed",
         bottom: "20px",
         right: "20px",
-        left: "20px", 
+        left: "20px",
         zIndex: 1000,
         fontFamily: "Arial, sans-serif",
         display: "flex",
-        justifyContent: "flex-end", 
+        justifyContent: "flex-end",
         alignItems: "flex-end",
       }}>
         {!isOpen && (
@@ -458,7 +458,7 @@ const Chatbot1 = () => {
             <motion.button
               onClick={() => {
                 setIsOpen(!isOpen);
-                setIsWaving(false); 
+                setIsWaving(false);
                 if (!isOpen) {
                   setShowPredefinedQuestions(messages.length === 0);
                 }
@@ -498,7 +498,7 @@ const Chatbot1 = () => {
               exit={{ opacity: 0, y: 50, scale: 0.9 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
               style={{
-                width: "min(480px, calc(100vw - 40px))", 
+                width: "min(480px, calc(100vw - 40px))",
                 maxWidth: "480px",
                 minWidth: "320px",
                 background: isDarkMode ? "#1a1a1a" : "#fff",

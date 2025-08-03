@@ -20,7 +20,7 @@ const WelcomeMessage = () => {
             </h3>
 
             <p className="text-sm text-gray-600 mb-4">
-                I'm here to help you with information about IRIS, our projects, research, and more.
+                I&apos;m here to help you with information about IRIS, our projects, research, and more.
                 Feel free to ask me anything!
             </p>
 

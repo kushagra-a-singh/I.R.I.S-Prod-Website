@@ -1,3 +1,4 @@
+import gc
 import numbers
 import os
 import pickle
@@ -29,6 +30,9 @@ from langchain_huggingface.llms import HuggingFacePipeline
 from supabase import Client, create_client
 
 print("🚀 Starting chatbot initialization...")
+
+# Force garbage collection at startup
+gc.collect()
 
 if sys.platform.startswith("win"):
     import codecs
@@ -340,6 +344,9 @@ def chat():
         return jsonify({"error": "No query provided"}), 400
 
     try:
+        # Force garbage collection before processing
+        gc.collect()
+
         query_embedding = embed_query(query)
         print("Query embedding:", query_embedding)
         print("Type of query_embedding:", type(query_embedding))
@@ -424,52 +431,45 @@ def chat():
             if "paper" in texts[i].lower() or "research" in texts[i].lower()
         ]
         if research_contexts:
-            safe_print("\n[INFO] Found research paper entries in results")
+            print(f"\n📚 Found {len(research_contexts)} research contexts")
+            for i, context in enumerate(research_contexts, 1):
+                print(f"Research {i}: {context[:100]}...")
 
-            top_contexts = research_contexts + top_contexts
-            top_contexts = list(dict.fromkeys(top_contexts))
-        context = "\n".join(top_contexts)
-        response = qa_chain.invoke({"query": query, "context": context})
-        answer = response["result"].split("Answer:")[-1].strip()
-        import re
+        # Combine all contexts
+        combined_context = "\n\n".join(top_contexts)
+        print(f"\n📝 Combined context length: {len(combined_context)} characters")
 
-        # Clean unwanted escape characters and code artifacts
-        answer_clean = answer
-        # Remove \n, \t, \r, and all escape sequences
-        answer_clean = re.sub(r"\\[ntr]", " ", answer_clean)
-        answer_clean = (
-            answer_clean.replace("\n", " ").replace("\t", " ").replace("\r", " ")
-        )
-        # Remove stray backslashes
-        answer_clean = answer_clean.replace("\\", " ")
-        # Remove markdown/code block artifacts
-        answer_clean = re.sub(r"[`*_>{}<~#=\[\]|]", "", answer_clean)
-        # Replace multiple spaces with a single space
-        answer_clean = re.sub(r"\s+", " ", answer_clean).strip()
-        # Use make_links_clickable to wrap URLs in anchor tags
-        answer_with_links = make_links_clickable(answer_clean)
-        contains_html = "<a href=" in answer_with_links
-        log_chatbot_interaction(query, answer_with_links)
-        return jsonify({"response": answer_with_links, "contains_html": contains_html})
-    except RuntimeError as e:
-        # Handle HuggingFace API errors gracefully
-        error_message = str(e)
-        if "HuggingFace API error" in error_message:
-            return (
-                jsonify(
-                    {
-                        "response": "Sorry, I'm having trouble accessing the I.R.I.S. services right now. Please try again later.",
-                        "contains_html": False,
-                    }
-                ),
-                200,
-            )
-        safe_print("RuntimeError occurred:", error_message)
-        return jsonify({"error": error_message}), 500
+        # Generate response using the QA chain
+        print("\n🤖 Generating response...")
+        response = qa_chain.invoke({"query": query})
+        print("✅ Response generated")
+
+        # Extract the answer
+        answer = response.get("result", "No response generated")
+        print(f"📄 Answer length: {len(answer)} characters")
+
+        # Make links clickable
+        answer = make_links_clickable(answer)
+
+        # Log the interaction
+        try:
+            log_chatbot_interaction(query, answer)
+        except Exception as e:
+            print(f"⚠️ Failed to log interaction: {str(e)}")
+
+        # Force garbage collection after processing
+        gc.collect()
+
+        return jsonify({"response": answer})
+
     except Exception as e:
-        safe_print("Exception occurred:", str(e))
-        traceback.print_exc()
-        return jsonify({"error": str(e)}), 500
+        print(f"❌ Error in chat endpoint: {str(e)}")
+        print(f"📋 Traceback: {traceback.format_exc()}")
+
+        # Force garbage collection on error
+        gc.collect()
+
+        return jsonify({"error": f"Internal server error: {str(e)}"}), 500
 
 
 @app.route("/health")

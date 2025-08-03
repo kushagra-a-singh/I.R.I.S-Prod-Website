@@ -4,5 +4,5 @@ services:
     runtime: python
     plan: free
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn chatbot:app --bind 0.0.0.0:$PORT --timeout 300 --workers 1 --preload --max-requests 1000 --max-requests-jitter 100
+    startCommand: bash start.sh
     autoDeploy: true

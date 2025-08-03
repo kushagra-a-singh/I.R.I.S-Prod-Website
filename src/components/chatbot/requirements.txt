@@ -1,16 +1,12 @@
 flask
 flask_cors
 langchain
-transformers
-sentence-transformers
-faiss-cpu
-langchain-huggingface
 langchain-community
 langchain-groq
 gunicorn
 python-dotenv
-dotenv
 numpy
 supabase
 pytz
 requests
+faiss-cpu

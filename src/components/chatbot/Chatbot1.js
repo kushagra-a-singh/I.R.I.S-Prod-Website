@@ -339,18 +339,20 @@ const Chatbot1 = () => {
     ]);
   }
 
-  const sendMessage = async (messageText = input) => {
-    if (!messageText.trim()) return;
+  const sendMessage = async (messageText) => {
+    const textToSend = messageText || input;
+
+    if (!textToSend.trim()) return;
 
     setShowPredefinedQuestions(false);
-    setMessages((prev) => [...prev, { sender: "user", text: messageText }]);
+    setMessages((prev) => [...prev, { sender: "user", text: textToSend }]);
 
-    if (messageText === input) {
+    if (!messageText) {
       setInput("");
     }
 
-    if (allQuestions.includes(messageText)) {
-      setUsedQuestions(prev => [...prev, messageText]);
+    if (allQuestions.includes(textToSend)) {
+      setUsedQuestions(prev => [...prev, textToSend]);
     }
 
     // Add typing indicator
@@ -362,7 +364,7 @@ const Chatbot1 = () => {
         fetch(`${process.env.NEXT_PUBLIC_API_URL}/chat`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ query: messageText }),
+          body: JSON.stringify({ query: textToSend }),
         }),
         10000 // 10 seconds
       );
@@ -668,7 +670,7 @@ const Chatbot1 = () => {
                   />
                 </div>
                 <motion.button
-                  onClick={sendMessage}
+                  onClick={() => sendMessage()}
                   disabled={!input.trim() || isTyping}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -700,7 +702,7 @@ const Chatbot1 = () => {
                       animation: "spin 1s linear infinite"
                     }} />
                   ) : (
-                    <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" style={{ color: "#fff" }}>
+                    <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" style={{ color: "#fff", transform: "rotate(90deg)" }}>
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                     </svg>
                   )}

@@ -138,6 +138,7 @@
 .journeyTitle {
   font-size: 2.5rem;
   color: #f8f9fa;
+  margin-bottom: 2rem;
 }
 
 .projectsTitle, .eventsTitle, .blogsTitle {
@@ -155,11 +156,64 @@
   transition: transform 0.3s ease;
   padding: 20px;
   text-align: center;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 5px;
+  flex: 1;
+  overflow: hidden;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .step:hover {
   transform: translateY(-10px);
   background: #c94065;
+}
+
+.step h4 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  line-height: 1.2;
+}
+
+.step p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.collaborateTitle {
+  position: relative;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  transition: all 0.3s ease;
+}
+
+.collaborateFull {
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+.collaborateShort {
+  display: none;
+  transition: opacity 0.3s ease;
+}
+
+.collaborateFull {
+  display: block;
+}
+
+.collaborateShort {
+  display: none;
 }
 
 .transparentBox {
@@ -205,6 +259,7 @@
   font-size: clamp(1.5rem, 4vw, 2.5rem);
   word-wrap: break-word;
   overflow-wrap: break-word;
+  line-height: 1.2;
 }
 
 .newSectionContainer p {
@@ -219,6 +274,7 @@
   height: auto;
   object-fit: contain;
   border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .arrow {
@@ -228,19 +284,30 @@
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
   border: none;
-  border-radius: 30%;
+  border-radius: 50%;
   font-size: 2rem;
   cursor: pointer;
   padding: 0.5rem;
   z-index: 10;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.arrow:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+  transform: translateY(-50%) scale(1.1);
 }
 
 .leftArrow {
-  left: -10px;
+  left: 10px;
 }
 
 .rightArrow {
-  right: -10px;
+  right: 10px;
 }
 
 .knowMoreBtn {
@@ -262,14 +329,33 @@
   transform: scale(1.05);
 }
 
+@media only screen and (max-width: 1200px) {
+  .collaborateFull {
+    display: none;
+  }
+
+  .collaborateShort {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .collaborateFull {
+    display: none;
+  }
+
+  .collaborateShort {
+    display: block;
+  }
+}
 
 @media only screen and (max-width: 768px) {
   .hero h1 {
-    font-size: 3rem;
+    font-size: 2.5rem !important;
   }
 
   .hero h2 {
-    font-size: 1.5rem;
+    font-size: 1.2rem !important;
   }
 
   .registrationTitle {
@@ -277,26 +363,228 @@
   }
 
   .newSectionContainer {
-    height: auto;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    position: relative;
-    border-radius: 20px;
+    min-height: 300px;
+    padding: 1rem;
+  }
+
+  .newSectionContainer .container {
+    padding: 1rem;
+  }
+
+  .newSectionContainer h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .newSectionContainer p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
   }
 
   .heroVideo {
-    max-width: 100%;
+    width: 100%;
+    height: auto;
   }
-  
+
   .downloadLink {
-    display: block;
+    font-size: 0.9rem;
   }
 
   .registrationPhoto {
-    max-width: 80%; 
+    width: 100%;
+    height: auto;
+  }
+
+  .journey {
+    padding: 50px 15px;
+  }
+
+  .journeyTitle {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .step {
+    min-height: 180px;
+    padding: 15px;
+    margin: 0 2px;
+  }
+
+  .step h4 {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+    line-height: 1.3;
+  }
+
+  .step p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+  }
+
+  .leftArrow {
+    left: 5px;
+  }
+
+  .rightArrow {
+    right: 5px;
+  }
+
+  .knowMoreBtn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .hero h1 {
+    font-size: 2rem !important;
+  }
+
+  .hero h2 {
+    font-size: 1rem !important;
+  }
+
+  .journey {
+    padding: 30px 10px;
+  }
+
+  .journeyTitle {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .step {
+    min-height: 160px;
+    padding: 12px;
+    margin: 0 1px;
+  }
+
+  .step h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.6rem;
+    line-height: 1.3;
+  }
+
+  .step p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  .newSectionContainer {
+    min-height: 250px;
+    padding: 0.8rem;
+  }
+
+  .newSectionContainer .container {
+    padding: 0.8rem;
+  }
+
+  .newSectionContainer h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .newSectionContainer p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .arrow {
+    width: 35px;
+    height: 35px;
+    font-size: 1.2rem;
+  }
+
+  .leftArrow {
+    left: 3px;
+  }
+
+  .rightArrow {
+    right: 3px;
+  }
+
+  .knowMoreBtn {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.8rem !important;
+  }
+
+  .hero h2 {
+    font-size: 0.9rem !important;
+  }
+
+  .journey {
+    padding: 20px 8px;
+  }
+
+  .journeyTitle {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .step {
+    min-height: 140px;
+    padding: 10px;
+    margin: 0;
+  }
+
+  .step h4 {
+    font-size: 1.1rem;
+    line-height: 1.3;
+  }
+
+  .step p {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+
+  .newSectionContainer {
+    min-height: 200px;
+    padding: 0.5rem;
+  }
+
+  .newSectionContainer .container {
+    padding: 0.5rem;
+  }
+
+  .newSectionContainer h2 {
+    font-size: 1.3rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .newSectionContainer p {
+    font-size: 0.8rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .arrow {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+  }
+
+  .leftArrow {
+    left: 2px;
+  }
+
+  .rightArrow {
+    right: 2px;
+  }
+
+  .knowMoreBtn {
+    padding: 5px 10px;
+    font-size: 0.75rem;
   }
 }
 

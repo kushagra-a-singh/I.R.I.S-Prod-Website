@@ -10,7 +10,18 @@ import Script from 'next/script';
 function App({ Component, pageProps }) {
 
   useEffect(() => {
-    require('bootstrap/dist/js/bootstrap.bundle.min.js');
+    const loadBootstrap = async () => {
+      try {
+        const bootstrap = await import('bootstrap/dist/js/bootstrap.bundle.min.js');
+        if (typeof window !== 'undefined') {
+          window.bootstrap = bootstrap.default || bootstrap;
+        }
+      } catch (error) {
+        console.warn('Failed to load Bootstrap JavaScript:', error);
+      }
+    };
+
+    loadBootstrap();
   }, []);
 
   return (
@@ -59,7 +70,7 @@ function App({ Component, pageProps }) {
           padding-top: 60px;  /* Adjust this value based on your header height */
         }
       `}</style>
-      <Header2 style={{ position: 'fixed', top: 0, left: 0, right: 0}} />
+      <Header2 style={{ position: 'fixed', top: 0, left: 0, right: 0 }} />
       <Component {...pageProps} />
       <Chatbot1 />
       <Footer />

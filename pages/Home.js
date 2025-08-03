@@ -20,7 +20,7 @@ function Home() {
   const {
     ref: refBlogs,
     inView: inViewBlogs
-  } = useInView({ triggerOnce: true, threshold: 0.5 });``
+  } = useInView({ triggerOnce: true, threshold: 0.5 }); ``
 
   // Remove the scroll listener that queried all elements at once.
   // Each container now has its own Intersection Observer reference.
@@ -161,8 +161,8 @@ function Home() {
             style={{ borderRadius: '20px' }}
           >
             <div className="container">
-              <div className="row align-items-center ">
-                <div className="col-lg-6 text-center text-lg-start">
+              <div className="row align-items-center">
+                <div className="col-12 col-lg-6 text-center text-lg-start mb-4 mb-lg-0">
                   <h1
                     className={`${styles.arial} display-3 fw-bold`}
                     style={{ letterSpacing: '0.1em', textAlign: 'center', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}
@@ -177,9 +177,9 @@ function Home() {
                     advancements.
                   </p>
                 </div>
-                <div className="col-lg-6 text-center">
+                <div className="col-12 col-lg-6 text-center">
                   <video className={styles.heroVideo} autoPlay loop muted>
-                  <source
+                    <source
                       src="/roboVid.webm"
                       type="video/webm"
                     />
@@ -196,8 +196,8 @@ function Home() {
               <h3 className={styles.journeyTitle}>
                 Join us on the I.R.I.S. Journey
               </h3>
-              <div className="row g-4">
-                <div className="col-md-4">
+              <div className="row g-2">
+                <div className="col-12 col-sm-6 col-lg-4 mb-3">
                   <div className={`${styles.step} p-4 shadow-sm h-100`}>
                     <h4>Bring Your Idea</h4>
                     <p>
@@ -206,16 +206,19 @@ function Home() {
                     </p>
                   </div>
                 </div>
-                <div className="col-md-4">
+                <div className="col-12 col-sm-6 col-lg-4 mb-3">
                   <div className={`${styles.step} p-4 shadow-sm h-100`}>
-                    <h4>Collaborate and Develop</h4>
+                    <h4 className={styles.collaborateTitle}>
+                      <span className={styles.collaborateFull}>Collaborate and Develop</span>
+                      <span className={styles.collaborateShort}>Collaborate & Develop</span>
+                    </h4>
                     <p>
                       Work with like-minded individuals to refine and expand
                       your projects.
                     </p>
                   </div>
                 </div>
-                <div className="col-md-4">
+                <div className="col-12 col-sm-12 col-lg-4 mb-3">
                   <div className={`${styles.step} p-4 shadow-sm h-100`}>
                     <h4>Achieve and Launch</h4>
                     <p>
@@ -251,7 +254,7 @@ function Home() {
           >
             <div className="container">
               <div className="row align-items-center">
-                <div className="col-lg-6 text-center text-lg-start">
+                <div className="col-12 col-lg-6 text-center text-lg-start mb-4 mb-lg-0">
                   <h2 className="display-4 fw-bold">
                     {section3[SectionIndex3].title}
                   </h2>
@@ -265,7 +268,7 @@ function Home() {
                     Know More
                   </Link>
                 </div>
-                <div className="col-lg-6 text-center">
+                <div className="col-12 col-lg-6 text-center">
                   <Image
                     src={section3[SectionIndex3].image}
                     alt={section3[SectionIndex3].title}
@@ -313,7 +316,7 @@ function Home() {
           >
             <div className="container">
               <div className="row align-items-center">
-                <div className="col-lg-6 text-center text-lg-start">
+                <div className="col-12 col-lg-6 text-center text-lg-start mb-4 mb-lg-0">
                   <h2 className="display-4 fw-bold">
                     {section2[SectionIndex2].title}
                   </h2>
@@ -327,7 +330,7 @@ function Home() {
                     Know More
                   </Link>
                 </div>
-                <div className="col-lg-6 text-center">
+                <div className="col-12 col-lg-6 text-center">
                   <Image
                     src={section2[SectionIndex2].image}
                     alt={section2[SectionIndex2].title}
@@ -375,8 +378,8 @@ function Home() {
           >
             <div className="container">
               <div className="row align-items-center">
-                <div className="col-lg-6 text-center text-lg-start">
-                  <h2 className="display-4 fw-bold" style={{fontSize: '2rem'}}>
+                <div className="col-12 col-lg-6 text-center text-lg-start mb-4 mb-lg-0">
+                  <h2 className="display-4 fw-bold">
                     {section1[SectionIndex1].title}
                   </h2>
                   <p className="mb-4">
@@ -389,7 +392,7 @@ function Home() {
                     Know More
                   </Link>
                 </div>
-                <div className="col-lg-6 text-center">
+                <div className="col-12 col-lg-6 text-center">
                   <Image
                     src={section1[SectionIndex1].image}
                     alt={section1[SectionIndex1].title}

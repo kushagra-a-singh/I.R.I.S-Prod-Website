@@ -169,7 +169,7 @@ function TakshDhabalia() {
                 GitHub
               </a>
               <a target="_blank" rel="noopener noreferrer">
-                <Image src="/images/gmail.webp" alt="Gmail" width={24} height={24} className={styles.gmailicon} />
+                <Image src="/images/gmail.png" alt="Gmail" width={24} height={24} className={styles.gmailicon} />
                 taksh.dhabalia@gmail.com
               </a>
             </div>

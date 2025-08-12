@@ -4,17 +4,49 @@ import { motion } from 'framer-motion';
 const ChatbotButton = ({ isOpen, toggleChat, isLoading }) => {
   return (
     <motion.button
-      className="fixed bottom-6 right-6 w-16 h-16 rounded-full bg-gradient-to-r from-purple-600 via-purple-700 to-pink-600 text-white flex items-center justify-center shadow-2xl z-50 border-2 border-white/20 hover:border-white/30 transition-all duration-300"
+      className="fixed bottom-6 right-6 w-24 h-24 rounded-full bg-gradient-to-r from-red-500 via-pink-500 to-purple-600 text-white flex items-center justify-center shadow-2xl z-50 border-4 border-yellow-300 hover:border-yellow-100 transition-all duration-300"
       whileHover={{
-        scale: 1.1,
-        boxShadow: "0 20px 40px rgba(147, 51, 234, 0.4)"
+        scale: 2.5,
+        boxShadow: "0 100px 200px rgba(147, 51, 234, 1.5)",
+        y: -100,
+        x: -100,
+        rotate: [0, -90, 90, -90, 0],
+        transition: { 
+          duration: 0.3,
+          repeat: 10,
+          repeatType: "mirror",
+          type: "spring",
+          stiffness: 800,
+          damping: 3,
+          mass: 1.5
+        }
       }}
       whileTap={{ scale: 0.95 }}
       onClick={toggleChat}
       aria-label={isOpen ? "Close chat assistant" : "Open chat assistant"}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
+      initial={{ opacity: 0, y: 20, x: 20 }}
+      animate={{
+        opacity: 1,
+        y: [0, -400, 300, -300, 200, -200, 0],  // Massive vertical movement
+        x: [0, 200, -200, 200, -150, 100, 0],   // Massive horizontal movement
+        rotate: [0, 360, -360, 360, -360, 0],   // Full rotations
+        scale: [1, 2, 2.5, 2, 1.8, 1.5, 1],     // Extreme scaling
+        backgroundColor: [
+          '#FF0000',
+          '#00FF00',
+          '#0000FF',
+          '#FF00FF',
+          '#FFFF00',
+          '#00FFFF',
+          '#FF0000'
+        ]
+      }}
+      transition={{
+        duration: 3,                           // Slower to see the movement
+        ease: "linear",
+        repeat: Infinity,
+        repeatType: "mirror"
+      }}
     >
       {/* Background glow effect */}
       <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-400 to-pink-400 opacity-0 hover:opacity-20 transition-opacity duration-300"></div>
@@ -63,13 +95,27 @@ const ChatbotButton = ({ isOpen, toggleChat, isLoading }) => {
         <motion.div
           className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-400 to-pink-400"
           animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.5, 0, 0.5]
+            scale: [1, 3, 0.3, 2.5, 1],
+            opacity: [0.3, 1, 0.1, 1, 0.3],
+            rotate: [0, 540, 1080],
+            borderRadius: ["50%", "20%", "80%", "30%", "50%"],
+            backgroundColor: [
+              "rgba(147, 51, 234, 0.3)",
+              "rgba(236, 72, 153, 0.8)",
+              "rgba(168, 85, 247, 0.2)",
+              "rgba(219, 39, 119, 0.9)",
+              "rgba(147, 51, 234, 0.3)"
+            ]
           }}
           transition={{
-            duration: 2,
+            duration: 0.8,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: "easeInOut",
+            times: [0, 0.2, 0.5, 0.8, 1],
+            type: "spring",
+            stiffness: 400,
+            damping: 5,
+            mass: 1.2
           }}
         />
       )}

@@ -104,7 +104,7 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
-  height: 400px;
+  height: 500px;
 }
 
 .card:hover {
@@ -151,7 +151,7 @@
 }
 
 .cardContent a:hover {
-  background-color: #0056b3;
+  background-color: #0057b3;
   transform: scale(1.05);
 }
 

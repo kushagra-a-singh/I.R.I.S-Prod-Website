@@ -7,6 +7,31 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function Blog() {
   const blogPosts = [
     {
+      id: 9,
+      title: "Role of Telescope in Discovering the Universe",
+      subtitle: "The Telescope: Humanity’s Window to the Universe",
+      description:
+        "",
+      author: (
+        <>
+          {" "}
+          Author:
+          <a
+            href=""
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.authorLink}
+          >
+            Aaryan Kumbhare
+          </a>
+        </>
+      ),
+      date: "March 24, 2025",
+      image: "/telescope.jpg",
+      imageWidth: 500,
+      imageHeight: 300,
+    },
+    {
       id: 8,
       title: "Next-Gen Space Probes: AI-Powered Exploration",
       subtitle: "Revolutionizing Space Exploration with AI & Robotics",
@@ -222,6 +247,7 @@ function Blog() {
     6: "smart-grid",
     7: "quantum-computing",
     8: "space-probe",
+    9: "role-of-telescope-in-discovering-the-universe"
   };
 
   return (

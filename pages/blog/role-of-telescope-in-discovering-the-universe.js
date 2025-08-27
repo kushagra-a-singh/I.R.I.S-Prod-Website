@@ -14,7 +14,7 @@ function Blog9() {
     const [vote, setVote] = useState(null);
     const [voteCounts, setVoteCounts] = useState({ upvotes: 0, downvotes: 0 });
 
-    const postId = 6;
+    const postId = 9;
 
     const fetchVoteStatus = useCallback(async () => {
         if (!deviceId) return;
@@ -217,7 +217,7 @@ function Blog9() {
                                     Galileo’s telescope cracked open the door to a new era. One where curiosity and science began to replace superstition, and where humans started to seek truth in the stars.
                                 </p>
                                 <div className={styles.imageGallery}>
-                                    <Image src="telescope.jpg" alt="Telscope" width={500} height={300} className={styles.blogImage} />
+                                    <Image src="/telescope.jpg" alt="Telscope" width={500} height={300} className={styles.blogImage} />
                                 </div>
                             </div>
                         </div>
@@ -239,7 +239,7 @@ function Blog9() {
                                     Every telescope tells a story. Some show clouds of gas where stars are born, while others reveal the fiery deaths of suns. They track gravity bending light, confirming Einstein’s predictions, and scan the skies for exoplanets—worlds that might one day host life.
                                 </p>
                                 <div className={styles.imageGallery}>
-                                    <Image src="telescope2.jpg" alt="Telscope" width={500} height={300} className={styles.blogImage} />
+                                    <Image src="/telescope2.jpg" alt="Telscope" width={500} height={300} className={styles.blogImage} />
                                 </div>
                                 <p>
                                     These discoveries reshape how we see the universe—and ourselves. They remind us how small we are, yet how powerful our questions can be.

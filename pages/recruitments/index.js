@@ -73,13 +73,9 @@ function Recruitment() {
       options: [
         { value: 'content-writing', label: 'Content Writing (Blogs, Research Papers)' },
         { value: 'content-creation', label: 'Content Creation (Video Creation, Video Hosting)' },
-        { value: 'photo-editor', label: 'Photo Editor' },
         { value: 'video-editor', label: 'Video Editor' },
-        { value: 'graphic-artist', label: 'Graphic Artist' },
+        { value: 'graphic-designer', label: 'Graphic Designer' },
         { value: '3d-modelling-artist', label: '3D Modelling Artist/Animator' },
-        { value: 'poster-design', label: 'Poster Design (Events, Workshops)' },
-        { value: 'story-post-design', label: 'Story and Post Design (Instagram, LinkedIn)' },
-        { value: 'banner-design', label: 'Banner Design (Events, Workshops)' },
         { value: 'event-ops', label: 'Event and Ops (Event Management)' },
         { value: 'marketing', label: 'Marketing' },
         { value: 'sponsorship-outreach', label: 'Sponsorship and Outreach' }
@@ -141,8 +137,11 @@ function Recruitment() {
     const newErrors = {};
     let formIsValid = true;
 
-    Object.keys(formData).forEach((field) => {
-      if (!formData[field] && field !== "file" && field !== "domain") {
+    // Only validate required fields (removed interests, experience, contribution from required validation)
+    const requiredFields = ['name', 'prn', 'email', 'phone', 'branch', 'currentYear'];
+    
+    requiredFields.forEach((field) => {
+      if (!formData[field]) {
         newErrors[field] = `${field.charAt(0).toUpperCase() + field.slice(1)} is required.`;
         formIsValid = false;
       }
@@ -165,16 +164,6 @@ function Recruitment() {
 
     if (!validateEmail(formData.email)) {
       newErrors.email = "Please enter a valid email address.";
-      formIsValid = false;
-    }
-
-    if (!formData.experience) {
-      newErrors.experience = "Experience in your area of interest is required.";
-      formIsValid = false;
-    }
-
-    if (!formData.contribution) {
-      newErrors.contribution = "This field is required.";
       formIsValid = false;
     }
 
@@ -383,7 +372,8 @@ function Recruitment() {
             />
             {formErrors.phone && <p className="text-danger">{formErrors.phone}</p>}
           </div>
-          <div className={styles.formGroup}>
+          {/* Commented out School dropdown as requested */}
+          {/* <div className={styles.formGroup}>
             <label htmlFor="school">School*</label>
             <select
               id="school"
@@ -398,7 +388,7 @@ function Recruitment() {
               ))}
             </select>
             {formErrors.school && <p className="text-danger">{formErrors.school}</p>}
-          </div>
+          </div> */}
           <div className={styles.formGroup}>
             <label htmlFor="branch">Branch*</label>
             <input
@@ -462,7 +452,7 @@ function Recruitment() {
             {formErrors.file && <p className="text-danger">{formErrors.file}</p>}
           </div>
           <div className={styles.formGroup}>
-            <label htmlFor="interests">What are your area of interests?*</label>
+            <label htmlFor="interests">What are your area of interests?</label>
             <textarea
               id="interests"
               name="interests"
@@ -472,7 +462,7 @@ function Recruitment() {
             {formErrors.interests && <p className="text-danger">{formErrors.interests}</p>}
           </div>
           <div className={styles.formGroup}>
-            <label htmlFor="experience">Any past experiences in your area of interest?*</label>
+            <label htmlFor="experience">Any past experiences in your area of interest?</label>
             <textarea
               id="experience"
               name="experience"
@@ -482,7 +472,7 @@ function Recruitment() {
             {formErrors.experience && <p className="text-danger">{formErrors.experience}</p>}
           </div>
           <div className={styles.formGroup}>
-            <label htmlFor="contribution">Why do you want to join IRIS and how will you be able to contribute?*</label>
+            <label htmlFor="contribution">Why do you want to join IRIS and how will you be able to contribute?</label>
             <textarea
               id="contribution"
               name="contribution"
@@ -504,7 +494,48 @@ function Recruitment() {
           <div className={styles.notificationContent}>
             <h2>Thank you for registering!</h2>
             <p>Your form has been successfully submitted.</p>
-            <button onClick={handleOkayButton}>Okay</button>
+            <div style={{ marginTop: '20px', textAlign: 'center' }}>
+              <p style={{ marginBottom: '15px', fontWeight: 'bold' }}>Join our WhatsApp groups:</p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                <a 
+                  href="https://chat.whatsapp.com/CC5ranLYztZBZnWxSPi8Mg?mode=ems_share_t" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  style={{
+                    backgroundColor: '#25D366',
+                    color: 'white',
+                    padding: '10px 15px',
+                    borderRadius: '5px',
+                    textDecoration: 'none',
+                    fontWeight: 'bold',
+                    display: 'inline-block',
+                    width: 'fit-content',
+                    margin: '0 auto'
+                  }}
+                >
+                  📱 IRIS Recruits
+                </a>
+                <a 
+                  href="https://chat.whatsapp.com/B6PsaI5iGP9H4asHCMmX9f?mode=ac_t" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  style={{
+                    backgroundColor: '#25D366',
+                    color: 'white',
+                    padding: '10px 15px',
+                    borderRadius: '5px',
+                    textDecoration: 'none',
+                    fontWeight: 'bold',
+                    display: 'inline-block',
+                    width: 'fit-content',
+                    margin: '0 auto'
+                  }}
+                >
+                  💬 IRIS Community
+                </a>
+              </div>
+            </div>
+            <button onClick={handleOkayButton} style={{ marginTop: '20px' }}>Okay</button>
           </div>
         </div>
       )}

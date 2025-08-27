@@ -452,7 +452,7 @@ function Recruitment() {
             {formErrors.file && <p className="text-danger">{formErrors.file}</p>}
           </div>
           <div className={styles.formGroup}>
-            <label htmlFor="interests">What are your area of interests?</label>
+            <label htmlFor="interests">What are your area of interests? (optional)</label>
             <textarea
               id="interests"
               name="interests"
@@ -462,7 +462,7 @@ function Recruitment() {
             {formErrors.interests && <p className="text-danger">{formErrors.interests}</p>}
           </div>
           <div className={styles.formGroup}>
-            <label htmlFor="experience">Any past experiences in your area of interest?</label>
+            <label htmlFor="experience">Any past experiences in your area of interest? (optional)</label>
             <textarea
               id="experience"
               name="experience"
@@ -472,7 +472,7 @@ function Recruitment() {
             {formErrors.experience && <p className="text-danger">{formErrors.experience}</p>}
           </div>
           <div className={styles.formGroup}>
-            <label htmlFor="contribution">Why do you want to join IRIS and how will you be able to contribute?</label>
+            <label htmlFor="contribution">Why do you want to join IRIS and how will you be able to contribute? (optional)</label>
             <textarea
               id="contribution"
               name="contribution"

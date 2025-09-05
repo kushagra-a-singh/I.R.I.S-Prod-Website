@@ -381,7 +381,7 @@ function About() {
                   imgSrc: "/logo2.png",
                   linkedIn: "#",
                 },
-                
+
                 {
                   name: "Raghunandan Veer",
                   role: "Founder",
@@ -407,7 +407,6 @@ function About() {
                         }}
                       />
                     </div>
-
                     <div className={styles.bottomCard}>
                       <div className={styles.cardContent}>
                         <span className={styles.cardTitle}>{member.name}</span>
@@ -434,22 +433,3 @@ function About() {
 }
 
 export default About;
-
-/*.map((member, index) => (
-                <div key={index} className="col-6 col-sm-6 col-lg-4">
-                  <div className={styles.card}>
-                    <Image
-                      src={member.imgSrc}
-                      alt={`${member.name} image`}
-                      width={300}
-                      height={300}
-                    />
-                    <div className={styles.cardContent}>
-                      <h3>{member.name}</h3>
-                      <p>{member.role}</p>
-                      <a href={member.linkedIn} className={styles.button} target="_blank" rel="noopener noreferrer">
-                        LinkedIn
-                      </a>
-                    </div>
-                  </div>
-                </d */

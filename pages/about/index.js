@@ -292,6 +292,12 @@ function About() {
                   linkedIn: "https://www.linkedin.com/in/divyansh-pathak/",
                 },
                 {
+                  name: "Aditya",
+                  role: "Website Team Member",
+                  imgSrc: "/Aditya_M.jpg",
+                  linkedIn: "https://www.linkedin.com/in/adityamahamuni/",
+                },
+                {
                   name: "Siya Shaha",
                   role: "Website Team Member",
                   imgSrc: "/siya.jpg",

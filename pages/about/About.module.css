@@ -95,7 +95,7 @@
   color: #f5f5f5;
 }
 
-.card {
+/* .card {
   background: #fff;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
@@ -153,7 +153,110 @@
 .cardContent a:hover {
   background-color: #0057b3;
   transform: scale(1.05);
+} */
+
+
+
+.card {
+  position: relative;
+  width: 190px;
+  height: 254px;
+  background-color: #fff;
+  border-radius: 20px;
+  /*box-shadow: 0px 5px 5px #313131;*/
+  overflow: hidden;
 }
+
+.topCard {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  height: 65%;
+  transition: height 0.3s ease;
+  background-color: #fff;
+}
+
+.topCard img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+
+.bottomCard {
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  height: 35%;
+  transition: height 0.3s ease;
+  background-color: #6D28D9;
+}
+
+.bottomCard::before {
+  content: "";
+  position: absolute;
+  background-color: transparent;
+  bottom: 89px;
+  height: 50px;
+  width: 175px;
+  transition: bottom 0.3s ease;
+  border-bottom-left-radius: 20px;
+  box-shadow: 0 30px 0 0 #6D28D9;
+}
+
+.cardContent {
+  padding-top: 13%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+.cardTitle {
+  font-weight: 700;
+  font-size: 18px;
+}
+.cardTxt {
+  font-size: 14px;
+}
+
+.cardBtn {
+  font-size: 13px;
+  margin-top: 15%;
+  text-decoration: none;
+  color: white;
+  background-color: transparent;
+  border: solid 2px #fff;
+  border-radius: 15px;
+  padding: 5%;
+}
+
+.card:hover {
+  box-shadow: 0px 2px 2px #6D28D9;
+  border: solid 1px #6D28D9;
+}
+
+.card:hover .topCard {
+  height: 35%;
+  transition: height 0.3s ease;
+}
+.card:hover .bottomCard {
+  height: 65%;
+  transition: height 0.3s ease;
+}
+.card:hover .bottomCard::before {
+  bottom: 164px;
+  transition: bottom 0.3s ease;
+}
+
+.cardBtn:hover {
+  color: black;
+  background-color: #fff;
+  transition: background-color 0.4s ease;
+}
+
+
 
 .footerContent a {
   color: #f5f5f5;

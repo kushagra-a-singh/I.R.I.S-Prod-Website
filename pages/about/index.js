@@ -417,7 +417,7 @@ function About() {
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          LinkedIn
+                          linkedIn
                         </a>
                       </div>
                     </div>

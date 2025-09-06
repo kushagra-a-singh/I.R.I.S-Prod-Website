@@ -121,7 +121,6 @@
   border-top-right-radius: 20px;
 }
 
-
 .bottomCard {
   border-top-right-radius: 20px;
   border-bottom-left-radius: 20px;
@@ -160,14 +159,18 @@
 }
 
 .cardBtn {
-  font-size: 13px;
-  margin-top: 15%;
-  text-decoration: none;
-  color: white;
-  background-color: transparent;
-  border: solid 2px #fff;
-  border-radius: 15px;
-  padding: 5%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;              
+  font-size: 13px;               
+  margin-top: 10%;           
+  text-decoration: none;         
+  color: white;                  
+  background-color: transparent; 
+  border: 2px solid #fff;        
+  border-radius: 15px;          
+  padding: 5%;                   
+  cursor: pointer;               
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
 .card:hover {
@@ -189,12 +192,11 @@
 }
 
 .cardBtn:hover {
-  color: black;
-  background-color: #fff;
-  transition: background-color 0.4s ease;
+  transition: background-color 0.4s ease; 
+  background-color: #ffffff;    
+  color: #0a66c2;               
+  border-color: #ffffff; 
 }
-
-
 
 .footerContent a {
   color: #f5f5f5;

@@ -56,7 +56,7 @@ function Blog9() {
         } catch (error) {
             console.error('Error in fetchVoteStatus:', error);
         }
-    }, [postId]);
+    }, [postId, deviceId]);
 
     const fetchComments = useCallback(async () => {
         if (!deviceId) return;
@@ -74,7 +74,7 @@ function Blog9() {
             console.error('Error fetching comments:', error);
             toast.error('Failed to load comments');
         }
-    }, [postId]);
+    }, [postId, deviceId]);
 
     useEffect(() => {
         const storedDeviceId = localStorage.getItem('deviceId');
@@ -228,7 +228,7 @@ function Blog9() {
                                     <br /><br />
                                     The second principle is entanglement. As the name suggests, it has something to do with qubits intertwining together!
                                     <br /><br />
-                                    It is basically a phenomenon in which 2 or more qubits are strongly linked together. In other words, we can also say that it's  a state when qubits share a single quantum state. This is why, if we measure the state of one entangled qubit, we directly know the state of the others correlated to it.
+                                    It is basically a phenomenon in which 2 or more qubits are strongly linked together. In other words, we can also say that it&apos;s  a state when qubits share a single quantum state. This is why, if we measure the state of one entangled qubit, we directly know the state of the others correlated to it.
                                     <br /><br />
                                     Suppose if there are many quantum bits entangled together in a complex solution space, it is this phenomenon which helps this flock to work together and break down the problem and narrow down to an optimal solution.
                                     <br /><br />
@@ -272,7 +272,7 @@ function Blog9() {
                                     <br />
                                     Some of the most popular quantum algorithms are the ones which built the foundations and were significant moments in the history of this technology, which we also covered in our previous segment. Some of these are: 
                                     <br />
-                                    1. Deutsch-Jozsa Algorithm.<br/>2. Shor's Algorithm.<br/>3. Grover's Algorithm.<br/>4. Quantum Walk Algorithms.<br/>5. Bernstein-Vazirani Algorithm.
+                                    1. Deutsch-Jozsa Algorithm.<br/>2. Shor&apos;s Algorithm.<br/>3. Grover&apos;s Algorithm.<br/>4. Quantum Walk Algorithms.<br/>5. Bernstein-Vazirani Algorithm.
                                     <br /><br/>
                                     <Image src="/qbt.jpg" alt="Quantum Computing Summary" width={500} height={300} className={styles.blogImage} />
                                     <br/><br/>
@@ -286,15 +286,15 @@ function Blog9() {
                             <div className={styles.blogCard}>
                                 <h2><strong>Quantum Computing in various non tech fields:</strong></h2>
                                 <p>
-                                    Quantum computing may have its origins in physics and computer science, but it has great potential to spread its benefits to various non-technical fields! You're not of course not yet underestimating the power of quantum, are you?<br/>And as you have expected, quantum has already revolutionized fields as diverse as finance, healthcare and logistics.
+                                    Quantum computing may have its origins in physics and computer science, but it has great potential to spread its benefits to various non-technical fields! You&apos;re not of course not yet underestimating the power of quantum, are you?<br/>And as you have expected, quantum has already revolutionized fields as diverse as finance, healthcare and logistics.
                                     <br/><br/>
                                     1. <b>Finance</b>: in finance, Quantum has done a phenomenal job of optimizing portfolios by identifying the best investment strategies. It does this by analyzing massive amounts of market data and risk factors. Sounds amazing, right? It would be, since this analysis is done by simulating complex financial models, which makes investing much easier than the traditional way.
                                     <br/>
-                                    2. <b>Healthcare and drug discovery</b>: It simulates  the molecular interactions between drugs and biological targets more accurately than classical computation, which relies on approximations. This allows scientists to develop better therapies with ease, as it makes the process of understanding drug efficacy, patient genomic data, and clinical data quite clear. Another aspect that quantum computing elaborates on is "personalized medicine." Once the complex biological data can be interpreted much easier and faster, personalized medicine can no longer remain a dream!
+                                    2. <b>Healthcare and drug discovery</b>: It simulates  the molecular interactions between drugs and biological targets more accurately than classical computation, which relies on approximations. This allows scientists to develop better therapies with ease, as it makes the process of understanding drug efficacy, patient genomic data, and clinical data quite clear. Another aspect that quantum computing elaborates on is &quot;personalized medicine.&quot; Once the complex biological data can be interpreted much easier and faster, personalized medicine can no longer remain a dream!
                                     <br/>
                                     <Image src="/qbt.jpg" alt="Quantum Computing Summary" width={500} height={300} className={styles.blogImage} />
                                     <br/>
-                                    3. <b>Materials Science</b>: Quantum simulations can help scientists design and discover new complex materials whose properties cannot be captured by classical computers (for example, superposition and entanglement of particles). Even heat-related properties such as thermal conductivity can be predicted. What's more! Quantum also promises to optimize the battery design and its performance. This allows the batteries to last long with efficient energy storage solutions.
+                                    3. <b>Materials Science</b>: Quantum simulations can help scientists design and discover new complex materials whose properties cannot be captured by classical computers (for example, superposition and entanglement of particles). Even heat-related properties such as thermal conductivity can be predicted. What&apos;s more! Quantum also promises to optimize the battery design and its performance. This allows the batteries to last long with efficient energy storage solutions.
                                     <br/>
                                     4.<b>Logistics and Supply Chains</b>: Quantum algorithms is a win- win situation for the logistics and supply chains as it optimizes complex logistical routes and schedules, which is an ongoing problem in many industries. It even identifies demand, thereby reducing costs and increasing efficiency. With this, companies will no longer have to worry about slow deliveries!
                                     <br/><br/>                            
@@ -307,11 +307,11 @@ function Blog9() {
                                 <ul>
                                     <li><a href="https://learning.quantum.ibm.com/" target="_blank" rel="noopener noreferrer">IBM Quantum Computing Course</a></li>
                                     <li><a href="https://quantum.cern/introduction-quantum-computing" target="_blank" rel="noopener noreferrer">CERN: A practical introduction to quantum computing</a></li>
-                                    <li><a href="https://profmcruz.wordpress.com/wp-content/uploads/2017/08/quantum-computation-and-quantum-information-nielsen-chuang.pdf" target="_blank" rel="noopener noreferrer">Nielsen-Chuang's: Quantum Computation and Quantum Information</a></li>
-                                    <li><a href="https://www.amazon.in/Introduction-Quantum-Computing-Phillip-Kaye/dp/019857049X" target="_blank" rel="noopener noreferrer">Kaye-Laflamme-Mosca's: "An introduction to Quantum Computing"</a></li>
-                                    <li><a href="https://www.classiq.io/insights/shors-algorithm-explained" target="_blank" rel="noopener noreferrer">Quantum Cryptography - Shor's Algorithm Explained</a></li>
-                                    <li><a href="https://learning.quantum.ibm.com/tutorial/grovers-algorithm" target="_blank" rel="noopener noreferrer">IBM: Grover's Algorithm</a></li>
-                                    <li><a href="https://www.mckinsey.com/industries/life-sciences/our-insights/pharmas-digital-rx-quantum-computing-in-drug-research-and-development" target="_blank" rel="noopener noreferrer">Pharma’s digital Rx: Quantum computing in drug research and development</a></li>
+                                    <li><a href="https://profmcruz.wordpress.com/wp-content/uploads/2017/08/quantum-computation-and-quantum-information-nielsen-chuang.pdf" target="_blank" rel="noopener noreferrer">Nielsen-Chuang&apos;s: Quantum Computation and Quantum Information</a></li>
+                                    <li><a href="https://www.amazon.in/Introduction-Quantum-Computing-Phillip-Kaye/dp/019857049X" target="_blank" rel="noopener noreferrer">Kaye-Laflamme-Mosca&apos;s: &quot;An introduction to Quantum Computing&quot;</a></li>
+                                    <li><a href="https://www.classiq.io/insights/shors-algorithm-explained" target="_blank" rel="noopener noreferrer">Quantum Cryptography - Shor&apos;s Algorithm Explained</a></li>
+                                    <li><a href="https://learning.quantum.ibm.com/tutorial/grovers-algorithm" target="_blank" rel="noopener noreferrer">IBM: Grover&apos;s Algorithm</a></li>
+                                    <li><a href="https://www.mckinsey.com/industries/life-sciences/our-insights/pharmas-digital-rx-quantum-computing-in-drug-research-and-development" target="_blank" rel="noopener noreferrer">Pharma&apos;s digital Rx: Quantum computing in drug research and development</a></li>
                                     <li><a href="https://www.ibm.com/thought-leadership/institute-business-value/en-us/report/exploring-quantum-financial" target="_blank" rel="noopener noreferrer">Quantum Computing and Finance</a></li>
                                     <li><a href="https://www.unisys.com/blog-post/ecs/from-qubits-to-cubic-feet-quantum-logistics-explained/" target="_blank" rel="noopener noreferrer">Quantum Computing and Logistics</a></li>
                                 </ul>

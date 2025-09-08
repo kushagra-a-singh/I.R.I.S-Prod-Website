@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
-import styles from './About.module.css';
-import Image from 'next/image'; 
+import React, { useEffect } from "react";
+import styles from "./About.module.css";
+import Image from "next/image";
 
 function About() {
   useEffect(() => {
@@ -8,12 +8,12 @@ function About() {
     if (hash) {
       const element = document.querySelector(hash);
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        element.scrollIntoView({ behavior: "smooth" });
       }
     }
   }, []);
 
-  const backgroundVideo = '/bgVid.webm';
+  const backgroundVideo = "/bgVid.webm";
 
   return (
     <div className={styles.aboutUs}>
@@ -27,9 +27,13 @@ function About() {
 
       <main className={`${styles.content} py-5`}>
         <div className="container">
-          <h1 className={styles.title} style={{textAlign: 'center'}}>About I.R.I.S</h1>
+          <h1 className={styles.title} style={{ textAlign: "center" }}>
+            About I.R.I.S
+          </h1>
           <p className={styles.titleDesc}>
-            I.R.I.S (Innovation Research & Intelligence Support) is a tech club dedicated to fostering innovation and supporting research in the field of technology.
+            I.R.I.S (Innovation Research & Intelligence Support) is a tech club
+            dedicated to fostering innovation and supporting research in the
+            field of technology.
           </p>
           <div className="row">
             <div className="col-md-6">
@@ -37,7 +41,10 @@ function About() {
                 <h2>Contact Information</h2>
                 <p>Email: iris@mitwpu.edu.in</p>
                 <p>Phone: +91 7715958053</p>
-                <p>Address: MIT World Peace University, Survey No. 124, Paud Rd, Kothrud, Pune, Maharashtra 411038</p>
+                <p>
+                  Address: MIT World Peace University, Survey No. 124, Paud Rd,
+                  Kothrud, Pune, Maharashtra 411038
+                </p>
               </div>
             </div>
             <div className="col-md-6">
@@ -54,7 +61,10 @@ function About() {
           </div>
           <div className={`${styles.vision} p-4`}>
             <h2>Our Vision</h2>
-            <p>To be the leading tech community that drives technological advancements and shapes the future of innovation.</p>
+            <p>
+              To be the leading tech community that drives technological
+              advancements and shapes the future of innovation.
+            </p>
           </div>
 
           <div className="row">
@@ -71,7 +81,11 @@ function About() {
                 <div className={styles.mentorInfo}>
                   <h3>Dr. Shamla Mantri</h3>
                   <p>Associate Professor</p>
-                  <a href="https://scholar.google.com/citations?user=IUUENAMAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href="https://scholar.google.com/citations?user=IUUENAMAAAAJ&hl=en"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     View Profile
                   </a>
                 </div>
@@ -89,33 +103,57 @@ function About() {
                 <div className={styles.mentorInfo}>
                   <h3>Dr. Yogesh Kulkarni</h3>
                   <p>Assistant Professor</p>
-                  <a href="https://scholar.google.com/citations?user=9GsTeoQAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href="https://scholar.google.com/citations?user=9GsTeoQAAAAJ&hl=en"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     View Profile
                   </a>
                 </div>
               </div>
             </div>
-            <div className="col-6" >
+            <div className="col-6">
               {/* Faculty Mentor 3 */}
               <div className={styles.mentor}>
-                <Image src="/Pratvina_mam.png" alt="Pratvina Talele" className={styles.mentorImage} width={150} height={150} />
+                <Image
+                  src="/Pratvina_mam.png"
+                  alt="Pratvina Talele"
+                  className={styles.mentorImage}
+                  width={150}
+                  height={150}
+                />
                 <div className={styles.mentorInfo}>
                   <h3>Dr. Pratvina Talele</h3>
                   <p>Project Mentor</p>
-                  <a href="https://scholar.google.com/citations?hl=en&user=_sFHQ8UAAAAJ" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href="https://scholar.google.com/citations?hl=en&user=_sFHQ8UAAAAJ"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     View Profile
                   </a>
                 </div>
               </div>
             </div>
-            <div className="col-6" >
+            <div className="col-6">
               {/* Faculty Mentor 3 */}
               <div className={styles.mentor}>
-                <Image src="/sumedha.png" alt="Sumedha Sirsikar" className={styles.mentorImage} width={150} height={150} />
+                <Image
+                  src="/sumedha.png"
+                  alt="Sumedha Sirsikar"
+                  className={styles.mentorImage}
+                  width={150}
+                  height={150}
+                />
                 <div className={styles.mentorInfo}>
                   <h3>Dr. Sumedha Sirsikar</h3>
                   <p>Project Mentor</p>
-                  <a href="https://scholar.google.com/citations?user=26-mdWgAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href="https://scholar.google.com/citations?user=26-mdWgAAAAJ&hl=en"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     View Profile
                   </a>
                 </div>
@@ -126,48 +164,262 @@ function About() {
           <div id="team-members" className={`${styles.teamMembers} py-4`}>
             <h2>Team Members</h2>
             <div className="row gx-2 gy-3">
-              {[ 
-                { name: "Durgesh Deore", role: "Founder", imgSrc: "/durgesh.jpg", linkedIn: "https://www.linkedin.com/in/durgesh-deore-74a75a281/" },
-                { name: "Kavish Jain", role: "Founder", imgSrc: "/kavish.jpeg", linkedIn: "https://www.linkedin.com/in/kavish-jain-38b812247/" },
-                { name: "Chinmay Huddar", role: "Founder", imgSrc: "/chinmay.jpg", linkedIn: "https://www.linkedin.com/in/chinmay-huddar-3536761ab/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" },
-                { name: "Dhyey Ladani", role: "Founder", imgSrc: "/dhyey.jpg", linkedIn: "https://www.linkedin.com/in/dhyey-ladani/" },
-                { name: "Taksh Dhabalia", role: "President", imgSrc: "/taksh.jpeg", linkedIn: "https://www.linkedin.com/in/taksh-dhabalia-2b6969202/" },
-                { name: "Namra Doshi", role: "Vice President", imgSrc: "/namra.jpeg", linkedIn: "https://www.linkedin.com/in/namra-doshi-445976249/" },
-                { name: "Kushagra Singh", role: "Technical Head", imgSrc: "/Kush.jpg", linkedIn: "https://www.linkedin.com/in/kushagra-anit-singh/" },
-                { name: "Brandon Cerejo", role: "Treasurer", imgSrc: "/Brandon.jpg", linkedIn: "https://www.linkedin.com/in/brandon-cerejo-921275247/" },
-                { name: "Samanyu Bhate", role: "Technical Head", imgSrc: "/samanyu.jpg", linkedIn: "https://www.linkedin.com/in/samanyu-bhate-17136b1ab/" },
-                { name: "Grishma Shinde", role: "General Secretary", imgSrc: "/grishma.jpg", linkedIn: "https://www.linkedin.com/in/grishma-shinde-835343294?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" },
-                { name: "Kaustubha M", role: "Marketing Head", imgSrc: "/kawas.jpeg", linkedIn: "https://www.linkedin.com/in/kawas-nandan/" },
-                { name: "Surendra Rajawat", role: "Content Management Head", imgSrc: "/surendra.jpg", linkedIn: "https://www.linkedin.com/in/surendra-rajawat-b16807322/" },
-                { name: "Riya Kondawar", role: "Social Media Head", imgSrc: "/Riya.jpg", linkedIn: "https://www.linkedin.com/in/riyakondawar/" },
-                { name: "Richa Shukla", role: "Event Operation Head", imgSrc: "/Richa.jpg", linkedIn: "https://www.linkedin.com/in/richa-shukla-026516258/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" },
-                { name: "Manasee Ambhore", role: "Sponsorship Head", imgSrc: "/manasee.jpg", linkedIn: "https://www.linkedin.com/in/manasee-ambhore-87ab65287/" },
-                { name: "Rochana Deshpande", role: "Content Head", imgSrc: "/rochana.jpg", linkedIn: "https://www.linkedin.com/in/rochana-deshpande-79a40a2b2/" },
-                { name: "Aaryan Joshi", role: "Research Head", imgSrc: "/aaryan.jpg", linkedIn: "https://www.linkedin.com/in/aaryanjoshi/" },
-                { name: "Purva Rana", role: "Website Team Member", imgSrc: "/Purva.jpg", linkedIn: "https://www.linkedin.com/in/purva-rana/" },
-                { name: "Divyansh Pathak", role: "Website Team Member", imgSrc: "/divyansh.jpg", linkedIn: "https://www.linkedin.com/in/divyansh-pathak/" },
-                { name: "Siya Shaha", role: "Website Team Member", imgSrc: "/siya.jpg", linkedIn: "https://www.linkedin.com/in/siya-shaha-5bb3822b4/" },
-                { name: "Ayushi Kadam", role: "Website Team Member", imgSrc: "/ayushi.jpg", linkedIn: "https://www.linkedin.com/in/ayushi-kadam-8a404a2b2/" },
-                { name: "Anchal Munot", role: "Website Team Member", imgSrc: "/anchal.jpg", linkedIn: "https://www.linkedin.com/in/anchal-munot-1264662b2/" },
-                { name: "Lakshman Gopal", role: "Design Team Member", imgSrc: "/lakshman.jpg", linkedIn: "https://www.linkedin.com/in/lakshman-k-gopal/" },
-                { name: "Parth Ware", role: "Founder", imgSrc: "/Parth.jpg", linkedIn: "https://www.linkedin.com/in/parth-ware-48993324a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" },
-                { name: "Raghunandan Veer", role: "Founder", imgSrc: "/logo2.png", linkedIn: "https://www.linkedin.com/in/raghunandan-veer-31b724266/" },
-                { name: "Sarthak Patil", role: "Founder", imgSrc: "/sarthak.jpeg", linkedIn: "https://www.linkedin.com/in/sarthak-patil-aa453a219/" },
+              {[
+                {
+                  name: "Durgesh Deore",
+                  role: "Founder",
+                  imgSrc: "/durgesh.jpg",
+                  linkedIn:
+                    "https://www.linkedin.com/in/durgesh-deore-74a75a281/",
+                },
+                {
+                  name: "Kavish Jain",
+                  role: "Founder",
+                  imgSrc: "/kavish.jpeg",
+                  linkedIn:
+                    "https://www.linkedin.com/in/kavish-jain-38b812247/",
+                },
+                {
+                  name: "Chinmay Huddar",
+                  role: "Founder",
+                  imgSrc: "/chinmay.jpg",
+                  linkedIn:
+                    "https://www.linkedin.com/in/chinmay-huddar-3536761ab/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+                },
+                {
+                  name: "Dhyey Ladani",
+                  role: "Founder",
+                  imgSrc: "/dhyey.jpg",
+                  linkedIn: "https://www.linkedin.com/in/dhyey-ladani/",
+                },
+                {
+                  name: "Taksh Dhabalia",
+                  role: "Technical Head",
+                  imgSrc: "/taksh.jpeg",
+                  linkedIn:
+                    "https://www.linkedin.com/in/taksh-dhabalia-2b6969202/",
+                },
+                {
+                  name: "Namra Doshi",
+                  role: "Vice President",
+                  imgSrc: "/namra.jpeg",
+                  linkedIn:
+                    "https://www.linkedin.com/in/namra-doshi-445976249/",
+                },
+                {
+                  name: "Kushagra Singh",
+                  role: "Technical Head",
+                  imgSrc: "/Kush.jpg",
+                  linkedIn: "https://www.linkedin.com/in/kushagra-anit-singh/",
+                },
+                {
+                  name: "Brandon Cerejo",
+                  role: "Treasurer",
+                  imgSrc: "/Brandon.jpg",
+                  linkedIn:
+                    "https://www.linkedin.com/in/brandon-cerejo-921275247/",
+                },
+                {
+                  name: "Samanyu Bhate",
+                  role: "Technical Head",
+                  imgSrc: "/samanyu.jpg",
+                  linkedIn:
+                    "https://www.linkedin.com/in/samanyu-bhate-17136b1ab/",
+                },
+                {
+                  name: "Grishma Shinde",
+                  role: "General Secretary",
+                  imgSrc: "/grishma.jpg",
+                  linkedIn:
+                    "https://www.linkedin.com/in/grishma-shinde-835343294?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+                },
+                {
+                  name: "Kaustubha M",
+                  role: "Vice President",
+                  imgSrc: "/kawas.jpeg",
+                  linkedIn: "https://www.linkedin.com/in/kawas-nandan/",
+                },
+                {
+                  name: "Surendra Rajawat",
+                  role: "Content Management Head",
+                  imgSrc: "/surendra.jpg",
+                  linkedIn:
+                    "https://www.linkedin.com/in/surendra-rajawat-b16807322/",
+                },
+                {
+                  name: "Riya Kondawar",
+                  role: "President",
+                  imgSrc: "/Riya.jpg",
+                  linkedIn: "https://www.linkedin.com/in/riyakondawar/",
+                },
+                {
+                  name: "Richa Shukla",
+                  role: "Event Operation Head",
+                  imgSrc: "/Richa.jpg",
+                  linkedIn:
+                    "https://www.linkedin.com/in/richa-shukla-026516258/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+                },
+                {
+                  name: "Manasee Ambhore",
+                  role: "Sponsorship Head",
+                  imgSrc: "/manasee.jpg",
+                  linkedIn:
+                    "https://www.linkedin.com/in/manasee-ambhore-87ab65287/",
+                },
+                {
+                  name: "Rochana Deshpande",
+                  role: "Content Head",
+                  imgSrc: "/rochana.jpg",
+                  linkedIn:
+                    "https://www.linkedin.com/in/rochana-deshpande-79a40a2b2/",
+                },
+                {
+                  name: "Aaryan Joshi",
+                  role: "Research Head",
+                  imgSrc: "/aaryan.jpg",
+                  linkedIn: "https://www.linkedin.com/in/aaryanjoshi/",
+                },
+                {
+                  name: "Purva Rana",
+                  role: "Website Team Member",
+                  imgSrc: "/Purva.jpg",
+                  linkedIn: "https://www.linkedin.com/in/purva-rana/",
+                },
+                {
+                  name: "Divyansh Pathak",
+                  role: "Project Head",
+                  imgSrc: "/divyansh.jpg",
+                  linkedIn: "https://www.linkedin.com/in/divyansh-pathak/",
+                },
+                {
+                  name: "Aditya",
+                  role: "Website Team Member",
+                  imgSrc: "/Aditya_M.jpg",
+                  linkedIn: "https://www.linkedin.com/in/adityamahamuni/",
+                },
+                {
+                  name: "Siya Shaha",
+                  role: "Website Team Member",
+                  imgSrc: "/siya.jpg",
+                  linkedIn: "https://www.linkedin.com/in/siya-shaha-5bb3822b4/",
+                },
+                {
+                  name: "Ayushi Kadam",
+                  role: "Website Team Member",
+                  imgSrc: "/ayushi.jpg",
+                  linkedIn:
+                    "https://www.linkedin.com/in/ayushi-kadam-8a404a2b2/",
+                },
+                {
+                  name: "Anchal Munot",
+                  role: "Website Team Member",
+                  imgSrc: "/anchal.jpg",
+                  linkedIn:
+                    "https://www.linkedin.com/in/anchal-munot-1264662b2/",
+                },
+                {
+                  name: "Lakshman Gopal",
+                  role: "Design Team Member",
+                  imgSrc: "/lakshman.jpg",
+                  linkedIn: "https://www.linkedin.com/in/lakshman-k-gopal/",
+                },
+                {
+                  name: "Parth Ware",
+                  role: "Founder",
+                  imgSrc: "/Parth.jpg",
+                  linkedIn:
+                    "https://www.linkedin.com/in/parth-ware-48993324a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+                },
+                {
+                  name: "Sarthak Patil",
+                  role: "Founder",
+                  imgSrc: "/sarthak.jpeg",
+                  linkedIn:
+                    "https://www.linkedin.com/in/sarthak-patil-aa453a219/",
+                },
+                {
+                  name: "Archana Sonakul",
+                  role: "Design Lead",
+                  imgSrc: "/Archana Sonakul.jpg",
+                  linkedIn:
+                    "https://in.linkedin.com/in/archana-sonakul-588794305",
+                },
+                {
+                  name: "Soham",
+                  role: "Joint Treasurer",
+                  imgSrc: "/logo2.png",
+                  linkedIn:
+                    "https://www.linkedin.com/in/soham-mhatre-125700373?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+                },
+                {
+                  name: "Namrata Mankar",
+                  role: "Media Lead",
+                  imgSrc: "/logo2.png",
+                  linkedIn: "#",
+                },
+                {
+                  name: "Anushka Srivastava",
+                  role: "Events Lead",
+                  imgSrc: "/logo2.png",
+                  linkedIn: "#",
+                },
+                {
+                  name: "Natasha Chavan",
+                  role: " Marketing Lead",
+                  imgSrc: "/logo2.png",
+                  linkedIn: "#",
+                },
+                {
+                  name: "Bhavya Rana",
+                  role: "Marketing Head",
+                  imgSrc: "/logo2.png",
+                  linkedIn: "#",
+                },
+                {
+                  name: "Parag Bhat",
+                  role: "Research Head",
+                  imgSrc: "/logo2.png",
+                  linkedIn: "#",
+                },
+
+                {
+                  name: "Raghunandan Veer",
+                  role: "Founder",
+                  imgSrc: "/logo2.png",
+                  linkedIn:
+                    "https://www.linkedin.com/in/raghunandan-veer-31b724266/",
+                },
               ].map((member, index) => (
                 <div key={index} className="col-6 col-sm-6 col-lg-4">
                   <div className={styles.card}>
-                    <Image
-                      src={member.imgSrc}zz
-                      alt={`${member.name} image`}
-                      width={300}
-                      height={300}
-                    />
-                    <div className={styles.cardContent}>
-                      <h3>{member.name}</h3>
-                      <p>{member.role}</p>
-                      <a href={member.linkedIn} className={styles.button} target="_blank" rel="noopener noreferrer">
-                        LinkedIn
-                      </a>
+                    <div className={styles.topCard}>
+                      <Image
+                        src={member.imgSrc}
+                        alt={`${member.name} image`}
+                        width={190}
+                        height={160}
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "cover",
+                          borderTopLeftRadius: "20px",
+                          borderTopRightRadius: "20px",
+                        }}
+                      />
+                    </div>
+                    <div className={styles.bottomCard}>
+                      <div className={styles.cardContent}>
+                        <span className={styles.cardTitle}>{member.name}</span>
+                        <p className={styles.cardTxt}>{member.role}</p>
+                        <a
+                          href={member.linkedIn}
+                          className={styles.cardBtn}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          linkedIn
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>

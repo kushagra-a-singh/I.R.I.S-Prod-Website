@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import styles from './Home.module.css';
 import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 function Home() {
   // Create separate refs and inView flags for each container
@@ -283,13 +284,14 @@ function Home() {
               onClick={handlePrev3}
               className={`${styles.arrow} ${styles.leftArrow}`}
             >
-              &#8249;
+              {/* &#8249; */}
+              <ChevronLeft />
             </button>
             <button
               onClick={handleNext3}
               className={`${styles.arrow} ${styles.rightArrow}`}
             >
-              &#8250;
+              <ChevronRight />
             </button>
           </div>
 
@@ -345,13 +347,13 @@ function Home() {
               onClick={handlePrev2}
               className={`${styles.arrow} ${styles.leftArrow}`}
             >
-              &#8249;
+              <ChevronLeft />
             </button>
             <button
               onClick={handleNext2}
               className={`${styles.arrow} ${styles.rightArrow}`}
             >
-              &#8250;
+              <ChevronRight />
             </button>
           </div>
 
@@ -407,13 +409,13 @@ function Home() {
               onClick={handlePrev1}
               className={`${styles.arrow} ${styles.leftArrow}`}
             >
-              &#8249;
+              <ChevronLeft /> 
             </button>
             <button
               onClick={handleNext1}
               className={`${styles.arrow} ${styles.rightArrow}`}
             >
-              &#8250;
+              <ChevronRight />
             </button>
           </div>
         </main>

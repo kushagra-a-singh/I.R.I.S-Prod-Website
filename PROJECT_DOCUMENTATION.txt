@@ -1,0 +1,214 @@
+I.R.I.S. (Innovation, Research, and Intelligence Society) - MIT WPU Website
+================================================================================
+
+PROJECT OVERVIEW
+================
+I.R.I.S. is the official website for the Innovation, Research, and Intelligence Society at MIT WPU. The platform serves as a comprehensive hub for showcasing research projects, events, team members, and providing an AI-powered chatbot for user assistance.
+
+TECH STACK
+==========
+
+Frontend:
+- Next.js 15.2.4 (migrated from Vite)
+- React 19.0.0
+- Bootstrap 5.3.3 & React Bootstrap 2.10.9
+- Tailwind CSS 4.1.4
+- Framer Motion 12.7.4 (animations)
+- Sass 1.86.0 (styling)
+
+Backend & Database:
+- Supabase (PostgreSQL database & authentication)
+- Next.js API Routes (serverless functions)
+- Node.js runtime
+
+AI & RAG System:
+- Python Flask backend for chatbot
+- LangChain framework
+- FAISS vector database for similarity search
+- HuggingFace embeddings API
+- Groq LLM (Llama-3.3-70b-versatile model)
+- Pre-computed embeddings for IRIS knowledge base
+
+Payment Processing:
+- Razorpay integration for event registrations
+
+Email Services:
+- Nodemailer with SMTP configuration
+
+HOSTING & DEPLOYMENT
+===================
+
+Frontend Hosting:
+- Vercel (primary deployment platform)
+- Region: Mumbai (bom1) for optimal performance in India
+- Automatic deployments from main branch
+- Custom domain: iris-club.in
+
+Backend Database:
+- Supabase (PostgreSQL)
+- Real-time subscriptions
+- Row Level Security (RLS)
+- File storage for gallery images
+
+RAG System Hosting:
+- Render.com (Python Flask application)
+- Free tier with auto-deploy
+- Self-ping mechanism to prevent server sleep
+- Gunicorn WSGI server
+
+KEY FEATURES
+============
+
+1. Dynamic Website Sections:
+   - Home page with hero section and featured content
+   - About page with team member profiles
+   - Projects showcase with detailed descriptions
+   - Research papers and publications
+   - Events management and registration
+   - Gallery with image carousel
+   - Blog with technical articles
+   - Contact form with email notifications
+
+2. AI-Powered Chatbot (RAG System):
+   - Intelligent Q&A about IRIS club activities
+   - Research paper information retrieval
+   - Project details and member information
+   - Context-aware responses using pre-trained embeddings
+   - Rate limiting and error handling
+   - Interaction logging to Supabase
+
+3. Event Management:
+   - Event registration with payment integration
+   - Razorpay payment processing
+   - Payment verification and success handling
+   - Event details and past events archive
+
+4. Content Management:
+   - Dynamic content loading from Supabase
+   - Image optimization with Next.js Image component
+   - Responsive design for all devices
+   - SEO optimization
+
+RAG SYSTEM ARCHITECTURE
+=======================
+
+The Retrieval-Augmented Generation (RAG) system is the core AI component:
+
+1. Knowledge Base:
+   - Pre-computed embeddings stored in FAISS index
+   - IRIS club information, research papers, project details
+   - JSON datasets with structured information
+
+2. Embedding Process:
+   - HuggingFace API for text embeddings
+   - FAISS vector database for similarity search
+   - Caching mechanism for query embeddings
+
+3. Retrieval & Generation:
+   - LangChain RetrievalQA chain
+   - Groq LLM for response generation
+   - Context-aware prompting with IRIS-specific instructions
+   - HTML link generation for external references
+
+4. Deployment:
+   - Flask application on Render.com
+   - Self-ping mechanism to maintain uptime
+   - CORS configuration for frontend integration
+   - Rate limiting (30 requests/minute per IP)
+
+API ENDPOINTS
+=============
+
+Frontend APIs (Next.js):
+- /api/chat - Chatbot integration endpoint
+- /api/contacts - Contact form submission
+- /api/paymentController - Razorpay payment processing
+- /api/event2 - Event management
+- /api/send-emails - Email notifications
+- /api/recruitment-emails - Recruitment email handling
+
+RAG System APIs (Python Flask):
+- /chat - Main chatbot endpoint
+- /health - Health check with detailed logging
+- /test-supabase - Database connectivity test
+- /check-supabase-table - Table structure verification
+
+DATABASE SCHEMA
+==============
+
+Supabase Tables:
+- contacts: Contact form submissions
+- event2_razorpay_payments: Payment records
+- chatbot_logs: AI interaction logging
+- Gallery: Image storage and metadata
+- Additional tables for events, projects, team members
+
+SECURITY FEATURES
+=================
+
+- CORS middleware for API protection
+- Rate limiting on chatbot endpoints
+- Razorpay signature verification for payments
+- Environment variable management
+- Input validation and sanitization
+- HTTPS enforcement in production
+
+DEVELOPMENT WORKFLOW
+===================
+
+1. Local Development:
+   - npm run dev:next (Next.js frontend)
+   - npm run dev:python (Python RAG backend)
+   - Concurrent development with both services
+
+2. Environment Configuration:
+   - .env.local for local development
+   - Vercel environment variables for production
+   - Render.com environment variables for RAG system
+
+3. Deployment Pipeline:
+   - Automatic deployment to Vercel on git push
+   - Manual deployment to Render.com for RAG updates
+   - Database migrations through Supabase dashboard
+
+PERFORMANCE OPTIMIZATIONS
+=========================
+
+- Next.js Image optimization with WebP/AVIF formats
+- FAISS vector search for fast similarity matching
+- Embedding caching to reduce API calls
+- Garbage collection in Python backend
+- CDN delivery through Vercel
+- Database indexing for fast queries
+
+MONITORING & ANALYTICS
+======================
+
+- Vercel Analytics for frontend performance
+- Supabase dashboard for database monitoring
+- Custom logging in RAG system
+- Health check endpoints for uptime monitoring
+- Error tracking and debugging logs
+
+FUTURE ENHANCEMENTS
+==================
+
+- Real-time chat interface improvements
+- Advanced analytics dashboard
+- Mobile app development
+- Enhanced AI capabilities
+- Multi-language support
+- Advanced search functionality
+
+CONTACT & SUPPORT
+=================
+
+For technical support or questions about the IRIS website:
+- Email: Contact through the website contact form
+- GitHub: Project repository for development
+- Team: I.R.I.S. MIT-WPU development team
+
+This documentation provides a comprehensive overview of the I.R.I.S. website architecture, focusing on the innovative RAG system integration and modern web development practices.
+
+
+

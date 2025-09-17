@@ -253,6 +253,12 @@ function About() {
                   linkedIn: "https://www.linkedin.com/in/riyakondawar/",
                 },
                 {
+                  name: "Divyansh Pathak",
+                  role: "Project Head",
+                  imgSrc: "/divyansh.jpg",
+                  linkedIn: "https://www.linkedin.com/in/divyansh-pathak/",
+                },
+                {
                   name: "Richa Shukla",
                   role: "Event Operation Head",
                   imgSrc: "/Richa.jpg",
@@ -265,84 +271,6 @@ function About() {
                   imgSrc: "/manasee.jpg",
                   linkedIn:
                     "https://www.linkedin.com/in/manasee-ambhore-87ab65287/",
-                },
-                {
-                  name: "Rochana Deshpande",
-                  role: "Content Head",
-                  imgSrc: "/rochana.jpg",
-                  linkedIn:
-                    "https://www.linkedin.com/in/rochana-deshpande-79a40a2b2/",
-                },
-                {
-                  name: "Aaryan Joshi",
-                  role: "Research Head",
-                  imgSrc: "/aaryan.jpg",
-                  linkedIn: "https://www.linkedin.com/in/aaryanjoshi/",
-                },
-                {
-                  name: "Purva Rana",
-                  role: "Website Team Member",
-                  imgSrc: "/Purva.jpg",
-                  linkedIn: "https://www.linkedin.com/in/purva-rana/",
-                },
-                {
-                  name: "Divyansh Pathak",
-                  role: "Project Head",
-                  imgSrc: "/divyansh.jpg",
-                  linkedIn: "https://www.linkedin.com/in/divyansh-pathak/",
-                },
-                {
-                  name: "Aditya",
-                  role: "Website Team Member",
-                  imgSrc: "/Aditya_M.jpg",
-                  linkedIn: "https://www.linkedin.com/in/adityamahamuni/",
-                },
-                {
-                  name: "Siya Shaha",
-                  role: "Website Team Member",
-                  imgSrc: "/siya.jpg",
-                  linkedIn: "https://www.linkedin.com/in/siya-shaha-5bb3822b4/",
-                },
-                {
-                  name: "Ayushi Kadam",
-                  role: "Website Team Member",
-                  imgSrc: "/ayushi.jpg",
-                  linkedIn:
-                    "https://www.linkedin.com/in/ayushi-kadam-8a404a2b2/",
-                },
-                {
-                  name: "Anchal Munot",
-                  role: "Website Team Member",
-                  imgSrc: "/anchal.jpg",
-                  linkedIn:
-                    "https://www.linkedin.com/in/anchal-munot-1264662b2/",
-                },
-                {
-                  name: "Lakshman Gopal",
-                  role: "Design Team Member",
-                  imgSrc: "/lakshman.jpg",
-                  linkedIn: "https://www.linkedin.com/in/lakshman-k-gopal/",
-                },
-                {
-                  name: "Parth Ware",
-                  role: "Founder",
-                  imgSrc: "/Parth.jpg",
-                  linkedIn:
-                    "https://www.linkedin.com/in/parth-ware-48993324a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-                },
-                {
-                  name: "Sarthak Patil",
-                  role: "Founder",
-                  imgSrc: "/sarthak.jpeg",
-                  linkedIn:
-                    "https://www.linkedin.com/in/sarthak-patil-aa453a219/",
-                },
-                {
-                  name: "Archana Sonakul",
-                  role: "Design Lead",
-                  imgSrc: "/Archana Sonakul.jpg",
-                  linkedIn:
-                    "https://in.linkedin.com/in/archana-sonakul-588794305",
                 },
                 {
                   name: "Soham",
@@ -380,6 +308,79 @@ function About() {
                   role: "Research Head",
                   imgSrc: "/logo2.png",
                   linkedIn: "#",
+                },
+                {
+                  name: "Rochana Deshpande",
+                  role: "Content Head",
+                  imgSrc: "/rochana.jpg",
+                  linkedIn:
+                    "https://www.linkedin.com/in/rochana-deshpande-79a40a2b2/",
+                },
+                {
+                  name: "Aaryan Joshi",
+                  role: "Research Head",
+                  imgSrc: "/aaryan.jpg",
+                  linkedIn: "https://www.linkedin.com/in/aaryanjoshi/",
+                },
+                {
+                  name: "Purva Rana",
+                  role: "Website Team Member",
+                  imgSrc: "/Purva.jpg",
+                  linkedIn: "https://www.linkedin.com/in/purva-rana/",
+                },
+          
+                {
+                  name: "Aditya",
+                  role: "Website Team Member",
+                  imgSrc: "/Aditya_M.jpg",
+                  linkedIn: "https://www.linkedin.com/in/adityamahamuni/",
+                },
+                {
+                  name: "Siya Shaha",
+                  role: "Website Team Member",
+                  imgSrc: "/siya.jpg",
+                  linkedIn: "https://www.linkedin.com/in/siya-shaha-5bb3822b4/",
+                },
+                // {
+                //   name: "Ayushi Kadam",
+                //   role: "Website Team Member",
+                //   imgSrc: "/ayushi.jpg",
+                //   linkedIn:
+                //     "https://www.linkedin.com/in/ayushi-kadam-8a404a2b2/",
+                // },
+                // {
+                //   name: "Anchal Munot",
+                //   role: "Website Team Member",
+                //   imgSrc: "/anchal.jpg",
+                //   linkedIn:
+                //     "https://www.linkedin.com/in/anchal-munot-1264662b2/",
+                // },
+                {
+                  name: "Lakshman Gopal",
+                  role: "Design Team Member",
+                  imgSrc: "/lakshman.jpg",
+                  linkedIn: "https://www.linkedin.com/in/lakshman-k-gopal/",
+                },
+                {
+                  name: "Parth Ware",
+                  role: "Founder",
+                  imgSrc: "/Parth.jpg",
+                  linkedIn:
+                    "https://www.linkedin.com/in/parth-ware-48993324a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+                },
+                {
+                  name: "Sarthak Patil",
+                  role: "Founder",
+                  imgSrc: "/sarthak.jpeg",
+                  linkedIn:
+                    "https://www.linkedin.com/in/sarthak-patil-aa453a219/",
+                },
+                {
+                  name: "Archana Sonakul",
+                  role: "Design Lead",
+                  imgSrc: "/Archana Sonakul.jpg",
+                  linkedIn:
+                    "https://in.linkedin.com/in/archana-sonakul-588794305",
                 },
 
                 {

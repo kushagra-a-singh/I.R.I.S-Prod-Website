@@ -276,20 +276,48 @@ function About() {
             <h2>Team Members</h2>
             <div className="row gx-2 gy-3">
               {[
+
+                {
+                  name: "Riya Kondawar",
+                  role: "President",
+                  imgSrc: "/Riya.jpg",
+                  linkedIn: "https://www.linkedin.com/in/riyakondawar/",
+                },
+
+                {
+                  name: "Kaustubha M",
+                  role: "Vice President",
+                  imgSrc: "/kawas.jpeg",
+                  linkedIn: "https://www.linkedin.com/in/kawas-nandan/",
+                },
+
+                {
+                  name: "Arya Kale",
+                  role: "Secretary",
+                  imgSrc: "/logo2.png",
+                  linkedIn: "https://www.linkedin.com/in/arya-kale-13129732a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+                },
+
+                {
+                  name: "Soham Mhatre",
+                  role: "Treasurer",
+                  imgSrc: "/soham.jpg",
+                  linkedIn:
+                    "https://www.linkedin.com/in/soham-mhatre-125700373?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+                },
                
+                {
+                  name: "Kushagra Singh",
+                  role: "Technical Head",
+                  imgSrc: "/Kush.jpg",
+                  linkedIn: "https://www.linkedin.com/in/kushagra-anit-singh/",
+                },
                 {
                   name: "Taksh Dhabalia",
                   role: "Technical Head",
                   imgSrc: "/taksh.jpeg",
                   linkedIn:
                     "https://www.linkedin.com/in/taksh-dhabalia-2b6969202/",
-                },
-                
-                {
-                  name: "Kushagra Singh",
-                  role: "Technical Head",
-                  imgSrc: "/Kush.jpg",
-                  linkedIn: "https://www.linkedin.com/in/kushagra-anit-singh/",
                 },
                
                 {
@@ -301,49 +329,38 @@ function About() {
                 },
 
                 {
-                  name: "Kaustubha M",
-                  role: "Vice President",
-                  imgSrc: "/kawas.jpeg",
-                  linkedIn: "https://www.linkedin.com/in/kawas-nandan/",
-                },
-               
-                {
-                  name: "Riya Kondawar",
-                  role: "President",
-                  imgSrc: "/Riya.jpg",
-                  linkedIn: "https://www.linkedin.com/in/riyakondawar/",
-                },
-                {
                   name: "Divyansh Pathak",
                   role: "Project Head",
                   imgSrc: "/divyansh.jpg",
                   linkedIn: "https://www.linkedin.com/in/divyansh-pathak/",
                 },
-                {
-                  name: "Soham",
-                  role: "Joint Treasurer",
-                  imgSrc: "/logo2.png",
-                  linkedIn:
-                    "https://www.linkedin.com/in/soham-mhatre-125700373?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-                },
+
                 {
                   name: "Namrata Mankar",
-                  role: "Media Lead",
+                  role: "Media Head",
                   imgSrc: "/logo2.png",
                   linkedIn: "#",
                 },
                 {
-                  name: "Anushka Srivastava",
-                  role: "Events Lead",
-                  imgSrc: "/logo2.png",
+                  name: "Aakanksha Pansare",
+                  role: "Events-Ops Head",
+                  imgSrc: "/aakanksha1.jpg",
                   linkedIn: "#",
                 },
-                {
+                /*{
                   name: "Natasha Chavan",
                   role: " Marketing Lead",
                   imgSrc: "/logo2.png",
                   linkedIn: "#",
+                },*/
+                {
+                  name: "Archana Sonakul",
+                  role: "Design Head",
+                  imgSrc: "/Archana Sonakul.jpg",
+                  linkedIn:
+                    "https://in.linkedin.com/in/archana-sonakul-588794305",
                 },
+
                 {
                   name: "Bhavya Rana",
                   role: "Marketing Head",
@@ -353,15 +370,15 @@ function About() {
                 {
                   name: "Parag Bhat",
                   role: "Research Head",
-                  imgSrc: "/logo2.png",
-                  linkedIn: "#",
+                  imgSrc: "/parag.jpg",
+                  linkedIn: "https://www.linkedin.com/in/parag-bhat-1b92ab330/",
                 },
                 {
-                  name: "Rochana Deshpande",
+                  name: "Nishtha M",
                   role: "Content Head",
-                  imgSrc: "/rochana.jpg",
+                  imgSrc: "/nishtha.jpg",
                   linkedIn:
-                    "https://www.linkedin.com/in/rochana-deshpande-79a40a2b2/",
+                    "https://www.linkedin.com/in/nishtha-pharma?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
                 },
 
                 {
@@ -369,6 +386,13 @@ function About() {
                   role: "Technical Advisor",
                   imgSrc: "/Purva.jpg",
                   linkedIn: "https://www.linkedin.com/in/purva-rana/",
+                },
+                
+                {
+                  name: "Shourya Gurjar",
+                  role: "Website Team Member",
+                  imgSrc: "/logo2.png",
+                  linkedIn: "https://www.linkedin.com/in/shourya-gurjar-1b5317305?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
                 },
           
                 {
@@ -384,13 +408,6 @@ function About() {
                   linkedIn: "https://www.linkedin.com/in/siya-shaha-5bb3822b4/",
                 },          
 
-                {
-                  name: "Archana Sonakul",
-                  role: "Design Lead",
-                  imgSrc: "/Archana Sonakul.jpg",
-                  linkedIn:
-                    "https://in.linkedin.com/in/archana-sonakul-588794305",
-                },
 
               ].map((member, index) => (
                 <div key={index} className="col-6 col-sm-6 col-lg-4">

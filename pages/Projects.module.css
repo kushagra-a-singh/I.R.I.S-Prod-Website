@@ -1,7 +1,7 @@
 /* Projects.module.css */
 .projects {
   font-family: 'Roboto', sans-serif;
-  background: url('/projects.png') no-repeat center center/cover;
+  /*background: url('/projects.png') no-repeat center center/cover;*/
   position: relative;
   overflow: hidden;
   min-height: 100vh;
@@ -17,7 +17,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to right, rgba(23, 37, 90, 0.8), rgba(201, 64, 101, 0.8)); 
+  background: linear-gradient(to right, rgba(75, 1, 139, 0.8), rgba(142, 0, 38, 0.8)); 
   z-index: 1;
 }
 
@@ -141,7 +141,7 @@
   margin-top: 2rem;
 }
 
-/* .title{
+ /*.title{
   color: white;
   font-weight: bold;
   font-size: 32px;

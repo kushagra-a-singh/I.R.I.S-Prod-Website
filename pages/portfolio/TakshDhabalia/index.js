@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './TakshDhabalia.module.css';
 import Image from 'next/image';
 
@@ -137,6 +137,21 @@ const achievements = [
 function TakshDhabalia() {
   const [link, setLink] = useState("/bgVid.webm")
   
+  // Hide header on portfolio pages
+  useEffect(() => {
+    const header = document.querySelector('header');
+    if (header) {
+      header.style.display = 'none';
+    }
+    
+    // Cleanup function to restore header when component unmounts
+    return () => {
+      if (header) {
+        header.style.display = '';
+      }
+    };
+  }, []);
+  
   return (
     <div>
       <div className={styles.videoBackground}>
@@ -170,7 +185,7 @@ function TakshDhabalia() {
               </a>
               <a target="_blank" rel="noopener noreferrer">
                 <Image src="/images/gmail.png" alt="Gmail" width={24} height={24} className={styles.gmailicon} />
-                taksh.dhabalia@gmail.com
+                dhabalia.taksh@gmail.com
               </a>
             </div>
             <div className={styles.sectionlinks}>
@@ -178,6 +193,16 @@ function TakshDhabalia() {
               <a href="#projects">Projects</a>
               <a href="#skills">Skills</a>
               <a href="#rolesachievements">Roles & Achievements</a>
+            </div>
+            <div className={styles.resumeButton}>
+              <a 
+                href="https://drive.google.com/file/d/11Mqcir1UQUaAmd1FqI0Opam4BpU3xQJA/view?usp=sharing" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.downloadButton}
+              >
+                📄 View Resume
+              </a>
             </div>
           </div>
         </div>

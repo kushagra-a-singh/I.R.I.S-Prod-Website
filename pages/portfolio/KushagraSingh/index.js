@@ -331,6 +331,14 @@ const roles = [
 
 const achievements = [
   {
+    logo: '/images/mufg.png',
+    text: 'Mitsubishi UFJ Financial Group (MUFG) Hackathon 2025 – Winner: Led development of an AI-powered financial assistant for personalized retirement planning using XGBoost, KMeans, and Google Gemini. Enabled voice-first interaction via Azure Speech Services and real-time insights with NewsAPI + Gemini. Deployed with Docker on AWS App Runner and frontend on Vercel.'
+  },
+  {
+    logo: '/images/adobe.png',
+    text: 'Adobe India Hackathon 2025 – Top 100 out of 2.6L+ participants: Built a containerized AI pipeline for PDF understanding, including multilingual outline extraction (PyMuPDF, K-Means), persona-driven content ranking (Ollama), and a semantic insight platform with PDF.js integration and Azure TTS-based multi-voice podcasting.'
+  },
+  {
     logo: '/images/bosch.jpg',
     text: 'Bosch BOROSA Hackathon 2025 – Top 18 Finalist: Built an intelligent traffic safety system using YOLOv8 for real-time signal & crosswalk detection (95–98% accuracy). Integrated ESP32S3 and MQTT for edge automation and GenAI-based decision logic.'
   },
@@ -359,6 +367,20 @@ function getRootMargin() {
 }
 
 function KushagraSingh() {
+  // Hide header and footer on portfolio page
+  useEffect(() => {
+    const header = document.querySelector('header');
+    const footer = document.querySelector('footer');
+    
+    if (header) header.style.display = 'none';
+    if (footer) footer.style.display = 'none';
+    
+    // Cleanup function to restore header and footer when component unmounts
+    return () => {
+      if (header) header.style.display = '';
+      if (footer) footer.style.display = '';
+    };
+  }, []);
   const [link, setLink] = useState("/bgVid.webm");
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [loadedImages, setLoadedImages] = useState(new Set());

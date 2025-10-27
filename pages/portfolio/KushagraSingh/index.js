@@ -340,7 +340,7 @@ const achievements = [
   },
   {
     logo: '/images/bosch.jpg',
-    text: 'Bosch BOROSA Hackathon 2025 – Top 18 Finalist: Built an intelligent traffic safety system using YOLOv8 for real-time signal & crosswalk detection (95–98% accuracy). Integrated ESP32S3 and MQTT for edge automation and GenAI-based decision logic.'
+    text: 'Bosch BOROSA Hackathon 2025 – Top 4 Finalist: Built an intelligent traffic safety system using YOLOv8 for real-time signal & crosswalk detection (95–98% accuracy). Integrated ESP32S3 and MQTT for edge automation and decision logic.'
   },
   {
     logo: '/images/sih.webp',
@@ -475,7 +475,7 @@ function KushagraSingh() {
               I am a Final Year Computer Science Engineering student at MIT World Peace University, Pune, passionate about building impactful tech solutions at the intersection of Artificial Intelligence, Machine Learning, Web Development and Embedded Systems.<br /><br />
               As the Technical Head of the IRIS Tech Club, I lead a team of developers to deliver innovative projects, including the club&apos;s official website and autonomous vehicle modules.<br /><br />
               I have hands-on experience as a Machine Learning Research Associate at IIMT University, contributing to PhD-level healthcare analytics with advanced ML models and interactive web applications. My internship at Infosys Springboard deepened my expertise in deep learning and computer vision, where I developed high-accuracy neural networks and user-friendly applications.<br /><br />
-              I thrive in collaborative, fast-paced environments, demonstrated by my achievements as a Top 25 Finalist in the Smart India Hackathon 2024 and a Top 18 Finalist in the Bosch BOROSA Hackathon 2025. My technical toolkit spans Python, Java, C++, PyTorch, TensorFlow, Next.js, Spring Boot, AWS, Docker and more.<br /><br />
+              I thrive in collaborative, fast-paced environments, demonstrated by my achievements as a Top 25 Finalist in the Smart India Hackathon 2024 and a Top 4 Finalist in the Bosch BOROSA Hackathon 2025. My technical toolkit spans Python, Java, C++, PyTorch, TensorFlow, Next.js, Spring Boot, AWS, Docker and more.<br /><br />
               Driven by curiosity and a commitment to real-world impact, I enjoy tackling complex challenges, whether it&apos;s developing autonomous driving systems, AI-powered healthcare tools, or scalable cloud-native applications. I&apos;m always eager to connect, collaborate and create solutions that make a difference.
             </p>
             <div className={styles.socialLinks}>

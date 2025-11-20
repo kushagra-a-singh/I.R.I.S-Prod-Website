@@ -143,6 +143,35 @@
     border-color: #0077b5;
 }
 
+.resumeButton {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.downloadButton {
+    display: inline-block;
+    padding: 12px 24px;
+    background: linear-gradient(45deg, #0077b5, #00a8ff);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 119, 181, 0.3);
+    border: 2px solid transparent;
+}
+
+.downloadButton:hover {
+    background: linear-gradient(45deg, #005582, #0077b5);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 119, 181, 0.4);
+    border-color: #fff;
+    color: white;
+    text-decoration: none;
+}
+
 .projectsgrid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -513,6 +542,11 @@
       width: 24px;
       height: 24px;
   }
+
+  .downloadButton {
+      font-size: 16px;
+      padding: 10px 20px;
+  }
   
   .sectionlinks {
       display: list-item;
@@ -633,6 +667,11 @@
   .sociallinks .gmailicon {
       width: 26px;
       height: 26px;
+  }
+
+  .downloadButton {
+      font-size: 18px;
+      padding: 11px 22px;
   }
   
   .sectionlinks {
@@ -755,6 +794,11 @@
       width: 28px;
       height: 28px;
   }
+
+  .downloadButton {
+      font-size: 20px;
+      padding: 12px 24px;
+  }
   
   .sectionlinks {
       display: list-item;
@@ -875,6 +919,11 @@
   .sociallinks .gmailicon {
       width: 20px;
       height: 20px;
+  }
+
+  .downloadButton {
+      font-size: 16px;
+      padding: 10px 20px;
   }
   
   .sectionlinks {

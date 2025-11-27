@@ -334,7 +334,12 @@ function About() {
                   imgSrc: "/divyansh.jpg",
                   linkedIn: "https://www.linkedin.com/in/divyansh-pathak/",
                 },
-
+                {
+                  name: "Mahek Shukla",
+                  role: "Project Head",
+                  imgSrc: "/Mahek_Shukla.jpeg",
+                  linkedIn: "https://www.linkedin.com/in/mahek-shukla-technophile",
+                },
                 {
                   name: "Namrata Mankar",
                   role: "Media Head",
